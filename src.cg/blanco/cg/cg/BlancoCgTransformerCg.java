@@ -64,6 +64,7 @@ public class BlancoCgTransformerCg {
     public BlancoCgSourceFile expandSourceFileHeader(final String argPackage) {
         final BlancoCgSourceFile cgSourceFile = cgFactory.createSourceFile(
                 argPackage, "blanco Framework");
+        cgSourceFile.setEncoding("UTF-8");
 
         final List<java.lang.String> sourceDesc = cgSourceFile.getLangDoc()
                 .getDescriptionList();
