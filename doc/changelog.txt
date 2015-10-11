@@ -1,339 +1,339 @@
 2012.05.28 (1.5.6)
-  C++11 �Ή���ǉ��J�n�B
+  C++11 対応を追加開始。
 
 2012.05.28 (1.5.5.1)
-  �\�[�X�E�p�b�P�[�W���O�̂��߂Ƀr���h���Ȃ����B
+  ソース・パッケージングのためにビルドしなおし。
 
-2011.11.08 (1.5.5) �J����
-  �t�B�[���h�ɃA�m�e�[�V�����\����ǉ��B
+2011.11.08 (1.5.5) 開発版
+  フィールドにアノテーション表現を追加。
 
-2010.04.23 (1.5.4) �J����
- (Delphi) �N���X�̃A�N�Z�X�R���g���[���ɑΉ��B
+2010.04.23 (1.5.4) 開発版
+ (Delphi) クラスのアクセスコントロールに対応。
 
-2010.04.19 (1.5.3) �J����
- (Delphi) blancoMessage �̎����ɕK�v�ȕ����ɂ��āADelphi�ɑΉ��B
+2010.04.19 (1.5.3) 開発版
+ (Delphi) blancoMessage の実装に必要な部分について、Delphiに対応。
 
-2010.04.14 (1.5.2) �J����
- (Delphi) blancoStringConverter �̎����ɕK�v�ȕ����ɂ��āADelphi�ɑΉ��B
+2010.04.14 (1.5.2) 開発版
+ (Delphi) blancoStringConverter の実装に必要な部分について、Delphiに対応。
 
-2010.04.07 (1.5.1) �J����
- (Delphi) VB.NET�������f�O���[�h�����Ă��܂����̂ŏC���B
+2010.04.07 (1.5.1) 開発版
+ (Delphi) VB.NET部分をデグレードさせてしまったので修正。
 
-2010.04.07 (1.5.0) �J����
- (Delphi) Delphi�Ή����J�n�B
-  blancoStringGroup �̎����ɕK�v�ȕ����ɂ��āADelphi�ɑΉ��B
+2010.04.07 (1.5.0) 開発版
+ (Delphi) Delphi対応を開始。
+  blancoStringGroup の実装に必要な部分について、Delphiに対応。
 
 2009.07.20 (1.4.9)
-  �t�@�C���E�w�b�_�[�w��@�\�������B
-  ���\�[�X�o���h���𓱓��B
+  ファイル・ヘッダー指定機能を実装。
+  リソースバンドルを導入。
 
 2009.05.18 (1.4.8)
-  (Java) static initializer �Ή��B
+  (Java) static initializer 対応。
 
-2008.12.30 (1.4.7) �J����
-  (�P���g�p���@�~�X����{��)�\�[�X�R�[�h���������ɁA�O�̂��߂� flush �L�q��ǉ����܂����B
+2008.12.30 (1.4.7) 開発版
+  (単純使用方法ミス回避施策)ソースコード生成部分に、念のための flush 記述を追加しました。
 
-2008.12.10 (1.4.6) �J����
-  ����`���Ɋւ���V�d�l
-  �E��`��(Excel)�̐����t�B�[���h�ɂ��āA�������s�t���ŋL�������ꍇ�̈����ɂ��āB
-    �E�P�s�ڂ͐����������̂܂܏����B�����Q�Ƃɂ��Ă͍l������K�v�͂Ȃ��B  (blancoCg �� title ����)
-    �E�Q�s�ڈȍ~�́A�����Q�Ƃ��l�������l���L������B�P�s�ڂƂ͈������قȂ�B(blancoCg �� descriptionList ����)
-  �d�l�m�F: LangDoc �� title �ɂ��ẮA�����Q�ƃG���R�[�h�������I�Ɏ��{����܂��B
-            ����ŁAdescriptionList �͕����Q�ƃG���R�[�h�͂����Ȃ��܂���B
-            �Ăяo�����ŐӔC�������ăG���R�[�h����悤�ɂ��Ă��������B
-  ���P�B���s���� LangDoc �f�[�^���^����ꂽ�ꍇ�A�K�؂� * ��t�^���ĉ��s����悤�ɉ��P�B(Java�̂�)
+2008.12.10 (1.4.6) 開発版
+  ○定義書に関する新仕様
+  ・定義書(Excel)の説明フィールドについて、もし改行付きで記入した場合の扱いについて。
+    ・１行目は説明文をそのまま書く。文字参照については考慮する必要はない。  (blancoCg の title 相当)
+    ・２行目以降は、文字参照を考慮した値を記入する。１行目とは扱いが異なる。(blancoCg の descriptionList 相当)
+  仕様確認: LangDoc の title については、文字参照エンコードが自動的に実施されます。
+            一方で、descriptionList は文字参照エンコードはおこなわれません。
+            呼び出し元で責任を持ってエンコードするようにしてください。
+  改善。改行つきの LangDoc データが与えられた場合、適切に * を付与して改行するように改善。(Javaのみ)
 
-2008.11.22 (1.4.5) �J����
-  jar�t�@�C���ނ̍X�V�B
+2008.11.22 (1.4.5) 開発版
+  jarファイル類の更新。
 
-2008.11.21 (1.4.4) �J����
-  �\�[�X�R�[�h�̃G���R�[�ŃC���O�w��@�\��ǉ��B
+2008.11.21 (1.4.4) 開発版
+  ソースコードのエンコーでイング指定機能を追加。
 
-2008.11.07 (1.4.3) �J����
-  �EC#.NET �ł́A�p���N���X�Ń��\�b�h���I�[�o�[���C�h����ɂ͕K�����N���X�̃��\�b�h��
-    virtual �C������Ă���K�v������܂��B
-    ���̂��߁A���\�b�h�� override �łȂ���� virtual �Ƃ��܂��B
-    (�ڍׂȕt�^�����ɂ��Ă̓\�[�X�R�[�h���Q��)
-  ��koyak ����̍v���B
+2008.11.07 (1.4.3) 開発版
+  ・C#.NET では、継承クラスでメソッドをオーバーライドするには必ず基底クラスのメソッドが
+    virtual 修飾されている必要があります。
+    このため、メソッドが override でなければ virtual とします。
+    (詳細な付与条件についてはソースコードを参照)
+  ※koyak さんの貢献。
 
-2008.11.07 (1.4.2) �J����
-  �񋓑́A�������z��ɑΉ��J�n�B�ꉞ�����ł�������B�����͖����{�B
-  ��koyak ����̗񋓑̂���ё������z��̍v���𔽉f�B
-  TODO Factory�ŃC���X�^���X���擾����ۂ� []���͂ɑ������z��Ή��������{�B
+2008.11.07 (1.4.2) 開発版
+  列挙体、多次元配列に対応開始。一応実装できたつもり。試験は未実施。
+  ※koyak さんの列挙体および多次元配列の貢献を反映。
+  TODO Factoryでインスタンスを取得する際の []分析に多次元配列対応が未実施。
 
-2008.10.25 (1.4.1) �J����
-  �����N���X������N���X�Ȃǂ̎����͖����{�ł����A����͓��ʎ��{���Ȃ����ƂƂ��܂��B
-  ����ɍ��킹�A�N���X����p�~���܂��B
-  �ȑO BlancoCgObjectFactory#createLine �Ƃ������\�b�h������܂������A�p�~����܂����B
-  (�폜)BlancoCgLineValueObject.xls
-  (�폜)BlancoCgLine.java
+2008.10.25 (1.4.1) 開発版
+  無名クラスや内部クラスなどの実装は未実施ですが、これは当面実施しないこととします。
+  これに合わせ、クラスを一つ廃止します。
+  以前 BlancoCgObjectFactory#createLine というメソッドがありましたが、廃止されました。
+  (削除)BlancoCgLineValueObject.xls
+  (削除)BlancoCgLine.java
 
-2008.10.22 (1.4.0) �J����
-  �C���^�t�F�[�X�ɂ��ċ��łƌ݊���������܂���B
-  (java)generics �ɑΉ��J�n�B
-  TODO: �W�F�l���N�X�Ή��̌��ʕs�v�ɂȂ����L���X�g����ь^�`�F�b�N�̏����ɂ��� php�ȍ~�͖����{�B
+2008.10.22 (1.4.0) 開発版
+  インタフェースについて旧版と互換性がありません。
+  (java)generics に対応開始。
+  TODO: ジェネリクス対応の結果不要になったキャストおよび型チェックの除去について php以降は未実施。
 
-2008.10.22 (1.3.7) �J����
-  blancoValueObject�V�� (�V�l��) �ɑΉ��B
-  �]���ƃC���^�t�F�[�X���ς��Ȃ��Ō�̔�
+2008.10.22 (1.3.7) 開発版
+  blancoValueObject新版 (新様式) に対応。
+  従来とインタフェースが変わらない最後の版
 
-2007.06.15 (1.3.6) �����
-  blancoCg���g�̃\�[�X�R�[�h��JavaDoc�𐸍��B
+2007.06.15 (1.3.6) 安定版
+  blancoCg自身のソースコードのJavaDocを精査。
 
 2007.06.05 (1.3.5)
-  blancoCg���g�̃\�[�X�R�[�h��JavaDoc�𐸍��B
+  blancoCg自身のソースコードのJavaDocを精査。
 
 2007.04.13 (1.3.4)
-  (Ruby)each�u���b�N�ɑΉ��B
+  (Ruby)eachブロックに対応。
 
 2007.04.10 (1.3.3)
-  (Python)�p�����[�^�̔�null����W�J�ɑΉ��B
+  (Python)パラメータの非null制約展開に対応。
 
 2007.04.05 (1.3.2)
-  (Ruby)�p�����[�^�̔�null����W�J�ɑΉ��B
+  (Ruby)パラメータの非null制約展開に対応。
 
 2007.03.30 (1.3.1)
-  (Python)Python�Ή������P�B
+  (Python)Python対応を改善。
 
-2007.03.23 (1.3.0) �J����
-  (Ruby)Ruby(ver 1.8)�Ή���ǉ��J�n�B
-  (Python)Python(ver 2.3)�Ή���ǉ��J�n�B
-  Ruby�̂ق����������i�߂Ă����\��ł��B
+2007.03.23 (1.3.0) 開発版
+  (Ruby)Ruby(ver 1.8)対応を追加開始。
+  (Python)Python(ver 2.3)対応を追加開始。
+  Rubyのほうから実装を進めていく予定です。
 
 2007.01.24 (1.2.1)
-  (C#.NET)�t�B�[���h�ւ�final�C���� readonly �ƕ\������悤�ɋ@�\�����Bconst�ł͂Ȃ��Ƃ���Ƀ}�b�s���O�B
-   ��SQL Server 2005 CLR �� safe�Ƃ��ăA�Z���u���o�^������ہAstatic�ȃt�B�[���h�� readonly���v������邱�ƂɑΉ����邽�߁B
+  (C#.NET)フィールドへのfinal修飾は readonly と表現するように機能強化。constではないところにマッピング。
+   →SQL Server 2005 CLR に safeとしてアセンブリ登録をする際、staticなフィールドは readonlyが要求されることに対応するため。
 
 2006.12.28 (1.2.0)
-  (blancoCg)(PHP)pdo�̓��W���[���Ƃ��ēW�J����悤�ɕύX�B
-  (blancoCg)(PHP)���W���[�������d���W�J����Ă����s����C���B
-  (jar)jar�t�@�C���ނ̍X�V�B
+  (blancoCg)(PHP)pdoはモジュールとして展開するように変更。
+  (blancoCg)(PHP)モジュール名が重複展開されていた不具合を修正。
+  (jar)jarファイル類の更新。
 
 2006.12.27 (1.1.9)
-  (blancoCg)(PHP)���\�b�h�p�����[�^�`�F�b�N�̃I�u�W�F�N�g�̍ۂ̏����ɕs����������̂ŏC�����܂����B
+  (blancoCg)(PHP)メソッドパラメータチェックのオブジェクトの際の処理に不具合があったので修正しました。
 
 2006.12.25 (1.1.8)
-  (blancoCg)(PHP)�p�b�P�[�W�����f�B���N�g�����ɓW�J����悤�Ɏd�l�ύX�B
+  (blancoCg)(PHP)パッケージ名をディレクトリ名に展開するように仕様変更。
 
 2006.12.19 (1.1.7)
-  (PHP)PHPLint��LangDoc���X�V����Ă����̂ɑΉ��B
-  (PHP)�W���I�ȃ��W���[���𔻒肷�鏈����ǉ��Brequire_once �ɑΉ��B
-  (jar)blancoStringGroup��jar�t�@�C�����X�V�B�ق��B
+  (PHP)PHPLintのLangDocが更新されていたのに対応。
+  (PHP)標準的なモジュールを判定する処理を追加。require_once に対応。
+  (jar)blancoStringGroupのjarファイルを更新。ほか。
 
 2006.11.21 (1.1.6)
-  (PHP)���\�b�h�̈����`�F�b�N�@�\�ɂ��āA�w��̌^�ȊO��NULL��^���Ă��ǂ��悤�Ɏd�l�ύX�B
-  TODO ���l�̎d�l�� JavaScript�ɂ��Ă����W�J����K�v������܂��B
-  TODO ���̎d�l�ύX���A�����v���_�N�g�ɗ^����e������������K�v������܂��B
+  (PHP)メソッドの引数チェック機能について、指定の型以外にNULLを与えても良いように仕様変更。
+  TODO 同様の仕様を JavaScriptについても横展開する必要があります。
+  TODO この仕様変更が、既存プロダクトに与える影響を検討する必要があります。
 
 2006.11.21 (1.1.5)
-  (PHP)�����I�ȃv���~�e�B�u���ɂ����āATYPO (flaot) ���������̂��C���B
-  (PHP)double��float�ɓǂݑւ���悤�ɋL�q��ǉ��B
-  (jar)blancoStringGroup��jar�t�@�C�����X�V�B
+  (PHP)内部的なプリミティブ情報において、TYPO (flaot) があったのを修正。
+  (PHP)doubleはfloatに読み替えるように記述を追加。
+  (jar)blancoStringGroupのjarファイルを更新。
 
 2006.11.14 (1.1.4)
-  (VB.NET)For To Step��Step�ɑΉ��B
+  (VB.NET)For To StepのStepに対応。
 
 2006.11.13 (1.1.3)
-  (PHP)�t�B�[���h�ɂ��āAconst�ł͖����ꍇ�ɂ̓A�N�Z�X�C������ɕt�^����悤�ɕύX�B
-  (blancoCg)BlancoCgStatementUtil�̃��\�b�h���B�����BBlancoCgLineUtil�ɓǂݑւ��܂��B
+  (PHP)フィールドについて、constでは無い場合にはアクセス修飾を常に付与するように変更。
+  (blancoCg)BlancoCgStatementUtilのメソッドを隠蔽化。BlancoCgLineUtilに読み替えます。
 
 2006.11.10 (1.1.2)
-  (PHP)PHP�Ή��Ɉ�s�R�����g��ǉ��B
-  (PHP)�p�b�P�[�W��/*..*/�`���ɏo�͂���悤�@�\�ǉ��B
+  (PHP)PHP対応に一行コメントを追加。
+  (PHP)パッケージを/*..*/形式に出力するよう機能追加。
 
 2006.11.09 (1.1.1)
-  (PHP)���\�b�h�̃p�����[�^�`�F�b�N��ǉ��B
-  (blancoCommons)(�d�v)JavaDoc�n�̃G�X�P�[�v: ���s�R�[�h�� ���̂܂܂ł͂Ȃ����H���ďo�͂���悤�ɕύX���܂����B
+  (PHP)メソッドのパラメータチェックを追加。
+  (blancoCommons)(重要)JavaDoc系のエスケープ: 改行コードは そのままではなく加工して出力するように変更しました。
 
 2006.11.08 (1.1.0)
-  (PHP)PHP�Ή��̒P�̎������B
+  (PHP)PHP対応の単体試験中。
 
 2006.11.06 (1.0.9)
-  (PHP)PHP�Ή� (PHP5) ��ǉ��J�n�B
+  (PHP)PHP対応 (PHP5) を追加開始。
 
 2006.10.31 (1.0.8)
-  (VB.NET)�P�̎������J�n�B
-    �E= Null�͊ԈႢ�ŁAIs Nothing �������B
-  BlancoCgLineUtil, BlancoCgStatementUtil ��ǉ��B
+  (VB.NET)単体試験を開始。
+    ・= Nullは間違いで、Is Nothing が正解。
+  BlancoCgLineUtil, BlancoCgStatementUtil を追加。
 
 2006.10.30 (1.0.7)
-  BlancoCgSupportedLang�Ƃ����Ή�����̂��߂̃N���X��ǉ����܂����B
-  BlancoCgSourceUtil�Ƃ����\�[�X�R�[�h�p���[�e�B���e�B�N���X��ǉ����܂����B
-  �g�����X�t�H�[�}�擾�p�� getSourceTransformer ���\�b�h��ǉ����܂����B
-  (VB.NET)VB�T�|�[�g�̒ǉ����J�n���܂����B���ݐ�������̃X�e�[�^�X�ł��B
+  BlancoCgSupportedLangという対応言語のためのクラスを追加しました。
+  BlancoCgSourceUtilというソースコード用ユーティリティクラスを追加しました。
+  トランスフォーマ取得用の getSourceTransformer メソッドを追加しました。
+  (VB.NET)VBサポートの追加を開始しました。現在製造着手のステータスです。
 
 2006.10.21 (1.0.6)
-  blancoCodeGenerator�ւ̈ˑ������S�ɍ폜���܂����B
+  blancoCodeGeneratorへの依存を完全に削除しました。
 
 2006.10.18 (1.0.5)
-  BlancoCgLine�ɉ��� java.lang.String�̍s���\�[�X�R�[�h�W�J�ł���悤�ɕύX�B
-  (���܂�ɂ��p�ɂɃN���X�̎w��~�X��������������)
+  BlancoCgLineに加え java.lang.Stringの行もソースコード展開できるように変更。
+  (あまりにも頻繁にクラスの指定ミスが発生したため)
 
 2006.10.05 (1.0.4)
-  (JavaScript)static �ȃt�B�[���h (�N���X�t�B�[���h)�̕\�����@�����P�B
-              �N���X��.�t�B�[���h���̂悤�ɃC���X�^���X���𔺂킸�ɗ��p�\�ɂ���B
+  (JavaScript)static なフィールド (クラスフィールド)の表現方法を改善。
+              クラス名.フィールド名のようにインスタンス化を伴わずに利用可能にする。
 
 2006.09.29 (1.0.3)
-  (Java)(C#.NET)import�Ώۂ̃N���X���I�[�ɕt�^����Ă���z��\������������d�l��ǉ��B
+  (Java)(C#.NET)import対象のクラス名終端に付与されている配列表現を除去する仕様を追加。
 
 2006.09.13 (1.0.2)
-  ArrayList�̋L�q�̂����A�K�v�̂Ȃ��Ƃ���� List�ւƕύX�B�������o�����[�I�u�W�F�N�g�͕ύX�����B
-  �p�����[�^�ɔ�null�����^���邩�ǂ����̃t���O��ǉ����܂����B
-  (Java)(C#.NET) �p�����[�^�ɔ�null�����^���邩�ǂ����̃t���O�ɑΉ����܂����B
-                 �Ȃ� JavaScript�ɂ����āA���̑Ή��͕s�v�Ɣ��f���܂����B
-  ���^: Excel 2003�݊��̌`���ŕۑ����Ȃ����܂����B
+  ArrayListの記述のうち、必要のないところは Listへと変更。ただしバリューオブジェクトは変更せず。
+  パラメータに非null制約を与えるかどうかのフラグを追加しました。
+  (Java)(C#.NET) パラメータに非null制約を与えるかどうかのフラグに対応しました。
+                 なお JavaScriptにおいて、この対応は不要と判断しました。
+  メタ: Excel 2003互換の形式で保存しなおしました。
 
 2006.09.13 (1.0.1)
-  (JavaScript) http://www.jslint.com/ �Ή�
-  (JavaScript) ���\�b�h�����`�F�b�N�ɂ��āA!= ���� !== �ɂ����`�F�b�N�ւƕύX�B
-  (JavaScript) throw Error �� throw new Error �ɕύX�B
-  (JavaScript) �R���X�g���N�^�E�u���b�N�̏I�[�̕s�v�� ; �������B
+  (JavaScript) http://www.jslint.com/ 対応
+  (JavaScript) メソッド引数チェックについて、!= から !== による個数チェックへと変更。
+  (JavaScript) throw Error → throw new Error に変更。
+  (JavaScript) コンストラクタ・ブロックの終端の不要な ; を除去。
 
 2006.07.24 (1.0.0)
-  (blancoCg)�o�[�W�����ԍ��� 1.0.0�ւƈ����グ�܂����B�����͈�ؕύX���Ă��܂���B
-  (jexcelapi)JExcelApi 2.6�� Sun Java2 SE 1.4.2_12 �œ��삵�Ȃ��s��ɑΉ��B
-    (��̓I�ɂ� JExcelApi��jar�t�@�C���Ƀp�b�`��K�p���� jxl-2.6blanco.jar�𗘗p�J�n)
+  (blancoCg)バージョン番号を 1.0.0へと引き上げました。処理は一切変更していません。
+  (jexcelapi)JExcelApi 2.6が Sun Java2 SE 1.4.2_12 で動作しない不具合に対応。
+    (具体的には JExcelApiのjarファイルにパッチを適用した jxl-2.6blanco.jarを利用開始)
 
 2006.07.06 (0.3.6)
-  (C#.NET) �p�����[�^�̃A�m�e�[�V�����ɑΉ��B(���̌���͑Ή����Ă��܂���)
+  (C#.NET) パラメータのアノテーションに対応。(他の言語は対応していません)
 
 2006.06.20 (0.3.5)
-  (JavaScript)�t�@�C���w�b�_�[�����̊֘A�R�[�h�𕜊����܂����B
-  readme.txt�̃X�e�[�^�X���ꕔ�X�V���܂����B
+  (JavaScript)ファイルヘッダー生成の関連コードを復活しました。
+  readme.txtのステータスを一部更新しました。
 
 2006.06.19 (0.3.4)
-  (JavaScript)���\�b�h�����`�F�b�N�ɂ��āAarguments.callee.length�ɂ�锻�f����n�[�h�R�[�h���ꂽ���ɂ�锻�f�ɕύX�B
-  TODO:JavaScript: �t�@�C���w�b�_�[�����̊֘A�R�[�h�𕜊����邱�ƁB
+  (JavaScript)メソッド引数チェックについて、arguments.callee.lengthによる判断からハードコードされた個数による判断に変更。
+  TODO:JavaScript: ファイルヘッダー生成の関連コードを復活すること。
 
 2006.06.16 (0.3.3)
-  readme.txt���X�V�B
+  readme.txtを更新。
 
 2006.06.16 (0.3.2)
-  (JavaScript)JSDoc�ł̓���m�F�����{�B(JSDoc-1.9.9.2)
-  (JavaScript)�\�[�X�R�[�h���������B�R�����g���C���B
+  (JavaScript)JSDocでの動作確認を実施。(JSDoc-1.9.9.2)
+  (JavaScript)ソースコードを見直し。コメントを修正。
 
 2006.06.14 (0.3.1)
-  �\��ꔻ��̏��������P�B
-  (C#.NET)�t�@�C���w�b�_�W�J�̍ۂ̃R�����g�\�L�� /// ���� // �ɕύX�B
+  予約語判定の処理を改善。
+  (C#.NET)ファイルヘッダ展開の際のコメント表記を /// から // に変更。
 
 2006.06.13 (0.3.0)
-  IE 6.0�𗘗p���Đ�����\�[�X�R�[�h�����삷�邱�Ƃ��m�F�B�K�v�ȏC����Ƃ����{�B
+  IE 6.0を利用して生成後ソースコードが動作することを確認。必要な修正作業を実施。
 
 2006.06.12 (0.2.9)
-  (JavaScript)����h�L�������g�ɂ��� JSDoc���^�[�Q�b�g�ɂ��邱�ƂɕύX�B
-  (JavaScript)���\�b�h�̈����`�F�b�N�@�\��ǉ��B
-  jar�t�@�C���ނ��X�V���܂����B
+  (JavaScript)言語ドキュメントについて JSDocをターゲットにすることに変更。
+  (JavaScript)メソッドの引数チェック機能を追加。
+  jarファイル類を更新しました。
 
 2006.05.10 (0.2.8)
-  ����h�L�������g�̃^�O�̕����ɂ��āA�ĉ��������Ȃ��܂����B
-  authorList��seeList�͔p�~����܂����B
-  (JavaScript)HeaderDoc���^�[�Q�b�g�Ƒz��B
+  言語ドキュメントのタグの部分について、汎化をおこないました。
+  authorListやseeListは廃止されました。
+  (JavaScript)HeaderDocをターゲットと想定。
 
 2006.05.07 (0.2.7)
-  (JavaScript)�N���X�E���\�b�h�̊֌W���l�@���B
+  (JavaScript)クラス・メソッドの関係を考察中。
 
 2006.05.03 (0.2.6)
-  �y�폜�zBlancoCgTransformer.java
-  blancoCg�̈ꕔ�� blancoCg��������������悤�ɕύX�B
+  【削除】BlancoCgTransformer.java
+  blancoCgの一部を blancoCgが自動生成するように変更。
 
 2006.04.27 (0.2.5)
-  (JavaScript)����������̂��̂��A�Ƃ肠�����G���[�ɂȂ�Ȃ����x�ɂȂ�܂����B
+  (JavaScript)自動生成後のものが、とりあえずエラーにならない程度になりました。
 
 2006.04.26 (0.2.4)
-  (JavaScript)JavaScript����̎��������ɒ��肵�܂����B
+  (JavaScript)JavaScript言語の自動生成に着手しました。
 
 2006.04.25 (0.2.3)
-  (Java)�p�b�P�[�W�̃\�[�g���ɂ��Ē������܂����B
+  (Java)パッケージのソート順について調整しました。
 
 2006.04.20 (0.2.2)
-  C#.NET: JavaDoc�L�ړ��e�����P���܂����B(���s�ɂ͉e�������ӏ��̕ύX)
+  C#.NET: JavaDoc記載内容を改善しました。(実行には影響無い箇所の変更)
 
 2006.04.19 (0.2.1)
-  C#.NET: �C���^�t�F�[�X�����@�\��ǉ����܂����B
-  C#.NET: ���p�b�P�[�W��using��}������悤�ɕύX���܂����B
-  �g�J�b�R�J�n { ����̋�s�̏o�͗}���@�\��ǉ����܂����B
+  C#.NET: インタフェース生成機能を追加しました。
+  C#.NET: 自パッケージのusingを抑制するように変更しました。
+  波カッコ開始 { 直後の空行の出力抑制機能を追加しました。
 
 2006.04.17 (0.2.0)
-  �N���X�ɂ��A�m�e�[�V������ǉ����܂����B
-  ���\�b�h�̃o�����[�I�u�W�F�N�g�� override��ǉ����܂����B
-  BlancoCgMethod�� superclassInvocation ��ǉ����܂����B(���\�b�h��super�N���X�Ăяo��)
-  �A�������s�̏o�͗}���@�\��ǉ����܂����B
-  C#.NET: <summary>�̕t�����ɕs����������̂��C�����܂����B
-  C#.NET: using�ɕt�^����p�b�P�[�W�����o�̃��W�b�N�ɕs����������̂��C�����܂����B
-  C#.NET: string�̓v���~�e�B�u�ł���̂ŁA�v���~�e�B�u�ꗗ�ɒǉ����܂����B
+  クラスにもアノテーションを追加しました。
+  メソッドのバリューオブジェクトに overrideを追加しました。
+  BlancoCgMethodに superclassInvocation を追加しました。(メソッドのsuperクラス呼び出し)
+  連続する空行の出力抑制機能を追加しました。
+  C#.NET: <summary>の付け方に不具合があったのを修正しました。
+  C#.NET: usingに付与するパッケージ名導出のロジックに不具合が合ったのを修正しました。
+  C#.NET: stringはプリミティブであるので、プリミティブ一覧に追加しました。
 
 2006.04.16 (0.1.9)
-  C#.NET����ւ̑Ή���ǉ��J�n���܂����B
+  C#.NET言語への対応を追加開始しました。
 
 2006.04.14 (0.1.8)
-  �s�v�ȃt�B�[���h�ϐ��������B
-  JavaDoc�L�ړ��e���������܂����B
+  不要なフィールド変数を除去。
+  JavaDoc記載内容を強化しました。
 
 2006.04.14 (0.1.7)
-  JavaDoc�L�ړ��e���������܂����B
+  JavaDoc記載内容を強化しました。
 
 2006.04.13 (0.1.6)
-  �y�d�v�z�p�b�P�[�W�\����N���X���������������܂����B
+  【重要】パッケージ構造やクラス命名を見直ししました。
 
 2006.04.13 (0.1.5)
-  �A�m�e�[�V�����Ή��@�\��ǉ��B
-  �C���^�t�F�[�X�̍ۂɂ� ���\�b�h�� abstract�����final�C����t���Ȃ��悤�ɂ���B
+  アノテーション対応機能を追加。
+  インタフェースの際には メソッドの abstractおよびfinal修飾を付けないようにする。
 
 2006.04.12 (0.1.4)
-  �\�[�X�R�[�h�𐮗��B
-  �C���^�t�F�[�X�̍ۂ�public�o�͗}���������B
+  ソースコードを整理。
+  インタフェースの際のpublic出力抑制を実装。
 
 2006.04.12 (0.1.3)
-  LangDoc��DescriptionList�W�J�������B
-  blancoCg���g��ValueObject��blancoCg�Ŏ�����������悤�ɕύX�B(�������g�̎�������)
-  import���W�J���� java. ����� javax. �̍l���Ɋւ���@�\��ǉ��B
+  LangDocのDescriptionList展開を実装。
+  blancoCg自身のValueObjectをblancoCgで自動生成するように変更。(自分自身の自動生成)
+  import文展開時の java. および javax. の考慮に関する機能を追加。
 
 2006.04.11 (0.1.2)
-  �R���X�g���N�^������ǉ��B
-  getImport��getImportList�ɕύX�B(�l�[�~���O���s�̏C��)
-  �C���f���g�̏����ɕs����������̂��C���B
+  コンストラクタ生成を追加。
+  getImportをgetImportListに変更。(ネーミング失敗の修正)
+  インデントの処理に不具合があったのを修正。
 
 2006.04.10 (0.1.1)
-  �o�����[�I�u�W�F�N�g�̃R�����g���������P�B
+  バリューオブジェクトのコメント部分を改善。
 
 2006.04.06 (0.1.0)
-  ������e�ł���΃t�@�C���o�͂��Ȃ��@�\�̒ǉ��Bcreate, update�̕\���@�\��ǉ��B
+  同一内容であればファイル出力しない機能の追加。create, updateの表示機能を追加。
 
 2006.04.05 (0.0.9)
-  �o�����[�I�u�W�F�N�g��`���̋L�ړ��e�����߂Č��������{�B
-  ���\�b�h�̗�O�����������B
-  �C���^�t�F�[�X�����������B
+  バリューオブジェクト定義書の記載内容を改めて見直し実施。
+  メソッドの例外生成を実装。
+  インタフェース生成を実装。
 
 2006.04.05 (0.0.8)
-  �N���X��K�x�ɕ����B
-  ���\�b�h�Ȃǂŗ��p���Ă���^�������I��import�����X�g�ɒǉ��B���������ꂪ0.0.8�̎��{���ڂ��ǂ����s���B
+  クラスを適度に分割。
+  メソッドなどで利用している型を自動的にimport文リストに追加。ただしこれが0.0.8の実施項目かどうか不明。
 
 2006.04.04 (0.0.7)
-  �o�����[�I�u�W�F�N�g���������B
+  バリューオブジェクトを見直し。
 
 2006.04.03 (0.0.6)
-  �p�b�P�[�W�E�C���|�[�g�܂��𐮔��B
-  ObjectFactory�̈����������������B
-  LangDoc�̐����ƃ^�O�Ƃ̊Ԃɉ��s��������B
+  パッケージ・インポートまわりを整備。
+  ObjectFactoryの引数順序を見直し。
+  LangDocの説明とタグとの間に改行を加える。
 
 2006.04.02 (0.0.5)
-  �I�u�W�F�N�g�t�@�N�g���N���X��V�K�쐬�B
-  �N���X�⃁�\�b�h�̃t�@�N�g���N���X���������A�����Ăяo�����̃R�X�g���팸���܂����B
+  オブジェクトファクトリクラスを新規作成。
+  クラスやメソッドのファクトリクラスを準備し、生成呼び出し側のコストを削減しました。
 
 2006.04.02 (0.0.4)
-  ����h�L�������g(JavaDoc�Ȃ�)�̃o�����[�I�u�W�F�N�g���`�B
-  BlancoValueObject�����p�b�P�[�W����import�𐶐����Ă��܂��o�O�ɔY�܂��ꒆ�B
-  LangDoc(JavaDoc)�W�J�̉ӏ��ɂ��ċ��ʉ��B
+  言語ドキュメント(JavaDocなど)のバリューオブジェクトを定義。
+  BlancoValueObjectが自パッケージ内のimportを生成してしまうバグに悩まされ中。
+  LangDoc(JavaDoc)展開の箇所について共通化。
 
 2006.03.27 (0.0.3)
-  �o�����[�I�u�W�F�N�g�̍\�����������B
-  �y�o�O�����z����t�H���_��VO���o�͂���ƁA����p�b�P�[�W�̃C���|�[�g����������Ă��܂��R���p�C���s�\�B
+  バリューオブジェクトの構成を見直し。
+  【バグ発生】同一フォルダにVOを出力すると、同一パッケージのインポートが生成されてしまいコンパイル不能。
 
 2006.03.19 (0.0.2)
-  JavaDoc�́A�^����ꂽ��������G���R�[�h���邩�ǂ����������邱�ƁB(�G���R�[�h���Ȃ������ɓ|���\��)
-  JavaDoc���A�\�[�X�R�[�h�Ɠ��l�A��U���X�g�ɒ~�ς��Ă���o�͂���̂��悢�Ƒz�肵�܂��B
+  JavaDocは、与えられた文字列をエンコードするかどうか検討すること。(エンコードしない方向に倒す予定)
+  JavaDocも、ソースコードと同様、一旦リストに蓄積してから出力するのがよいと想定します。
 
 2006.03.18 (0.0.1)
-  �����Ń\�[�X�R�[�h�������C�u�����Ƃ��ĐV�K�쐬���܂����B
-  �����ł�blancoCodeGenerator�Ɉˑ����܂��B�ŏI�I�ɂ͈ˑ������Ȃ��悤�ɂ��܂��B
+  次期版ソースコード生成ライブラリとして新規作成しました。
+  初期版はblancoCodeGeneratorに依存します。最終的には依存をしないようにします。
   

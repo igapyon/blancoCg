@@ -12,18 +12,18 @@ package blanco.cg.cg;
 import java.io.File;
 
 /**
- * blancoCg‚ÌŠeŽíƒNƒ‰ƒX‚ðŽ©“®¶¬‚·‚é‚½‚ß‚ÌƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒgEƒNƒ‰ƒX‚Å‚·B
+ * blancoCgã®å„ç¨®ã‚¯ãƒ©ã‚¹ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãŸã‚ã®ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆãƒ»ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  * 
- * ƒ\[ƒXƒR[ƒhŽ©“®¶¬ƒ‰ƒCƒuƒ‰ƒŠ blancoCg ‚»‚Ì‚à‚Ì‚Ìˆê•”‚ðŽ©“®¶¬‚µ‚Ü‚·B
+ * ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆãƒ©ã‚¤ãƒ–ãƒ©ãƒª blancoCg ãã®ã‚‚ã®ã®ä¸€éƒ¨ã‚’è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoCgCg {
     /**
-     * blancoCg‚ÌŠeŽíƒNƒ‰ƒX‚ðŽ©“®¶¬‚·‚é‚½‚ß‚ÌƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒgB
+     * blancoCgã®å„ç¨®ã‚¯ãƒ©ã‚¹ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãŸã‚ã®ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆã€‚
      * 
      * @param args
-     *            ‹N“®ˆø”B‚½‚¾‚µ‚±‚Ìˆ—‚Å‚Í–³Ž‹‚³‚ê‚Ü‚·B
+     *            èµ·å‹•å¼•æ•°ã€‚ãŸã ã—ã“ã®å‡¦ç†ã§ã¯ç„¡è¦–ã•ã‚Œã¾ã™ã€‚
      */
     public static final void main(final String[] args) {
         final File targetDirectory = new File("blanco/main");

@@ -19,42 +19,42 @@ import blanco.cg.valueobject.BlancoCgParameter;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgLangDoc(Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg)‚ðƒ\[ƒXƒR[ƒh‚É“WŠJ‚µ‚Ü‚·B
+ * BlancoCgLangDoc(è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ)ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã«å±•é–‹ã—ã¾ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍblancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ðŽ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌŒÂ•Ê‚Ì“WŠJ‹@”\‚Å‚·B<br>
- * ƒNƒ‰ƒXAƒƒ\ƒbƒhAƒtƒB[ƒ‹ƒh‚È‚ÇAŠeŽíŒ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ð“WŠJ‚·‚é‹¤’Êˆ—‚Å‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒžãƒ¼ã®å€‹åˆ¥ã®å±•é–‹æ©Ÿèƒ½ã§ã™ã€‚<br>
+ * ã‚¯ãƒ©ã‚¹ã€ãƒ¡ã‚½ãƒƒãƒ‰ã€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãªã©ã€å„ç¨®è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’å±•é–‹ã™ã‚‹å…±é€šå‡¦ç†ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 class BlancoCgLangDocCsSourceExpander {
     /**
-     * ‚±‚ÌƒNƒ‰ƒX‚ªˆ—‘ÎÛ‚Æ‚·‚éƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     * ã“ã®ã‚¯ãƒ©ã‚¹ãŒå‡¦ç†å¯¾è±¡ã¨ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªžã€‚
      */
     protected static final int TARGET_LANG = BlancoCgSupportedLang.CS;
 
     /**
-     * Œ¾ŒêƒhƒLƒ…ƒƒ“ƒgî•ñ‚ðŒ³‚Éƒ\[ƒXƒR[ƒh‚ð“WŠJ‚µ‚Ü‚·B
+     * è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆæƒ…å ±ã‚’å…ƒã«ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param langDoc
-     *            Œ¾ŒêƒhƒLƒ…ƒƒ“ƒgî•ñB
+     *            è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆæƒ…å ±ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã€‚
      */
     public void transformLangDoc(final BlancoCgLangDoc langDoc,
             final List<java.lang.String> argSourceLines) {
-        // ŠJŽnEI—¹‚ðœ‚­–{‘Ì‚ð“WŠJ‚µ‚Ü‚·B
+        // é–‹å§‹ãƒ»çµ‚äº†ã‚’é™¤ãæœ¬ä½“ã‚’å±•é–‹ã—ã¾ã™ã€‚
         transformLangDocBody(langDoc, argSourceLines, false);
     }
 
     /**
-     * Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚Ì‚¤‚¿A–{‘Ì•”•ª‚ð“WŠJ‚µ‚Ü‚·B
+     * è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã†ã¡ã€æœ¬ä½“éƒ¨åˆ†ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
-     * ‚±‚Ìƒƒ\ƒbƒh‚Íƒ\[ƒXƒtƒ@ƒCƒ‹‚Ìƒtƒ@ƒCƒ‹ƒwƒbƒ_[“WŠJ‚©‚ç‚à—˜—p‚³‚ê‚Ä‚¢‚Ü‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ˜ãƒƒãƒ€ãƒ¼å±•é–‹ã‹ã‚‰ã‚‚åˆ©ç”¨ã•ã‚Œã¦ã„ã¾ã™ã€‚
      * 
      * @param langDoc
      * @param argSourceLines
      * @param isFileHeader
-     *            ƒtƒ@ƒCƒ‹ƒwƒbƒ_‚©‚Ç‚¤‚©B
+     *            ãƒ•ã‚¡ã‚¤ãƒ«ãƒ˜ãƒƒãƒ€ã‹ã©ã†ã‹ã€‚
      */
     public void transformLangDocBody(final BlancoCgLangDoc langDoc,
             final List<java.lang.String> argSourceLines,
@@ -75,7 +75,7 @@ class BlancoCgLangDocCsSourceExpander {
                             langDoc.getTitle()) + "</summary>");
         }
 
-        // ‹ós‚ª‘}“üÏ‚Ý‚©‚Ç‚¤‚©‚ðƒ`ƒFƒbƒN‚·‚é‚½‚ß‚Ìƒtƒ‰ƒOB
+        // ç©ºè¡ŒãŒæŒ¿å…¥æ¸ˆã¿ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ãŸã‚ã®ãƒ•ãƒ©ã‚°ã€‚
         boolean isLangDocDescriptionStarted = false;
 
         for (int indexDescription = 0; indexDescription < langDoc
@@ -106,11 +106,11 @@ class BlancoCgLangDocCsSourceExpander {
             argSourceLines.add(commentString + "</remarks>");
         }
 
-        // TODO author‚ð“WŠJB
+        // TODO authorã‚’å±•é–‹ã€‚
 
-        // TODO authorˆÈŠO‚Ì“WŠJ‚àŒŸ“¢‚·‚é‚±‚ÆB
+        // TODO authorä»¥å¤–ã®å±•é–‹ã‚‚æ¤œè¨Žã™ã‚‹ã“ã¨ã€‚
 
-        // ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^‚ð“WŠJB
+        // ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å±•é–‹ã€‚
         for (int indexParameter = 0; indexParameter < langDoc
                 .getParameterList().size(); indexParameter++) {
             final BlancoCgParameter cgParameter = langDoc.getParameterList()
@@ -142,7 +142,7 @@ class BlancoCgLangDocCsSourceExpander {
             argSourceLines.add(bufReturn.toString());
         }
 
-        // ¦throwsƒŠƒXƒg“WŠJ‚Í C#.NET‚É‚Í‘¶Ý‚µ‚Ü‚¹‚ñB
-        // TODO throwƒŠƒXƒg“WŠJ‚É‚Â‚¢‚ÄAŒ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚Ìà–¾•”•ª‚Ö‚Æ“WŠJ‚·‚é‚±‚ÆB
+        // â€»throwsãƒªã‚¹ãƒˆå±•é–‹ã¯ C#.NETã«ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚
+        // TODO throwãƒªã‚¹ãƒˆå±•é–‹ã«ã¤ã„ã¦ã€è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®èª¬æ˜Žéƒ¨åˆ†ã¸ã¨å±•é–‹ã™ã‚‹ã“ã¨ã€‚
     }
 }

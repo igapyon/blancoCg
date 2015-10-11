@@ -1,31 +1,31 @@
-blancoCg‚Í”ñí‚ÉƒVƒ“ƒvƒ‹‚Èƒ\[ƒXƒR[ƒhŽ©“®¶¬ƒ‰ƒCƒuƒ‰ƒŠ‚Å‚·B
-blancoCg‚ð—˜—p‚·‚é‚ÆA‚Æ‚Ä‚àŠÈ’P‚Éƒ\[ƒXƒR[ƒh‚ÌŽ©“®¶¬‚ðs‚¤‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-blancoCg‚Íblanco Framework‚Ìƒ\[ƒXƒR[ƒhŽ©“®¶¬‚ÌŠî”Õ‚Å‚à‚ ‚è‚Ü‚·B
+blancoCgã¯éžå¸¸ã«ã‚·ãƒ³ãƒ—ãƒ«ãªã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆãƒ©ã‚¤ãƒ–ãƒ©ãƒªã§ã™ã€‚
+blancoCgã‚’åˆ©ç”¨ã™ã‚‹ã¨ã€ã¨ã¦ã‚‚ç°¡å˜ã«ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®è‡ªå‹•ç”Ÿæˆã‚’è¡Œã†ã“ã¨ãŒã§ãã¾ã™ã€‚
+blancoCgã¯blanco Frameworkã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆã®åŸºç›¤ã§ã‚‚ã‚ã‚Šã¾ã™ã€‚
 
-[ƒXƒe[ƒ^ƒX]
- 1.Javaƒ\[ƒXƒR[ƒhŽ©“®¶¬         : ˆÀ’è”Å
- 2.C#.NETƒ\[ƒXƒR[ƒhŽ©“®¶¬       : ˆÀ’è”Å
- 3.JavaScriptƒ\[ƒXƒR[ƒhŽ©“®¶¬   : ˆÀ’è”Å
- 4.VB.NETƒ\[ƒXƒR[ƒhŽ©“®¶¬       : ŠJ”­’†
- 5.PHPƒ\[ƒXƒR[ƒhŽ©“®¶¬ (PHP5)   : ŠJ”­’†
- 6.Rubyƒ\[ƒXƒR[ƒhŽ©“®¶¬ (1.8)   : ŠJ”­’†
- 7.Pythonƒ\[ƒXƒR[ƒhŽ©“®¶¬ (2.3) : ŠJ”­’†
+[ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹]
+ 1.Javaã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆ         : å®‰å®šç‰ˆ
+ 2.C#.NETã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆ       : å®‰å®šç‰ˆ
+ 3.JavaScriptã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆ   : å®‰å®šç‰ˆ
+ 4.VB.NETã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆ       : é–‹ç™ºä¸­
+ 5.PHPã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆ (PHP5)   : é–‹ç™ºä¸­
+ 6.Rubyã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆ (1.8)   : é–‹ç™ºä¸­
+ 7.Pythonã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆ (2.3) : é–‹ç™ºä¸­
 
-[“Á’¥]
-  * ’á‹@”\‚Å‚ ‚è‘±‚¯‚é‚±‚Æ‚ð–Ú•W‚Æ‚µ‚Ä‚¢‚Ü‚·B
-    ƒ\[ƒXƒR[ƒhŽ©“®¶¬‚É•K—v‚ÈÅ’áŒÀ‚ÌƒCƒ“ƒtƒ‰‚Æ‚µ‚Ä‹@”\‚·‚é‚±‚Æ‚ðƒS[ƒ‹‚Æ‚µ‚Ü‚·B
-  * Ž©“®¶¬‚É•K—v‚Èî•ñ‚ÍƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg(POJO)‚É’~‚¦‚é‚æ‚¤‚É‚È‚Á‚Ä‚¢‚Ü‚·B
-    blancoCg‚ð—˜—p‚·‚é‘¤‚Ìƒ\[ƒXƒR[ƒh‹¤’Ê‰»‚ªŽÀŽ{‚µ‚â‚·‚­‚È‚è‚Ü‚·B
-  * •¡”‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê (Java, C#.NET, JavaScript, VB.NET, PHP, Ruby, Python) ‚É‘Î‰ž‚µ‚Ü‚·B
-    •¡”‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚Å“ˆê“I‚Èƒ\[ƒXƒR[ƒhŽ©“®¶¬‚ðŽÀŒ»‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚·B
-    ¦Œ»Ý‚Ìƒo[ƒWƒ‡ƒ“‚Í Java, C#.NET, JavaScript, VB.NET, PHP, Ruby, PythonŒ¾Œê‚ðƒTƒ|[ƒg‚µ‚Ü‚·B
+[ç‰¹å¾´]
+  * ä½Žæ©Ÿèƒ½ã§ã‚ã‚Šç¶šã‘ã‚‹ã“ã¨ã‚’ç›®æ¨™ã¨ã—ã¦ã„ã¾ã™ã€‚
+    ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆã«å¿…è¦ãªæœ€ä½Žé™ã®ã‚¤ãƒ³ãƒ•ãƒ©ã¨ã—ã¦æ©Ÿèƒ½ã™ã‚‹ã“ã¨ã‚’ã‚´ãƒ¼ãƒ«ã¨ã—ã¾ã™ã€‚
+  * è‡ªå‹•ç”Ÿæˆã«å¿…è¦ãªæƒ…å ±ã¯ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ(POJO)ã«è“„ãˆã‚‹ã‚ˆã†ã«ãªã£ã¦ã„ã¾ã™ã€‚
+    blancoCgã‚’åˆ©ç”¨ã™ã‚‹å´ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å…±é€šåŒ–ãŒå®Ÿæ–½ã—ã‚„ã™ããªã‚Šã¾ã™ã€‚
+  * è¤‡æ•°ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªž (Java, C#.NET, JavaScript, VB.NET, PHP, Ruby, Python) ã«å¯¾å¿œã—ã¾ã™ã€‚
+    è¤‡æ•°ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªžã§çµ±ä¸€çš„ãªã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆã‚’å®Ÿç¾ã™ã‚‹ã“ã¨ãŒã§ãã¾ã™ã€‚
+    â€»ç¾åœ¨ã®ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã¯ Java, C#.NET, JavaScript, VB.NET, PHP, Ruby, Pythonè¨€èªžã‚’ã‚µãƒãƒ¼ãƒˆã—ã¾ã™ã€‚
 
-[ŠJ”­ŽÒ]
- 1.ˆÉ‰ê•qŽ÷ (Tosiki Iga / ‚¢‚ª‚Ò‚å‚ñ): ŠJ”­‚¨‚æ‚ÑˆÛŽƒƒ“ƒe’S“–
- 2.ŽR–{kŽi (Y-moto) : Žd—lŒˆ’è‚¨‚æ‚ÑƒŠƒŠ[ƒX”»’è‚¨‚æ‚ÑŠJ”­’S“–
- 3.koyak (http://d.hatena.ne.jp/koyak/): —ñ‹“‘Ì‚¨‚æ‚Ñ‘½ŽŸŒ³”z—ñ‚ÅvŒ£B
+[é–‹ç™ºè€…]
+ 1.ä¼Šè³€æ•æ¨¹ (Tosiki Iga / ã„ãŒã´ã‚‡ã‚“): é–‹ç™ºãŠã‚ˆã³ç¶­æŒãƒ¡ãƒ³ãƒ†æ‹…å½“
+ 2.å±±æœ¬è€•å¸ (Y-moto) : ä»•æ§˜æ±ºå®šãŠã‚ˆã³ãƒªãƒªãƒ¼ã‚¹åˆ¤å®šãŠã‚ˆã³é–‹ç™ºæ‹…å½“
+ 3.koyak (http://d.hatena.ne.jp/koyak/): åˆ—æŒ™ä½“ãŠã‚ˆã³å¤šæ¬¡å…ƒé…åˆ—ã§è²¢çŒ®ã€‚
 
-[ŽQlƒŠƒ\[ƒX]
+[å‚è€ƒãƒªã‚½ãƒ¼ã‚¹]
  1.Java
    http://java.sun.com/docs/books/jls/
    http://java.sun.com/docs/books/jls/second_edition/html/jTOC.doc.html
@@ -39,12 +39,12 @@ blancoCg‚Íblanco Framework‚Ìƒ\[ƒXƒR[ƒhŽ©“®¶¬‚ÌŠî”Õ‚Å‚à‚ ‚è‚Ü‚·B
  6.Python
    http://www.python.jp/doc/2.4/index.html
 
-[ƒ‰ƒCƒZƒ“ƒX]
- 1.ƒ‰ƒCƒZƒ“ƒX ‚Æ‚µ‚Ä GNU Lesser General Public License ‚ðÌ—p‚µ‚Ä‚¢‚Ü‚·B
+[ãƒ©ã‚¤ã‚»ãƒ³ã‚¹]
+ 1.ãƒ©ã‚¤ã‚»ãƒ³ã‚¹ ã¨ã—ã¦ GNU Lesser General Public License ã‚’æŽ¡ç”¨ã—ã¦ã„ã¾ã™ã€‚
 
-[ˆË‘¶‚·‚éƒ‰ƒCƒuƒ‰ƒŠ]
-‰º‹L‚Ìƒ‰ƒCƒuƒ‰ƒŠ‚ð—˜—p‚µ‚Ä‚¢‚Ü‚·B
-¦ŠeƒI[ƒvƒ“ƒ\[ƒXEƒvƒƒ_ƒNƒg‚Ì’ñ‹ŸŽÒ‚ÉŠ´ŽÓ‚µ‚Ü‚·B
+[ä¾å­˜ã™ã‚‹ãƒ©ã‚¤ãƒ–ãƒ©ãƒª]
+ä¸‹è¨˜ã®ãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’åˆ©ç”¨ã—ã¦ã„ã¾ã™ã€‚
+â€»å„ã‚ªãƒ¼ãƒ—ãƒ³ã‚½ãƒ¼ã‚¹ãƒ»ãƒ—ãƒ­ãƒ€ã‚¯ãƒˆã®æä¾›è€…ã«æ„Ÿè¬ã—ã¾ã™ã€‚
  1.blancoCommons
-   ŠT—v: blanco Framework ‚Ì\¬—v‘f‚Ì‚Ð‚Æ‚ÂB‹¤’Êƒ‰ƒCƒuƒ‰ƒŠ‚ð’S‚¢‚Ü‚·B
-   ƒ‰ƒCƒZƒ“ƒX: GNU Lesser General Public License
+   æ¦‚è¦: blanco Framework ã®æ§‹æˆè¦ç´ ã®ã²ã¨ã¤ã€‚å…±é€šãƒ©ã‚¤ãƒ–ãƒ©ãƒªã‚’æ‹…ã„ã¾ã™ã€‚
+   ãƒ©ã‚¤ã‚»ãƒ³ã‚¹: GNU Lesser General Public License

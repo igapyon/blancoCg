@@ -19,28 +19,28 @@ import blanco.cg.valueobject.BlancoCgSourceFile;
 import blanco.cg.valueobject.BlancoCgType;
 
 /**
- * BlancoCgClass���\�[�X�R�[�h�ւƓW�J���܂��B
+ * BlancoCgClassをソースコードへと展開します。
  * 
- * ���̃N���X��blancoCg�̃o�����[�I�u�W�F�N�g����\�[�X�R�[�h��������������g�����X�t�H�[�}�[�̌ʂ̓W�J�@�\�ł��B
+ * このクラスはblancoCgのバリューオブジェクトからソースコードを自動生成するトランスフォーマーの個別の展開機能です。
  * 
  * @author IGA Tosiki
  */
 class BlancoCgClassPythonSourceExpander {
 
     /**
-     * ������Class��W�J���܂��B
+     * ここでClassを展開します。
      * 
      * @param cgClass
-     *            �����ΏۂƂȂ�N���X�B
+     *            処理対象となるクラス。
      * @param argSourceLines
-     *            �\�[�X�R�[�h�B
+     *            ソースコード。
      */
     public void transformClass(final BlancoCgClass cgClass,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
-        // �ŏ��ɃN���X����LangDoc�ɓW�J�B
+        // 最初にクラス情報をLangDocに展開。
         if (cgClass.getLangDoc() == null) {
-            // LangDoc���w��̏ꍇ�ɂ͂����瑤�ŃC���X�^���X�𐶐��B
+            // LangDoc未指定の場合にはこちら側でインスタンスを生成。
             cgClass.setLangDoc(new BlancoCgLangDoc());
         }
         if (cgClass.getLangDoc().getTitle() == null) {
@@ -60,45 +60,45 @@ class BlancoCgClassPythonSourceExpander {
         // }
         buf.append("class " + cgClass.getName());
 
-        // �e�N���X��W�J�B
+        // 親クラスを展開。
         expandExtendClassList(cgClass, argSourceFile, buf);
 
         buf.append(":");
 
-        // �s���m�肵�ď����o�������{�B
+        // 行を確定して書き出しを実施。
         argSourceLines.add(buf.toString());
 
-        // ���� LangDoc���\�[�X�R�[�h�`���ɓW�J�B
+        // 次に LangDocをソースコード形式に展開。
         new BlancoCgLangDocPythonSourceExpander().transformLangDoc(cgClass
                 .getLangDoc(), argSourceLines);
 
-        // �����Ńt�B�[���h��W�J�B
+        // ここでフィールドを展開。
         expandFieldList(cgClass, argSourceFile, argSourceLines);
 
-        // �����Ń��\�b�h��W�J�B
+        // ここでメソッドを展開。
         expandMethodList(cgClass, argSourceFile, argSourceLines);
 
-        // �N���X�̃u���b�N�̏I���B
+        // クラスのブロックの終了。
         argSourceLines.add("#end");
     }
 
     /**
-     * �e�N���X��W�J���܂��B
+     * 親クラスを展開します。
      * 
-     * ��BlancoCgInterface�W�J�̍ۂɁA���̃��\�b�h�����ʏ����Ƃ��ČĂяo���Ă͂Ȃ�܂���B
-     * ���̋��ʉ��́A�������ė�����W����Ɣ��f���Ă��܂��B
+     * ※BlancoCgInterface展開の際に、このメソッドを共通処理として呼び出してはなりません。
+     * その共通化は、かえって理解を妨げると判断しています。
      * 
      * @param cgClass
-     *            �N���X�̃o�����[�I�u�W�F�N�g�B
+     *            クラスのバリューオブジェクト。
      * @param argBuf
-     *            �o�͐敶����o�b�t�@�B
+     *            出力先文字列バッファ。
      */
     private void expandExtendClassList(final BlancoCgClass cgClass,
             final BlancoCgSourceFile argSourceFile, final StringBuffer argBuf) {
         for (int index = 0; index < cgClass.getExtendClassList().size(); index++) {
             final BlancoCgType type = cgClass.getExtendClassList().get(index);
 
-            // import���Ɍ^��ǉ��B
+            // import文に型を追加。
             argSourceFile.getImportList().add(type.getName());
 
             if (index == 0) {
@@ -117,55 +117,55 @@ class BlancoCgClassPythonSourceExpander {
     }
 
     /**
-     * �N���X�Ɋ܂܂��e�X�̃t�B�[���h��W�J���܂��B
+     * クラスに含まれる各々のフィールドを展開します。
      * 
-     * TODO �萔�錾��D�悵�ēW�J���A���̌�ϐ��錾��W�J����Ȃǂ̍H�v���K�v�ł��B<br>
-     * ���݂� �o�^���Ń\�[�X�R�[�h�W�J���܂��B
+     * TODO 定数宣言を優先して展開し、その後変数宣言を展開するなどの工夫が必要です。<br>
+     * 現在は 登録順でソースコード展開します。
      * 
      * @param cgClass
-     *            �������̃N���X�B
+     *            処理中のクラス。
      * @param argSourceFile
-     *            �\�[�X�t�@�C���B
+     *            ソースファイル。
      * @param argSourceLines
-     *            �\�[�X�R�[�h�s���X�g�B
+     *            ソースコード行リスト。
      */
     private void expandFieldList(final BlancoCgClass cgClass,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
         if (cgClass.getFieldList() == null) {
-            // �t�B�[���h�̃��X�g��null���^�����܂����B
-            // ���Ȃ炸�t�B�[���h�̃��X�g�ɂ�List���Z�b�g���Ă��������B
-            throw new IllegalArgumentException("�t�B�[���h�̃��X�g��null���^�����܂����B");
+            // フィールドのリストにnullが与えられました。
+            // かならずフィールドのリストにはListをセットしてください。
+            throw new IllegalArgumentException("フィールドのリストにnullが与えられました。");
         }
 
         for (int index = 0; index < cgClass.getFieldList().size(); index++) {
             final BlancoCgField cgField = cgClass.getFieldList().get(index);
 
-            // �N���X�̃t�B�[���h�Ƃ��ēW�J���s���܂��B
+            // クラスのフィールドとして展開を行います。
             new BlancoCgFieldPythonSourceExpander().transformField(cgField,
                     argSourceFile, argSourceLines, false);
         }
     }
 
     /**
-     * �N���X�Ɋ܂܂��e�X�̃��\�b�h��W�J���܂��B
+     * クラスに含まれる各々のメソッドを展開します。
      * 
      * @param cgClass
-     *            �������̃N���X�B
+     *            処理中のクラス。
      * @param argSourceFile
-     *            �\�[�X�t�@�C���B
+     *            ソースファイル。
      * @param argSourceLines
-     *            �\�[�X�R�[�h�s���X�g�B
+     *            ソースコード行リスト。
      */
     private void expandMethodList(final BlancoCgClass cgClass,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
         if (cgClass.getMethodList() == null) {
-            throw new IllegalArgumentException("���\�b�h�̃��X�g��null���^�����܂����B");
+            throw new IllegalArgumentException("メソッドのリストにnullが与えられました。");
         }
         for (int index = 0; index < cgClass.getMethodList().size(); index++) {
             final BlancoCgMethod cgMethod = cgClass.getMethodList().get(index);
-            // �N���X�̃��\�b�h�Ƃ��ēW�J���s���܂��B
+            // クラスのメソッドとして展開を行います。
             new BlancoCgMethodPythonSourceExpander().transformMethod(cgMethod,
                     argSourceFile, argSourceLines, false);
         }

@@ -19,49 +19,49 @@ import blanco.cg.valueobject.BlancoCgSourceFile;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgSourceFile���\�[�X�R�[�h�ɓW�J���܂��B
+ * BlancoCgSourceFileをソースコードに展開します。
  * 
- * ���̃N���X��blancoCg�̃o�����[�I�u�W�F�N�g����\�[�X�R�[�h��������������g�����X�t�H�[�}�[�̌ʂ̓W�J�@�\�ł��B
+ * このクラスはblancoCgのバリューオブジェクトからソースコードを自動生成するトランスフォーマーの個別の展開機能です。
  * 
  * @author IGA Tosiki
  */
 class BlancoCgSourceFilePythonSourceExpander {
     /**
-     * ���̃N���X�������ΏۂƂ���v���O���~���O����B
+     * このクラスが処理対象とするプログラミング言語。
      */
     protected static final int TARGET_LANG = BlancoCgSupportedLang.PYTHON;
 
     /**
-     * ���͂ƂȂ�\�[�X�R�[�h�\���B
+     * 入力となるソースコード構造。
      */
     private BlancoCgSourceFile fCgSourceFile = null;
 
     /**
-     * ���ԓI�ɗ��p����\�[�X�R�[�h������킷List�Bjava.lang.String�����X�g�Ɋi�[����܂��B(BlancoCgLine�ł͂���܂���B
+     * 中間的に利用するソースコードをあらわすList。java.lang.Stringがリストに格納されます。(BlancoCgLineではありません。
      * )
      * 
-     * �����ł͐��`�O�\�[�X�R�[�h�����ԓI�ɂ����킦���܂��B
+     * ここでは整形前ソースコードが中間的にたくわえられます。
      */
     private List<java.lang.String> fSourceLines = null;
 
     /**
-     * SourceFile���琮�`�O�\�[�X�R�[�h���X�g�𐶐����܂��B
+     * SourceFileから整形前ソースコードリストを生成します。
      * 
      * @param argSourceFile
-     *            �\�[�X�R�[�h������킷�o�����[�I�u�W�F�N�g�B
-     * @return �\�[�X�R�[�h�ɓW�J��̃��X�g�B
+     *            ソースコードをあらわすバリューオブジェクト。
+     * @return ソースコードに展開後のリスト。
      */
     public List<java.lang.String> transformSourceFile(
             final BlancoCgSourceFile argSourceFile) {
-        // �m���Ƀ\�[�X�s�̃��X�g�����������܂��B
+        // 確実にソース行のリストを初期化します。
         fSourceLines = new ArrayList<java.lang.String>();
 
         fCgSourceFile = argSourceFile;
 
-        // �\�[�X�t�@�C���̃t�@�C���w�b�_�[���o�͏������܂��B
+        // ソースファイルのファイルヘッダーを出力処理します。
         expandSourceFileHeader();
 
-        // �p�b�P�[�W�����̐����B
+        // パッケージ部分の生成。
         // if (BlancoStringUtil.null2Blank(fCgSourceFile.getPackage()).length()
         // > 0) {
         // fSourceLines.add("package " + fCgSourceFile.getPackage()
@@ -70,31 +70,31 @@ class BlancoCgSourceFilePythonSourceExpander {
         // }
         //
         // if (fCgSourceFile.getImportList() == null) {
-        // throw new IllegalArgumentException("import�̃��X�g��null���^�����܂����B");
+        // throw new IllegalArgumentException("importのリストにnullが与えられました。");
         // }
         //
-        // // �����̌㔼�ŃC���|�[�g����Ґ����Ȃ����܂����A���̍ۂɎQ�Ƃ���A���J�[�������ǉ����Ă����܂��B
+        // // 処理の後半でインポート文を編成しなおしますが、その際に参照するアンカー文字列を追加しておきます。
         // BlancoCgImportJavaSourceExpander.insertAnchorString(fSourceLines);
 
-        // // �C���^�t�F�[�X�̓W�J�����{���܂��B
+        // // インタフェースの展開を実施します。
         // if (fCgSourceFile.getInterfaceList() == null) {
-        // throw new IllegalArgumentException("�C���^�t�F�[�X�̃��X�g��null���^�����܂����B");
+        // throw new IllegalArgumentException("インタフェースのリストにnullが与えられました。");
         // }
         // for (int index = 0; index < fCgSourceFile.getInterfaceList().size();
         // index++) {
         // final Object objClass = fCgSourceFile.getInterfaceList().get(index);
         // if (objClass instanceof BlancoCgInterface == false) {
-        // throw new IllegalArgumentException("�C���^�t�F�[�X�̃��X�g�ɃC���^�t�F�[�X�ȊO�̌^["
-        // + objClass.getClass().getName() + "]�̒l���^�����܂����B");
+        // throw new IllegalArgumentException("インタフェースのリストにインタフェース以外の型["
+        // + objClass.getClass().getName() + "]の値が与えられました。");
         // }
         // final BlancoCgInterface cgInterface = (BlancoCgInterface) objClass;
         // new BlancoCgInterfaceJavaSourceExpander().transformInterface(
         // cgInterface, fCgSourceFile, fSourceLines);
         // }
 
-        // �N���X�̓W�J�����{���܂��B
+        // クラスの展開を実施します。
         if (fCgSourceFile.getClassList() == null) {
-            throw new IllegalArgumentException("�N���X�̃��X�g��null���^�����܂����B");
+            throw new IllegalArgumentException("クラスのリストにnullが与えられました。");
         }
         for (int index = 0; index < fCgSourceFile.getClassList().size(); index++) {
             final BlancoCgClass cgClass = fCgSourceFile.getClassList().get(
@@ -104,9 +104,9 @@ class BlancoCgSourceFilePythonSourceExpander {
                     fCgSourceFile, fSourceLines);
         }
 
-        // import�̓W�J�����܂��B
-        // ���̏������A�N���X�W�J����Ɏ��{����Ă���̂ɂ͈Ӗ�������܂��B
-        // �N���X�W�J�Ȃǂ��o�āA���߂ăC���|�[�g���̈ꗗ���m�肷�邩��ł��B
+        // importの展開をします。
+        // この処理が、クラス展開より後に実施されているのには意味があります。
+        // クラス展開などを経て、初めてインポート文の一覧が確定するからです。
         // new BlancoCgImportJavaSourceExpander().transformImport(fCgSourceFile,
         // fSourceLines);
 
@@ -114,23 +114,23 @@ class BlancoCgSourceFilePythonSourceExpander {
     }
 
     /**
-     * �\�[�X�t�@�C���̃t�@�C���w�b�_�[���o�͏������܂��B
+     * ソースファイルのファイルヘッダーを出力処理します。
      */
     private void expandSourceFileHeader() {
-        // TODO cp932���ߑł��Ń\�[�X�𐶐�
+        // TODO cp932決め打ちでソースを生成
         fSourceLines.add("# -*- coding: cp932 -*-");
 
         if (BlancoStringUtil.null2Blank(fCgSourceFile.getDescription())
                 .length() > 0) {
             fSourceLines.add("\"\"\"" + fCgSourceFile.getDescription());
         } else {
-            // �w�肪�����ꍇ�ɂ̓f�t�H���g�̃R�����g�𗘗p���܂��B
+            // 指定が無い場合にはデフォルトのコメントを利用します。
             for (String line : BlancoCgSourceFileUtil.getDefaultFileComment()) {
                 fSourceLines.add("\"\"\"" + line);
             }
         }
 
-        // ����h�L�������g�̒��ԕ��𐶐����܂��B
+        // 言語ドキュメントの中間部を生成します。
         new BlancoCgLangDocPythonSourceExpander().transformLangDocBody(
                 fCgSourceFile.getLangDoc(), fSourceLines);
         if (true)

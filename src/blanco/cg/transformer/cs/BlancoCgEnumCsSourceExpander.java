@@ -21,50 +21,50 @@ import blanco.cg.valueobject.BlancoCgSourceFile;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgEnum���\�[�X�R�[�h�ւƓW�J���܂��B
+ * BlancoCgEnumをソースコードへと展開します。
  * 
- * ���̃N���X��blancoCg�̃o�����[�I�u�W�F�N�g����\�[�X�R�[�h��������������g�����X�t�H�[�}�[�̌ʂ̓W�J�@�\�ł��B
+ * このクラスはblancoCgのバリューオブジェクトからソースコードを自動生成するトランスフォーマーの個別の展開機能です。
  * 
  * @author IGA Tosiki
  */
 class BlancoCgEnumCsSourceExpander {
     /**
-     * ���̃N���X�������ΏۂƂ���v���O���~���O����B
+     * このクラスが処理対象とするプログラミング言語。
      */
     protected static final int TARGET_LANG = BlancoCgSupportedLang.JAVA;
 
     /**
-     * �����ŗ񋓑̂�W�J���܂��B
+     * ここで列挙体を展開します。
      * 
      * @param cgEnum
-     *            �����ΏۂƂȂ�񋓑́B
+     *            処理対象となる列挙体。
      * @param argSourceFile
-     *            �\�[�X�t�@�C���B
+     *            ソースファイル。
      * @param argSourceLines
-     *            �o�͐�s���X�g�B
+     *            出力先行リスト。
      * @param argIsInterface
-     *            �C���^�t�F�[�X���ǂ����B�N���X�̏ꍇ�ɂ�false�B�C���^�t�F�[�X�̏ꍇ�ɂ�true�B
+     *            インタフェースかどうか。クラスの場合にはfalse。インタフェースの場合にはtrue。
      */
     public void transformEnum(final BlancoCgEnum cgEnum,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
         if (BlancoStringUtil.null2Blank(cgEnum.getName()).length() == 0) {
-            throw new IllegalArgumentException("�񋓑̖̂��O�ɓK�؂Ȓl���ݒ肳��Ă��܂���B");
+            throw new IllegalArgumentException("列挙体の名前に適切な値が設定されていません。");
         }
 
-        // �L�������킳�����s��t�^���܂��B
+        // 有無をいわさず改行を付与します。
         argSourceLines.add("");
 
-        // �ŏ��Ƀt�B�[���h����LangDoc�ɓW�J�B
+        // 最初にフィールド情報をLangDocに展開。
         if (cgEnum.getLangDoc() == null) {
-            // LangDoc���w��̏ꍇ�ɂ͂����瑤�ŃC���X�^���X�𐶐��B
+            // LangDoc未指定の場合にはこちら側でインスタンスを生成。
             cgEnum.setLangDoc(new BlancoCgLangDoc());
         }
         if (cgEnum.getLangDoc().getTitle() == null) {
             cgEnum.getLangDoc().setTitle(cgEnum.getDescription());
         }
 
-        // ���� LangDoc���\�[�X�R�[�h�`���ɓW�J�B
+        // 次に LangDocをソースコード形式に展開。
         new BlancoCgLangDocCsSourceExpander().transformLangDoc(cgEnum
                 .getLangDoc(), argSourceLines);
 
@@ -74,10 +74,10 @@ class BlancoCgEnumCsSourceExpander {
             buf.append(cgEnum.getAccess() + " ");
         }
 
-        // �񋓑̐����̖{�̕�����W�J���܂��B
+        // 列挙体生成の本体部分を展開します。
         buf.append("enum " + cgEnum.getName());
 
-        // �v�f��W�J���܂��B
+        // 要素を展開します。
         buf.append("{");
         boolean isFirstElement = true;
         for (BlancoCgEnumElement element : cgEnum.getElementList()) {
@@ -88,7 +88,7 @@ class BlancoCgEnumCsSourceExpander {
             }
             buf.append(element.getName());
 
-            // �f�t�H���g�l���o�́B
+            // デフォルト値を出力。
             if (BlancoStringUtil.null2Blank(element.getDefault()).length() > 0) {
                 buf.append(" = " + element.getDefault());
             }

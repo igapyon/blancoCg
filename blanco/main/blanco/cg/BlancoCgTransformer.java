@@ -15,31 +15,31 @@ import java.io.IOException;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * blancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ðŽ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚Å‚·B
+ * blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒžãƒ¼ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§ã™ã€‚
  *
- * ŒÂ•Ê‚ÌŒ¾Œê—p‚Ìƒ\[ƒXƒR[ƒhŽ©“®¶¬•”•ª‚ÍA‚±‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚ðŽÀ‘•‚µ‚ÄŽÀŒ»‚³‚ê‚Ü‚·B
+ * å€‹åˆ¥ã®è¨€èªžç”¨ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆéƒ¨åˆ†ã¯ã€ã“ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã—ã¦å®Ÿç¾ã•ã‚Œã¾ã™ã€‚
  *
  * @author IGA Tosiki
  */
 public interface BlancoCgTransformer {
     /**
-     * ƒ\[ƒXƒtƒ@ƒCƒ‹EƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚ðJavaƒ\[ƒXƒR[ƒh‚É•ÏŠ·‚µ‚Äo—ÍæƒfƒBƒŒƒNƒgƒŠ‚Éo—Í‚µ‚Ü‚·B
+     * ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’Javaã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã«å¤‰æ›ã—ã¦å‡ºåŠ›å…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«å‡ºåŠ›ã—ã¾ã™ã€‚
      *
-     * ‚±‚ÌAPI‚Å‚ÍƒpƒbƒP[ƒW\‘¢‚ðƒfƒBƒŒƒNƒgƒŠ\‘¢‚Æ‚µ‚Äl—¶‚µ‚Ü‚·B
+     * ã“ã®APIã§ã¯ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸æ§‹é€ ã‚’ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªæ§‹é€ ã¨ã—ã¦è€ƒæ…®ã—ã¾ã™ã€‚
      *
-     * @param sourceFile ƒ\[ƒXƒtƒ@ƒCƒ‹EƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒgB
-     * @param outputDirectory o—Íæƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠB
+     * @param sourceFile ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @param outputDirectory å‡ºåŠ›å…ˆãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚
      */
     void transform(final BlancoCgSourceFile sourceFile, final File outputDirectory);
 
     /**
-     * ƒ\[ƒXƒtƒ@ƒCƒ‹EƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚ðƒ\[ƒXƒR[ƒh‚É•ÏŠ·‚µ‚Äƒ‰ƒCƒ^[‚Éo—Í‚µ‚Ü‚·B
+     * ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã«å¤‰æ›ã—ã¦ãƒ©ã‚¤ã‚¿ãƒ¼ã«å‡ºåŠ›ã—ã¾ã™ã€‚
      *
-     * ‚±‚ÌAPI‚Å‚ÍƒpƒbƒP[ƒW\‘¢‚ðƒfƒBƒŒƒNƒgƒŠ\‘¢‚Æ‚Íl—¶‚µ‚Ü‚¹‚ñB
+     * ã“ã®APIã§ã¯ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸æ§‹é€ ã‚’ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªæ§‹é€ ã¨ã¯è€ƒæ…®ã—ã¾ã›ã‚“ã€‚
      *
-     * @param sourceFile ƒ\[ƒXƒtƒ@ƒCƒ‹EƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒgB
-     * @param writer o—Íæ‚Ìƒ‰ƒCƒ^[B
-     * @throws IOException “üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B
+     * @param sourceFile ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @param writer å‡ºåŠ›å…ˆã®ãƒ©ã‚¤ã‚¿ãƒ¼ã€‚
+     * @throws IOException å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚
      */
     void transform(final BlancoCgSourceFile sourceFile, final BufferedWriter writer) throws IOException;
 }

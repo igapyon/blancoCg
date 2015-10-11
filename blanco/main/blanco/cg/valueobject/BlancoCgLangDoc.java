@@ -12,239 +12,239 @@ package blanco.cg.valueobject;
 import java.util.List;
 
 /**
- * ����p�̃h�L�������g��\�����邽�߂̃o�����[�I�u�W�F�N�g�B
+ * 言語用のドキュメントを表現するためのバリューオブジェクト。
  *
- * Java����̏ꍇ�ɂ� JavaDoc��\���܂��B�����������ɑ��́u�����v�t�B�[���h�⃁�\�b�h�̃p�����[�^�Ȃǂ����񂪍\�z�����ꍇ������܂��B
- * ���|�C���g�F�R�����g������̃G�X�P�[�v�����Ȃǂ́AblancoCg�ɗ^����O�Ɏ��{����Ă���K�v������܂��B
+ * Java言語の場合には JavaDocを表します。自動生成時に他の「説明」フィールドやメソッドのパラメータなどから情報が構築される場合があります。
+ * ※ポイント：コメント文字列のエスケープ処理などは、blancoCgに与える前に実施されている必要があります。
  */
 public class BlancoCgLangDoc {
     /**
-     * ���̌���h�L�������g�̃^�C�g�������ł��B���̌�����description���玩����������邱�Ƃ������ł��B
+     * この言語ドキュメントのタイトル説明です。他の原料のdescriptionから自動生成されることが多いです。
      *
-     * �t�B�[���h: [title]�B
+     * フィールド: [title]。
      */
     private String fTitle;
 
     /**
-     * ���̌���h�L�������g�̏ڍא����ł��B(java.lang.String)�̃��X�g�ł��B
+     * この言語ドキュメントの詳細説明です。(java.lang.String)のリストです。
      *
-     * �����ŗ^����ꂽ�����񂪂��̂܂܃h�L�������g�������ɓW�J����邽�߁A�ʏ�͕����Q�ƃG���R�[�f�B���O�����{�������Ƃ̒l���Z�b�g���܂��B(�G���R�[�f�B���O��̂��̂�^���邩�炱���A<pre>�Ȃǂ��������邱�Ƃ��ł���̂ł��B)
-     * �t�B�[���h: [descriptionList]�B
-     * �f�t�H���g: [new java.util.ArrayList<java.lang.String>()]�B
+     * ここで与えられた文字列がそのままドキュメント説明部に展開されるため、通常は文字参照エンコーディングを実施したあとの値をセットします。(エンコーディング後のものを与えるからこそ、<pre>などを実現することができるのです。)
+     * フィールド: [descriptionList]。
+     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
      */
     private List<java.lang.String> fDescriptionList = new java.util.ArrayList<java.lang.String>();
 
     /**
-     * ��������Ȃ��ꍇ�ɁA�񐄏��̗��R���L�ڂ���܂��B
+     * 推奨されない場合に、非推奨の理由が記載されます。
      *
-     * �t�B�[���h: [deprecated]�B
+     * フィールド: [deprecated]。
      */
     private String fDeprecated;
 
     /**
-     * �p�����[�^�̃��X�g�ł��B���\�b�h�̏ꍇ�ɂ̂ݗ��p����܂��B
+     * パラメータのリストです。メソッドの場合にのみ利用されます。
      *
-     * �t�B�[���h: [parameterList]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]�B
+     * フィールド: [parameterList]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]。
      */
     private List<blanco.cg.valueobject.BlancoCgParameter> fParameterList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>();
 
     /**
-     * ���̃��\�b�h�̖߂�l�ł��B
+     * このメソッドの戻り値です。
      *
-     * �߂�l������ (void)�̏ꍇ�ɂ� null���Z�b�g���܂��B
-     * �t�B�[���h: [return]�B
+     * 戻り値が無い (void)の場合には nullをセットします。
+     * フィールド: [return]。
      */
     private BlancoCgReturn fReturn;
 
     /**
-     * �����������O�̈ꗗ�ł��B���\�b�h�̏ꍇ�ɂ̂ݗ��p����܂��B
+     * 発生しうる例外の一覧です。メソッドの場合にのみ利用されます。
      *
-     * �t�B�[���h: [throwList]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]�B
+     * フィールド: [throwList]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]。
      */
     private List<blanco.cg.valueobject.BlancoCgException> fThrowList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>();
 
     /**
-     * ����h�L�������g�̃^�O�̃��X�g�BBlancoCgLangDocTag�����X�g�Ɋi�[����܂��B
+     * 言語ドキュメントのタグのリスト。BlancoCgLangDocTagがリストに格納されます。
      *
-     * �t�B�[���h: [tagList]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLangDocTag>()]�B
+     * フィールド: [tagList]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLangDocTag>()]。
      */
     private List<blanco.cg.valueobject.BlancoCgLangDocTag> fTagList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLangDocTag>();
 
     /**
-     * �t�B�[���h [title] �̒l��ݒ肵�܂��B
+     * フィールド [title] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̌���h�L�������g�̃^�C�g�������ł��B���̌�����description���玩����������邱�Ƃ������ł��B]�B
+     * フィールドの説明: [この言語ドキュメントのタイトル説明です。他の原料のdescriptionから自動生成されることが多いです。]。
      *
-     * @param argTitle �t�B�[���h[title]�ɐݒ肷��l�B
+     * @param argTitle フィールド[title]に設定する値。
      */
     public void setTitle(final String argTitle) {
         fTitle = argTitle;
     }
 
     /**
-     * �t�B�[���h [title] �̒l���擾���܂��B
+     * フィールド [title] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̌���h�L�������g�̃^�C�g�������ł��B���̌�����description���玩����������邱�Ƃ������ł��B]�B
+     * フィールドの説明: [この言語ドキュメントのタイトル説明です。他の原料のdescriptionから自動生成されることが多いです。]。
      *
-     * @return �t�B�[���h[title]����擾�����l�B
+     * @return フィールド[title]から取得した値。
      */
     public String getTitle() {
         return fTitle;
     }
 
     /**
-     * �t�B�[���h [descriptionList] �̒l��ݒ肵�܂��B
+     * フィールド [descriptionList] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̌���h�L�������g�̏ڍא����ł��B(java.lang.String)�̃��X�g�ł��B]�B
-     * �����ŗ^����ꂽ�����񂪂��̂܂܃h�L�������g�������ɓW�J����邽�߁A�ʏ�͕����Q�ƃG���R�[�f�B���O�����{�������Ƃ̒l���Z�b�g���܂��B(�G���R�[�f�B���O��̂��̂�^���邩�炱���A<pre>�Ȃǂ��������邱�Ƃ��ł���̂ł��B)
+     * フィールドの説明: [この言語ドキュメントの詳細説明です。(java.lang.String)のリストです。]。
+     * ここで与えられた文字列がそのままドキュメント説明部に展開されるため、通常は文字参照エンコーディングを実施したあとの値をセットします。(エンコーディング後のものを与えるからこそ、<pre>などを実現することができるのです。)
      *
-     * @param argDescriptionList �t�B�[���h[descriptionList]�ɐݒ肷��l�B
+     * @param argDescriptionList フィールド[descriptionList]に設定する値。
      */
     public void setDescriptionList(final List<java.lang.String> argDescriptionList) {
         fDescriptionList = argDescriptionList;
     }
 
     /**
-     * �t�B�[���h [descriptionList] �̒l���擾���܂��B
+     * フィールド [descriptionList] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̌���h�L�������g�̏ڍא����ł��B(java.lang.String)�̃��X�g�ł��B]�B
-     * �����ŗ^����ꂽ�����񂪂��̂܂܃h�L�������g�������ɓW�J����邽�߁A�ʏ�͕����Q�ƃG���R�[�f�B���O�����{�������Ƃ̒l���Z�b�g���܂��B(�G���R�[�f�B���O��̂��̂�^���邩�炱���A<pre>�Ȃǂ��������邱�Ƃ��ł���̂ł��B)
-     * �f�t�H���g: [new java.util.ArrayList<java.lang.String>()]�B
+     * フィールドの説明: [この言語ドキュメントの詳細説明です。(java.lang.String)のリストです。]。
+     * ここで与えられた文字列がそのままドキュメント説明部に展開されるため、通常は文字参照エンコーディングを実施したあとの値をセットします。(エンコーディング後のものを与えるからこそ、<pre>などを実現することができるのです。)
+     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
      *
-     * @return �t�B�[���h[descriptionList]����擾�����l�B
+     * @return フィールド[descriptionList]から取得した値。
      */
     public List<java.lang.String> getDescriptionList() {
         return fDescriptionList;
     }
 
     /**
-     * �t�B�[���h [deprecated] �̒l��ݒ肵�܂��B
+     * フィールド [deprecated] の値を設定します。
      *
-     * �t�B�[���h�̐���: [��������Ȃ��ꍇ�ɁA�񐄏��̗��R���L�ڂ���܂��B]�B
+     * フィールドの説明: [推奨されない場合に、非推奨の理由が記載されます。]。
      *
-     * @param argDeprecated �t�B�[���h[deprecated]�ɐݒ肷��l�B
+     * @param argDeprecated フィールド[deprecated]に設定する値。
      */
     public void setDeprecated(final String argDeprecated) {
         fDeprecated = argDeprecated;
     }
 
     /**
-     * �t�B�[���h [deprecated] �̒l���擾���܂��B
+     * フィールド [deprecated] の値を取得します。
      *
-     * �t�B�[���h�̐���: [��������Ȃ��ꍇ�ɁA�񐄏��̗��R���L�ڂ���܂��B]�B
+     * フィールドの説明: [推奨されない場合に、非推奨の理由が記載されます。]。
      *
-     * @return �t�B�[���h[deprecated]����擾�����l�B
+     * @return フィールド[deprecated]から取得した値。
      */
     public String getDeprecated() {
         return fDeprecated;
     }
 
     /**
-     * �t�B�[���h [parameterList] �̒l��ݒ肵�܂��B
+     * フィールド [parameterList] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�p�����[�^�̃��X�g�ł��B���\�b�h�̏ꍇ�ɂ̂ݗ��p����܂��B]�B
+     * フィールドの説明: [パラメータのリストです。メソッドの場合にのみ利用されます。]。
      *
-     * @param argParameterList �t�B�[���h[parameterList]�ɐݒ肷��l�B
+     * @param argParameterList フィールド[parameterList]に設定する値。
      */
     public void setParameterList(final List<blanco.cg.valueobject.BlancoCgParameter> argParameterList) {
         fParameterList = argParameterList;
     }
 
     /**
-     * �t�B�[���h [parameterList] �̒l���擾���܂��B
+     * フィールド [parameterList] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�p�����[�^�̃��X�g�ł��B���\�b�h�̏ꍇ�ɂ̂ݗ��p����܂��B]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]�B
+     * フィールドの説明: [パラメータのリストです。メソッドの場合にのみ利用されます。]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]。
      *
-     * @return �t�B�[���h[parameterList]����擾�����l�B
+     * @return フィールド[parameterList]から取得した値。
      */
     public List<blanco.cg.valueobject.BlancoCgParameter> getParameterList() {
         return fParameterList;
     }
 
     /**
-     * �t�B�[���h [return] �̒l��ݒ肵�܂��B
+     * フィールド [return] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃��\�b�h�̖߂�l�ł��B]�B
-     * �߂�l������ (void)�̏ꍇ�ɂ� null���Z�b�g���܂��B
+     * フィールドの説明: [このメソッドの戻り値です。]。
+     * 戻り値が無い (void)の場合には nullをセットします。
      *
-     * @param argReturn �t�B�[���h[return]�ɐݒ肷��l�B
+     * @param argReturn フィールド[return]に設定する値。
      */
     public void setReturn(final BlancoCgReturn argReturn) {
         fReturn = argReturn;
     }
 
     /**
-     * �t�B�[���h [return] �̒l���擾���܂��B
+     * フィールド [return] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃��\�b�h�̖߂�l�ł��B]�B
-     * �߂�l������ (void)�̏ꍇ�ɂ� null���Z�b�g���܂��B
+     * フィールドの説明: [このメソッドの戻り値です。]。
+     * 戻り値が無い (void)の場合には nullをセットします。
      *
-     * @return �t�B�[���h[return]����擾�����l�B
+     * @return フィールド[return]から取得した値。
      */
     public BlancoCgReturn getReturn() {
         return fReturn;
     }
 
     /**
-     * �t�B�[���h [throwList] �̒l��ݒ肵�܂��B
+     * フィールド [throwList] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�����������O�̈ꗗ�ł��B���\�b�h�̏ꍇ�ɂ̂ݗ��p����܂��B]�B
+     * フィールドの説明: [発生しうる例外の一覧です。メソッドの場合にのみ利用されます。]。
      *
-     * @param argThrowList �t�B�[���h[throwList]�ɐݒ肷��l�B
+     * @param argThrowList フィールド[throwList]に設定する値。
      */
     public void setThrowList(final List<blanco.cg.valueobject.BlancoCgException> argThrowList) {
         fThrowList = argThrowList;
     }
 
     /**
-     * �t�B�[���h [throwList] �̒l���擾���܂��B
+     * フィールド [throwList] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�����������O�̈ꗗ�ł��B���\�b�h�̏ꍇ�ɂ̂ݗ��p����܂��B]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]�B
+     * フィールドの説明: [発生しうる例外の一覧です。メソッドの場合にのみ利用されます。]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]。
      *
-     * @return �t�B�[���h[throwList]����擾�����l�B
+     * @return フィールド[throwList]から取得した値。
      */
     public List<blanco.cg.valueobject.BlancoCgException> getThrowList() {
         return fThrowList;
     }
 
     /**
-     * �t�B�[���h [tagList] �̒l��ݒ肵�܂��B
+     * フィールド [tagList] の値を設定します。
      *
-     * �t�B�[���h�̐���: [����h�L�������g�̃^�O�̃��X�g�BBlancoCgLangDocTag�����X�g�Ɋi�[����܂��B]�B
+     * フィールドの説明: [言語ドキュメントのタグのリスト。BlancoCgLangDocTagがリストに格納されます。]。
      *
-     * @param argTagList �t�B�[���h[tagList]�ɐݒ肷��l�B
+     * @param argTagList フィールド[tagList]に設定する値。
      */
     public void setTagList(final List<blanco.cg.valueobject.BlancoCgLangDocTag> argTagList) {
         fTagList = argTagList;
     }
 
     /**
-     * �t�B�[���h [tagList] �̒l���擾���܂��B
+     * フィールド [tagList] の値を取得します。
      *
-     * �t�B�[���h�̐���: [����h�L�������g�̃^�O�̃��X�g�BBlancoCgLangDocTag�����X�g�Ɋi�[����܂��B]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLangDocTag>()]�B
+     * フィールドの説明: [言語ドキュメントのタグのリスト。BlancoCgLangDocTagがリストに格納されます。]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLangDocTag>()]。
      *
-     * @return �t�B�[���h[tagList]����擾�����l�B
+     * @return フィールド[tagList]から取得した値。
      */
     public List<blanco.cg.valueobject.BlancoCgLangDocTag> getTagList() {
         return fTagList;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {

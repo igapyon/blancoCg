@@ -19,13 +19,13 @@ import blanco.cg.valueobject.BlancoCgMethod;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * VB.NETŒ¾Œê—p‚Ì¶¬Œ±B
+ * VB.NETè¨€èªç”¨ã®ç”Ÿæˆè©¦é¨“ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoCgTransformerVbTest extends TestCase {
     /**
-     * VB.NET‚ÌŒ±B
+     * VB.NETã®è©¦é¨“ã€‚
      * 
      * @throws Exception
      */
@@ -33,18 +33,18 @@ public class BlancoCgTransformerVbTest extends TestCase {
         final BlancoCgObjectFactory cgFactory = BlancoCgObjectFactory
                 .getInstance();
 
-        // ƒ\[ƒXƒtƒ@ƒCƒ‹‚ğ¶¬‚µ‚Ü‚·B
+        // ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgSourceFile cgSourceFile = cgFactory.createSourceFile(
-                "Myprog", "ƒeƒXƒg—p‚ÌƒNƒ‰ƒX");
+                "Myprog", "ãƒ†ã‚¹ãƒˆç”¨ã®ã‚¯ãƒ©ã‚¹");
         cgSourceFile.getImportList().add("System.Text.DummyText");
-        // “¯‚¶ƒpƒbƒP[ƒW‚ÌƒCƒ“ƒ|[ƒgŒ±B
+        // åŒã˜ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã‚¤ãƒ³ãƒãƒ¼ãƒˆè©¦é¨“ã€‚
         cgSourceFile.getImportList().add("Myprog.MyClass2");
         cgSourceFile.getLangDoc().getDescriptionList().add(
-                "‚±‚ÌƒNƒ‰ƒX‚Í blanco Framework‚É‚æ‚Á‚Ä©“®“I‚É¶¬‚³‚ê‚Ü‚µ‚½B");
+                "ã“ã®ã‚¯ãƒ©ã‚¹ã¯ blanco Frameworkã«ã‚ˆã£ã¦è‡ªå‹•çš„ã«ç”Ÿæˆã•ã‚Œã¾ã—ãŸã€‚");
 
-        // ƒNƒ‰ƒX‚ğ¶¬‚µ‚Ü‚·B
+        // ã‚¯ãƒ©ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgClass cgClass = cgFactory.createClass("MySampleClass",
-                "‚±‚ÌƒNƒ‰ƒX‚ÍAƒeƒXƒg‚Ì‚½‚ß‚ÌƒNƒ‰ƒX‚Å‚·B");
+                "ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€ãƒ†ã‚¹ãƒˆã®ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã§ã™ã€‚");
         cgSourceFile.getClassList().add(cgClass);
         cgClass.getLangDoc().getTagList().add(
                 cgFactory.createLangDocTag("author", null, "blanco Framework"));
@@ -55,36 +55,36 @@ public class BlancoCgTransformerVbTest extends TestCase {
         cgClass.getImplementInterfaceList().add(
                 cgFactory.createType("System.WebException2"));
 
-        // ƒtƒB[ƒ‹ƒh‚ğ¶¬‚µ‚Ü‚·B
+        // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgField cgField = cgFactory.createField("myField",
-                "System.DateTime", "“ú•tƒtƒB[ƒ‹ƒh‚ÌŒ±‚Å‚·B");
+                "System.DateTime", "æ—¥ä»˜ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®è©¦é¨“ã§ã™ã€‚");
         cgClass.getFieldList().add(cgField);
         cgField.setDefault("New DateTime()");
 
-        // ƒƒ\ƒbƒh‚ğ¶¬‚µ‚Ü‚·B
+        // ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgMethod cgMethod = cgFactory.createMethod("MyMethod",
-                "ƒƒ\ƒbƒh‚ÌŒ±‚Å‚·B");
+                "ãƒ¡ã‚½ãƒƒãƒ‰ã®è©¦é¨“ã§ã™ã€‚");
         cgClass.getMethodList().add(cgMethod);
 
         cgMethod.setAccess("private");
 
-        // ƒpƒ‰ƒ[ƒ^‚ğ’Ç‰Á‚µ‚Ü‚·B
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¿½åŠ ã—ã¾ã™ã€‚
         cgMethod.getParameterList().add(
                 cgFactory.createParameter("argString", "System.String",
-                        "•¶š—ñˆø”B"));
+                        "æ–‡å­—åˆ—å¼•æ•°ã€‚"));
         cgMethod.getParameterList()
                 .add(
                         cgFactory.createParameter("argDate", "System.DateTime",
-                                "“ú•tˆø”B"));
-        // –ß‚è’l‚ğİ’è‚µ‚Ü‚·B
-        cgMethod.setReturn(cgFactory.createReturn("Boolean", "¬Œ÷‚È‚çtrueB"));
+                                "æ—¥ä»˜å¼•æ•°ã€‚"));
+        // æˆ»ã‚Šå€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
+        cgMethod.setReturn(cgFactory.createReturn("Boolean", "æˆåŠŸãªã‚‰trueã€‚"));
 
         cgMethod.getThrowList().add(
                 cgFactory.createException("System.IO.IOException",
-                        "“üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B"));
+                        "å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚"));
 
-        // ƒƒ\ƒbƒh‚Ì“à—e‚ğ’Ç‰Á‚µ‚Ü‚·B
-        cgMethod.getLineList().add("' ‘ã“ü‚ÌŒ±‚Å‚·B");
+        // ãƒ¡ã‚½ãƒƒãƒ‰ã®å†…å®¹ã‚’è¿½åŠ ã—ã¾ã™ã€‚
+        cgMethod.getLineList().add("' ä»£å…¥ã®è©¦é¨“ã§ã™ã€‚");
         cgMethod.getLineList().add("Return True");
 
         final BlancoCgTransformer cgTransformerVb = BlancoCgTransformerFactory

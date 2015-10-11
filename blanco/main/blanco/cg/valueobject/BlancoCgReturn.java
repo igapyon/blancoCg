@@ -10,79 +10,79 @@
 package blanco.cg.valueobject;
 
 /**
- * �߂�l��\�����邽�߂̃o�����[�I�u�W�F�N�g�B
+ * 戻り値を表現するためのバリューオブジェクト。
  *
- * �Ȃ��A���\�b�h�̖߂�l��void�ł���ꍇ�ɂ́A�ݒ肷��K�v�͂���܂���B
+ * なお、メソッドの戻り値がvoidである場合には、設定する必要はありません。
  */
 public class BlancoCgReturn {
     /**
-     * ���̖߂�l�̐����ł��B
+     * この戻り値の説明です。
      *
-     * �t�B�[���h: [description]�B
+     * フィールド: [description]。
      */
     private String fDescription;
 
     /**
-     * ���̖߂�l�̌^�ł��Bjava.lang.String�Ȃǂ��w�肵�܂��B
+     * この戻り値の型です。java.lang.Stringなどを指定します。
      *
-     * �t�B�[���h: [type]�B
+     * フィールド: [type]。
      */
     private BlancoCgType fType;
 
     /**
-     * �t�B�[���h [description] �̒l��ݒ肵�܂��B
+     * フィールド [description] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̖߂�l�̐����ł��B]�B
+     * フィールドの説明: [この戻り値の説明です。]。
      *
-     * @param argDescription �t�B�[���h[description]�ɐݒ肷��l�B
+     * @param argDescription フィールド[description]に設定する値。
      */
     public void setDescription(final String argDescription) {
         fDescription = argDescription;
     }
 
     /**
-     * �t�B�[���h [description] �̒l���擾���܂��B
+     * フィールド [description] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̖߂�l�̐����ł��B]�B
+     * フィールドの説明: [この戻り値の説明です。]。
      *
-     * @return �t�B�[���h[description]����擾�����l�B
+     * @return フィールド[description]から取得した値。
      */
     public String getDescription() {
         return fDescription;
     }
 
     /**
-     * �t�B�[���h [type] �̒l��ݒ肵�܂��B
+     * フィールド [type] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̖߂�l�̌^�ł��Bjava.lang.String�Ȃǂ��w�肵�܂��B]�B
+     * フィールドの説明: [この戻り値の型です。java.lang.Stringなどを指定します。]。
      *
-     * @param argType �t�B�[���h[type]�ɐݒ肷��l�B
+     * @param argType フィールド[type]に設定する値。
      */
     public void setType(final BlancoCgType argType) {
         fType = argType;
     }
 
     /**
-     * �t�B�[���h [type] �̒l���擾���܂��B
+     * フィールド [type] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̖߂�l�̌^�ł��Bjava.lang.String�Ȃǂ��w�肵�܂��B]�B
+     * フィールドの説明: [この戻り値の型です。java.lang.Stringなどを指定します。]。
      *
-     * @return �t�B�[���h[type]����擾�����l�B
+     * @return フィールド[type]から取得した値。
      */
     public BlancoCgType getType() {
         return fType;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {

@@ -21,41 +21,41 @@ import blanco.commons.util.BlancoNameUtil;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgLangDoc(Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg)‚ðƒ\[ƒXƒR[ƒh‚É“WŠJ‚µ‚Ü‚·B
+ * BlancoCgLangDoc(è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆ)ã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã«å±•é–‹ã—ã¾ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍblancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ðŽ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌŒÂ•Ê‚Ì“WŠJ‹@”\‚Å‚·B<br>
- * ƒNƒ‰ƒXAƒƒ\ƒbƒhAƒtƒB[ƒ‹ƒh‚È‚ÇAŠeŽíŒ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ð“WŠJ‚·‚é‹¤’Êˆ—‚Å‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒžãƒ¼ã®å€‹åˆ¥ã®å±•é–‹æ©Ÿèƒ½ã§ã™ã€‚<br>
+ * ã‚¯ãƒ©ã‚¹ã€ãƒ¡ã‚½ãƒƒãƒ‰ã€ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ãªã©ã€å„ç¨®è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’å±•é–‹ã™ã‚‹å…±é€šå‡¦ç†ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 class BlancoCgLangDocRubySourceExpander {
     /**
-     * ‚±‚ÌƒNƒ‰ƒX‚ªˆ—‘ÎÛ‚Æ‚·‚éƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     * ã“ã®ã‚¯ãƒ©ã‚¹ãŒå‡¦ç†å¯¾è±¡ã¨ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªžã€‚
      */
     protected static final int TARGET_LANG = BlancoCgSupportedLang.JAVA;
 
     /**
-     * Œ¾ŒêƒhƒLƒ…ƒƒ“ƒgî•ñ‚ðŒ³‚Éƒ\[ƒXƒR[ƒh‚ð“WŠJ‚µ‚Ü‚·B
+     * è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆæƒ…å ±ã‚’å…ƒã«ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param langDoc
-     *            Œ¾ŒêƒhƒLƒ…ƒƒ“ƒgî•ñB
+     *            è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆæƒ…å ±ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã€‚
      */
     public void transformLangDoc(final BlancoCgLangDoc langDoc,
             final List<java.lang.String> argSourceLines) {
         argSourceLines.add("#");
 
-        // ŠJŽnEI—¹‚ðœ‚­–{‘Ì‚ð“WŠJ‚µ‚Ü‚·B
+        // é–‹å§‹ãƒ»çµ‚äº†ã‚’é™¤ãæœ¬ä½“ã‚’å±•é–‹ã—ã¾ã™ã€‚
         transformLangDocBody(langDoc, argSourceLines);
 
         argSourceLines.add("#");
     }
 
     /**
-     * Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚Ì‚¤‚¿A–{‘Ì•”•ª‚ð“WŠJ‚µ‚Ü‚·B
+     * è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã†ã¡ã€æœ¬ä½“éƒ¨åˆ†ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
-     * ‚±‚Ìƒƒ\ƒbƒh‚Íƒ\[ƒXƒtƒ@ƒCƒ‹‚Ìƒtƒ@ƒCƒ‹ƒwƒbƒ_[“WŠJ‚©‚ç‚à—˜—p‚³‚ê‚Ä‚¢‚Ü‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ˜ãƒƒãƒ€ãƒ¼å±•é–‹ã‹ã‚‰ã‚‚åˆ©ç”¨ã•ã‚Œã¦ã„ã¾ã™ã€‚
      * 
      * @param langDoc
      * @param argSourceLines
@@ -71,7 +71,7 @@ class BlancoCgLangDocRubySourceExpander {
                             langDoc.getTitle()));
         }
 
-        // ‹ós‚ª‘}“üÏ‚Ý‚©‚Ç‚¤‚©‚ðƒ`ƒFƒbƒN‚·‚é‚½‚ß‚Ìƒtƒ‰ƒOB
+        // ç©ºè¡ŒãŒæŒ¿å…¥æ¸ˆã¿ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ãŸã‚ã®ãƒ•ãƒ©ã‚°ã€‚
         boolean isLangDocDescriptionStarted = false;
 
         for (int indexDescription = 0; indexDescription < langDoc
@@ -79,7 +79,7 @@ class BlancoCgLangDocRubySourceExpander {
             final String strDescrption = langDoc.getDescriptionList().get(
                     indexDescription);
 
-            // ‹ós‘}“üB
+            // ç©ºè¡ŒæŒ¿å…¥ã€‚
             if (isLangDocDescriptionStarted == false) {
                 isLangDocDescriptionStarted = true;
                 if (isLangDocTitleStarted) {
@@ -90,16 +90,16 @@ class BlancoCgLangDocRubySourceExpander {
             argSourceLines.add("# " + strDescrption);
         }
 
-        // ‹ós‚ª‘}“üÏ‚Ý‚©‚Ç‚¤‚©‚ðƒ`ƒFƒbƒN‚·‚é‚½‚ß‚Ìƒtƒ‰ƒOB
+        // ç©ºè¡ŒãŒæŒ¿å…¥æ¸ˆã¿ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã™ã‚‹ãŸã‚ã®ãƒ•ãƒ©ã‚°ã€‚
         boolean isLangDocTagStarted = false;
 
-        // author‚È‚Ç•t‰Áî•ñ‚ð“WŠJB
+        // authorãªã©ä»˜åŠ æƒ…å ±ã‚’å±•é–‹ã€‚
         if (langDoc.getTagList() != null) {
             for (int index = 0; index < langDoc.getTagList().size(); index++) {
                 final BlancoCgLangDocTag langDocTag = langDoc.getTagList().get(
                         index);
 
-                // ‹ós‘}“üB
+                // ç©ºè¡ŒæŒ¿å…¥ã€‚
                 if (isLangDocTagStarted == false) {
                     isLangDocTagStarted = true;
                     argSourceLines.add("#");
@@ -107,12 +107,12 @@ class BlancoCgLangDocRubySourceExpander {
 
                 if (langDocTag.getName() == null) {
                     throw new IllegalArgumentException(
-                            "BlancoCgLangDocTag‚Ìname‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B"
+                            "BlancoCgLangDocTagã®nameã«nullãŒä¸Žãˆã‚‰ã‚Œã¾ã—ãŸã€‚"
                                     + langDocTag.toString());
                 }
                 if (langDocTag.getValue() == null) {
                     throw new IllegalArgumentException(
-                            "BlancoCgLangDocTag‚Ìvalue‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B"
+                            "BlancoCgLangDocTagã®valueã«nullãŒä¸Žãˆã‚‰ã‚Œã¾ã—ãŸã€‚"
                                     + langDocTag.toString());
                 }
 
@@ -127,13 +127,13 @@ class BlancoCgLangDocRubySourceExpander {
             }
         }
 
-        // ƒƒ\ƒbƒhƒpƒ‰ƒ[ƒ^‚ð“WŠJB
+        // ãƒ¡ã‚½ãƒƒãƒ‰ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å±•é–‹ã€‚
         for (int indexParameter = 0; indexParameter < langDoc
                 .getParameterList().size(); indexParameter++) {
             final BlancoCgParameter cgParameter = langDoc.getParameterList()
                     .get(indexParameter);
 
-            // ‹ós‘}“üB
+            // ç©ºè¡ŒæŒ¿å…¥ã€‚
             if (isLangDocTagStarted == false) {
                 isLangDocTagStarted = true;
                 argSourceLines.add("#");
@@ -153,7 +153,7 @@ class BlancoCgLangDocRubySourceExpander {
         if (langDoc.getReturn() != null
                 && langDoc.getReturn().getType().getName().equals("void") == false) {
 
-            // ‹ós‘}“üB
+            // ç©ºè¡ŒæŒ¿å…¥ã€‚
             if (isLangDocTagStarted == false) {
                 isLangDocTagStarted = true;
                 argSourceLines.add("#");
@@ -170,12 +170,12 @@ class BlancoCgLangDocRubySourceExpander {
             argSourceLines.add(bufReturn.toString());
         }
 
-        // throwsƒŠƒXƒg‚ð“WŠJB
+        // throwsãƒªã‚¹ãƒˆã‚’å±•é–‹ã€‚
         for (int indexThrow = 0; indexThrow < langDoc.getThrowList().size(); indexThrow++) {
             final BlancoCgException cgException = langDoc.getThrowList().get(
                     indexThrow);
 
-            // ‹ós‘}“üB
+            // ç©ºè¡ŒæŒ¿å…¥ã€‚
             if (isLangDocTagStarted == false) {
                 isLangDocTagStarted = true;
                 argSourceLines.add("#");
@@ -183,8 +183,8 @@ class BlancoCgLangDocRubySourceExpander {
 
             final StringBuffer bufThrow = new StringBuffer();
 
-            // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒgˆ—‚É‚¨‚¢‚Ä‚ÍAblancoCg‚ÌType‚ÉŠÖ‚·‚é‹¤’Êˆ—‚ð—˜—p‚·‚é‚±‚Æ‚Í‚Å‚«‚Ü‚¹‚ñB
-            // ŒÂ•Ê‚É‹Lq‚ðs‚¢‚Ü‚·B
+            // è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆå‡¦ç†ã«ãŠã„ã¦ã¯ã€blancoCgã®Typeã«é–¢ã™ã‚‹å…±é€šå‡¦ç†ã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã¯ã§ãã¾ã›ã‚“ã€‚
+            // å€‹åˆ¥ã«è¨˜è¿°ã‚’è¡Œã„ã¾ã™ã€‚
             bufThrow.append("# @throws "
                     + BlancoNameUtil.trimJavaPackage(cgException.getType()
                             .getName()));

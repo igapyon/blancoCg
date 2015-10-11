@@ -21,50 +21,50 @@ import blanco.cg.valueobject.BlancoCgSourceFile;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgEnum‚ğƒ\[ƒXƒR[ƒh‚Ö‚Æ“WŠJ‚µ‚Ü‚·B
+ * BlancoCgEnumã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã¸ã¨å±•é–‹ã—ã¾ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍblancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ğ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌŒÂ•Ê‚Ì“WŠJ‹@”\‚Å‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã®å€‹åˆ¥ã®å±•é–‹æ©Ÿèƒ½ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 class BlancoCgEnumJavaSourceExpander {
     /**
-     * ‚±‚ÌƒNƒ‰ƒX‚ªˆ—‘ÎÛ‚Æ‚·‚éƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     * ã“ã®ã‚¯ãƒ©ã‚¹ãŒå‡¦ç†å¯¾è±¡ã¨ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      */
     protected static final int TARGET_LANG = BlancoCgSupportedLang.JAVA;
 
     /**
-     * ‚±‚±‚Å—ñ‹“‘Ì‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã“ã“ã§åˆ—æŒ™ä½“ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgEnum
-     *            ˆ—‘ÎÛ‚Æ‚È‚é—ñ‹“‘ÌB
+     *            å‡¦ç†å¯¾è±¡ã¨ãªã‚‹åˆ—æŒ™ä½“ã€‚
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹B
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
      * @param argSourceLines
-     *            o—ÍæsƒŠƒXƒgB
+     *            å‡ºåŠ›å…ˆè¡Œãƒªã‚¹ãƒˆã€‚
      * @param argIsInterface
-     *            ƒCƒ“ƒ^ƒtƒF[ƒX‚©‚Ç‚¤‚©BƒNƒ‰ƒX‚Ìê‡‚É‚ÍfalseBƒCƒ“ƒ^ƒtƒF[ƒX‚Ìê‡‚É‚ÍtrueB
+     *            ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‹ã©ã†ã‹ã€‚ã‚¯ãƒ©ã‚¹ã®å ´åˆã«ã¯falseã€‚ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å ´åˆã«ã¯trueã€‚
      */
     public void transformEnum(final BlancoCgEnum cgEnum,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
         if (BlancoStringUtil.null2Blank(cgEnum.getName()).length() == 0) {
-            throw new IllegalArgumentException("—ñ‹“‘Ì‚Ì–¼‘O‚É“KØ‚È’l‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+            throw new IllegalArgumentException("åˆ—æŒ™ä½“ã®åå‰ã«é©åˆ‡ãªå€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
         }
 
-        // —L–³‚ğ‚¢‚í‚³‚¸‰üs‚ğ•t—^‚µ‚Ü‚·B
+        // æœ‰ç„¡ã‚’ã„ã‚ã•ãšæ”¹è¡Œã‚’ä»˜ä¸ã—ã¾ã™ã€‚
         argSourceLines.add("");
 
-        // Å‰‚ÉƒtƒB[ƒ‹ƒhî•ñ‚ğLangDoc‚É“WŠJB
+        // æœ€åˆã«ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æƒ…å ±ã‚’LangDocã«å±•é–‹ã€‚
         if (cgEnum.getLangDoc() == null) {
-            // LangDoc–¢w’è‚Ìê‡‚É‚Í‚±‚¿‚ç‘¤‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬B
+            // LangDocæœªæŒ‡å®šã®å ´åˆã«ã¯ã“ã¡ã‚‰å´ã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã€‚
             cgEnum.setLangDoc(new BlancoCgLangDoc());
         }
         if (cgEnum.getLangDoc().getTitle() == null) {
             cgEnum.getLangDoc().setTitle(cgEnum.getDescription());
         }
 
-        // Ÿ‚É LangDoc‚ğƒ\[ƒXƒR[ƒhŒ`®‚É“WŠJB
+        // æ¬¡ã« LangDocã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å½¢å¼ã«å±•é–‹ã€‚
         new BlancoCgLangDocJavaSourceExpander().transformLangDoc(cgEnum
                 .getLangDoc(), argSourceLines);
 
@@ -74,10 +74,10 @@ class BlancoCgEnumJavaSourceExpander {
             buf.append(cgEnum.getAccess() + " ");
         }
 
-        // —ñ‹“‘Ì¶¬‚Ì–{‘Ì•”•ª‚ğ“WŠJ‚µ‚Ü‚·B
+        // åˆ—æŒ™ä½“ç”Ÿæˆã®æœ¬ä½“éƒ¨åˆ†ã‚’å±•é–‹ã—ã¾ã™ã€‚
         buf.append("enum " + cgEnum.getName());
 
-        // —v‘f‚ğ“WŠJ‚µ‚Ü‚·B
+        // è¦ç´ ã‚’å±•é–‹ã—ã¾ã™ã€‚
         buf.append("{");
         boolean isFirstElement = true;
         for (BlancoCgEnumElement element : cgEnum.getElementList()) {

@@ -12,294 +12,294 @@ package blanco.cg.valueobject;
 import java.util.List;
 
 /**
- * �\�[�X�t�@�C����\�����邽�߂̃o�����[�I�u�W�F�N�g�B
+ * ソースファイルを表現するためのバリューオブジェクト。
  */
 public class BlancoCgSourceFile {
     /**
-     * ���̃t�@�C���̃t�@�C�����ł��B
+     * このファイルのファイル名です。
      *
-     * �Ȃ��A���̒l�͖����I�Ɏw�肵�Ȃ��Ƃ��A�����̏ꍇ�̓N���X���E�C���^�t�F�[�X�����疼�̂����o�����悤�ɂȂ��Ă��܂��B
-     * �t�B�[���h: [name]�B
+     * なお、この値は明示的に指定しなくとも、多くの場合はクラス名・インタフェース名から名称が導出されるようになっています。
+     * フィールド: [name]。
      */
     private String fName;
 
     /**
-     * ���̃t�@�C���̐����ł��B
+     * このファイルの説明です。
      *
-     * �t�B�[���h: [description]�B
+     * フィールド: [description]。
      */
     private String fDescription;
 
     /**
-     * ���̃t�@�C������������p�b�P�[�W�ł��B
+     * このファイルが所属するパッケージです。
      *
-     * �t�B�[���h: [package]�B
+     * フィールド: [package]。
      */
     private String fPackage;
 
     /**
-     * ���̃t�@�C���̕����G���R�[�f�B���O�ł��B
+     * このファイルの文字エンコーディングです。
      *
-     * �t�B�[���h: [encoding]�B
+     * フィールド: [encoding]。
      */
     private String fEncoding;
 
     /**
-     * ���̃t�@�C�����Q�Ƃ��鑼�̃p�b�P�[�W�̃��X�g�ł��Bjava.lang.String�̃��X�g�B
+     * このファイルが参照する他のパッケージのリストです。java.lang.Stringのリスト。
      *
-     * �t�B�[���h: [importList]�B
-     * �f�t�H���g: [new java.util.ArrayList<java.lang.String>()]�B
+     * フィールド: [importList]。
+     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
      */
     private List<java.lang.String> fImportList = new java.util.ArrayList<java.lang.String>();
 
     /**
-     * ���̃t�@�C���Ɋ܂܂��񋓑̂̃��X�g�ł��B
+     * このファイルに含まれる列挙体のリストです。
      *
-     * �t�B�[���h: [enumList]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnum>()]�B
+     * フィールド: [enumList]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnum>()]。
      */
     private List<blanco.cg.valueobject.BlancoCgEnum> fEnumList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnum>();
 
     /**
-     * ���̃t�@�C���Ɋ܂܂��C���^�t�F�[�X�̃��X�g�ł��B
+     * このファイルに含まれるインタフェースのリストです。
      *
-     * �t�B�[���h: [interfaceList]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgInterface>()]�B
+     * フィールド: [interfaceList]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgInterface>()]。
      */
     private List<blanco.cg.valueobject.BlancoCgInterface> fInterfaceList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgInterface>();
 
     /**
-     * ���̃t�@�C���Ɋ܂܂��N���X�̃��X�g�ł��B
+     * このファイルに含まれるクラスのリストです。
      *
-     * �t�B�[���h: [classList]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgClass>()]�B
+     * フィールド: [classList]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgClass>()]。
      */
     private List<blanco.cg.valueobject.BlancoCgClass> fClassList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgClass>();
 
     /**
-     * ����h�L�������g��~���܂��B�f�t�H���g�ȏ�̕\����ǉ�����ꍇ�ɂ́A�C���X�^���X�𐶐����Ēl���Z�b�g���Ă��玩���������܂��B
+     * 言語ドキュメントを蓄えます。デフォルト以上の表現を追加する場合には、インスタンスを生成して値をセットしてから自動生成します。
      *
-     * �Ȃ��A���̃o�����[�I�u�W�F�N�g�̓\�[�X�t�@�C���̌���h�L�������g�ɊY�����邽�߁A�����ŃZ�b�g�����l�����ۂ̃\�[�X�R�[�h�ɔ��f�����ꍇ�̉e���͈͂͌��肳��Ă��܂��ꍇ������܂��B
-     * �t�B�[���h: [langDoc]�B
+     * なお、このバリューオブジェクトはソースファイルの言語ドキュメントに該当するため、ここでセットした値が実際のソースコードに反映される場合の影響範囲は限定されてしまう場合があります。
+     * フィールド: [langDoc]。
      */
     private BlancoCgLangDoc fLangDoc;
 
     /**
-     * �t�B�[���h [name] �̒l��ݒ肵�܂��B
+     * フィールド [name] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���̃t�@�C�����ł��B]�B
-     * �Ȃ��A���̒l�͖����I�Ɏw�肵�Ȃ��Ƃ��A�����̏ꍇ�̓N���X���E�C���^�t�F�[�X�����疼�̂����o�����悤�ɂȂ��Ă��܂��B
+     * フィールドの説明: [このファイルのファイル名です。]。
+     * なお、この値は明示的に指定しなくとも、多くの場合はクラス名・インタフェース名から名称が導出されるようになっています。
      *
-     * @param argName �t�B�[���h[name]�ɐݒ肷��l�B
+     * @param argName フィールド[name]に設定する値。
      */
     public void setName(final String argName) {
         fName = argName;
     }
 
     /**
-     * �t�B�[���h [name] �̒l���擾���܂��B
+     * フィールド [name] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���̃t�@�C�����ł��B]�B
-     * �Ȃ��A���̒l�͖����I�Ɏw�肵�Ȃ��Ƃ��A�����̏ꍇ�̓N���X���E�C���^�t�F�[�X�����疼�̂����o�����悤�ɂȂ��Ă��܂��B
+     * フィールドの説明: [このファイルのファイル名です。]。
+     * なお、この値は明示的に指定しなくとも、多くの場合はクラス名・インタフェース名から名称が導出されるようになっています。
      *
-     * @return �t�B�[���h[name]����擾�����l�B
+     * @return フィールド[name]から取得した値。
      */
     public String getName() {
         return fName;
     }
 
     /**
-     * �t�B�[���h [description] �̒l��ݒ肵�܂��B
+     * フィールド [description] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���̐����ł��B]�B
+     * フィールドの説明: [このファイルの説明です。]。
      *
-     * @param argDescription �t�B�[���h[description]�ɐݒ肷��l�B
+     * @param argDescription フィールド[description]に設定する値。
      */
     public void setDescription(final String argDescription) {
         fDescription = argDescription;
     }
 
     /**
-     * �t�B�[���h [description] �̒l���擾���܂��B
+     * フィールド [description] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���̐����ł��B]�B
+     * フィールドの説明: [このファイルの説明です。]。
      *
-     * @return �t�B�[���h[description]����擾�����l�B
+     * @return フィールド[description]から取得した値。
      */
     public String getDescription() {
         return fDescription;
     }
 
     /**
-     * �t�B�[���h [package] �̒l��ݒ肵�܂��B
+     * フィールド [package] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C������������p�b�P�[�W�ł��B]�B
+     * フィールドの説明: [このファイルが所属するパッケージです。]。
      *
-     * @param argPackage �t�B�[���h[package]�ɐݒ肷��l�B
+     * @param argPackage フィールド[package]に設定する値。
      */
     public void setPackage(final String argPackage) {
         fPackage = argPackage;
     }
 
     /**
-     * �t�B�[���h [package] �̒l���擾���܂��B
+     * フィールド [package] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C������������p�b�P�[�W�ł��B]�B
+     * フィールドの説明: [このファイルが所属するパッケージです。]。
      *
-     * @return �t�B�[���h[package]����擾�����l�B
+     * @return フィールド[package]から取得した値。
      */
     public String getPackage() {
         return fPackage;
     }
 
     /**
-     * �t�B�[���h [encoding] �̒l��ݒ肵�܂��B
+     * フィールド [encoding] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���̕����G���R�[�f�B���O�ł��B]�B
+     * フィールドの説明: [このファイルの文字エンコーディングです。]。
      *
-     * @param argEncoding �t�B�[���h[encoding]�ɐݒ肷��l�B
+     * @param argEncoding フィールド[encoding]に設定する値。
      */
     public void setEncoding(final String argEncoding) {
         fEncoding = argEncoding;
     }
 
     /**
-     * �t�B�[���h [encoding] �̒l���擾���܂��B
+     * フィールド [encoding] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���̕����G���R�[�f�B���O�ł��B]�B
+     * フィールドの説明: [このファイルの文字エンコーディングです。]。
      *
-     * @return �t�B�[���h[encoding]����擾�����l�B
+     * @return フィールド[encoding]から取得した値。
      */
     public String getEncoding() {
         return fEncoding;
     }
 
     /**
-     * �t�B�[���h [importList] �̒l��ݒ肵�܂��B
+     * フィールド [importList] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C�����Q�Ƃ��鑼�̃p�b�P�[�W�̃��X�g�ł��Bjava.lang.String�̃��X�g�B]�B
+     * フィールドの説明: [このファイルが参照する他のパッケージのリストです。java.lang.Stringのリスト。]。
      *
-     * @param argImportList �t�B�[���h[importList]�ɐݒ肷��l�B
+     * @param argImportList フィールド[importList]に設定する値。
      */
     public void setImportList(final List<java.lang.String> argImportList) {
         fImportList = argImportList;
     }
 
     /**
-     * �t�B�[���h [importList] �̒l���擾���܂��B
+     * フィールド [importList] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C�����Q�Ƃ��鑼�̃p�b�P�[�W�̃��X�g�ł��Bjava.lang.String�̃��X�g�B]�B
-     * �f�t�H���g: [new java.util.ArrayList<java.lang.String>()]�B
+     * フィールドの説明: [このファイルが参照する他のパッケージのリストです。java.lang.Stringのリスト。]。
+     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
      *
-     * @return �t�B�[���h[importList]����擾�����l�B
+     * @return フィールド[importList]から取得した値。
      */
     public List<java.lang.String> getImportList() {
         return fImportList;
     }
 
     /**
-     * �t�B�[���h [enumList] �̒l��ݒ肵�܂��B
+     * フィールド [enumList] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���Ɋ܂܂��񋓑̂̃��X�g�ł��B]�B
+     * フィールドの説明: [このファイルに含まれる列挙体のリストです。]。
      *
-     * @param argEnumList �t�B�[���h[enumList]�ɐݒ肷��l�B
+     * @param argEnumList フィールド[enumList]に設定する値。
      */
     public void setEnumList(final List<blanco.cg.valueobject.BlancoCgEnum> argEnumList) {
         fEnumList = argEnumList;
     }
 
     /**
-     * �t�B�[���h [enumList] �̒l���擾���܂��B
+     * フィールド [enumList] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���Ɋ܂܂��񋓑̂̃��X�g�ł��B]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnum>()]�B
+     * フィールドの説明: [このファイルに含まれる列挙体のリストです。]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnum>()]。
      *
-     * @return �t�B�[���h[enumList]����擾�����l�B
+     * @return フィールド[enumList]から取得した値。
      */
     public List<blanco.cg.valueobject.BlancoCgEnum> getEnumList() {
         return fEnumList;
     }
 
     /**
-     * �t�B�[���h [interfaceList] �̒l��ݒ肵�܂��B
+     * フィールド [interfaceList] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���Ɋ܂܂��C���^�t�F�[�X�̃��X�g�ł��B]�B
+     * フィールドの説明: [このファイルに含まれるインタフェースのリストです。]。
      *
-     * @param argInterfaceList �t�B�[���h[interfaceList]�ɐݒ肷��l�B
+     * @param argInterfaceList フィールド[interfaceList]に設定する値。
      */
     public void setInterfaceList(final List<blanco.cg.valueobject.BlancoCgInterface> argInterfaceList) {
         fInterfaceList = argInterfaceList;
     }
 
     /**
-     * �t�B�[���h [interfaceList] �̒l���擾���܂��B
+     * フィールド [interfaceList] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���Ɋ܂܂��C���^�t�F�[�X�̃��X�g�ł��B]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgInterface>()]�B
+     * フィールドの説明: [このファイルに含まれるインタフェースのリストです。]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgInterface>()]。
      *
-     * @return �t�B�[���h[interfaceList]����擾�����l�B
+     * @return フィールド[interfaceList]から取得した値。
      */
     public List<blanco.cg.valueobject.BlancoCgInterface> getInterfaceList() {
         return fInterfaceList;
     }
 
     /**
-     * �t�B�[���h [classList] �̒l��ݒ肵�܂��B
+     * フィールド [classList] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���Ɋ܂܂��N���X�̃��X�g�ł��B]�B
+     * フィールドの説明: [このファイルに含まれるクラスのリストです。]。
      *
-     * @param argClassList �t�B�[���h[classList]�ɐݒ肷��l�B
+     * @param argClassList フィールド[classList]に設定する値。
      */
     public void setClassList(final List<blanco.cg.valueobject.BlancoCgClass> argClassList) {
         fClassList = argClassList;
     }
 
     /**
-     * �t�B�[���h [classList] �̒l���擾���܂��B
+     * フィールド [classList] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�@�C���Ɋ܂܂��N���X�̃��X�g�ł��B]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgClass>()]�B
+     * フィールドの説明: [このファイルに含まれるクラスのリストです。]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgClass>()]。
      *
-     * @return �t�B�[���h[classList]����擾�����l�B
+     * @return フィールド[classList]から取得した値。
      */
     public List<blanco.cg.valueobject.BlancoCgClass> getClassList() {
         return fClassList;
     }
 
     /**
-     * �t�B�[���h [langDoc] �̒l��ݒ肵�܂��B
+     * フィールド [langDoc] の値を設定します。
      *
-     * �t�B�[���h�̐���: [����h�L�������g��~���܂��B�f�t�H���g�ȏ�̕\����ǉ�����ꍇ�ɂ́A�C���X�^���X�𐶐����Ēl���Z�b�g���Ă��玩���������܂��B]�B
-     * �Ȃ��A���̃o�����[�I�u�W�F�N�g�̓\�[�X�t�@�C���̌���h�L�������g�ɊY�����邽�߁A�����ŃZ�b�g�����l�����ۂ̃\�[�X�R�[�h�ɔ��f�����ꍇ�̉e���͈͂͌��肳��Ă��܂��ꍇ������܂��B
+     * フィールドの説明: [言語ドキュメントを蓄えます。デフォルト以上の表現を追加する場合には、インスタンスを生成して値をセットしてから自動生成します。]。
+     * なお、このバリューオブジェクトはソースファイルの言語ドキュメントに該当するため、ここでセットした値が実際のソースコードに反映される場合の影響範囲は限定されてしまう場合があります。
      *
-     * @param argLangDoc �t�B�[���h[langDoc]�ɐݒ肷��l�B
+     * @param argLangDoc フィールド[langDoc]に設定する値。
      */
     public void setLangDoc(final BlancoCgLangDoc argLangDoc) {
         fLangDoc = argLangDoc;
     }
 
     /**
-     * �t�B�[���h [langDoc] �̒l���擾���܂��B
+     * フィールド [langDoc] の値を取得します。
      *
-     * �t�B�[���h�̐���: [����h�L�������g��~���܂��B�f�t�H���g�ȏ�̕\����ǉ�����ꍇ�ɂ́A�C���X�^���X�𐶐����Ēl���Z�b�g���Ă��玩���������܂��B]�B
-     * �Ȃ��A���̃o�����[�I�u�W�F�N�g�̓\�[�X�t�@�C���̌���h�L�������g�ɊY�����邽�߁A�����ŃZ�b�g�����l�����ۂ̃\�[�X�R�[�h�ɔ��f�����ꍇ�̉e���͈͂͌��肳��Ă��܂��ꍇ������܂��B
+     * フィールドの説明: [言語ドキュメントを蓄えます。デフォルト以上の表現を追加する場合には、インスタンスを生成して値をセットしてから自動生成します。]。
+     * なお、このバリューオブジェクトはソースファイルの言語ドキュメントに該当するため、ここでセットした値が実際のソースコードに反映される場合の影響範囲は限定されてしまう場合があります。
      *
-     * @return �t�B�[���h[langDoc]����擾�����l�B
+     * @return フィールド[langDoc]から取得した値。
      */
     public BlancoCgLangDoc getLangDoc() {
         return fLangDoc;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {

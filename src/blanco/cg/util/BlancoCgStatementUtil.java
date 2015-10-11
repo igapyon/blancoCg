@@ -13,23 +13,23 @@ import blanco.cg.BlancoCgSupportedLang;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * blancoCg‚ÌƒXƒe[ƒgƒƒ“ƒg‚ÉŠÖ‚·‚éƒ†[ƒeƒBƒŠƒeƒB‚Å‚·B
+ * blancoCgã®ã‚¹ãƒ†ãƒ¼ãƒˆãƒ¡ãƒ³ãƒˆã«é–¢ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã§ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚ğ’´‚¦‚Ä—˜—p‚³‚ê‚Ü‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã‚’è¶…ãˆã¦åˆ©ç”¨ã•ã‚Œã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 class BlancoCgStatementUtil {
     /**
-     * if•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * ifæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * ƒuƒƒbƒNŠJn‚ğ•\‚·•¶š—ñiJava‚Ìê‡A’†Š‡ŒÊj‚àŠÜ‚İ‚Ü‚·B
+     * ãƒ–ãƒ­ãƒƒã‚¯é–‹å§‹ã‚’è¡¨ã™æ–‡å­—åˆ—ï¼ˆJavaã®å ´åˆã€ä¸­æ‹¬å¼§ï¼‰ã‚‚å«ã¿ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argExpr
-     *            ğŒ®B
-     * @return if•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            æ¡ä»¶å¼ã€‚
+     * @return ifæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getIfBegin(final int argTargetLang,
             final String argExpr) {
@@ -49,19 +49,19 @@ class BlancoCgStatementUtil {
             return "if " + argExpr + " then begin";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * if•¶‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * ifæ–‡ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Python‚Å‚ÍAif•¶‚ÌI—¹•”•ª‚Í•¶–@“I‚É•K—v‚ ‚è‚Ü‚¹‚ñ‚ªA ©“®¶¬‚³‚ê‚½ƒ\[ƒXƒR[ƒh‚ğ®Œ`‚·‚é‚½‚ß‚ÉAƒRƒƒ“ƒg•¶š—ñ ‚ğ–ß‚µ‚Ü‚·B
+     * Pythonã§ã¯ã€ifæ–‡ã®çµ‚äº†éƒ¨åˆ†ã¯æ–‡æ³•çš„ã«å¿…è¦ã‚ã‚Šã¾ã›ã‚“ãŒã€ è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’æ•´å½¢ã™ã‚‹ãŸã‚ã«ã€ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—åˆ— ã‚’æˆ»ã—ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return if•¶‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return ifæ–‡ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getIfEnd(final int argTargetLang) {
         switch (argTargetLang) {
@@ -80,25 +80,25 @@ class BlancoCgStatementUtil {
             return "#end";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Java, C#, JavaScript, PHP‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B
+     * Java, C#, JavaScript, PHPã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argExpr1
-     *            ‰Šú‰»ˆ—B
+     *            åˆæœŸåŒ–å‡¦ç†ã€‚
      * @param argExpr2
-     *            Œp‘±ğŒB
+     *            ç¶™ç¶šæ¡ä»¶ã€‚
      * @param argExpr3
-     *            ƒ‹[ƒv‚Ì‚Â‚ÇÀ{‚·‚éˆ—B
-     * @return for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            ãƒ«ãƒ¼ãƒ—ã®ã¤ã©å®Ÿæ–½ã™ã‚‹å‡¦ç†ã€‚
+     * @return foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getForBeginJava(final int argTargetLang,
             final String argExpr1, final String argExpr2, final String argExpr3) {
@@ -111,25 +111,25 @@ class BlancoCgStatementUtil {
                     + ") {";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil.getForBeginJava: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê("
-                            + argTargetLang + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil.getForBeginJava: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª("
+                            + argTargetLang + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * VB.NET‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B
+     * VB.NETã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argCounter
-     *            ƒ‹[ƒvƒJƒEƒ“ƒ^Bu—á: i As Integer = 1v
+     *            ãƒ«ãƒ¼ãƒ—ã‚«ã‚¦ãƒ³ã‚¿ã€‚ã€Œä¾‹: i As Integer = 1ã€
      * @param argTo
-     *            I—¹‚Æ‚È‚é‚µ‚«‚¢’l (ğŒ‚Å‚Í‚ ‚è‚Ü‚¹‚ñ)Bu—á: 10v
+     *            çµ‚äº†ã¨ãªã‚‹ã—ãã„å€¤ (æ¡ä»¶ã§ã¯ã‚ã‚Šã¾ã›ã‚“)ã€‚ã€Œä¾‹: 10ã€
      * @param argStep
-     *            Step‚É—˜—p‚³‚ê‚é’lBu—á: 2vBnull‚Ìê‡‚É‚Í Step‚ÍÈ—ª‚³‚ê‚Ü‚·B
-     * @return for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            Stepã«åˆ©ç”¨ã•ã‚Œã‚‹å€¤ã€‚ã€Œä¾‹: 2ã€ã€‚nullã®å ´åˆã«ã¯ Stepã¯çœç•¥ã•ã‚Œã¾ã™ã€‚
+     * @return foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getForBeginVb(final int argTargetLang,
             final String argCounter, final String argTo, final String argStep) {
@@ -138,8 +138,8 @@ class BlancoCgStatementUtil {
             break;
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil.getForBeginVb: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê("
-                            + argTargetLang + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil.getForBeginVb: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª("
+                            + argTargetLang + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
 
         String argLine = "For " + argCounter + " To " + argTo;
@@ -152,19 +152,19 @@ class BlancoCgStatementUtil {
 
     /**
      * 
-     * for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Ruby‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B
+     * Rubyã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argCounter
-     *            ƒ‹[ƒvƒJƒEƒ“ƒ^B
+     *            ãƒ«ãƒ¼ãƒ—ã‚«ã‚¦ãƒ³ã‚¿ã€‚
      * @param argFrom
-     *            ŠJn’l (ğŒ‚Å‚Í‚ ‚è‚Ü‚¹‚ñ)Bu—á: 1v
+     *            é–‹å§‹å€¤ (æ¡ä»¶ã§ã¯ã‚ã‚Šã¾ã›ã‚“)ã€‚ã€Œä¾‹: 1ã€
      * @param argTo
-     *            I—¹’l (ğŒ‚Å‚Í‚ ‚è‚Ü‚¹‚ñ)Bu—á: 10v
-     * @return for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            çµ‚äº†å€¤ (æ¡ä»¶ã§ã¯ã‚ã‚Šã¾ã›ã‚“)ã€‚ã€Œä¾‹: 10ã€
+     * @return foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static String getForBeginRuby(int argTargetLang, String argCounter,
             String argFrom, String argTo) {
@@ -173,8 +173,8 @@ class BlancoCgStatementUtil {
             break;
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil.getForBeginRuby: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê("
-                            + argTargetLang + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil.getForBeginRuby: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª("
+                            + argTargetLang + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
 
         String argLine = "for " + argCounter + " in " + argFrom + ".." + argTo;
@@ -184,17 +184,17 @@ class BlancoCgStatementUtil {
 
     /**
      * 
-     * for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Python‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B
+     * Pythonã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argItem
-     *            ƒ‹[ƒv‘ÎÛ‚Æ‚È‚éƒIƒuƒWƒFƒNƒg‚ÌŒ»İ’lB
+     *            ãƒ«ãƒ¼ãƒ—å¯¾è±¡ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç¾åœ¨å€¤ã€‚
      * @param argItems
-     *            ƒ‹[ƒv‘ÎÛ‚Æ‚È‚éƒIƒuƒWƒFƒNƒgB
-     * @return for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            ãƒ«ãƒ¼ãƒ—å¯¾è±¡ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static String getForBeginPython(int argTargetLang, String argItem,
             String argItems) {
@@ -203,8 +203,8 @@ class BlancoCgStatementUtil {
             break;
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil.getForBeginRuby: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê("
-                            + argTargetLang + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil.getForBeginRuby: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª("
+                            + argTargetLang + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
 
         String argLine = "for " + argItem + " in " + argItems + ":";
@@ -214,19 +214,19 @@ class BlancoCgStatementUtil {
 
     /**
      * 
-     * for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Delphi‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B
+     * Delphiã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argItem
-     *            ƒ‹[ƒvƒJƒEƒ“ƒ^B
+     *            ãƒ«ãƒ¼ãƒ—ã‚«ã‚¦ãƒ³ã‚¿ã€‚
      * @param argStart
-     *            ƒ‹[ƒv‚ÌŠJn’lB
+     *            ãƒ«ãƒ¼ãƒ—ã®é–‹å§‹å€¤ã€‚
      * @param argEnd
-     *            ƒ‹[ƒv‚ÌI—¹’lB
-     * @return for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            ãƒ«ãƒ¼ãƒ—ã®çµ‚äº†å€¤ã€‚
+     * @return foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static String getForBeginDelphi(int argTargetLang,
             final String argCounter, final String argFrom, final String argTo) {
@@ -235,8 +235,8 @@ class BlancoCgStatementUtil {
             break;
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil.getForBeginRuby: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê("
-                            + argTargetLang + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil.getForBeginRuby: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª("
+                            + argTargetLang + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
 
         String argLine = "for " + argCounter + " := " + argFrom + " to "
@@ -246,11 +246,11 @@ class BlancoCgStatementUtil {
     }
 
     /**
-     * for•¶‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return for•¶‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return foræ–‡ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getForEnd(final int argTargetLang) {
         switch (argTargetLang) {
@@ -260,7 +260,7 @@ class BlancoCgStatementUtil {
         case BlancoCgSupportedLang.PHP:
             return "}";
         case BlancoCgSupportedLang.VB:
-            // ƒ‹[ƒv•Ï”‚ÍÈ—ª‚µ‚Ü‚·B
+            // ãƒ«ãƒ¼ãƒ—å¤‰æ•°ã¯çœç•¥ã—ã¾ã™ã€‚
             return "Next";
         case BlancoCgSupportedLang.RUBY:
             return "end";
@@ -270,19 +270,19 @@ class BlancoCgStatementUtil {
             return "end;";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * for•¶‚ğ”²‚¯‚é•¶‚ğ•\‚í‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã‚’æŠœã‘ã‚‹æ–‡ã‚’è¡¨ã‚ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * •¶‚ÌI‚í‚è‚ğ¦‚·•¶š(Java‚Ìê‡AƒZƒ~ƒRƒƒ“)‚ÍŠÜ‚İ‚Ü‚¹‚ñB
+     * æ–‡ã®çµ‚ã‚ã‚Šã‚’ç¤ºã™æ–‡å­—(Javaã®å ´åˆã€ã‚»ãƒŸã‚³ãƒ­ãƒ³)ã¯å«ã¿ã¾ã›ã‚“ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return for•¶‚ğ”²‚¯‚é•¶‚ğ•\‚í‚·•¶š—ñB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return foræ–‡ã‚’æŠœã‘ã‚‹æ–‡ã‚’è¡¨ã‚ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getForExit(final int argTargetLang) {
         switch (argTargetLang) {
@@ -298,21 +298,21 @@ class BlancoCgStatementUtil {
             return "Exit For";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * while•¶‚ÌŠJn•”•ª‚ğ•\‚í‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * whileæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã‚ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Ruby, Python‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B
+     * Ruby, Pythonã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argCon
-     *            ğŒ®B
-     * @return while•¶‚ÌŠJn•”•ª‚ğ•\‚í‚·•¶š—ñB
+     *            æ¡ä»¶å¼ã€‚
+     * @return whileæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã‚ã™æ–‡å­—åˆ—ã€‚
      */
     public static String getWhileBeginRuby(int argTargetLang, String argCon) {
         switch (argTargetLang) {
@@ -324,21 +324,21 @@ class BlancoCgStatementUtil {
             return "while " + argCon + " do begin";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil.getWhileBeginRuby: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê("
-                            + argTargetLang + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil.getWhileBeginRuby: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª("
+                            + argTargetLang + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * while•¶‚ÌŠJn•”•ª‚ğ•\‚í‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * whileæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã‚ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Delphi‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B
+     * Delphiã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argCon
-     *            ğŒ®B
-     * @return while•¶‚ÌŠJn•”•ª‚ğ•\‚í‚·•¶š—ñB
+     *            æ¡ä»¶å¼ã€‚
+     * @return whileæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã‚ã™æ–‡å­—åˆ—ã€‚
      */
     public static String getWhileBeginDelphi(int argTargetLang, String argCon) {
         switch (argTargetLang) {
@@ -346,20 +346,20 @@ class BlancoCgStatementUtil {
             return "while " + argCon + " do begin";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil.getWhileBeginRuby: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê("
-                            + argTargetLang + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil.getWhileBeginRuby: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª("
+                            + argTargetLang + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * while•¶‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * whileæ–‡ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Ruby, Python‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B Python‚Å‚ÍAwhile•¶‚ÌI—¹•”•ª‚Í•¶–@“I‚É•K—v‚ ‚è‚Ü‚¹‚ñ‚ªA
-     * ©“®¶¬‚³‚ê‚½ƒ\[ƒXƒR[ƒh‚ğ®Œ`‚·‚é‚½‚ß‚ÉAƒRƒƒ“ƒg•¶š—ñ ‚ğ–ß‚µ‚Ü‚·B
+     * Ruby, Pythonã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚ Pythonã§ã¯ã€whileæ–‡ã®çµ‚äº†éƒ¨åˆ†ã¯æ–‡æ³•çš„ã«å¿…è¦ã‚ã‚Šã¾ã›ã‚“ãŒã€
+     * è‡ªå‹•ç”Ÿæˆã•ã‚ŒãŸã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’æ•´å½¢ã™ã‚‹ãŸã‚ã«ã€ã‚³ãƒ¡ãƒ³ãƒˆæ–‡å­—åˆ— ã‚’æˆ»ã—ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return while•¶‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return whileæ–‡ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getWhileEnd(final int argTargetLang) {
         switch (argTargetLang) {
@@ -371,23 +371,23 @@ class BlancoCgStatementUtil {
             return "end;";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * eachƒuƒƒbƒN‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * eachãƒ–ãƒ­ãƒƒã‚¯ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Ruby‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B
+     * Rubyã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argObject
-     *            eachƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·‘ÎÛ‚Æ‚È‚éƒIƒuƒWƒFƒNƒgB
+     *            eachãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™å¯¾è±¡ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @param argVariable
-     *            eachƒƒ\ƒbƒh‚ÌŒ»İ’lB
-     * @return eachƒuƒƒbƒN‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            eachãƒ¡ã‚½ãƒƒãƒ‰ã®ç¾åœ¨å€¤ã€‚
+     * @return eachãƒ–ãƒ­ãƒƒã‚¯ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static String getEachBeginRuby(int argTargetLang, String argObject,
             String argVariable) {
@@ -397,19 +397,19 @@ class BlancoCgStatementUtil {
             return argObject + ".each do |" + argVariable + "|";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * eachƒuƒƒbƒN‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * eachãƒ–ãƒ­ãƒƒã‚¯ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Ruby‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B
+     * Rubyã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return eachƒuƒƒbƒN‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return eachãƒ–ãƒ­ãƒƒã‚¯ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getEachEnd(final int argTargetLang) {
         switch (argTargetLang) {
@@ -417,19 +417,19 @@ class BlancoCgStatementUtil {
             return "end";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * •¶‚ÌI‚í‚è‚ğ¦‚·•¶š‚ğæ“¾‚µ‚Ü‚·B
+     * æ–‡ã®çµ‚ã‚ã‚Šã‚’ç¤ºã™æ–‡å­—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Java‚È‚Ç‘½‚­‚ÌŒ¾Œê‚Å‚ÍAƒZƒ~ƒRƒƒ“‚ğ–ß‚µ‚Ü‚·B Ruby‚È‚Ç•¶‚ÌI‚í‚è‚ğ¦‚·•¶š‚ª•K—v‚È‚¢Œ¾Œê‚Å‚ÍA’·‚³0‚Ì•¶š—ñ‚ğ –ß‚µ‚Ü‚·B
+     * Javaãªã©å¤šãã®è¨€èªã§ã¯ã€ã‚»ãƒŸã‚³ãƒ­ãƒ³ã‚’æˆ»ã—ã¾ã™ã€‚ Rubyãªã©æ–‡ã®çµ‚ã‚ã‚Šã‚’ç¤ºã™æ–‡å­—ãŒå¿…è¦ãªã„è¨€èªã§ã¯ã€é•·ã•0ã®æ–‡å­—åˆ—ã‚’ æˆ»ã—ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return •¶‚ÌI‚í‚è‚ğ¦‚·•¶šB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return æ–‡ã®çµ‚ã‚ã‚Šã‚’ç¤ºã™æ–‡å­—ã€‚
      */
     public static final String getTerminator(final int argTargetLang) {
         switch (argTargetLang) {
@@ -445,21 +445,21 @@ class BlancoCgStatementUtil {
             return "";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * return•¶‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * returnæ–‡ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * •¶‚ÌI‚í‚è‚ğ¦‚·•¶š(Java‚Ìê‡AƒZƒ~ƒRƒƒ“)‚ÍŠÜ‚İ‚Ü‚¹‚ñB
+     * æ–‡ã®çµ‚ã‚ã‚Šã‚’ç¤ºã™æ–‡å­—(Javaã®å ´åˆã€ã‚»ãƒŸã‚³ãƒ­ãƒ³)ã¯å«ã¿ã¾ã›ã‚“ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argExpr
-     *            return‚³‚ê‚é®B
-     * @return return•¶‚ğ•\‚·•¶š—ñB
+     *            returnã•ã‚Œã‚‹å¼ã€‚
+     * @return returnæ–‡ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getReturn(final int argTargetLang,
             final String argExpr) {
@@ -471,15 +471,15 @@ class BlancoCgStatementUtil {
         case BlancoCgSupportedLang.RUBY:
         case BlancoCgSupportedLang.PYTHON:
         case BlancoCgSupportedLang.DELPHI:
-            // ’ˆÓBƒZƒ~ƒRƒƒ“‚ÍŠÜ‚İ‚Ü‚¹‚ñB
+            // æ³¨æ„ã€‚ã‚»ãƒŸã‚³ãƒ­ãƒ³ã¯å«ã¿ã¾ã›ã‚“ã€‚
             return "return " + argExpr;
         case BlancoCgSupportedLang.VB:
-            // ƒ‹[ƒv•Ï”‚ÍÈ—ª‚µ‚Ü‚·B
+            // ãƒ«ãƒ¼ãƒ—å¤‰æ•°ã¯çœç•¥ã—ã¾ã™ã€‚
             return "Return " + argExpr;
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgStatementUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgStatementUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 

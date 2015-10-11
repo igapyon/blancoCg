@@ -19,47 +19,47 @@ import blanco.cg.valueobject.BlancoCgMethod;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * blancoCg‚ÌBlancoCgTransformer‚ğ©“®¶¬‚·‚é‚½‚ß‚ÌƒNƒ‰ƒX‚Å‚·B
+ * blancoCgã®BlancoCgTransformerã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  * 
- * ƒ\[ƒXƒR[ƒh©“®¶¬ƒ‰ƒCƒuƒ‰ƒŠ blancoCg ‚»‚Ì‚à‚Ì‚Ìˆê•”‚ğ©“®¶¬‚µ‚Ü‚·B
+ * ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆãƒ©ã‚¤ãƒ–ãƒ©ãƒª blancoCg ãã®ã‚‚ã®ã®ä¸€éƒ¨ã‚’è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoCgTransformerCg {
     /**
-     * blancoCgã‚ÌƒIƒuƒWƒFƒNƒg‚ğ¶¬‚·‚é‚½‚ß‚Ìƒtƒ@ƒNƒgƒŠB
+     * blancoCgä¸Šã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹ãŸã‚ã®ãƒ•ã‚¡ã‚¯ãƒˆãƒªã€‚
      */
     private final BlancoCgObjectFactory cgFactory = BlancoCgObjectFactory
             .getInstance();
 
     /**
-     * ƒ\[ƒXƒR[ƒh‚Ì“WŠJ‚ğs‚¢‚Ü‚·B
+     * ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å±•é–‹ã‚’è¡Œã„ã¾ã™ã€‚
      * 
      * @param targetDirectory
-     *            ƒ\[ƒXƒR[ƒho—Íæƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å‡ºåŠ›å…ˆãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚
      */
     public void process(final File targetDirectory) {
-        // ƒ\[ƒXƒtƒ@ƒCƒ‹ƒwƒbƒ_‚ğ“WŠJ‚µ‚Ü‚·B
+        // ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ˜ãƒƒãƒ€ã‚’å±•é–‹ã—ã¾ã™ã€‚
         final BlancoCgSourceFile cgSourceFile = expandSourceFileHeader("blanco.cg");
 
-        // ƒCƒ“ƒ^ƒtƒF[ƒX‚ğ“WŠJ‚µ‚Ü‚·B
+        // ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å±•é–‹ã—ã¾ã™ã€‚
         final BlancoCgInterface cgInterface = expandInterface(cgSourceFile);
 
-        // ƒƒ\ƒbƒh‚ğ“WŠJ‚µ‚Ü‚·B
+        // ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
         cgInterface.getMethodList().add(expandTransformMethod());
         cgInterface.getMethodList().add(expandTransform2Method());
 
-        // ƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚ğ“ü—Í‚Æ‚µ‚ÄAƒ\[ƒXƒR[ƒh‚ğo—Í‚µ‚Ü‚·B
+        // ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å…¥åŠ›ã¨ã—ã¦ã€ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’å‡ºåŠ›ã—ã¾ã™ã€‚
         BlancoCgTransformerFactory.getJavaSourceTransformer().transform(
                 cgSourceFile, targetDirectory);
     }
 
     /**
-     * ƒ\[ƒXƒtƒ@ƒCƒ‹ƒwƒbƒ_[‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ˜ãƒƒãƒ€ãƒ¼ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param argPackage
-     *            ƒ\[ƒXƒR[ƒh‚ªŠ‘®‚·‚éƒpƒbƒP[ƒWB
-     * @return ƒ\[ƒXƒtƒ@ƒCƒ‹ƒIƒuƒWƒFƒNƒgB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ãŒæ‰€å±ã™ã‚‹ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã€‚
+     * @return ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      */
     public BlancoCgSourceFile expandSourceFileHeader(final String argPackage) {
         final BlancoCgSourceFile cgSourceFile = cgFactory.createSourceFile(
@@ -83,70 +83,70 @@ public class BlancoCgTransformerCg {
     }
 
     /**
-     * ƒCƒ“ƒ^ƒtƒF[ƒX‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹ƒIƒuƒWƒFƒNƒgB
-     * @return ƒCƒ“ƒ^ƒtƒF[ƒXƒIƒuƒWƒFƒNƒgB
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      */
     private BlancoCgInterface expandInterface(
             final BlancoCgSourceFile cgSourceFile) {
         final BlancoCgInterface cgInterface = cgFactory.createInterface(
                 "BlancoCgTransformer",
-                "blancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ğ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚Å‚·B");
+                "blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã§ã™ã€‚");
         cgSourceFile.getInterfaceList().add(cgInterface);
 
         cgInterface.getLangDoc().getTagList().add(
                 cgFactory.createLangDocTag("author", null, "IGA Tosiki"));
         cgInterface.getLangDoc().getDescriptionList().add(
-                "ŒÂ•Ê‚ÌŒ¾Œê—p‚Ìƒ\[ƒXƒR[ƒh©“®¶¬•”•ª‚ÍA‚±‚ÌƒCƒ“ƒ^ƒtƒF[ƒX‚ğÀ‘•‚µ‚ÄÀŒ»‚³‚ê‚Ü‚·B");
+                "å€‹åˆ¥ã®è¨€èªç”¨ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è‡ªå‹•ç”Ÿæˆéƒ¨åˆ†ã¯ã€ã“ã®ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã—ã¦å®Ÿç¾ã•ã‚Œã¾ã™ã€‚");
 
         return cgInterface;
     }
 
     /**
-     * transformƒƒ\ƒbƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * transformãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
-     * @return ƒƒ\ƒbƒhƒIƒuƒWƒFƒNƒgB
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      */
     private BlancoCgMethod expandTransformMethod() {
         final BlancoCgMethod cgMethod = cgFactory.createMethod("transform",
-                "ƒ\[ƒXƒtƒ@ƒCƒ‹EƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚ğJavaƒ\[ƒXƒR[ƒh‚É•ÏŠ·‚µ‚Äo—ÍæƒfƒBƒŒƒNƒgƒŠ‚Éo—Í‚µ‚Ü‚·B");
+                "ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’Javaã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã«å¤‰æ›ã—ã¦å‡ºåŠ›å…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«å‡ºåŠ›ã—ã¾ã™ã€‚");
 
         cgMethod.getLangDoc().getDescriptionList().add(
-                "‚±‚ÌAPI‚Å‚ÍƒpƒbƒP[ƒW\‘¢‚ğƒfƒBƒŒƒNƒgƒŠ\‘¢‚Æ‚µ‚Äl—¶‚µ‚Ü‚·B");
+                "ã“ã®APIã§ã¯ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸æ§‹é€ ã‚’ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªæ§‹é€ ã¨ã—ã¦è€ƒæ…®ã—ã¾ã™ã€‚");
         cgMethod.getParameterList().add(
                 cgFactory.createParameter("sourceFile",
                         "blanco.cg.valueobject.BlancoCgSourceFile",
-                        "ƒ\[ƒXƒtƒ@ƒCƒ‹EƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒgB"));
+                        "ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚"));
         cgMethod.getParameterList().add(
                 cgFactory.createParameter("outputDirectory", "java.io.File",
-                        "o—Íæƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠB"));
+                        "å‡ºåŠ›å…ˆãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚"));
 
         return cgMethod;
     }
 
     /**
-     * transformƒƒ\ƒbƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * transformãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
-     * @return ƒƒ\ƒbƒhƒIƒuƒWƒFƒNƒgB
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      */
     public BlancoCgMethod expandTransform2Method() {
         final BlancoCgMethod cgMethod = cgFactory.createMethod("transform",
-                "ƒ\[ƒXƒtƒ@ƒCƒ‹EƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚ğƒ\[ƒXƒR[ƒh‚É•ÏŠ·‚µ‚Äƒ‰ƒCƒ^[‚Éo—Í‚µ‚Ü‚·B");
+                "ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã«å¤‰æ›ã—ã¦ãƒ©ã‚¤ã‚¿ãƒ¼ã«å‡ºåŠ›ã—ã¾ã™ã€‚");
 
         cgMethod.getLangDoc().getDescriptionList().add(
-                "‚±‚ÌAPI‚Å‚ÍƒpƒbƒP[ƒW\‘¢‚ğƒfƒBƒŒƒNƒgƒŠ\‘¢‚Æ‚Íl—¶‚µ‚Ü‚¹‚ñB");
+                "ã“ã®APIã§ã¯ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸æ§‹é€ ã‚’ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªæ§‹é€ ã¨ã¯è€ƒæ…®ã—ã¾ã›ã‚“ã€‚");
         cgMethod.getParameterList().add(
                 cgFactory.createParameter("sourceFile",
                         "blanco.cg.valueobject.BlancoCgSourceFile",
-                        "ƒ\[ƒXƒtƒ@ƒCƒ‹EƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒgB"));
+                        "ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚"));
         cgMethod.getParameterList().add(
                 cgFactory.createParameter("writer", "java.io.BufferedWriter",
-                        "o—Íæ‚Ìƒ‰ƒCƒ^[B"));
+                        "å‡ºåŠ›å…ˆã®ãƒ©ã‚¤ã‚¿ãƒ¼ã€‚"));
         cgMethod.getThrowList().add(
                 cgFactory.createException("java.io.IOException",
-                        "“üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B"));
+                        "å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚"));
 
         return cgMethod;
     }

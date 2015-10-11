@@ -22,13 +22,13 @@ import blanco.cg.valueobject.BlancoCgMethod;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * DelphiŒ¾Œê—p‚Ì¶¬Œ±B
+ * Delphiè¨€èªç”¨ã®ç”Ÿæˆè©¦é¨“ã€‚
  * 
  * @author YAMAMOTO Koji
  */
 public class BlancoCgTransformerDelphiTest extends TestCase {
     /**
-     * Delphi‚ÌŒ±B
+     * Delphiã®è©¦é¨“ã€‚
      * 
      * @throws Exception
      */
@@ -36,19 +36,19 @@ public class BlancoCgTransformerDelphiTest extends TestCase {
         final BlancoCgObjectFactory cgFactory = BlancoCgObjectFactory
                 .getInstance();
 
-        // ƒ\[ƒXƒtƒ@ƒCƒ‹‚ğ¶¬‚µ‚Ü‚·B
+        // ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
 
         final BlancoCgSourceFile cgSourceFile = cgFactory.createSourceFile(
-                "Unit1", "ƒeƒXƒg—p‚ÌƒNƒ‰ƒX");
+                "Unit1", "ãƒ†ã‚¹ãƒˆç”¨ã®ã‚¯ãƒ©ã‚¹");
         cgSourceFile.setName("Unit1");
 
         cgSourceFile.getImportList().add("System.Text.DummyText");
-        // “¯‚¶ƒpƒbƒP[ƒW‚ÌƒCƒ“ƒ|[ƒgŒ±B
+        // åŒã˜ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®ã‚¤ãƒ³ãƒãƒ¼ãƒˆè©¦é¨“ã€‚
         cgSourceFile.getImportList().add("Myprog.MyClass2");
 
-        // ƒNƒ‰ƒX‚ğ¶¬‚µ‚Ü‚·B
+        // ã‚¯ãƒ©ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgClass cgClass = cgFactory.createClass("TMyClass",
-                "‚±‚ÌƒNƒ‰ƒX‚ÍAƒeƒXƒg‚Ì‚½‚ß‚ÌƒNƒ‰ƒX‚Å‚·B");
+                "ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€ãƒ†ã‚¹ãƒˆã®ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã§ã™ã€‚");
         cgSourceFile.getClassList().add(cgClass);
         // cgClass.getLangDoc().getTagList().add(
         // cgFactory.createLangDocTag("author", null, "blanco Framework"));
@@ -58,65 +58,65 @@ public class BlancoCgTransformerDelphiTest extends TestCase {
         // cgClass.getImplementInterfaceList().add(
         // cgFactory.createType("System.WebException2"));
 
-        // —ñ‹“‘Ì
+        // åˆ—æŒ™ä½“
         // final BlancoCgEnum cgEnum = cgFactory.createEnum("FavorColor",
-        // "—ñ‹“‘Ì‚ÌŒ±B");
+        // "åˆ—æŒ™ä½“ã®è©¦é¨“ã€‚");
         // cgClass.getEnumList().add(cgEnum);
         // final BlancoCgEnumElement cgEnumElementFirst = cgFactory
-        // .createEnumElement("Red", "‚ ‚©");
+        // .createEnumElement("Red", "ã‚ã‹");
         // cgEnumElementFirst.setDefault("1");
         // cgEnum.getElementList().add(cgEnumElementFirst);
         // cgEnum.getElementList().add(
-        // cgFactory.createEnumElement("Yerrow", "‚«‚¢‚ë"));
+        // cgFactory.createEnumElement("Yerrow", "ãã„ã‚"));
         // cgEnum.getElementList().add(cgFactory.createEnumElement("Blue",
-        // "‚ ‚¨"));
+        // "ã‚ãŠ"));
 
-        // ƒtƒB[ƒ‹ƒh‚ğ¶¬‚µ‚Ü‚·B
+        // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgField cgField = cgFactory.createField("MyField",
-                "String", "StringƒtƒB[ƒ‹ƒh‚ÌŒ±‚Å‚·B");
+                "String", "Stringãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®è©¦é¨“ã§ã™ã€‚");
         cgClass.getFieldList().add(cgField);
         // cgField.setDefault("new DateTime()");
         //
         // final BlancoCgField cgField2 = cgFactory.createField("myField2",
-        // "java.util.Date", "“ú•tƒtƒB[ƒ‹ƒh‚ÌŒ±v2‚Å‚·B");
+        // "java.util.Date", "æ—¥ä»˜ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®è©¦é¨“v2ã§ã™ã€‚");
         // cgClass.getFieldList().add(cgField2);
         // cgField2.getType().setArray(true);
 
-        // ƒvƒƒV[ƒWƒƒ‚ğ¶¬‚µ‚Ü‚·B
+        // ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgMethod cgMethod = cgFactory.createMethod("MyMethod",
-                "ƒvƒƒV[ƒWƒƒ‚ÌŒ±‚Å‚·B");
+                "ãƒ—ãƒ­ã‚·ãƒ¼ã‚¸ãƒ£ã®è©¦é¨“ã§ã™ã€‚");
         cgClass.getMethodList().add(cgMethod);
 
-        // ƒpƒ‰ƒ[ƒ^‚ğ’Ç‰Á‚µ‚Ü‚·B
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¿½åŠ ã—ã¾ã™ã€‚
         cgMethod.getParameterList().add(
-                cgFactory.createParameter("argString", "String", "•¶š—ñˆø”B"));
+                cgFactory.createParameter("argString", "String", "æ–‡å­—åˆ—å¼•æ•°ã€‚"));
         cgMethod.getParameterList().add(
-                cgFactory.createParameter("argInt", "integer", "®”ˆø”B"));
+                cgFactory.createParameter("argInt", "integer", "æ•´æ•°å¼•æ•°ã€‚"));
 
-        // ƒtƒ@ƒ“ƒNƒVƒ‡ƒ“‚ğ¶¬‚µ‚Ü‚·B
+        // ãƒ•ã‚¡ãƒ³ã‚¯ã‚·ãƒ§ãƒ³ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgMethod cgFunction = cgFactory.createMethod("MyFunction",
-                "ƒƒ\ƒbƒh‚ÌŒ±‚Å‚·B");
+                "ãƒ¡ã‚½ãƒƒãƒ‰ã®è©¦é¨“ã§ã™ã€‚");
         cgClass.getMethodList().add(cgFunction);
 
-        // ƒpƒ‰ƒ[ƒ^‚ğ’Ç‰Á‚µ‚Ü‚·B
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¿½åŠ ã—ã¾ã™ã€‚
         cgFunction.getParameterList().add(
-                cgFactory.createParameter("argString", "String", "•¶š—ñˆø”B"));
+                cgFactory.createParameter("argString", "String", "æ–‡å­—åˆ—å¼•æ•°ã€‚"));
         cgFunction.getParameterList().add(
-                cgFactory.createParameter("argInt", "integer", "®”ˆø”B"));
+                cgFactory.createParameter("argInt", "integer", "æ•´æ•°å¼•æ•°ã€‚"));
 
-        // –ß‚è’l‚ğİ’è‚µ‚Ü‚·B
-        cgFunction.setReturn(cgFactory.createReturn("boolean", "¬Œ÷‚È‚çtrueB"));
+        // æˆ»ã‚Šå€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
+        cgFunction.setReturn(cgFactory.createReturn("boolean", "æˆåŠŸãªã‚‰trueã€‚"));
 
         // cgMethod.getThrowList().add(
         // cgFactory.createException("System.IO.IOException",
-        // "“üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B"));
+        // "å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚"));
 
-        // ƒAƒmƒe[ƒVƒ‡ƒ“‚Ì’Ç‰ÁB
+        // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®è¿½åŠ ã€‚
         // cgMethod.getAnnotationList().add(
         // "Copyright(value=\"blanco Framework\")");
 
-        // ƒƒ\ƒbƒh‚Ì“à—e‚ğ’Ç‰Á‚µ‚Ü‚·B
-        // cgMethod.getLineList().add("// ‘ã“ü‚ÌŒ±‚Å‚·B");
+        // ãƒ¡ã‚½ãƒƒãƒ‰ã®å†…å®¹ã‚’è¿½åŠ ã—ã¾ã™ã€‚
+        // cgMethod.getLineList().add("// ä»£å…¥ã®è©¦é¨“ã§ã™ã€‚");
         // cgMethod.getLineList().add("int a = 0;");
 
         final BlancoCgTransformer cgTransformerDelphi = BlancoCgTransformerFactory

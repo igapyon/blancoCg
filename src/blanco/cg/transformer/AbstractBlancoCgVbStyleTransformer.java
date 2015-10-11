@@ -21,61 +21,61 @@ import blanco.commons.util.BlancoFileUtil;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * VB.NET ƒXƒ^ƒCƒ‹‚Ì’ŠÛƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚Å‚·B
+ * VB.NET ã‚¹ã‚¿ã‚¤ãƒ«ã®æŠ½è±¡ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public abstract class AbstractBlancoCgVbStyleTransformer extends
         AbstractBlancoCgTransformer {
     /**
-     * ƒfƒoƒbƒOƒ‚[ƒh‚Å“®ì‚³‚¹‚é‚©‚Ç‚¤‚©B
+     * ãƒ‡ãƒãƒƒã‚°ãƒ¢ãƒ¼ãƒ‰ã§å‹•ä½œã•ã›ã‚‹ã‹ã©ã†ã‹ã€‚
      */
     private static final boolean IS_DEBUG = false;
 
     /**
-     * ƒ\[ƒXƒtƒ@ƒCƒ‹EƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚ğJavaƒ\[ƒXƒR[ƒh‚É•ÏŠ·‚µ‚Äo—ÍæƒfƒBƒŒƒNƒgƒŠ‚Éo—Í‚µ‚Ü‚·B
+     * ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’Javaã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã«å¤‰æ›ã—ã¦å‡ºåŠ›å…ˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«å‡ºåŠ›ã—ã¾ã™ã€‚
      * 
-     * ‚±‚ÌAPI‚Å‚ÍƒpƒbƒP[ƒW\‘¢‚ğƒfƒBƒŒƒNƒgƒŠ\‘¢‚Æ‚µ‚Äl—¶‚µ‚Ü‚·B
+     * ã“ã®APIã§ã¯ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸æ§‹é€ ã‚’ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªæ§‹é€ ã¨ã—ã¦è€ƒæ…®ã—ã¾ã™ã€‚
      * 
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹EƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒgB
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @param outputDirectory
-     *            o—Íæƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠB
+     *            å‡ºåŠ›å…ˆãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã€‚
      */
     public void transform(final BlancoCgSourceFile argSourceFile,
             final File outputDirectory) {
         if (argSourceFile == null) {
-            throw new IllegalArgumentException("ƒ\[ƒXƒtƒ@ƒCƒ‹‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½Bˆ—’†’f‚µ‚Ü‚·B");
+            throw new IllegalArgumentException("ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚å‡¦ç†ä¸­æ–­ã—ã¾ã™ã€‚");
         }
         if (outputDirectory == null) {
             throw new IllegalArgumentException(
-                    "o—Íæƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½Bˆ—’†’f‚µ‚Ü‚·B");
+                    "å‡ºåŠ›å…ˆãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚å‡¦ç†ä¸­æ–­ã—ã¾ã™ã€‚");
         }
 
         if (outputDirectory.exists() == false) {
             if (outputDirectory.mkdirs() == false) {
-                throw new IllegalArgumentException("o—Íæƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ["
+                throw new IllegalArgumentException("å‡ºåŠ›å…ˆãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª["
                         + outputDirectory.getAbsolutePath()
-                        + "]‚ª‘¶İ‚µ‚È‚©‚Á‚½‚Ì‚Åì¬‚µ‚æ‚¤‚Æ‚µ‚Ü‚µ‚½‚ªƒfƒBƒŒƒNƒgƒŠì¬‚É¸”s‚µ‚Ü‚µ‚½Bˆ—’†’f‚µ‚Ü‚·B");
+                        + "]ãŒå­˜åœ¨ã—ãªã‹ã£ãŸã®ã§ä½œæˆã—ã‚ˆã†ã¨ã—ã¾ã—ãŸãŒãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªä½œæˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚å‡¦ç†ä¸­æ–­ã—ã¾ã™ã€‚");
             }
         }
         if (outputDirectory.isDirectory() == false) {
-            throw new IllegalArgumentException("o—Íæƒ‹[ƒgƒfƒBƒŒƒNƒgƒŠ‚ÉƒfƒBƒŒƒNƒgƒŠ‚Å‚Í‚È‚¢ƒtƒ@ƒCƒ‹["
-                    + outputDirectory.getAbsolutePath() + "]‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½Bˆ—’†’f‚µ‚Ü‚·B");
+            throw new IllegalArgumentException("å‡ºåŠ›å…ˆãƒ«ãƒ¼ãƒˆãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã§ã¯ãªã„ãƒ•ã‚¡ã‚¤ãƒ«["
+                    + outputDirectory.getAbsolutePath() + "]ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚å‡¦ç†ä¸­æ–­ã—ã¾ã™ã€‚");
         }
 
         if (argSourceFile.getName() == null) {
-            // ƒtƒ@ƒCƒ‹–¼‚ªŠm’è‚µ‚Ä‚¢‚È‚¢‚Ì‚ÅAƒNƒ‰ƒX–¼‚Ü‚½‚ÍƒCƒ“ƒ^ƒtƒF[ƒX–¼‚©‚ç“±o‚µ‚Ü‚·B
+            // ãƒ•ã‚¡ã‚¤ãƒ«åãŒç¢ºå®šã—ã¦ã„ãªã„ã®ã§ã€ã‚¯ãƒ©ã‚¹åã¾ãŸã¯ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹åã‹ã‚‰å°å‡ºã—ã¾ã™ã€‚
             decideFilenameFromClassOrInterfaceName(argSourceFile);
         }
 
         try {
-            // ƒpƒbƒP[ƒW–¼‚©‚çƒfƒBƒŒƒNƒgƒŠ–¼‚Ö‚Æ•ÏŠ·B
+            // ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã‹ã‚‰ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªåã¸ã¨å¤‰æ›ã€‚
             String strSubdirectory = BlancoStringUtil.replaceAll(
                     BlancoStringUtil.null2Blank(argSourceFile.getPackage()),
                     '.', '/');
             if (strSubdirectory.length() > 0) {
-                // ƒTƒuƒfƒBƒŒƒNƒgƒŠ‚ª‘¶İ‚·‚éê‡‚É‚Ì‚İƒXƒ‰ƒbƒVƒ…‚ğ’Ç‰Á‚µ‚Ü‚·B
+                // ã‚µãƒ–ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªãŒå­˜åœ¨ã™ã‚‹å ´åˆã«ã®ã¿ã‚¹ãƒ©ãƒƒã‚·ãƒ¥ã‚’è¿½åŠ ã—ã¾ã™ã€‚
                 strSubdirectory = "/" + strSubdirectory;
             }
 
@@ -84,21 +84,21 @@ public abstract class AbstractBlancoCgVbStyleTransformer extends
                     + strSubdirectory);
             if (targetPackageDirectory.exists() == false) {
                 if (targetPackageDirectory.mkdirs() == false) {
-                    throw new IllegalArgumentException("o—Íæ‚ÌƒpƒbƒP[ƒWƒfƒBƒŒƒNƒgƒŠ["
+                    throw new IllegalArgumentException("å‡ºåŠ›å…ˆã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª["
                             + targetPackageDirectory.getAbsolutePath()
-                            + "]‚Ì¶¬‚É¸”s‚µ‚Ü‚µ‚½B");
+                            + "]ã®ç”Ÿæˆã«å¤±æ•—ã—ã¾ã—ãŸã€‚");
                 }
             }
 
-            // o—Íæ‚Ìƒtƒ@ƒCƒ‹‚ğŠm’è‚µ‚Ü‚·B
+            // å‡ºåŠ›å…ˆã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç¢ºå®šã—ã¾ã™ã€‚
             final File fileTarget = new File(targetPackageDirectory
                     .getAbsolutePath()
                     + "/" + argSourceFile.getName() + getSourceFileExt());
 
-            // ÀÛ‚Ìƒ\[ƒXƒR[ƒho—Íˆ—‚ğs‚¢‚Ü‚·B
+            // å®Ÿéš›ã®ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å‡ºåŠ›å‡¦ç†ã‚’è¡Œã„ã¾ã™ã€‚
             final ByteArrayOutputStream outStream = new ByteArrayOutputStream();
 
-            // ©“®¶¬‚·‚éƒ\[ƒXƒR[ƒh‚ÌƒGƒ“ƒR[ƒfƒBƒ“ƒOw’è‹@”\
+            // è‡ªå‹•ç”Ÿæˆã™ã‚‹ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°æŒ‡å®šæ©Ÿèƒ½
             OutputStreamWriter streamWriter = null;
             if (BlancoStringUtil.null2Blank(argSourceFile.getEncoding())
                     .length() == 0) {
@@ -118,7 +118,7 @@ public abstract class AbstractBlancoCgVbStyleTransformer extends
                         .toByteArray(), fileTarget)) {
                 case 0:
                     if (IS_DEBUG) {
-                        // ƒfƒoƒbƒO‚Ì‚İƒXƒLƒbƒv‚ğ•W€o—ÍB
+                        // ãƒ‡ãƒãƒƒã‚°æ™‚ã®ã¿ã‚¹ã‚­ãƒƒãƒ—ã‚’æ¨™æº–å‡ºåŠ›ã€‚
                         System.out.println(CMDLINE_PREFIX + "skip  : "
                                 + fileTarget.getAbsolutePath());
                     }
@@ -133,92 +133,92 @@ public abstract class AbstractBlancoCgVbStyleTransformer extends
                     break;
                 }
             } finally {
-                // ByteArrayOutputStream‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Í writer‚ÌƒNƒ[ƒY‚É‚æ‚Á‚Ä
-                // ƒXƒgƒŠ[ƒ€ƒ`ƒFƒCƒ“‚Ìd‘g‚İã ©“®“I‚ÉƒNƒ[ƒY‚³‚ê‚Ü‚·B
+                // ByteArrayOutputStreamã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯ writerã®ã‚¯ãƒ­ãƒ¼ã‚ºã«ã‚ˆã£ã¦
+                // ã‚¹ãƒˆãƒªãƒ¼ãƒ ãƒã‚§ã‚¤ãƒ³ã®ä»•çµ„ã¿ä¸Š è‡ªå‹•çš„ã«ã‚¯ãƒ­ãƒ¼ã‚ºã•ã‚Œã¾ã™ã€‚
 
                 if (writer != null) {
                     writer.close();
                 }
             }
         } catch (IOException ex) {
-            throw new IllegalArgumentException("ƒ\[ƒXƒR[ƒh‚ğo—Í‚·‚é‰ß’ö‚Å—áŠO‚ª”­¶‚µ‚Ü‚µ‚½B"
+            throw new IllegalArgumentException("ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’å‡ºåŠ›ã™ã‚‹éç¨‹ã§ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã—ãŸã€‚"
                     + ex.toString());
         }
     }
 
     /**
-     * ƒ\[ƒXƒR[ƒh‚ÌƒŠƒXƒg‚ğ®Œ`‚µ‚Ü‚·B
+     * ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®ãƒªã‚¹ãƒˆã‚’æ•´å½¢ã—ã¾ã™ã€‚
      * 
-     * JavaŒ¾Œê ‚¨‚æ‚Ñ C#.NETŒ¾Œê—p‚Ì®Œ`‚ğs‚¢‚Ü‚·B
+     * Javaè¨€èª ãŠã‚ˆã³ C#.NETè¨€èªç”¨ã®æ•´å½¢ã‚’è¡Œã„ã¾ã™ã€‚
      * 
-     * Œ»“_‚Å‚Ìƒ\[ƒX®Œ`ƒ‹[ƒ`ƒ“‚Í Java/C#.NET‹¤’Ê‚Æl‚¦‚é‚±‚Æ‚ª‚Å‚«‚é‚Æ”»’f‚µ‚Ü‚·B<br>
-     * ‚È‚¨A‚±‚Ìˆ—‚Ì‚È‚©‚Å { ‚â } ‚Í“Á•Ê‚ÈˆÓ–¡‚ğ‚Á‚Ä‚¢‚Ü‚·Bs––ƒRƒƒ“ƒg‚È‚Ç‚ª“ü‚é‚ÆŠú‘Ò‚·‚é“®ì‚ª‚Å‚«‚Ü‚¹‚ñB<br>
-     * TODO ’†ƒJƒbƒR‚ğ•¶––‚É•t—^‚·‚éA‚È‚Ç‚ÌƒtƒH[ƒ}ƒbƒg‚È‚Ç‚Í–¢À‘•‚Å‚·B
+     * ç¾æ™‚ç‚¹ã§ã®ã‚½ãƒ¼ã‚¹æ•´å½¢ãƒ«ãƒ¼ãƒãƒ³ã¯ Java/C#.NETå…±é€šã¨è€ƒãˆã‚‹ã“ã¨ãŒã§ãã‚‹ã¨åˆ¤æ–­ã—ã¾ã™ã€‚<br>
+     * ãªãŠã€ã“ã®å‡¦ç†ã®ãªã‹ã§ { ã‚„ } ã¯ç‰¹åˆ¥ãªæ„å‘³ã‚’æŒã£ã¦ã„ã¾ã™ã€‚è¡Œæœ«ã‚³ãƒ¡ãƒ³ãƒˆãªã©ãŒå…¥ã‚‹ã¨æœŸå¾…ã™ã‚‹å‹•ä½œãŒã§ãã¾ã›ã‚“ã€‚<br>
+     * TODO ä¸­ã‚«ãƒƒã‚³ã‚’æ–‡æœ«ã«ä»˜ä¸ã™ã‚‹ã€ãªã©ã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãªã©ã¯æœªå®Ÿè£…ã§ã™ã€‚
      * 
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhsƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è¡Œãƒªã‚¹ãƒˆã€‚
      */
     protected void formatSource(final List<java.lang.String> argSourceLines) {
         int sourceIndent = 0;
         for (int index = 0; index < argSourceLines.size(); index++) {
             String strLine = argSourceLines.get(index);
-            // ‘OŒã‚Ì‹ó”’‚ÍA‚ ‚ç‚©‚¶‚ßœ‹‚µ‚Ü‚·B
+            // å‰å¾Œã®ç©ºç™½ã¯ã€ã‚ã‚‰ã‹ã˜ã‚é™¤å»ã—ã¾ã™ã€‚
             strLine = strLine.trim();
             if (strLine.length() == 0) {
-                // ‹ós‚Å‚·B
+                // ç©ºè¡Œã§ã™ã€‚
             } else {
                 boolean isBeginIndent = false;
                 boolean isEndIndent = false;
 
-                // ‚Ü‚¸‚ÍŠJn•¶š—ñ‚Ì”»’è‚ğs‚¢‚Ü‚·B
-                // ¦ŠJn•¶š—ñ‚ÆI—¹•¶š—ñ‚Æ‚Í•ÊŒÂ‚É”»’è‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
+                // ã¾ãšã¯é–‹å§‹æ–‡å­—åˆ—ã®åˆ¤å®šã‚’è¡Œã„ã¾ã™ã€‚
+                // â€»é–‹å§‹æ–‡å­—åˆ—ã¨çµ‚äº†æ–‡å­—åˆ—ã¨ã¯åˆ¥å€‹ã«åˆ¤å®šã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
                 if (strLine.startsWith("If ")) {
-                    // ƒuƒƒbƒNŠJn‚ÆŒ©‚È‚µ‚Äš‰º‚°‚ğ—\–ñ‚µ‚Ü‚·B
+                    // ãƒ–ãƒ­ãƒƒã‚¯é–‹å§‹ã¨è¦‹ãªã—ã¦å­—ä¸‹ã’ã‚’äºˆç´„ã—ã¾ã™ã€‚
                     isBeginIndent = true;
                 } else if (strLine.startsWith("For ")) {
-                    // ƒuƒƒbƒNŠJn‚ÆŒ©‚È‚µ‚Äš‰º‚°‚ğ—\–ñ‚µ‚Ü‚·B
+                    // ãƒ–ãƒ­ãƒƒã‚¯é–‹å§‹ã¨è¦‹ãªã—ã¦å­—ä¸‹ã’ã‚’äºˆç´„ã—ã¾ã™ã€‚
                     isBeginIndent = true;
                 } else if (strLine.startsWith("End ")) {
-                    // ƒuƒƒbƒNI—¹‚ÆŒ©‚È‚µ‚Äš‰º‚°‚µ‚Ü‚·B
+                    // ãƒ–ãƒ­ãƒƒã‚¯çµ‚äº†ã¨è¦‹ãªã—ã¦å­—ä¸‹ã’ã—ã¾ã™ã€‚
                     isEndIndent = true;
                 } else if (strLine.startsWith("Else ")) {
-                    // ƒuƒƒbƒNI—¹‚ÆŒ©‚È‚µ‚Äš‰º‚°‚µ‚Ü‚·B
+                    // ãƒ–ãƒ­ãƒƒã‚¯çµ‚äº†ã¨è¦‹ãªã—ã¦å­—ä¸‹ã’ã—ã¾ã™ã€‚
                     isEndIndent = true;
                 } else if (strLine.equals("Next")
                         || strLine.startsWith("Next ")) {
-                    // ƒuƒƒbƒNI—¹‚ÆŒ©‚È‚µ‚Äš‰º‚°‚µ‚Ü‚·B
+                    // ãƒ–ãƒ­ãƒƒã‚¯çµ‚äº†ã¨è¦‹ãªã—ã¦å­—ä¸‹ã’ã—ã¾ã™ã€‚
                     isEndIndent = true;
                 } else if (strLine.indexOf("Namespace ") >= 0
                         || strLine.indexOf("Class ") >= 0
                         || strLine.indexOf("Interface ") >= 0
                         || strLine.indexOf("Sub ") >= 0
                         || strLine.indexOf("Function ") >= 0) {
-                    // End‚æ‚èŒã‚Å”»’è‚µ‚Ä‚¢‚é‚Ì‚ªƒ|ƒCƒ“ƒg‚Å‚·B
-                    // ƒuƒƒbƒNŠJn‚ÆŒ©‚È‚µ‚Äš‰º‚°‚ğ—\–ñ‚µ‚Ü‚·B
+                    // Endã‚ˆã‚Šå¾Œã§åˆ¤å®šã—ã¦ã„ã‚‹ã®ãŒãƒã‚¤ãƒ³ãƒˆã§ã™ã€‚
+                    // ãƒ–ãƒ­ãƒƒã‚¯é–‹å§‹ã¨è¦‹ãªã—ã¦å­—ä¸‹ã’ã‚’äºˆç´„ã—ã¾ã™ã€‚
                     isBeginIndent = true;
                 }
 
-                // “r’†‚É‹²‚Ü‚é‚Å‚ ‚ë‚¤If‚ğ”»’è‚µ‚Ü‚·B
+                // é€”ä¸­ã«æŒŸã¾ã‚‹ã§ã‚ã‚ã†Ifã‚’åˆ¤å®šã—ã¾ã™ã€‚
                 if (strLine.indexOf(" If ") >= 0) {
-                    // ƒuƒƒbƒNŠJn‚ÆŒ©‚È‚µ‚Äš‰º‚°‚ğ—\–ñ‚µ‚Ü‚·B
+                    // ãƒ–ãƒ­ãƒƒã‚¯é–‹å§‹ã¨è¦‹ãªã—ã¦å­—ä¸‹ã’ã‚’äºˆç´„ã—ã¾ã™ã€‚
                     isBeginIndent = true;
                 }
 
                 if (isEndIndent) {
-                    // ƒtƒ‰ƒOˆê‰ñ‚É‚Â‚«AƒCƒ“ƒfƒ“ƒgˆêŒÂ‚ğ”½‰f‚µ‚Ü‚·B
+                    // ãƒ•ãƒ©ã‚°ä¸€å›ã«ã¤ãã€ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆä¸€å€‹ã‚’åæ˜ ã—ã¾ã™ã€‚
                     sourceIndent--;
                 }
 
-                // ƒCƒ“ƒfƒ“ƒg‚ğÀ{‚µ‚Ü‚·B
+                // ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’å®Ÿæ–½ã—ã¾ã™ã€‚
                 for (int indexIndent = 0; indexIndent < sourceIndent; indexIndent++) {
-                    // 4ƒ^ƒu‚Åš‰º‚°‚µ‚Ü‚·B
+                    // 4ã‚¿ãƒ–ã§å­—ä¸‹ã’ã—ã¾ã™ã€‚
                     strLine = "    " + strLine;
                 }
                 if (isBeginIndent) {
                     sourceIndent++;
                 }
 
-                // XVŒã‚ÌsƒCƒ[ƒW‚ÅƒŠƒXƒg‚ğXV‚µ‚Ü‚·B
+                // æ›´æ–°å¾Œã®è¡Œã‚¤ãƒ¡ãƒ¼ã‚¸ã§ãƒªã‚¹ãƒˆã‚’æ›´æ–°ã—ã¾ã™ã€‚
                 argSourceLines.set(index, strLine);
             }
         }

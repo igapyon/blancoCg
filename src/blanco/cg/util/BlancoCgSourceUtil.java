@@ -19,24 +19,24 @@ import blanco.commons.util.BlancoPhpSourceUtil;
 import blanco.commons.util.BlancoVbSourceUtil;
 
 /**
- * blancoCg�̃\�[�X�R�[�h�֘A���[�e�B���e�B�ł��B
+ * blancoCgのソースコード関連ユーティリティです。
  * 
- * ���̃N���X�̓v���O���~���O����𒴂��ė��p����܂��B
+ * このクラスはプログラミング言語を超えて利用されます。
  * 
  * @author IGA Tosiki
  */
 public class BlancoCgSourceUtil {
     /**
-     * �^����ꂽ��������\�[�X�R�[�h������Ƃ��ďo�͂�����̂Ƃ��ăG�X�P�[�v�������܂��B
+     * 与えられた文字列をソースコード文字列として出力するものとしてエスケープ処理します。
      * 
-     * ��/�o�b�N�X���b�V���̃G�X�P�[�v����щ��s�R�[�h�̃G�X�P�[�v���s���܂��B<br>
-     * ����ȊO�̏����͍s���܂���B���Ƃ��΃C���W�F�N�V�����U���Ȃǂւ̑ϐ��́A���̃��\�b�h�͈����܂���B
+     * ￥/バックスラッシュのエスケープおよび改行コードのエスケープを行います。<br>
+     * それ以外の処理は行いません。たとえばインジェクション攻撃などへの耐性は、このメソッドは扱いません。
      * 
      * @param targetLang
-     *            �o�͑Ώۂ̃v���O���~���O����B
+     *            出力対象のプログラミング言語。
      * @param originalString
-     *            ���͕�����B
-     * @return �G�X�P�[�v�������s��ꂽ��̕�����B
+     *            入力文字列。
+     * @return エスケープ処理が行われた後の文字列。
      */
     public static String escapeStringAsSource(final int targetLang,
             final String originalString) {
@@ -49,28 +49,28 @@ public class BlancoCgSourceUtil {
         case BlancoCgSupportedLang.VB:
             return BlancoVbSourceUtil.escapeStringAsVbSource(originalString);
         case BlancoCgSupportedLang.PHP:
-        case BlancoCgSupportedLang.RUBY: // TODO �Ó����̊m�F
-        case BlancoCgSupportedLang.PYTHON: // TODO �Ó����̊m�F
+        case BlancoCgSupportedLang.RUBY: // TODO 妥当性の確認
+        case BlancoCgSupportedLang.PYTHON: // TODO 妥当性の確認
             return BlancoPhpSourceUtil.escapeStringAsPhpSource(originalString);
-        case BlancoCgSupportedLang.DELPHI: // TODO �Ó����̊m�F
+        case BlancoCgSupportedLang.DELPHI: // TODO 妥当性の確認
             return escapeStringAsDelphiSource(originalString);
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgSourceUtil.escapeAsSourceString �ɃT�|�[�g����Ȃ�����("
-                            + targetLang + ")�������Ƃ��ė^�����܂����B");
+                    "BlancoCgSourceUtil.escapeAsSourceString にサポートされない言語("
+                            + targetLang + ")が引数として与えられました。");
         }
     }
 
     /**
-     * �^����ꂽ�����������h�L�������g������Ƃ��Ĉ������Ƃ��ł���悤�� �G�X�P�[�v�������܂��B
+     * 与えられた文字列を言語ドキュメント文字列として扱うことができるように エスケープ処理します。
      * 
-     * JavaDoc������Ƃ��ăG�X�P�[�v���s���܂��B HTML�Ƃ��ẴG�X�P�[�v�Ɠ����̏������s���܂��B�������h���G�X�P�[�v����܂��B
+     * JavaDoc文字列としてエスケープを行います。 HTMLとしてのエスケープと同等の処理が行われます。＜＞＆”がエスケープされます。
      * 
      * @param targetLang
-     *            �o�͑Ώۂ̃v���O���~���O����B
+     *            出力対象のプログラミング言語。
      * @param originalString
-     *            ���͕�����
-     * @return �G�X�P�[�v�������s��ꂽ��̕�����B
+     *            入力文字列
+     * @return エスケープ処理が行われた後の文字列。
      */
     public static final String escapeStringAsLangDoc(final int targetLang,
             final String originalString) {
@@ -86,26 +86,26 @@ public class BlancoCgSourceUtil {
             return BlancoJavaSourceUtil.escapeStringAsJavaDoc(originalString);
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgSourceUtil.escapeStringAsLangDoc �ɃT�|�[�g����Ȃ�����("
-                            + targetLang + ")�������Ƃ��ė^�����܂����B");
+                    "BlancoCgSourceUtil.escapeStringAsLangDoc にサポートされない言語("
+                            + targetLang + ")が引数として与えられました。");
         }
     }
     
     /**
-     * �^����ꂽ�������Delphi�\�[�X�R�[�h������Ƃ��ďo�͂��邽�߂̃G�X�P�[�v���������܂��B
+     * 与えられた文字列をDelphiソースコード文字列として出力するためのエスケープ処理をします。
      * 
-     * ��/�o�b�N�X���b�V���̃G�X�P�[�v����щ��s�R�[�h�̃G�X�P�[�v���s���܂��B<br>
-     * ����ȊO�̏����͍s���܂���B���Ƃ��΃C���W�F�N�V�����U���Ȃǂւ̑ϐ��́A���̃��\�b�h�͈����܂���B
+     * ￥/バックスラッシュのエスケープおよび改行コードのエスケープを行います。<br>
+     * それ以外の処理は行いません。たとえばインジェクション攻撃などへの耐性は、このメソッドは扱いません。
      * 
      * @param originalString
-     *            ���͕�����
-     * @return �G�X�P�[�v�������s��ꂽ��̕�����
+     *            入力文字列
+     * @return エスケープ処理が行われた後の文字列
      */
     private static final String escapeStringAsDelphiSource(
             final String originalString) {
         if (originalString == null) {
             throw new IllegalArgumentException(
-                    "BlancoCgSourceUtil.escapeStringAsDelphiSource�œ��͈ᔽ�������B���̃��\�b�h��null���p�����[�^�Ƃ��ė^�����܂����Bnull�ȊO�̒l����͂��Ă��������B");
+                    "BlancoCgSourceUtil.escapeStringAsDelphiSourceで入力違反が発生。このメソッドにnullがパラメータとして与えられました。null以外の値を入力してください。");
         }
 
         final StringReader reader = new StringReader(originalString);
@@ -117,7 +117,7 @@ public class BlancoCgSourceUtil {
                     break;
                 }
                 switch (iRead) {
-                // Delphi����ł́A�o�b�N�X���b�V�����G�X�P�[�v����K�v������܂���B
+                // Delphi言語では、バックスラッシュをエスケープする必要がありません。
 //                case '\\':
 //                    writer.write("\\");
 //                    break;
@@ -134,7 +134,7 @@ public class BlancoCgSourceUtil {
             }
             writer.flush();
         } catch (IOException e) {
-            // �����ɓ����Ă��邱�Ƃ́A���肦�܂���B
+            // ここに入ってくることは、ありえません。
             e.printStackTrace();
         }
         return writer.toString();

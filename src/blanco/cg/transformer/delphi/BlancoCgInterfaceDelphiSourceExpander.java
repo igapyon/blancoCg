@@ -20,39 +20,39 @@ import blanco.cg.valueobject.BlancoCgType;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgInterface‚ğƒ\[ƒXƒR[ƒh‚É“WŠJ‚µ‚Ü‚·B
+ * BlancoCgInterfaceã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã«å±•é–‹ã—ã¾ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍblancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ğ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌŒÂ•Ê‚Ì“WŠJ‹@”\‚Å‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã®å€‹åˆ¥ã®å±•é–‹æ©Ÿèƒ½ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 class BlancoCgInterfaceDelphiSourceExpander {
 
     /**
-     * ‚±‚±‚Åinterface‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã“ã“ã§interfaceã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
-     * C#.NET‚É‚Í JavaŒ¾Œê‚Æ“¯—l‚ÈƒCƒ“ƒ^ƒtƒF[ƒX‚ª‘¶İ‚µ‚Ü‚·B
+     * C#.NETã«ã¯ Javaè¨€èªã¨åŒæ§˜ãªã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ãŒå­˜åœ¨ã—ã¾ã™ã€‚
      * 
      * @param cgInterface
-     *            ˆ—‘ÎÛ‚Æ‚È‚éƒCƒ“ƒ^ƒtƒF[ƒXB
+     *            å‡¦ç†å¯¾è±¡ã¨ãªã‚‹ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã€‚
      */
     public void transformInterface(final BlancoCgInterface cgInterface,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
-        // ƒCƒ“ƒ^ƒtƒF[ƒX‚Ìê‡‚É‚Í JavaŒ¾Œê“¯—l‚ÉƒtƒB[ƒ‹ƒh‚âƒƒ\ƒbƒh‚©‚çpublic‚ªœŠO‚³‚ê‚Ü‚·B
+        // ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å ´åˆã«ã¯ Javaè¨€èªåŒæ§˜ã«ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚„ãƒ¡ã‚½ãƒƒãƒ‰ã‹ã‚‰publicãŒé™¤å¤–ã•ã‚Œã¾ã™ã€‚
 
-        // Å‰‚ÉƒCƒ“ƒ^ƒtƒF[ƒXî•ñ‚ğLangDoc‚É“WŠJB
+        // æœ€åˆã«ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹æƒ…å ±ã‚’LangDocã«å±•é–‹ã€‚
         if (cgInterface.getLangDoc() == null) {
-            // LangDoc–¢w’è‚Ìê‡‚É‚Í‚±‚¿‚ç‘¤‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬B
+            // LangDocæœªæŒ‡å®šã®å ´åˆã«ã¯ã“ã¡ã‚‰å´ã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã€‚
             cgInterface.setLangDoc(new BlancoCgLangDoc());
         }
         if (cgInterface.getLangDoc().getTitle() == null) {
             cgInterface.getLangDoc().setTitle(cgInterface.getDescription());
         }
 
-        // Ÿ‚É LangDoc‚ğƒ\[ƒXƒR[ƒhŒ`®‚É“WŠJB
+        // æ¬¡ã« LangDocã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å½¢å¼ã«å±•é–‹ã€‚
         new BlancoCgLangDocDelphiSourceExpander().transformLangDoc(cgInterface
                 .getLangDoc(), argSourceLines);
 
@@ -61,29 +61,29 @@ class BlancoCgInterfaceDelphiSourceExpander {
         if (BlancoStringUtil.null2Blank(cgInterface.getAccess()).length() > 0) {
             buf.append(cgInterface.getAccess() + " ");
         }
-        // static‚âfinal‚Í“WŠJ‚µ‚Ü‚¹‚ñB
+        // staticã‚„finalã¯å±•é–‹ã—ã¾ã›ã‚“ã€‚
         buf.append("interface " + cgInterface.getName());
 
-        // ‚±‚±‚ÅeƒNƒ‰ƒX‚ğ“WŠJB
+        // ã“ã“ã§è¦ªã‚¯ãƒ©ã‚¹ã‚’å±•é–‹ã€‚
         expandExtendClassList(cgInterface, buf);
 
-        // ¦ƒ|ƒCƒ“ƒg: eƒCƒ“ƒ^ƒtƒF[ƒX“WŠJ‚Í interface‚É‚Í‘¶İ‚µ‚Ü‚¹‚ñB
+        // â€»ãƒã‚¤ãƒ³ãƒˆ: è¦ªã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹å±•é–‹ã¯ interfaceã«ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚
 
         argSourceLines.add(buf.toString());
 
         argSourceLines.add("{");
 
-        // ‚±‚±‚ÅƒtƒB[ƒ‹ƒh‚ğ“WŠJB
+        // ã“ã“ã§ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å±•é–‹ã€‚
         expandFieldList(cgInterface, argSourceFile, argSourceLines);
 
-        // ‚±‚±‚Åƒƒ\ƒbƒh‚ğ“WŠJB
+        // ã“ã“ã§ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã€‚
         expandMethodList(cgInterface, argSourceFile, argSourceLines);
 
         argSourceLines.add("}");
     }
 
     /**
-     * eƒNƒ‰ƒX‚ğ“WŠJ‚µ‚Ü‚·B
+     * è¦ªã‚¯ãƒ©ã‚¹ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgClass
      * @param buf
@@ -97,7 +97,7 @@ class BlancoCgInterfaceDelphiSourceExpander {
                 buf.append(" : "
                         + BlancoCgTypeDelphiSourceExpander.toTypeString(type));
             } else {
-                // TODO C#.NET‚ÅŒp³‚ªˆê“x‚«‚è‚Æ‚¢‚¤§ŒÀ‚ª‚ ‚é‚©‚Ç‚¤‚©Šm”F‚·‚é‚±‚ÆB
+                // TODO C#.NETã§ç¶™æ‰¿ãŒä¸€åº¦ãã‚Šã¨ã„ã†åˆ¶é™ãŒã‚ã‚‹ã‹ã©ã†ã‹ç¢ºèªã™ã‚‹ã“ã¨ã€‚
                 buf.append(", "
                         + BlancoCgTypeDelphiSourceExpander.toTypeString(type));
             }
@@ -105,7 +105,7 @@ class BlancoCgInterfaceDelphiSourceExpander {
     }
 
     /**
-     * ŠÜ‚Ü‚ê‚éŠeX‚ÌƒtƒB[ƒ‹ƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * å«ã¾ã‚Œã‚‹å„ã€…ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgInterface
      * @param argSourceFile
@@ -115,9 +115,9 @@ class BlancoCgInterfaceDelphiSourceExpander {
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
         if (cgInterface.getFieldList() == null) {
-            // ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B
-            // ‚©‚È‚ç‚¸ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚É‚ÍList‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
-            throw new IllegalArgumentException("ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+            // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚
+            // ã‹ãªã‚‰ãšãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«ã¯Listã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
+            throw new IllegalArgumentException("ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
 
         for (int index = 0; index < cgInterface.getFieldList().size(); index++) {
@@ -128,7 +128,7 @@ class BlancoCgInterfaceDelphiSourceExpander {
     }
 
     /**
-     * ŠÜ‚Ü‚ê‚éŠeX‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * å«ã¾ã‚Œã‚‹å„ã€…ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgInterface
      * @param argSourceFile
@@ -138,7 +138,7 @@ class BlancoCgInterfaceDelphiSourceExpander {
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
         if (cgInterface.getMethodList() == null) {
-            throw new IllegalArgumentException("ƒƒ\ƒbƒh‚ÌƒŠƒXƒg‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+            throw new IllegalArgumentException("ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒªã‚¹ãƒˆã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
         for (int index = 0; index < cgInterface.getMethodList().size(); index++) {
             final BlancoCgMethod cgMethod = cgInterface.getMethodList().get(

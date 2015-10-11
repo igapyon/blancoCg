@@ -22,41 +22,41 @@ import blanco.commons.util.BlancoNameUtil;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgLangDoc(����h�L�������g)���\�[�X�R�[�h�ɓW�J���܂��B
+ * BlancoCgLangDoc(言語ドキュメント)をソースコードに展開します。
  * 
- * ���̃N���X��blancoCg�̃o�����[�I�u�W�F�N�g����\�[�X�R�[�h��������������g�����X�t�H�[�}�[�̌ʂ̓W�J�@�\�ł��B<br>
- * �N���X�A���\�b�h�A�t�B�[���h�ȂǁA�e�팾��h�L�������g��W�J���鋤�ʏ����ł��B
+ * このクラスはblancoCgのバリューオブジェクトからソースコードを自動生成するトランスフォーマーの個別の展開機能です。<br>
+ * クラス、メソッド、フィールドなど、各種言語ドキュメントを展開する共通処理です。
  * 
  * @author IGA Tosiki
  */
 class BlancoCgLangDocPhpSourceExpander {
     /**
-     * ���̃N���X�������ΏۂƂ���v���O���~���O����B
+     * このクラスが処理対象とするプログラミング言語。
      */
     protected static final int TARGET_LANG = BlancoCgSupportedLang.PHP;
 
     /**
-     * ����h�L�������g�������Ƀ\�[�X�R�[�h��W�J���܂��B
+     * 言語ドキュメント情報を元にソースコードを展開します。
      * 
      * @param langDoc
-     *            ����h�L�������g���B
+     *            言語ドキュメント情報。
      * @param argSourceLines
-     *            �\�[�X�R�[�h�B
+     *            ソースコード。
      */
     public void transformLangDoc(final BlancoCgLangDoc langDoc,
             final List<java.lang.String> argSourceLines) {
         argSourceLines.add("/**");
 
-        // �J�n�E�I���������{�̂�W�J���܂��B
+        // 開始・終了を除く本体を展開します。
         transformLangDocBody(langDoc, argSourceLines);
 
         argSourceLines.add("*/");
     }
 
     /**
-     * ����h�L�������g�̂����A�{�̕�����W�J���܂��B
+     * 言語ドキュメントのうち、本体部分を展開します。
      * 
-     * ���̃��\�b�h�̓\�[�X�t�@�C���̃t�@�C���w�b�_�[�W�J��������p����Ă��܂��B
+     * このメソッドはソースファイルのファイルヘッダー展開からも利用されています。
      * 
      * @param langDoc
      * @param argSourceLines
@@ -72,7 +72,7 @@ class BlancoCgLangDocPhpSourceExpander {
                             langDoc.getTitle()));
         }
 
-        // ��s���}���ς݂��ǂ������`�F�b�N���邽�߂̃t���O�B
+        // 空行が挿入済みかどうかをチェックするためのフラグ。
         boolean isLangDocDescriptionStarted = false;
 
         for (int indexDescription = 0; indexDescription < langDoc
@@ -80,7 +80,7 @@ class BlancoCgLangDocPhpSourceExpander {
             final String strDescrption = langDoc.getDescriptionList().get(
                     indexDescription);
 
-            // ��s�}���B
+            // 空行挿入。
             if (isLangDocDescriptionStarted == false) {
                 isLangDocDescriptionStarted = true;
                 if (isLangDocTitleStarted) {
@@ -91,16 +91,16 @@ class BlancoCgLangDocPhpSourceExpander {
             argSourceLines.add("* " + strDescrption);
         }
 
-        // ��s���}���ς݂��ǂ������`�F�b�N���邽�߂̃t���O�B
+        // 空行が挿入済みかどうかをチェックするためのフラグ。
         boolean isLangDocTagStarted = false;
 
-        // author�ȂǕt������W�J�B
+        // authorなど付加情報を展開。
         if (langDoc.getTagList() != null) {
             for (int index = 0; index < langDoc.getTagList().size(); index++) {
                 final BlancoCgLangDocTag langDocTag = langDoc.getTagList().get(
                         index);
 
-                // ��s�}���B
+                // 空行挿入。
                 if (isLangDocTagStarted == false) {
                     isLangDocTagStarted = true;
                     argSourceLines.add("*");
@@ -108,12 +108,12 @@ class BlancoCgLangDocPhpSourceExpander {
 
                 if (langDocTag.getName() == null) {
                     throw new IllegalArgumentException(
-                            "BlancoCgLangDocTag��name��null���^�����܂����B"
+                            "BlancoCgLangDocTagのnameにnullが与えられました。"
                                     + langDocTag.toString());
                 }
                 if (langDocTag.getValue() == null) {
                     throw new IllegalArgumentException(
-                            "BlancoCgLangDocTag��value��null���^�����܂����B"
+                            "BlancoCgLangDocTagのvalueにnullが与えられました。"
                                     + langDocTag.toString());
                 }
 
@@ -128,20 +128,20 @@ class BlancoCgLangDocPhpSourceExpander {
             }
         }
 
-        // ���\�b�h�p�����[�^��W�J�B
+        // メソッドパラメータを展開。
         for (int indexParameter = 0; indexParameter < langDoc
                 .getParameterList().size(); indexParameter++) {
             final BlancoCgParameter cgParameter = langDoc.getParameterList()
                     .get(indexParameter);
 
-            // ��s�}���B
+            // 空行挿入。
             if (isLangDocTagStarted == false) {
                 isLangDocTagStarted = true;
                 argSourceLines.add("*");
             }
 
             final StringBuffer bufParameter = new StringBuffer();
-            // �ŋ߂� PHPLint�����ł́A@param �^ $�ϐ� �̂悤�ȋL�ڂւƕύX����Ă��܂��B
+            // 最近の PHPLint実装では、@param 型 $変数 のような記載へと変更されています。
             bufParameter.append("* @param "
                     + BlancoNameUtil.trimJavaPackage(cgParameter.getType()
                             .getName()) + " "
@@ -159,7 +159,7 @@ class BlancoCgLangDocPhpSourceExpander {
         if (langDoc.getReturn() != null
                 && langDoc.getReturn().getType().getName().equals("void") == false) {
 
-            // ��s�}���B
+            // 空行挿入。
             if (isLangDocTagStarted == false) {
                 isLangDocTagStarted = true;
                 argSourceLines.add("*");
@@ -178,12 +178,12 @@ class BlancoCgLangDocPhpSourceExpander {
             argSourceLines.add(bufReturn.toString());
         }
 
-        // throws���X�g��W�J�B
+        // throwsリストを展開。
         for (int indexThrow = 0; indexThrow < langDoc.getThrowList().size(); indexThrow++) {
             final BlancoCgException cgException = langDoc.getThrowList().get(
                     indexThrow);
 
-            // ��s�}���B
+            // 空行挿入。
             if (isLangDocTagStarted == false) {
                 isLangDocTagStarted = true;
                 argSourceLines.add("*");
@@ -191,8 +191,8 @@ class BlancoCgLangDocPhpSourceExpander {
 
             final StringBuffer bufThrow = new StringBuffer();
 
-            // ����h�L�������g�����ɂ����ẮAblancoCg��Type�Ɋւ��鋤�ʏ����𗘗p���邱�Ƃ͂ł��܂���B
-            // �ʂɋL�q���s���܂��B
+            // 言語ドキュメント処理においては、blancoCgのTypeに関する共通処理を利用することはできません。
+            // 個別に記述を行います。
             bufThrow.append("* @throws "
                     + BlancoNameUtil.trimJavaPackage(cgException.getType()
                             .getName()));

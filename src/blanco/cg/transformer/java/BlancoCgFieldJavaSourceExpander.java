@@ -19,63 +19,63 @@ import blanco.cg.valueobject.BlancoCgSourceFile;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgField‚ğƒ\[ƒXƒR[ƒh‚Ö‚Æ“WŠJ‚µ‚Ü‚·B
+ * BlancoCgFieldã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã¸ã¨å±•é–‹ã—ã¾ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍblancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ğ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌŒÂ•Ê‚Ì“WŠJ‹@”\‚Å‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã®å€‹åˆ¥ã®å±•é–‹æ©Ÿèƒ½ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 class BlancoCgFieldJavaSourceExpander {
     /**
-     * ‚±‚ÌƒNƒ‰ƒX‚ªˆ—‘ÎÛ‚Æ‚·‚éƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     * ã“ã®ã‚¯ãƒ©ã‚¹ãŒå‡¦ç†å¯¾è±¡ã¨ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      */
     protected static final int TARGET_LANG = BlancoCgSupportedLang.JAVA;
 
     /**
-     * ‚±‚±‚ÅƒtƒB[ƒ‹ƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã“ã“ã§ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgField
-     *            ˆ—‘ÎÛ‚Æ‚È‚éƒtƒB[ƒ‹ƒhB
+     *            å‡¦ç†å¯¾è±¡ã¨ãªã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã€‚
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹B
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
      * @param argSourceLines
-     *            o—ÍæsƒŠƒXƒgB
+     *            å‡ºåŠ›å…ˆè¡Œãƒªã‚¹ãƒˆã€‚
      * @param argIsInterface
-     *            ƒCƒ“ƒ^ƒtƒF[ƒX‚©‚Ç‚¤‚©BƒNƒ‰ƒX‚Ìê‡‚É‚ÍfalseBƒCƒ“ƒ^ƒtƒF[ƒX‚Ìê‡‚É‚ÍtrueB
+     *            ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‹ã©ã†ã‹ã€‚ã‚¯ãƒ©ã‚¹ã®å ´åˆã«ã¯falseã€‚ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å ´åˆã«ã¯trueã€‚
      */
     public void transformField(final BlancoCgField cgField, final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines, final boolean argIsInterface) {
         if (BlancoStringUtil.null2Blank(cgField.getName()).length() == 0) {
-            throw new IllegalArgumentException("ƒtƒB[ƒ‹ƒh‚Ì–¼‘O‚É“KØ‚È’l‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+            throw new IllegalArgumentException("ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®åå‰ã«é©åˆ‡ãªå€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
         }
         if (BlancoStringUtil.null2Blank(cgField.getType().getName()).length() == 0) {
-            throw new IllegalArgumentException("ƒtƒB[ƒ‹ƒh[" + cgField.getName() + "]‚ÌŒ^‚ª“KØ‚È’l‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+            throw new IllegalArgumentException("ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[" + cgField.getName() + "]ã®å‹ãŒé©åˆ‡ãªå€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
         }
 
-        // —L–³‚ğ‚¢‚í‚³‚¸‰üs‚ğ•t—^‚µ‚Ü‚·B
+        // æœ‰ç„¡ã‚’ã„ã‚ã•ãšæ”¹è¡Œã‚’ä»˜ä¸ã—ã¾ã™ã€‚
         argSourceLines.add("");
 
-        // Å‰‚ÉƒtƒB[ƒ‹ƒhî•ñ‚ğLangDoc‚É“WŠJB
+        // æœ€åˆã«ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰æƒ…å ±ã‚’LangDocã«å±•é–‹ã€‚
         if (cgField.getLangDoc() == null) {
-            // LangDoc–¢w’è‚Ìê‡‚É‚Í‚±‚¿‚ç‘¤‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬B
+            // LangDocæœªæŒ‡å®šã®å ´åˆã«ã¯ã“ã¡ã‚‰å´ã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã€‚
             cgField.setLangDoc(new BlancoCgLangDoc());
         }
         if (cgField.getLangDoc().getTitle() == null) {
             cgField.getLangDoc().setTitle(cgField.getDescription());
         }
 
-        // Ÿ‚É LangDoc‚ğƒ\[ƒXƒR[ƒhŒ`®‚É“WŠJB
+        // æ¬¡ã« LangDocã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å½¢å¼ã«å±•é–‹ã€‚
         new BlancoCgLangDocJavaSourceExpander().transformLangDoc(cgField.getLangDoc(), argSourceLines);
 
-        // ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ“WŠJB
+        // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å±•é–‹ã€‚
         expandAnnotationList(cgField, argSourceLines);
 
         final StringBuffer buf = new StringBuffer();
 
         if (BlancoStringUtil.null2Blank(cgField.getAccess()).length() > 0) {
             if (argIsInterface && cgField.getAccess().equals("public")) {
-                // ƒCƒ“ƒ^ƒtƒF[ƒXŠ‚Âpublic‚Ìê‡‚É‚Ío—Í‚ğ—}§‚µ‚Ü‚·B
-                // ‚±‚ê‚ÍCheckstyle‘Îô‚Æ‚È‚è‚Ü‚·B
+                // ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ä¸”ã¤publicã®å ´åˆã«ã¯å‡ºåŠ›ã‚’æŠ‘åˆ¶ã—ã¾ã™ã€‚
+                // ã“ã‚Œã¯Checkstyleå¯¾ç­–ã¨ãªã‚Šã¾ã™ã€‚
             } else {
                 buf.append(cgField.getAccess() + " ");
             }
@@ -87,14 +87,14 @@ class BlancoCgFieldJavaSourceExpander {
             buf.append("final ");
         }
 
-        // import•¶‚ÉŒ^‚ğ’Ç‰ÁB
+        // importæ–‡ã«å‹ã‚’è¿½åŠ ã€‚
         argSourceFile.getImportList().add(cgField.getType().getName());
 
-        // ƒtƒB[ƒ‹ƒh¶¬‚Ì–{‘Ì•”•ª‚ğ“WŠJ‚µ‚Ü‚·B
+        // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ç”Ÿæˆã®æœ¬ä½“éƒ¨åˆ†ã‚’å±•é–‹ã—ã¾ã™ã€‚
         buf.append(BlancoCgTypeJavaSourceExpander.toTypeString(cgField.getType()) + " ");
         buf.append(cgField.getName());
 
-        // ƒfƒtƒHƒ‹ƒg’l‚Ìw’è‚ª‚ ‚éê‡‚É‚Í‚±‚ê‚ğ“WŠJ‚µ‚Ü‚·B
+        // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã®æŒ‡å®šãŒã‚ã‚‹å ´åˆã«ã¯ã“ã‚Œã‚’å±•é–‹ã—ã¾ã™ã€‚
         if (BlancoStringUtil.null2Blank(cgField.getDefault()).length() > 0) {
             buf.append(" = " + cgField.getDefault());
         }
@@ -103,16 +103,16 @@ class BlancoCgFieldJavaSourceExpander {
     }
 
     /**
-     * ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgField
-     *            ƒtƒB[ƒ‹ƒhB
+     *            ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã€‚
      */
     private void expandAnnotationList(final BlancoCgField cgField, final List<java.lang.String> argSourceLines) {
         for (String strAnnotation : cgField.getAnnotationList()) {
-            // JavaŒ¾Œê‚ÌAnnotation‚Í @ ‚©‚ç‹Lq‚µ‚Ü‚·B
+            // Javaè¨€èªã®Annotationã¯ @ ã‹ã‚‰è¨˜è¿°ã—ã¾ã™ã€‚
             argSourceLines.add("@" + strAnnotation);
         }
     }

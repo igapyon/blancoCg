@@ -19,13 +19,13 @@ import blanco.cg.valueobject.BlancoCgMethod;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * C#.NETŒ¾Œê—p‚Ì¶¬Œ±B
+ * C#.NETè¨€èªç”¨ã®ç”Ÿæˆè©¦é¨“ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoCgTransformerJsTest extends TestCase {
     /**
-     * C#.NET‚ÌŒ±B
+     * C#.NETã®è©¦é¨“ã€‚
      * 
      * @throws Exception
      */
@@ -33,55 +33,55 @@ public class BlancoCgTransformerJsTest extends TestCase {
         final BlancoCgObjectFactory cgFactory = BlancoCgObjectFactory
                 .getInstance();
 
-        // ƒ\[ƒXƒtƒ@ƒCƒ‹‚ğ¶¬‚µ‚Ü‚·B
+        // ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgSourceFile cgSourceFile = cgFactory.createSourceFile(
-                "Myprog", "ƒeƒXƒg—p‚ÌƒNƒ‰ƒX");
+                "Myprog", "ãƒ†ã‚¹ãƒˆç”¨ã®ã‚¯ãƒ©ã‚¹");
         cgSourceFile.getLangDoc().getDescriptionList().add(
-                "‚±‚ÌƒNƒ‰ƒX‚Í blanco Framework‚É‚æ‚Á‚Ä©“®“I‚É¶¬‚³‚ê‚Ü‚µ‚½B");
+                "ã“ã®ã‚¯ãƒ©ã‚¹ã¯ blanco Frameworkã«ã‚ˆã£ã¦è‡ªå‹•çš„ã«ç”Ÿæˆã•ã‚Œã¾ã—ãŸã€‚");
 
-        // ƒNƒ‰ƒX‚ğ¶¬‚µ‚Ü‚·B
+        // ã‚¯ãƒ©ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgClass cgClass = cgFactory.createClass("MyClass",
-                "‚±‚ÌƒNƒ‰ƒX‚ÍAƒeƒXƒg‚Ì‚½‚ß‚ÌƒNƒ‰ƒX‚Å‚·B");
+                "ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€ãƒ†ã‚¹ãƒˆã®ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã§ã™ã€‚");
         cgSourceFile.getClassList().add(cgClass);
         cgClass.getLangDoc().getTagList().add(
                 cgFactory.createLangDocTag("author", null, "blanco Framework"));
         cgClass.getExtendClassList().add(
                 cgFactory.createType("java.lang.Thread"));
 
-        // ƒtƒB[ƒ‹ƒh‚ğ¶¬‚µ‚Ü‚·B
+        // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgField cgField = cgFactory.createField("myField",
-                "number", "”’lƒtƒB[ƒ‹ƒh‚ÌŒ±‚Å‚·B");
+                "number", "æ•°å€¤ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®è©¦é¨“ã§ã™ã€‚");
         cgClass.getFieldList().add(cgField);
         cgField.setDefault("Number(1)");
 
-        // ƒtƒB[ƒ‹ƒh‚ğ¶¬‚µ‚Ü‚·B
+        // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgField cgField2 = cgFactory.createField("myField2",
-                "number", "”’lƒtƒB[ƒ‹ƒh‚ÌŒ±‚Å‚·B");
+                "number", "æ•°å€¤ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®è©¦é¨“ã§ã™ã€‚");
         cgClass.getFieldList().add(cgField2);
         cgField2.setAccess("public");
         cgField2.setDefault("Number(3)");
 
-        // ƒƒ\ƒbƒh‚ğ¶¬‚µ‚Ü‚·B
+        // ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
         final BlancoCgMethod cgMethod = cgFactory.createMethod("myMethod",
-                "ƒƒ\ƒbƒh‚ÌŒ±‚Å‚·B");
+                "ãƒ¡ã‚½ãƒƒãƒ‰ã®è©¦é¨“ã§ã™ã€‚");
         cgClass.getMethodList().add(cgMethod);
 
         cgMethod.setAccess("private");
 
-        // ƒpƒ‰ƒ[ƒ^‚ğ’Ç‰Á‚µ‚Ü‚·B
+        // ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¿½åŠ ã—ã¾ã™ã€‚
         cgMethod.getParameterList().add(
-                cgFactory.createParameter("argString", "string", "•¶š—ñˆø”B"));
+                cgFactory.createParameter("argString", "string", "æ–‡å­—åˆ—å¼•æ•°ã€‚"));
         cgMethod.getParameterList().add(
-                cgFactory.createParameter("argDate", "Date", "“ú•tˆø”B"));
-        // –ß‚è’l‚ğİ’è‚µ‚Ü‚·B
-        cgMethod.setReturn(cgFactory.createReturn("string", "Œ‹‡Œã‚Ì•¶š—ñB"));
+                cgFactory.createParameter("argDate", "Date", "æ—¥ä»˜å¼•æ•°ã€‚"));
+        // æˆ»ã‚Šå€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
+        cgMethod.setReturn(cgFactory.createReturn("string", "çµåˆå¾Œã®æ–‡å­—åˆ—ã€‚"));
 
         cgMethod.getThrowList().add(
                 cgFactory.createException("System.IO.IOException",
-                        "“üo—Í—áŠO‚ª”­¶‚µ‚½ê‡B"));
+                        "å…¥å‡ºåŠ›ä¾‹å¤–ãŒç™ºç”Ÿã—ãŸå ´åˆã€‚"));
 
-        // ƒƒ\ƒbƒh‚Ì“à—e‚ğ’Ç‰Á‚µ‚Ü‚·B
-        cgMethod.getLineList().add("// Œ‹‡‚ÌŒ±‚Å‚·B");
+        // ãƒ¡ã‚½ãƒƒãƒ‰ã®å†…å®¹ã‚’è¿½åŠ ã—ã¾ã™ã€‚
+        cgMethod.getLineList().add("// çµåˆã®è©¦é¨“ã§ã™ã€‚");
         cgMethod.getLineList().add("return argString + \", \" + argDate;");
 
         final BlancoCgTransformer cgTransformerJs = BlancoCgTransformerFactory

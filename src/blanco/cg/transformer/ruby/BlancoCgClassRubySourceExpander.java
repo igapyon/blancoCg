@@ -19,39 +19,39 @@ import blanco.cg.valueobject.BlancoCgSourceFile;
 import blanco.cg.valueobject.BlancoCgType;
 
 /**
- * BlancoCgClass‚ğƒ\[ƒXƒR[ƒh‚Ö‚Æ“WŠJ‚µ‚Ü‚·B
+ * BlancoCgClassã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã¸ã¨å±•é–‹ã—ã¾ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍblancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ğ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌŒÂ•Ê‚Ì“WŠJ‹@”\‚Å‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã®å€‹åˆ¥ã®å±•é–‹æ©Ÿèƒ½ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 class BlancoCgClassRubySourceExpander {
 
     /**
-     * ‚±‚±‚ÅClass‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã“ã“ã§Classã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgClass
-     *            ˆ—‘ÎÛ‚Æ‚È‚éƒNƒ‰ƒXB
+     *            å‡¦ç†å¯¾è±¡ã¨ãªã‚‹ã‚¯ãƒ©ã‚¹ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã€‚
      */
     public void transformClass(final BlancoCgClass cgClass,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
-        // Å‰‚ÉƒNƒ‰ƒXî•ñ‚ğLangDoc‚É“WŠJB
+        // æœ€åˆã«ã‚¯ãƒ©ã‚¹æƒ…å ±ã‚’LangDocã«å±•é–‹ã€‚
         if (cgClass.getLangDoc() == null) {
-            // LangDoc–¢w’è‚Ìê‡‚É‚Í‚±‚¿‚ç‘¤‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬B
+            // LangDocæœªæŒ‡å®šã®å ´åˆã«ã¯ã“ã¡ã‚‰å´ã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã€‚
             cgClass.setLangDoc(new BlancoCgLangDoc());
         }
         if (cgClass.getLangDoc().getTitle() == null) {
             cgClass.getLangDoc().setTitle(cgClass.getDescription());
         }
 
-        // Ÿ‚É LangDoc‚ğƒ\[ƒXƒR[ƒhŒ`®‚É“WŠJB
+        // æ¬¡ã« LangDocã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å½¢å¼ã«å±•é–‹ã€‚
         new BlancoCgLangDocRubySourceExpander().transformLangDoc(cgClass
                 .getLangDoc(), argSourceLines);
 
-        // ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ“WŠJB
+        // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å±•é–‹ã€‚
         expandAnnotationList(cgClass, argSourceLines);
 
         final StringBuffer buf = new StringBuffer();
@@ -67,81 +67,81 @@ class BlancoCgClassRubySourceExpander {
         // }
         buf.append("class " + cgClass.getName());
 
-        // eƒNƒ‰ƒX‚ğ“WŠJB
+        // è¦ªã‚¯ãƒ©ã‚¹ã‚’å±•é–‹ã€‚
         expandExtendClassList(cgClass, argSourceFile, buf);
 
-        // eƒCƒ“ƒ^ƒtƒF[ƒX‚ğ“WŠJB
+        // è¦ªã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å±•é–‹ã€‚
         expandImplementInterfaceList(cgClass, argSourceFile, buf);
 
-        // ƒNƒ‰ƒX‚ÌƒuƒƒbƒN‚ÌŠJnB
+        // ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ­ãƒƒã‚¯ã®é–‹å§‹ã€‚
         // buf.append(" {");
 
-        // s‚ğŠm’è‚µ‚Ä‘‚«o‚µ‚ğÀ{B
+        // è¡Œã‚’ç¢ºå®šã—ã¦æ›¸ãå‡ºã—ã‚’å®Ÿæ–½ã€‚
         argSourceLines.add(buf.toString());
 
-        // ‚±‚±‚ÅƒtƒB[ƒ‹ƒh‚ğ“WŠJB
+        // ã“ã“ã§ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å±•é–‹ã€‚
         expandFieldList(cgClass, argSourceFile, argSourceLines);
 
-        // ‚±‚±‚Åƒƒ\ƒbƒh‚ğ“WŠJB
+        // ã“ã“ã§ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã€‚
         expandMethodList(cgClass, argSourceFile, argSourceLines);
 
-        // ƒNƒ‰ƒX‚ÌƒuƒƒbƒN‚ÌI—¹B
+        // ã‚¯ãƒ©ã‚¹ã®ãƒ–ãƒ­ãƒƒã‚¯ã®çµ‚äº†ã€‚
         argSourceLines.add("end");
     }
 
     /**
-     * ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgClass
-     *            ƒNƒ‰ƒXB
+     *            ã‚¯ãƒ©ã‚¹ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã€‚
      */
     private void expandAnnotationList(final BlancoCgClass cgClass,
             final List<java.lang.String> argSourceLines) {
         for (int index = 0; index < cgClass.getAnnotationList().size(); index++) {
             final String strAnnotation = cgClass.getAnnotationList().get(index);
 
-            // JavaŒ¾Œê‚ÌAnnotation‚Í @ ‚©‚ç‹Lq‚µ‚Ü‚·B
+            // Javaè¨€èªã®Annotationã¯ @ ã‹ã‚‰è¨˜è¿°ã—ã¾ã™ã€‚
             argSourceLines.add("@" + strAnnotation);
         }
     }
 
     /**
-     * eƒNƒ‰ƒX‚ğ“WŠJ‚µ‚Ü‚·B
+     * è¦ªã‚¯ãƒ©ã‚¹ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
-     * ¦BlancoCgInterface“WŠJ‚ÌÛ‚ÉA‚±‚Ìƒƒ\ƒbƒh‚ğ‹¤’Êˆ—‚Æ‚µ‚ÄŒÄ‚Ño‚µ‚Ä‚Í‚È‚è‚Ü‚¹‚ñB
-     * ‚»‚Ì‹¤’Ê‰»‚ÍA‚©‚¦‚Á‚Ä—‰ğ‚ğ–W‚°‚é‚Æ”»’f‚µ‚Ä‚¢‚Ü‚·B
+     * â€»BlancoCgInterfaceå±•é–‹ã®éš›ã«ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å…±é€šå‡¦ç†ã¨ã—ã¦å‘¼ã³å‡ºã—ã¦ã¯ãªã‚Šã¾ã›ã‚“ã€‚
+     * ãã®å…±é€šåŒ–ã¯ã€ã‹ãˆã£ã¦ç†è§£ã‚’å¦¨ã’ã‚‹ã¨åˆ¤æ–­ã—ã¦ã„ã¾ã™ã€‚
      * 
      * @param cgClass
-     *            ƒNƒ‰ƒX‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒgB
+     *            ã‚¯ãƒ©ã‚¹ã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @param argBuf
-     *            o—Íæ•¶š—ñƒoƒbƒtƒ@B
+     *            å‡ºåŠ›å…ˆæ–‡å­—åˆ—ãƒãƒƒãƒ•ã‚¡ã€‚
      */
     private void expandExtendClassList(final BlancoCgClass cgClass,
             final BlancoCgSourceFile argSourceFile, final StringBuffer argBuf) {
         for (int index = 0; index < cgClass.getExtendClassList().size(); index++) {
             final BlancoCgType type = cgClass.getExtendClassList().get(index);
 
-            // import•¶‚ÉŒ^‚ğ’Ç‰ÁB
+            // importæ–‡ã«å‹ã‚’è¿½åŠ ã€‚
             argSourceFile.getImportList().add(type.getName());
 
             if (index == 0) {
                 argBuf.append(" < "
                         + BlancoCgTypeRubySourceExpander.toTypeString(type));
             } else {
-                throw new IllegalArgumentException("RubyŒ¾Œê‚Å‚ÍŒp³‚Íˆê‰ñ‚µ‚©À{‚Å‚«‚Ü‚¹‚ñB");
+                throw new IllegalArgumentException("Rubyè¨€èªã§ã¯ç¶™æ‰¿ã¯ä¸€å›ã—ã‹å®Ÿæ–½ã§ãã¾ã›ã‚“ã€‚");
             }
         }
     }
 
     /**
-     * eƒCƒ“ƒ^ƒtƒF[ƒX‚ğ“WŠJ‚µ‚Ü‚·B
+     * è¦ªã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgClass
-     *            ˆ—’†‚ÌƒNƒ‰ƒXB
+     *            å‡¦ç†ä¸­ã®ã‚¯ãƒ©ã‚¹ã€‚
      * @param argBuf
-     *            o—Íæ•¶š—ñƒoƒbƒtƒ@B
+     *            å‡ºåŠ›å…ˆæ–‡å­—åˆ—ãƒãƒƒãƒ•ã‚¡ã€‚
      */
     private void expandImplementInterfaceList(final BlancoCgClass cgClass,
             final BlancoCgSourceFile argSourceFile, final StringBuffer argBuf) {
@@ -149,7 +149,7 @@ class BlancoCgClassRubySourceExpander {
             final BlancoCgType type = cgClass.getImplementInterfaceList().get(
                     index);
 
-            // import•¶‚ÉŒ^‚ğ’Ç‰ÁB
+            // importæ–‡ã«å‹ã‚’è¿½åŠ ã€‚
             argSourceFile.getImportList().add(type.getName());
 
             if (index == 0) {
@@ -162,54 +162,54 @@ class BlancoCgClassRubySourceExpander {
     }
 
     /**
-     * ƒNƒ‰ƒX‚ÉŠÜ‚Ü‚ê‚éŠeX‚ÌƒtƒB[ƒ‹ƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã‚¯ãƒ©ã‚¹ã«å«ã¾ã‚Œã‚‹å„ã€…ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
-     * TODO ’è”éŒ¾‚ğ—Dæ‚µ‚Ä“WŠJ‚µA‚»‚ÌŒã•Ï”éŒ¾‚ğ“WŠJ‚·‚é‚È‚Ç‚ÌH•v‚ª•K—v‚Å‚·B<br>
-     * Œ»İ‚Í “o˜^‡‚Åƒ\[ƒXƒR[ƒh“WŠJ‚µ‚Ü‚·B
+     * TODO å®šæ•°å®£è¨€ã‚’å„ªå…ˆã—ã¦å±•é–‹ã—ã€ãã®å¾Œå¤‰æ•°å®£è¨€ã‚’å±•é–‹ã™ã‚‹ãªã©ã®å·¥å¤«ãŒå¿…è¦ã§ã™ã€‚<br>
+     * ç¾åœ¨ã¯ ç™»éŒ²é †ã§ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgClass
-     *            ˆ—’†‚ÌƒNƒ‰ƒXB
+     *            å‡¦ç†ä¸­ã®ã‚¯ãƒ©ã‚¹ã€‚
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹B
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhsƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è¡Œãƒªã‚¹ãƒˆã€‚
      */
     private void expandFieldList(final BlancoCgClass cgClass,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
         if (cgClass.getFieldList() == null) {
-            // ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B
-            // ‚©‚È‚ç‚¸ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚É‚ÍList‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
-            throw new IllegalArgumentException("ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+            // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚
+            // ã‹ãªã‚‰ãšãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«ã¯Listã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
+            throw new IllegalArgumentException("ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
 
         for (int index = 0; index < cgClass.getFieldList().size(); index++) {
             final BlancoCgField cgField = cgClass.getFieldList().get(index);
-            // ƒNƒ‰ƒX‚ÌƒtƒB[ƒ‹ƒh‚Æ‚µ‚Ä“WŠJ‚ğs‚¢‚Ü‚·B
+            // ã‚¯ãƒ©ã‚¹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã¨ã—ã¦å±•é–‹ã‚’è¡Œã„ã¾ã™ã€‚
             new BlancoCgFieldRubySourceExpander().transformField(cgField,
                     argSourceFile, argSourceLines, false);
         }
     }
 
     /**
-     * ƒNƒ‰ƒX‚ÉŠÜ‚Ü‚ê‚éŠeX‚Ìƒƒ\ƒbƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã‚¯ãƒ©ã‚¹ã«å«ã¾ã‚Œã‚‹å„ã€…ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgClass
-     *            ˆ—’†‚ÌƒNƒ‰ƒXB
+     *            å‡¦ç†ä¸­ã®ã‚¯ãƒ©ã‚¹ã€‚
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹B
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhsƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è¡Œãƒªã‚¹ãƒˆã€‚
      */
     private void expandMethodList(final BlancoCgClass cgClass,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
         if (cgClass.getMethodList() == null) {
-            throw new IllegalArgumentException("ƒƒ\ƒbƒh‚ÌƒŠƒXƒg‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+            throw new IllegalArgumentException("ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒªã‚¹ãƒˆã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
         for (int index = 0; index < cgClass.getMethodList().size(); index++) {
             final BlancoCgMethod cgMethod = cgClass.getMethodList().get(index);
-            // ƒNƒ‰ƒX‚Ìƒƒ\ƒbƒh‚Æ‚µ‚Ä“WŠJ‚ğs‚¢‚Ü‚·B
+            // ã‚¯ãƒ©ã‚¹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¨ã—ã¦å±•é–‹ã‚’è¡Œã„ã¾ã™ã€‚
             new BlancoCgMethodRubySourceExpander().transformMethod(cgMethod,
                     argSourceFile, argSourceLines, false);
         }

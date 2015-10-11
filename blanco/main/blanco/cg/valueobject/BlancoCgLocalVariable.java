@@ -10,146 +10,146 @@
 package blanco.cg.valueobject;
 
 /**
- * ���[�J���ϐ���\�����邽�߂̃o�����[�I�u�W�F�N�g�B
+ * ローカル変数を表現するためのバリューオブジェクト。
  *
- * Delphi�ȂǁA���[�J���ϐ����C�����C���Œ�`�ł��Ȃ��v���O���~���O����Ŏg�p���܂��B
- * ���|�C���g�F�N���X���̖��O�ό`�╶����̃G�X�P�[�v�����Ȃǂ́AblancoCg�ɗ^����O�Ɏ��{����Ă���K�v������܂��B
+ * Delphiなど、ローカル変数をインラインで定義できないプログラミング言語で使用します。
+ * ※ポイント：クラス名の名前変形や文字列のエスケープ処理などは、blancoCgに与える前に実施されている必要があります。
  */
 public class BlancoCgLocalVariable {
     /**
-     * ���̃t�B�[���h�̖��O�ł��B
+     * このフィールドの名前です。
      *
-     * �t�B�[���h: [name]�B
+     * フィールド: [name]。
      */
     private String fName;
 
     /**
-     * ���̃t�B�[���h�̌^�ł��Bjava.lang.String�Ȃǂ��w�肵�܂��B
+     * このフィールドの型です。java.lang.Stringなどを指定します。
      *
-     * �t�B�[���h: [type]�B
+     * フィールド: [type]。
      */
     private BlancoCgType fType;
 
     /**
-     * final���ǂ���������킵�܂��B
+     * finalかどうかをあらわします。
      *
-     * �t�B�[���h: [final]�B
-     * �f�t�H���g: [false]�B
+     * フィールド: [final]。
+     * デフォルト: [false]。
      */
     private boolean fFinal = false;
 
     /**
-     * �f�t�H���g�l������킵�܂��B
+     * デフォルト値をあらわします。
      *
-     * String�Ȃ� ""�Aint�Ȃ� 3 �Ȃǂ̂悤�Ɏ��ۂ̕����w�肵�܂��B
-     * (�_�u���N�I�[�g�Ȃǂ��܂񂾌`�ŕ\�����܂��B)
-     * �t�B�[���h: [default]�B
+     * Stringなら ""、intなら 3 などのように実際の文を指定します。
+     * (ダブルクオートなども含んだ形で表現します。)
+     * フィールド: [default]。
      */
     private String fDefault;
 
     /**
-     * �t�B�[���h [name] �̒l��ݒ肵�܂��B
+     * フィールド [name] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�B�[���h�̖��O�ł��B]�B
+     * フィールドの説明: [このフィールドの名前です。]。
      *
-     * @param argName �t�B�[���h[name]�ɐݒ肷��l�B
+     * @param argName フィールド[name]に設定する値。
      */
     public void setName(final String argName) {
         fName = argName;
     }
 
     /**
-     * �t�B�[���h [name] �̒l���擾���܂��B
+     * フィールド [name] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�B�[���h�̖��O�ł��B]�B
+     * フィールドの説明: [このフィールドの名前です。]。
      *
-     * @return �t�B�[���h[name]����擾�����l�B
+     * @return フィールド[name]から取得した値。
      */
     public String getName() {
         return fName;
     }
 
     /**
-     * �t�B�[���h [type] �̒l��ݒ肵�܂��B
+     * フィールド [type] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�B�[���h�̌^�ł��Bjava.lang.String�Ȃǂ��w�肵�܂��B]�B
+     * フィールドの説明: [このフィールドの型です。java.lang.Stringなどを指定します。]。
      *
-     * @param argType �t�B�[���h[type]�ɐݒ肷��l�B
+     * @param argType フィールド[type]に設定する値。
      */
     public void setType(final BlancoCgType argType) {
         fType = argType;
     }
 
     /**
-     * �t�B�[���h [type] �̒l���擾���܂��B
+     * フィールド [type] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�B�[���h�̌^�ł��Bjava.lang.String�Ȃǂ��w�肵�܂��B]�B
+     * フィールドの説明: [このフィールドの型です。java.lang.Stringなどを指定します。]。
      *
-     * @return �t�B�[���h[type]����擾�����l�B
+     * @return フィールド[type]から取得した値。
      */
     public BlancoCgType getType() {
         return fType;
     }
 
     /**
-     * �t�B�[���h [final] �̒l��ݒ肵�܂��B
+     * フィールド [final] の値を設定します。
      *
-     * �t�B�[���h�̐���: [final���ǂ���������킵�܂��B]�B
+     * フィールドの説明: [finalかどうかをあらわします。]。
      *
-     * @param argFinal �t�B�[���h[final]�ɐݒ肷��l�B
+     * @param argFinal フィールド[final]に設定する値。
      */
     public void setFinal(final boolean argFinal) {
         fFinal = argFinal;
     }
 
     /**
-     * �t�B�[���h [final] �̒l���擾���܂��B
+     * フィールド [final] の値を取得します。
      *
-     * �t�B�[���h�̐���: [final���ǂ���������킵�܂��B]�B
-     * �f�t�H���g: [false]�B
+     * フィールドの説明: [finalかどうかをあらわします。]。
+     * デフォルト: [false]。
      *
-     * @return �t�B�[���h[final]����擾�����l�B
+     * @return フィールド[final]から取得した値。
      */
     public boolean getFinal() {
         return fFinal;
     }
 
     /**
-     * �t�B�[���h [default] �̒l��ݒ肵�܂��B
+     * フィールド [default] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�f�t�H���g�l������킵�܂��B]�B
-     * String�Ȃ� ""�Aint�Ȃ� 3 �Ȃǂ̂悤�Ɏ��ۂ̕����w�肵�܂��B
-     * (�_�u���N�I�[�g�Ȃǂ��܂񂾌`�ŕ\�����܂��B)
+     * フィールドの説明: [デフォルト値をあらわします。]。
+     * Stringなら ""、intなら 3 などのように実際の文を指定します。
+     * (ダブルクオートなども含んだ形で表現します。)
      *
-     * @param argDefault �t�B�[���h[default]�ɐݒ肷��l�B
+     * @param argDefault フィールド[default]に設定する値。
      */
     public void setDefault(final String argDefault) {
         fDefault = argDefault;
     }
 
     /**
-     * �t�B�[���h [default] �̒l���擾���܂��B
+     * フィールド [default] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�f�t�H���g�l������킵�܂��B]�B
-     * String�Ȃ� ""�Aint�Ȃ� 3 �Ȃǂ̂悤�Ɏ��ۂ̕����w�肵�܂��B
-     * (�_�u���N�I�[�g�Ȃǂ��܂񂾌`�ŕ\�����܂��B)
+     * フィールドの説明: [デフォルト値をあらわします。]。
+     * Stringなら ""、intなら 3 などのように実際の文を指定します。
+     * (ダブルクオートなども含んだ形で表現します。)
      *
-     * @return �t�B�[���h[default]����擾�����l�B
+     * @return フィールド[default]から取得した値。
      */
     public String getDefault() {
         return fDefault;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {

@@ -22,20 +22,20 @@ import blanco.cg.transformer.ruby.BlancoCgRubySourceTransformer;
 import blanco.cg.transformer.vb.BlancoCgVbSourceTransformer;
 
 /**
- * BlancoCgTransformer‚ğæ“¾‚·‚é‚½‚ß‚Ìƒtƒ@ƒNƒgƒŠ‚Å‚·B
+ * BlancoCgTransformerã‚’å–å¾—ã™ã‚‹ãŸã‚ã®ãƒ•ã‚¡ã‚¯ãƒˆãƒªã§ã™ã€‚
  * 
- * BlancoCgTransformer‚ÍAblancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚ğƒ\[ƒXƒR[ƒh‚É•ÏŠ·‚µ‚Ü‚·B
- * Œ»İ‚Ìd—l‚Å‚ÍA•ÏŠ·‚ÉƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì“à—e‚ªXV‚³‚ê‚é‚½‚ßAƒ\[ƒXƒR[ƒh•ÏŠ·‚Í‚P“x‚µ‚©Às‚Å‚«‚È‚¢“_‚É‚²’ˆÓ‰º‚³‚¢B
+ * BlancoCgTransformerã¯ã€blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã«å¤‰æ›ã—ã¾ã™ã€‚
+ * ç¾åœ¨ã®ä»•æ§˜ã§ã¯ã€å¤‰æ›æ™‚ã«ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å†…å®¹ãŒæ›´æ–°ã•ã‚Œã‚‹ãŸã‚ã€ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å¤‰æ›ã¯ï¼‘åº¦ã—ã‹å®Ÿè¡Œã§ããªã„ç‚¹ã«ã”æ³¨æ„ä¸‹ã•ã„ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoCgTransformerFactory {
     /**
-     * w’è‚³‚ê‚½ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚É‘Î‰‚µ‚½ƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ğæ“¾‚µ‚Ü‚·B
+     * æŒ‡å®šã•ã‚ŒãŸãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã«å¯¾å¿œã—ãŸãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param targetLang
-     *            æ“¾‚µ‚½‚¢ƒgƒ‰ƒ“ƒXƒtƒH[ƒ}‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêBBlancoCgSupportedLang‚Åw’è‚µ‚Ü‚·B
-     * @return ƒ\[ƒXƒR[ƒh•ÏŠ·‚Ì‚½‚ß‚Ìƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[B
+     *            å–å¾—ã—ãŸã„ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚BlancoCgSupportedLangã§æŒ‡å®šã—ã¾ã™ã€‚
+     * @return ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å¤‰æ›ã®ãŸã‚ã®ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã€‚
      */
     public static final BlancoCgTransformer getSourceTransformer(
             final int targetLang) {
@@ -60,51 +60,51 @@ public class BlancoCgTransformerFactory {
             return BlancoCgTransformerFactory.getCpp11SourceTransformer();
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgTransformerFactory.getSourceTransformer: ‘Î‰‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê("
-                            + targetLang + ")‚ªw’è‚³‚ê‚Ü‚µ‚½B");
+                    "BlancoCgTransformerFactory.getSourceTransformer: å¯¾å¿œã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª("
+                            + targetLang + ")ãŒæŒ‡å®šã•ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * Javaƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ğæ“¾‚µ‚Ü‚·B
+     * Javaã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return JavaŒ¾Œêƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[B
+     * @return Javaè¨€èªã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã€‚
      */
     public static BlancoCgTransformer getJavaSourceTransformer() {
         return new BlancoCgJavaSourceTransformer();
     }
 
     /**
-     * C#.NETƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ğæ“¾‚µ‚Ü‚·B
+     * C#.NETã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return C#.NETŒ¾Œêƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[B
+     * @return C#.NETè¨€èªã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã€‚
      */
     public static BlancoCgTransformer getCsSourceTransformer() {
         return new BlancoCgCsSourceTransformer();
     }
 
     /**
-     * JavaScriptƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ğæ“¾‚µ‚Ü‚·B
+     * JavaScriptã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return JavaScriptŒ¾Œêƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[B
+     * @return JavaScriptè¨€èªã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã€‚
      */
     public static BlancoCgTransformer getJsSourceTransformer() {
         return new BlancoCgJsSourceTransformer();
     }
 
     /**
-     * VB.NETƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ğæ“¾‚µ‚Ü‚·B
+     * VB.NETã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return VB.NETŒ¾Œêƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[B
+     * @return VB.NETè¨€èªã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã€‚
      */
     public static BlancoCgTransformer getVbSourceTransformer() {
         return new BlancoCgVbSourceTransformer();
     }
 
     /**
-     * PHPƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ğæ“¾‚µ‚Ü‚·B
+     * PHPã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return PHPŒ¾Œêƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[B
+     * @return PHPè¨€èªã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã€‚
      */
     public static BlancoCgTransformer getPhpSourceTransformer() {
         return new BlancoCgPhpSourceTransformer();
@@ -112,9 +112,9 @@ public class BlancoCgTransformerFactory {
 
     /**
      * 
-     * Rubyƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ğæ“¾‚µ‚Ü‚·B
+     * Rubyã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return RubyŒ¾Œêƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[B
+     * @return Rubyè¨€èªã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã€‚
      */
     public static BlancoCgTransformer getRubySourceTransformer() {
         return new BlancoCgRubySourceTransformer();
@@ -122,27 +122,27 @@ public class BlancoCgTransformerFactory {
 
     /**
      * 
-     * Pythonƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ğæ“¾‚µ‚Ü‚·B
+     * Pythonã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return PythonŒ¾Œêƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[B
+     * @return Pythonè¨€èªã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã€‚
      */
     public static BlancoCgTransformer getPythonSourceTransformer() {
         return new BlancoCgPythonSourceTransformer();
     }
  
     /**
-     * Delphiƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ğæ“¾‚µ‚Ü‚·B
+     * Delphiã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return DelphiŒ¾Œêƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[B
+     * @return Delphiè¨€èªã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã€‚
      */
     public static BlancoCgTransformer getDelphiSourceTransformer() {
         return new BlancoCgDelphiSourceTransformer();
     }
 
     /**
-     * C++11 ƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ğæ“¾‚µ‚Ü‚·B
+     * C++11 ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return C++11 Œ¾Œêƒ\[ƒXƒR[ƒh‚ğ¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[B
+     * @return C++11 è¨€èªã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã€‚
      */
     public static BlancoCgTransformer getCpp11SourceTransformer() {
         return new BlancoCgCpp11SourceTransformer();

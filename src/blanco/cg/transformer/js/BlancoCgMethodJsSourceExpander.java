@@ -25,83 +25,83 @@ import blanco.cg.valueobject.BlancoCgSourceFile;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgMethod‚ğƒ\[ƒXƒR[ƒh‚É“WŠJ‚µ‚Ü‚·B
+ * BlancoCgMethodã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã«å±•é–‹ã—ã¾ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍblancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ğ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌŒÂ•Ê‚Ì“WŠJ‹@”\‚Å‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã®å€‹åˆ¥ã®å±•é–‹æ©Ÿèƒ½ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 class BlancoCgMethodJsSourceExpander {
     /**
-     * ‚±‚ÌƒNƒ‰ƒX‚ªˆ—‘ÎÛ‚Æ‚·‚éƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     * ã“ã®ã‚¯ãƒ©ã‚¹ãŒå‡¦ç†å¯¾è±¡ã¨ã™ã‚‹ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      */
     protected static final int TARGET_LANG = BlancoCgSupportedLang.JS;
 
     /**
-     * ‚±‚±‚Åƒƒ\ƒbƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã“ã“ã§ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgMethod
-     *            ˆ—‘ÎÛ‚Æ‚È‚éƒƒ\ƒbƒhB
+     *            å‡¦ç†å¯¾è±¡ã¨ãªã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹B
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
      * @param argSourceLines
-     *            o—ÍæsƒŠƒXƒgB
+     *            å‡ºåŠ›å…ˆè¡Œãƒªã‚¹ãƒˆã€‚
      */
     public void transformMethod(final BlancoCgClass cgClass,
             final BlancoCgMethod cgMethod,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
         if (BlancoStringUtil.null2Blank(cgMethod.getName()).length() == 0) {
-            throw new IllegalArgumentException("ƒƒ\ƒbƒh‚Ì–¼‘O‚É“KØ‚È’l‚ªİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+            throw new IllegalArgumentException("ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰ã«é©åˆ‡ãªå€¤ãŒè¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
         }
         if (cgMethod.getReturn() == null) {
-            // ‚»‚ê‚Í‚ ‚è‚¦‚Ü‚·Bvoid‚Ìê‡‚É‚Ínull‚ªw’è‚³‚ê‚é‚Ì‚Å‚·B
+            // ãã‚Œã¯ã‚ã‚Šãˆã¾ã™ã€‚voidã®å ´åˆã«ã¯nullãŒæŒ‡å®šã•ã‚Œã‚‹ã®ã§ã™ã€‚
         }
 
-        // ‰üs‚ğ•t—^B
+        // æ”¹è¡Œã‚’ä»˜ä¸ã€‚
         argSourceLines.add("");
 
         prepareExpand(cgClass, cgMethod, argSourceFile);
 
-        // î•ñ‚ªˆê®‚»‚ë‚Á‚½‚Ì‚ÅAƒ\[ƒXƒR[ƒh‚ÌÀÛ‚Ì“WŠJ‚ğs‚¢‚Ü‚·B
+        // æƒ…å ±ãŒä¸€å¼ãã‚ã£ãŸã®ã§ã€ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã®å®Ÿéš›ã®å±•é–‹ã‚’è¡Œã„ã¾ã™ã€‚
 
-        // Ÿ‚É LangDoc‚ğƒ\[ƒXƒR[ƒhŒ`®‚É“WŠJB
+        // æ¬¡ã« LangDocã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å½¢å¼ã«å±•é–‹ã€‚
         new BlancoCgLangDocJsSourceExpander().transformLangDoc(cgMethod
                 .getLangDoc(), argSourceLines);
 
-        // ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ“WŠJB
+        // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å±•é–‹ã€‚
         expandAnnotationList(cgMethod, argSourceLines);
 
-        // ƒƒ\ƒbƒh‚Ì–{‘Ì•”•ª‚ğ“WŠJB
+        // ãƒ¡ã‚½ãƒƒãƒ‰ã®æœ¬ä½“éƒ¨åˆ†ã‚’å±•é–‹ã€‚
         expandMethodBody(cgClass, cgMethod, argSourceFile, argSourceLines);
     }
 
     /**
-     * ƒNƒ‰ƒX‚ÉŠÜ‚Ü‚ê‚é static ‚ÈƒtƒB[ƒ‹ƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã‚¯ãƒ©ã‚¹ã«å«ã¾ã‚Œã‚‹ static ãªãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
-     * Œ»İ‚Í “o˜^‡‚Åƒ\[ƒXƒR[ƒh“WŠJ‚µ‚Ü‚·B
+     * ç¾åœ¨ã¯ ç™»éŒ²é †ã§ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgClass
-     *            ˆ—’†‚ÌƒNƒ‰ƒXB
+     *            å‡¦ç†ä¸­ã®ã‚¯ãƒ©ã‚¹ã€‚
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹B
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhsƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è¡Œãƒªã‚¹ãƒˆã€‚
      */
     public void transformStaticFieldList(final BlancoCgClass cgClass,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
         if (cgClass.getFieldList() == null) {
-            // ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B
-            // ‚©‚È‚ç‚¸ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚É‚ÍList‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
-            throw new IllegalArgumentException("ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+            // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚
+            // ã‹ãªã‚‰ãšãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«ã¯Listã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
+            throw new IllegalArgumentException("ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
 
         for (int index = 0; index < cgClass.getFieldList().size(); index++) {
             final BlancoCgField cgField = cgClass.getFieldList().get(index);
 
             if (cgField.getStatic()) {
-                // ‚±‚±‚Å‚ÍƒNƒ‰ƒX‚ÌƒtƒB[ƒ‹ƒh (static‚ÈƒtƒB[ƒ‹ƒh) ‚Ì‚İ‚ğ“WŠJ‚µ‚Ü‚·B
+                // ã“ã“ã§ã¯ã‚¯ãƒ©ã‚¹ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ (staticãªãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰) ã®ã¿ã‚’å±•é–‹ã—ã¾ã™ã€‚
                 new BlancoCgFieldJsSourceExpander().transformField(cgClass,
                         cgField, argSourceFile, argSourceLines);
             }
@@ -109,19 +109,19 @@ class BlancoCgMethodJsSourceExpander {
     }
 
     /**
-     * ƒ\[ƒXƒR[ƒh“WŠJ‚Éæ—§‚¿A•K—v‚Èî•ñ‚ÌûW‚ğs‚¢‚Ü‚·B
+     * ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å±•é–‹ã«å…ˆç«‹ã¡ã€å¿…è¦ãªæƒ…å ±ã®åé›†ã‚’è¡Œã„ã¾ã™ã€‚
      * 
      * @param cgMethod
-     *            ƒƒ\ƒbƒhƒIƒuƒWƒFƒNƒgB
+     *            ãƒ¡ã‚½ãƒƒãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹B
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
      */
     private void prepareExpand(final BlancoCgClass cgClass,
             final BlancoCgMethod cgMethod,
             final BlancoCgSourceFile argSourceFile) {
-        // Å‰‚Éƒƒ\ƒbƒhî•ñ‚ğLangDoc‚É“WŠJB
+        // æœ€åˆã«ãƒ¡ã‚½ãƒƒãƒ‰æƒ…å ±ã‚’LangDocã«å±•é–‹ã€‚
         if (cgMethod.getLangDoc() == null) {
-            // LangDoc–¢w’è‚Ìê‡‚É‚Í‚±‚¿‚ç‘¤‚ÅƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬B
+            // LangDocæœªæŒ‡å®šã®å ´åˆã«ã¯ã“ã¡ã‚‰å´ã§ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã€‚
             cgMethod.setLangDoc(new BlancoCgLangDoc());
         }
         if (cgMethod.getLangDoc().getParameterList() == null) {
@@ -137,7 +137,7 @@ class BlancoCgMethodJsSourceExpander {
         }
 
         if (cgMethod.getConstructor()) {
-            // ƒtƒ@ƒ“ƒNƒVƒ‡ƒ“–¼‚»‚Ì‚à‚Ì‚ğLangDoc‚É“WŠJ‚µ‚Ü‚·B
+            // ãƒ•ã‚¡ãƒ³ã‚¯ã‚·ãƒ§ãƒ³åãã®ã‚‚ã®ã‚’LangDocã«å±•é–‹ã—ã¾ã™ã€‚
             cgMethod.getLangDoc().getTagList().add(
                     BlancoCgObjectFactory.getInstance().createLangDocTag(
                             "class", null, cgClass.getDescription()));
@@ -162,46 +162,46 @@ class BlancoCgMethodJsSourceExpander {
             final BlancoCgParameter cgParameter = cgMethod.getParameterList()
                     .get(indexParameter);
 
-            // import•¶‚ÉŒ^‚ğ’Ç‰ÁB
+            // importæ–‡ã«å‹ã‚’è¿½åŠ ã€‚
             argSourceFile.getImportList().add(cgParameter.getType().getName());
 
-            // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚Éƒpƒ‰ƒ[ƒ^‚ğ’Ç‰ÁB
+            // è¨€èªãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã«ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’è¿½åŠ ã€‚
             cgMethod.getLangDoc().getParameterList().add(cgParameter);
         }
 
         if (cgMethod.getReturn() != null) {
-            // import•¶‚ÉŒ^‚ğ’Ç‰ÁB
+            // importæ–‡ã«å‹ã‚’è¿½åŠ ã€‚
             argSourceFile.getImportList().add(
                     cgMethod.getReturn().getType().getName());
 
-            // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚Éreturn‚ğ’Ç‰ÁB
+            // è¨€èªãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã«returnã‚’è¿½åŠ ã€‚
             cgMethod.getLangDoc().setReturn(cgMethod.getReturn());
         }
 
-        // —áŠO‚É‚Â‚¢‚ÄLangDoc\‘¢‘Ì‚É“WŠJ
+        // ä¾‹å¤–ã«ã¤ã„ã¦LangDocæ§‹é€ ä½“ã«å±•é–‹
         for (int index = 0; index < cgMethod.getThrowList().size(); index++) {
             final BlancoCgException cgException = cgMethod.getThrowList().get(
                     index);
 
-            // import•¶‚ÉŒ^‚ğ’Ç‰ÁB
+            // importæ–‡ã«å‹ã‚’è¿½åŠ ã€‚
             argSourceFile.getImportList().add(cgException.getType().getName());
 
-            // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚É—áŠO‚ğ’Ç‰ÁB
+            // è¨€èªãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã«ä¾‹å¤–ã‚’è¿½åŠ ã€‚
             cgMethod.getLangDoc().getThrowList().add(cgException);
         }
     }
 
     /**
-     * ƒƒ\ƒbƒh‚Ì–{‘Ì•”•ª‚ğ“WŠJ‚µ‚Ü‚·B
+     * ãƒ¡ã‚½ãƒƒãƒ‰ã®æœ¬ä½“éƒ¨åˆ†ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgClass
-     *            ƒNƒ‰ƒXƒIƒuƒWƒFƒNƒgB
+     *            ã‚¯ãƒ©ã‚¹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @param cgMethod
-     *            ƒƒ\ƒbƒhƒIƒuƒWƒFƒNƒgB
+     *            ãƒ¡ã‚½ãƒƒãƒ‰ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @param argSourceFile
-     *            ƒ\[ƒXƒR[ƒhB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã€‚
      * @param argSourceLines
-     *            ƒCƒ“ƒ^ƒtƒF[ƒX‚Æ‚µ‚Ä“WŠJ‚·‚é‚©‚Ç‚¤‚©B
+     *            ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã¨ã—ã¦å±•é–‹ã™ã‚‹ã‹ã©ã†ã‹ã€‚
      */
     private void expandMethodBody(final BlancoCgClass cgClass,
             final BlancoCgMethod cgMethod,
@@ -210,34 +210,34 @@ class BlancoCgMethodJsSourceExpander {
         final StringBuffer buf = new StringBuffer();
 
         if (cgMethod.getConstructor()) {
-            // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìê‡‚É‚Í function‚©‚çn‚Ü‚è‚Ü‚·B
+            // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å ´åˆã«ã¯ functionã‹ã‚‰å§‹ã¾ã‚Šã¾ã™ã€‚
             buf.append("function " + cgClass.getName());
         } else {
-            // ’Êí‚Ìƒƒ\ƒbƒh‚Ìê‡‚É‚ÍAƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì prototype‚Ö‚Ìfunction‚Ì’Ç‰Á‚Æ‚È‚è‚Ü‚·B
+            // é€šå¸¸ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®å ´åˆã«ã¯ã€ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã® prototypeã¸ã®functionã®è¿½åŠ ã¨ãªã‚Šã¾ã™ã€‚
             buf.append(cgClass.getName() + ".prototype." + cgMethod.getName()
                     + " = function");
         }
 
-        // JavaScript‚É‚ÍƒAƒNƒZƒXƒtƒ‰ƒO‚»‚Ì‚à‚Ì‚Í‘¶İ‚µ‚Ü‚¹‚ñB
-        // JSDoc‚Ì‹Lq‚Æ‚µ‚ÄƒAƒNƒZƒX‚ğ•\Œ»‚µ‚Ä‚¢‚Ü‚·B
+        // JavaScriptã«ã¯ã‚¢ã‚¯ã‚»ã‚¹ãƒ•ãƒ©ã‚°ãã®ã‚‚ã®ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚
+        // JSDocã®è¨˜è¿°ã¨ã—ã¦ã‚¢ã‚¯ã‚»ã‚¹ã‚’è¡¨ç¾ã—ã¦ã„ã¾ã™ã€‚
 
-        // JavaScript‚Å‚ÍŒ¾Œê‚Æ‚µ‚Ä‚Í–ß‚è’l‚Ío—Í‚µ‚Ü‚¹‚ñBJSDoc‚Ì‹Lq‚Æ‚µ‚Ä‚Ì‚İ•\Œ»‚µ‚Ü‚·B
+        // JavaScriptã§ã¯è¨€èªã¨ã—ã¦ã¯æˆ»ã‚Šå€¤ã¯å‡ºåŠ›ã—ã¾ã›ã‚“ã€‚JSDocã®è¨˜è¿°ã¨ã—ã¦ã®ã¿è¡¨ç¾ã—ã¾ã™ã€‚
 
         buf.append("(");
         for (int index = 0; index < cgMethod.getParameterList().size(); index++) {
             final BlancoCgParameter cgParameter = cgMethod.getParameterList()
                     .get(index);
             if (cgParameter.getType() == null) {
-                throw new IllegalArgumentException("ƒƒ\ƒbƒh[" + cgMethod.getName()
-                        + "]‚Ìƒpƒ‰ƒ[ƒ^[" + cgParameter.getName()
-                        + "]‚ÉŒ^‚ªnull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                throw new IllegalArgumentException("ãƒ¡ã‚½ãƒƒãƒ‰[" + cgMethod.getName()
+                        + "]ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿[" + cgParameter.getName()
+                        + "]ã«å‹ãŒnullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
             }
 
             if (index != 0) {
                 buf.append(", ");
             }
 
-            // JavaScript‚Å‚ÍfinalCü‚Í–³Œø‚Å‚·B
+            // JavaScriptã§ã¯finalä¿®é£¾ã¯ç„¡åŠ¹ã§ã™ã€‚
 
             buf.append("/* "
                     + BlancoCgTypeJsSourceExpander.toTypeString(cgParameter
@@ -247,21 +247,21 @@ class BlancoCgMethodJsSourceExpander {
         }
         buf.append(")");
 
-        // —áŠOƒXƒ[“WŠJ‚ÍJavaScript‚É‚Í‘¶İ‚µ‚Ü‚¹‚ñB
+        // ä¾‹å¤–ã‚¹ãƒ­ãƒ¼å±•é–‹ã¯JavaScriptã«ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚
 
         if (cgMethod.getAbstract()) {
-            // ’ŠÛƒƒ\ƒbƒh‚Ü‚½‚ÍƒCƒ“ƒ^ƒtƒF[ƒX‚Ìê‡‚É‚ÍAƒƒ\ƒbƒh‚Ì–{‘Ì‚ğ“WŠJ‚µ‚Ü‚¹‚ñB
+            // æŠ½è±¡ãƒ¡ã‚½ãƒƒãƒ‰ã¾ãŸã¯ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®å ´åˆã«ã¯ã€ãƒ¡ã‚½ãƒƒãƒ‰ã®æœ¬ä½“ã‚’å±•é–‹ã—ã¾ã›ã‚“ã€‚
             buf.append(BlancoCgLineUtil.getTerminator(TARGET_LANG));
             argSourceLines.add(buf.toString());
         } else {
-            // ƒƒ\ƒbƒhƒuƒƒbƒN‚ÌŠJnB
+            // ãƒ¡ã‚½ãƒƒãƒ‰ãƒ–ãƒ­ãƒƒã‚¯ã®é–‹å§‹ã€‚
             buf.append(" {");
 
-            // ‚±‚±‚Å‚¢‚Á‚½‚ñAs‚ğŠm’èB
+            // ã“ã“ã§ã„ã£ãŸã‚“ã€è¡Œã‚’ç¢ºå®šã€‚
             argSourceLines.add(buf.toString());
 
-            // ˆø”ƒ`ƒFƒbƒN‚Ì©“®¶¬‚ğs‚¢‚Ü‚·B
-            argSourceLines.add("/* ƒpƒ‰ƒ[ƒ^‚Ì”AŒ^ƒ`ƒFƒbƒN‚ğs‚¢‚Ü‚·B */");
+            // å¼•æ•°ãƒã‚§ãƒƒã‚¯ã®è‡ªå‹•ç”Ÿæˆã‚’è¡Œã„ã¾ã™ã€‚
+            argSourceLines.add("/* ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®æ•°ã€å‹ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã„ã¾ã™ã€‚ */");
             argSourceLines.add(BlancoCgLineUtil.getIfBegin(TARGET_LANG,
                     "arguments.length !== "
                             + cgMethod.getParameterList().size()));
@@ -270,9 +270,9 @@ class BlancoCgMethodJsSourceExpander {
                             + cgClass.getName()
                             + "."
                             + cgMethod.getName()
-                            + " ‚Ìƒpƒ‰ƒ[ƒ^‚Í["
+                            + " ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯["
                             + cgMethod.getParameterList().size()
-                            + "]ŒÂ‚Å‚ ‚é•K—v‚ª‚ ‚è‚Ü‚·B‚µ‚©‚µÀÛ‚É‚Í[\" + arguments.length +  \"]ŒÂ‚Ìƒpƒ‰ƒ[ƒ^‚ğ”º‚Á‚ÄŒÄ‚Ño‚³‚ê‚Ü‚µ‚½B\");");
+                            + "]å€‹ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚ã—ã‹ã—å®Ÿéš›ã«ã¯[\" + arguments.length +  \"]å€‹ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’ä¼´ã£ã¦å‘¼ã³å‡ºã•ã‚Œã¾ã—ãŸã€‚\");");
             argSourceLines.add(BlancoCgLineUtil.getIfEnd(TARGET_LANG));
 
             for (int indexParameter = 0; indexParameter < cgMethod
@@ -292,70 +292,70 @@ class BlancoCgMethodJsSourceExpander {
                                     + " == false"));
                 }
                 argSourceLines.add("throw new Error(\"[ArgumentException]: "
-                        + cgClass.getName() + "." + cgMethod.getName() + " ‚Ì"
-                        + (indexParameter + 1) + "”Ô–Ú‚Ìƒpƒ‰ƒ[ƒ^‚Í["
+                        + cgClass.getName() + "." + cgMethod.getName() + " ã®"
+                        + (indexParameter + 1) + "ç•ªç›®ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã¯["
                         + cgParameter.getType().getName()
-                        + "]Œ^‚Å‚È‚­‚Ä‚Í‚È‚è‚Ü‚¹‚ñB‚µ‚©‚µÀÛ‚É‚Í[\" + typeof("
-                        + cgParameter.getName() + ") + \"]Œ^‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B\");");
+                        + "]å‹ã§ãªãã¦ã¯ãªã‚Šã¾ã›ã‚“ã€‚ã—ã‹ã—å®Ÿéš›ã«ã¯[\" + typeof("
+                        + cgParameter.getName() + ") + \"]å‹ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚\");");
                 argSourceLines.add(BlancoCgLineUtil.getIfEnd(TARGET_LANG));
             }
 
             argSourceLines.add("");
 
             if (cgMethod.getConstructor()) {
-                // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Å‚ ‚é‚Ì‚ÅƒtƒB[ƒ‹ƒh‚ğ“WŠJ‚µ‚Ü‚·B
-                // JavaScript‚Ìê‡‚É‚ÍAƒNƒ‰ƒX‚ÉƒtƒB[ƒ‹ƒh‚ğ“WŠJ‚·‚é‚Ì‚Å‚Í‚È‚­ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚ÉƒtƒB[ƒ‹ƒh“WŠJ‚ª‘¶İ‚µ‚Ü‚·B
+                // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã§ã‚ã‚‹ã®ã§ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
+                // JavaScriptã®å ´åˆã«ã¯ã€ã‚¯ãƒ©ã‚¹ã«ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å±•é–‹ã™ã‚‹ã®ã§ã¯ãªãã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰å±•é–‹ãŒå­˜åœ¨ã—ã¾ã™ã€‚
                 expandFieldList(cgClass, argSourceFile, argSourceLines);
             }
 
-            // eƒNƒ‰ƒXƒƒ\ƒbƒhÀs‹@”\‚Ì“WŠJB
+            // è¦ªã‚¯ãƒ©ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰å®Ÿè¡Œæ©Ÿèƒ½ã®å±•é–‹ã€‚
             if (BlancoStringUtil.null2Blank(cgMethod.getSuperclassInvocation())
                     .length() > 0) {
-                // super(ˆø”) ‚È‚Ç‚ªŠÜ‚Ü‚ê‚Ü‚·B
+                // super(å¼•æ•°) ãªã©ãŒå«ã¾ã‚Œã¾ã™ã€‚
                 argSourceLines.add(cgMethod.getSuperclassInvocation()
                         + BlancoCgLineUtil.getTerminator(TARGET_LANG));
             }
 
-            // s‚ğ“WŠJ‚µ‚Ü‚·B
+            // è¡Œã‚’å±•é–‹ã—ã¾ã™ã€‚
             expandLineList(cgMethod, argSourceLines);
 
-            // ƒƒ\ƒbƒhƒuƒƒbƒN‚ÌI—¹B
+            // ãƒ¡ã‚½ãƒƒãƒ‰ãƒ–ãƒ­ãƒƒã‚¯ã®çµ‚äº†ã€‚
             if (cgMethod.getConstructor()) {
-                // ƒNƒ‰ƒXéŒ¾‚Å‚ÍÅŒã‚ÉƒZƒ~ƒRƒƒ“‚ª•t—^‚µ‚Ü‚¹‚ñB
+                // ã‚¯ãƒ©ã‚¹å®£è¨€ã§ã¯æœ€å¾Œã«ã‚»ãƒŸã‚³ãƒ­ãƒ³ãŒä»˜ä¸ã—ã¾ã›ã‚“ã€‚
                 argSourceLines.add("}");
             } else {
-                // JavaScript‚Å‚ÍÅŒã‚ÉƒZƒ~ƒRƒƒ“‚ª•t—^‚³‚ê‚Ü‚·B
+                // JavaScriptã§ã¯æœ€å¾Œã«ã‚»ãƒŸã‚³ãƒ­ãƒ³ãŒä»˜ä¸ã•ã‚Œã¾ã™ã€‚
                 argSourceLines.add("};");
             }
         }
     }
 
     /**
-     * ƒNƒ‰ƒX‚ÉŠÜ‚Ü‚ê‚éŠeX‚ÌƒtƒB[ƒ‹ƒh‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã‚¯ãƒ©ã‚¹ã«å«ã¾ã‚Œã‚‹å„ã€…ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
-     * Œ»İ‚Í “o˜^‡‚Åƒ\[ƒXƒR[ƒh“WŠJ‚µ‚Ü‚·B
+     * ç¾åœ¨ã¯ ç™»éŒ²é †ã§ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgClass
-     *            ˆ—’†‚ÌƒNƒ‰ƒXB
+     *            å‡¦ç†ä¸­ã®ã‚¯ãƒ©ã‚¹ã€‚
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹B
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhsƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è¡Œãƒªã‚¹ãƒˆã€‚
      */
     private void expandFieldList(final BlancoCgClass cgClass,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
         if (cgClass.getFieldList() == null) {
-            // ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B
-            // ‚©‚È‚ç‚¸ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚É‚ÍList‚ğƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
-            throw new IllegalArgumentException("ƒtƒB[ƒ‹ƒh‚ÌƒŠƒXƒg‚Énull‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+            // ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚
+            // ã‹ãªã‚‰ãšãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«ã¯Listã‚’ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
+            throw new IllegalArgumentException("ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ãƒªã‚¹ãƒˆã«nullãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
 
         for (int index = 0; index < cgClass.getFieldList().size(); index++) {
             final BlancoCgField cgField = cgClass.getFieldList().get(index);
 
             if (cgField.getStatic() == false) {
-                // ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì’†‚ÅAstatic‚Å‚Í‚È‚¢ƒtƒB[ƒ‹ƒh‚ğ“WŠJ‚µ‚Ü‚·B
+                // ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®ä¸­ã§ã€staticã§ã¯ãªã„ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å±•é–‹ã—ã¾ã™ã€‚
                 new BlancoCgFieldJsSourceExpander().transformField(cgClass,
                         cgField, argSourceFile, argSourceLines);
             }
@@ -363,19 +363,19 @@ class BlancoCgMethodJsSourceExpander {
     }
 
     /**
-     * ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ“WŠJ‚µ‚Ü‚·B
+     * ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgMethod
-     *            ƒƒ\ƒbƒhB
+     *            ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã€‚
      */
     private void expandAnnotationList(final BlancoCgMethod cgMethod,
             final List<java.lang.String> argSourceLines) {
         if (cgMethod.getOverride()) {
-            // JavaScriptŒ¾Œê‚Å‚Ì override•\Œ»‚ÍŒ»“_‚Å‚ÍƒTƒ|[ƒgŠO‚Å‚·B
+            // JavaScriptè¨€èªã§ã® overrideè¡¨ç¾ã¯ç¾æ™‚ç‚¹ã§ã¯ã‚µãƒãƒ¼ãƒˆå¤–ã§ã™ã€‚
             throw new IllegalArgumentException(
-                    "Œ»ƒo[ƒWƒ‡ƒ“‚Ì blancoCg‚Í JavaScriptŒ¾Œê‚ÌÛ‚É‚ÍƒI[ƒo[ƒ‰ƒCƒh•\Œ»‚ğƒTƒ|[ƒg‚µ‚Ü‚¹‚ñB");
+                    "ç¾ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã® blancoCgã¯ JavaScriptè¨€èªã®éš›ã«ã¯ã‚ªãƒ¼ãƒãƒ¼ãƒ©ã‚¤ãƒ‰è¡¨ç¾ã‚’ã‚µãƒãƒ¼ãƒˆã—ã¾ã›ã‚“ã€‚");
             // argSourceLines.add("@Override");
         }
 
@@ -383,20 +383,20 @@ class BlancoCgMethodJsSourceExpander {
             final String strAnnotation = cgMethod.getAnnotationList()
                     .get(index);
             throw new IllegalArgumentException(
-                    "Œ»ƒo[ƒWƒ‡ƒ“‚Ì blancoCg‚Í JavaScriptŒ¾Œê‚ÌÛ‚É‚ÍƒAƒmƒe[ƒVƒ‡ƒ“‚ğƒTƒ|[ƒg‚µ‚Ü‚¹‚ñB"
+                    "ç¾ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã® blancoCgã¯ JavaScriptè¨€èªã®éš›ã«ã¯ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ã‚µãƒãƒ¼ãƒˆã—ã¾ã›ã‚“ã€‚"
                             + strAnnotation);
-            // JavaScriptŒ¾Œê‚ÌAnnotation‚Í•s–¾‚Å‚·B
+            // JavaScriptè¨€èªã®Annotationã¯ä¸æ˜ã§ã™ã€‚
             // argSourceLines.add("@" + strAnnotation);
         }
     }
 
     /**
-     * s‚ğ“WŠJ‚µ‚Ü‚·B
+     * è¡Œã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param cgMethod
-     *            ƒƒ\ƒbƒhî•ñB
+     *            ãƒ¡ã‚½ãƒƒãƒ‰æƒ…å ±ã€‚
      * @param argSourceLines
-     *            o—ÍsƒŠƒXƒgB
+     *            å‡ºåŠ›è¡Œãƒªã‚¹ãƒˆã€‚
      */
     private void expandLineList(final BlancoCgMethod cgMethod,
             final List<java.lang.String> argSourceLines) {

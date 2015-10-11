@@ -10,112 +10,112 @@
 package blanco.cg.valueobject;
 
 /**
- * enum�̊e�v�f��\�����邽�߂̃o�����[�I�u�W�F�N�g�B
+ * enumの各要素を表現するためのバリューオブジェクト。
  */
 public class BlancoCgEnumElement {
     /**
-     * ���̗񋓑̗̂v�f�̖��O�ł��B
+     * この列挙体の要素の名前です。
      *
-     * �t�B�[���h: [name]�B
+     * フィールド: [name]。
      */
     private String fName;
 
     /**
-     * ���̗񋓑̗̂v�f�̐����ł��B
+     * この列挙体の要素の説明です。
      *
-     * �t�B�[���h: [description]�B
+     * フィールド: [description]。
      */
     private String fDescription;
 
     /**
-     * (C#.NET�̂ݑΉ�) �f�t�H���g�l������킵�܂��B
+     * (C#.NETのみ対応) デフォルト値をあらわします。
      *
-     * String�Ȃ� ""�Aint�Ȃ� 3 �Ȃǂ̂悤�Ɏ��ۂ̕����w�肵�܂��B
-     * (�_�u���N�I�[�g�Ȃǂ��܂񂾌`�ŕ\�����܂��B)
-     * �t�B�[���h: [default]�B
+     * Stringなら ""、intなら 3 などのように実際の文を指定します。
+     * (ダブルクオートなども含んだ形で表現します。)
+     * フィールド: [default]。
      */
     private String fDefault;
 
     /**
-     * �t�B�[���h [name] �̒l��ݒ肵�܂��B
+     * フィールド [name] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̗񋓑̗̂v�f�̖��O�ł��B]�B
+     * フィールドの説明: [この列挙体の要素の名前です。]。
      *
-     * @param argName �t�B�[���h[name]�ɐݒ肷��l�B
+     * @param argName フィールド[name]に設定する値。
      */
     public void setName(final String argName) {
         fName = argName;
     }
 
     /**
-     * �t�B�[���h [name] �̒l���擾���܂��B
+     * フィールド [name] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̗񋓑̗̂v�f�̖��O�ł��B]�B
+     * フィールドの説明: [この列挙体の要素の名前です。]。
      *
-     * @return �t�B�[���h[name]����擾�����l�B
+     * @return フィールド[name]から取得した値。
      */
     public String getName() {
         return fName;
     }
 
     /**
-     * �t�B�[���h [description] �̒l��ݒ肵�܂��B
+     * フィールド [description] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̗񋓑̗̂v�f�̐����ł��B]�B
+     * フィールドの説明: [この列挙体の要素の説明です。]。
      *
-     * @param argDescription �t�B�[���h[description]�ɐݒ肷��l�B
+     * @param argDescription フィールド[description]に設定する値。
      */
     public void setDescription(final String argDescription) {
         fDescription = argDescription;
     }
 
     /**
-     * �t�B�[���h [description] �̒l���擾���܂��B
+     * フィールド [description] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̗񋓑̗̂v�f�̐����ł��B]�B
+     * フィールドの説明: [この列挙体の要素の説明です。]。
      *
-     * @return �t�B�[���h[description]����擾�����l�B
+     * @return フィールド[description]から取得した値。
      */
     public String getDescription() {
         return fDescription;
     }
 
     /**
-     * �t�B�[���h [default] �̒l��ݒ肵�܂��B
+     * フィールド [default] の値を設定します。
      *
-     * �t�B�[���h�̐���: [(C#.NET�̂ݑΉ�) �f�t�H���g�l������킵�܂��B]�B
-     * String�Ȃ� ""�Aint�Ȃ� 3 �Ȃǂ̂悤�Ɏ��ۂ̕����w�肵�܂��B
-     * (�_�u���N�I�[�g�Ȃǂ��܂񂾌`�ŕ\�����܂��B)
+     * フィールドの説明: [(C#.NETのみ対応) デフォルト値をあらわします。]。
+     * Stringなら ""、intなら 3 などのように実際の文を指定します。
+     * (ダブルクオートなども含んだ形で表現します。)
      *
-     * @param argDefault �t�B�[���h[default]�ɐݒ肷��l�B
+     * @param argDefault フィールド[default]に設定する値。
      */
     public void setDefault(final String argDefault) {
         fDefault = argDefault;
     }
 
     /**
-     * �t�B�[���h [default] �̒l���擾���܂��B
+     * フィールド [default] の値を取得します。
      *
-     * �t�B�[���h�̐���: [(C#.NET�̂ݑΉ�) �f�t�H���g�l������킵�܂��B]�B
-     * String�Ȃ� ""�Aint�Ȃ� 3 �Ȃǂ̂悤�Ɏ��ۂ̕����w�肵�܂��B
-     * (�_�u���N�I�[�g�Ȃǂ��܂񂾌`�ŕ\�����܂��B)
+     * フィールドの説明: [(C#.NETのみ対応) デフォルト値をあらわします。]。
+     * Stringなら ""、intなら 3 などのように実際の文を指定します。
+     * (ダブルクオートなども含んだ形で表現します。)
      *
-     * @return �t�B�[���h[default]����擾�����l�B
+     * @return フィールド[default]から取得した値。
      */
     public String getDefault() {
         return fDefault;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {

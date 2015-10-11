@@ -14,40 +14,40 @@ import blanco.commons.util.BlancoNameUtil;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgType‚ðƒ\[ƒXƒR[ƒh‚É“WŠJ‚µ‚Ü‚·B
+ * BlancoCgTypeã‚’ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã«å±•é–‹ã—ã¾ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍblancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ðŽ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌŒÂ•Ê‚Ì“WŠJ‹@”\‚Å‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒžãƒ¼ã®å€‹åˆ¥ã®å±•é–‹æ©Ÿèƒ½ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 class BlancoCgTypePythonSourceExpander {
     /**
-     * ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚Ì—\–ñŒêˆê——B
+     * ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªžã®äºˆç´„èªžä¸€è¦§ã€‚
      */
     private static final String[] LANGUAGE_RESERVED_KEYWORD = { "void", "byte",
             "short", "int", "long", "char", "float", "double", "boolean" };
 
     /**
-     * blancoCgŒ^‚ðA‹ï‘Ì“I‚È•¶Žš—ñ‚Ö‚Æ•ÏŠ·‚µ‚Ü‚·B
+     * blancoCgåž‹ã‚’ã€å…·ä½“çš„ãªæ–‡å­—åˆ—ã¸ã¨å¤‰æ›ã—ã¾ã™ã€‚
      * 
-     * ”z—ñ‚ð•\‚·[]‚âƒWƒFƒlƒŠƒNƒX‚à“WŠJ‚µ‚Ü‚·B<br>
-     * TODO •¡”ƒpƒbƒP[ƒWŠÔ‚Å‚Ì“¯ˆêƒNƒ‰ƒX–¼(—á:java.util.Date‚Æjava.sql.Date‚È‚Ç)‚Íl—¶‚µ‚Ä‚¢‚Ü‚¹‚ñB
-     * •¡”ƒpƒbƒP[ƒW‚Ì“¯ˆêƒNƒ‰ƒX–¼‚ðˆê‚Â‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹“à‚Å—˜—p‚·‚éˆ×‚Ì”‹@”\‚Í–¢’ñ‹Ÿ‚Å‚·B
+     * é…åˆ—ã‚’è¡¨ã™[]ã‚„ã‚¸ã‚§ãƒãƒªã‚¯ã‚¹ã‚‚å±•é–‹ã—ã¾ã™ã€‚<br>
+     * TODO è¤‡æ•°ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸é–“ã§ã®åŒä¸€ã‚¯ãƒ©ã‚¹å(ä¾‹:java.util.Dateã¨java.sql.Dateãªã©)ã¯è€ƒæ…®ã—ã¦ã„ã¾ã›ã‚“ã€‚
+     * è¤‡æ•°ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®åŒä¸€ã‚¯ãƒ©ã‚¹åã‚’ä¸€ã¤ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«å†…ã§åˆ©ç”¨ã™ã‚‹ç‚ºã®è«¸æ©Ÿèƒ½ã¯æœªæä¾›ã§ã™ã€‚
      * 
      * @param argType
-     *            blancoCgã‚ÌŒ^B
-     * @return ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚É‚¨‚¯‚éŒ^‚ðŽ¦‚·•¶Žš—ñB
+     *            blancoCgä¸Šã®åž‹ã€‚
+     * @return ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªžã«ãŠã‘ã‚‹åž‹ã‚’ç¤ºã™æ–‡å­—åˆ—ã€‚
      */
     public static String toTypeString(final BlancoCgType argType) {
         final StringBuffer buf = new StringBuffer();
         buf.append(BlancoNameUtil.trimJavaPackage(argType.getName()));
 
-        // ”z—ñ‚ð“WŠJ‚µ‚Ü‚·B
+        // é…åˆ—ã‚’å±•é–‹ã—ã¾ã™ã€‚
         if (argType.getArray()) {
             buf.append("[]");
         }
 
-        // ƒWƒFƒlƒŠƒNƒX‚ð“WŠJ‚µ‚Ü‚·B
+        // ã‚¸ã‚§ãƒãƒªã‚¯ã‚¹ã‚’å±•é–‹ã—ã¾ã™ã€‚
         if (BlancoStringUtil.null2Blank(argType.getGenerics()).length() > 0) {
             buf.append(argType.getGenerics());
         }
@@ -56,11 +56,11 @@ class BlancoCgTypePythonSourceExpander {
     }
 
     /**
-     * —^‚¦‚ç‚ê‚½•¶Žš—ñ‚ªƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚Ì—\–ñŒê‚Å‚ ‚é‚©‚Ç‚¤‚©‚ðƒ`ƒFƒbƒN‚µ‚Ü‚·B
+     * ä¸Žãˆã‚‰ã‚ŒãŸæ–‡å­—åˆ—ãŒãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªžã®äºˆç´„èªžã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’ãƒã‚§ãƒƒã‚¯ã—ã¾ã™ã€‚
      * 
      * @param argCheck
-     *            ƒ`ƒFƒbƒN‚µ‚½‚¢•¶Žš—ñB
-     * @return ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚Ì—\–ñŒê‚ÉŠY“–‚µ‚½‚©‚Ç‚¤‚©B
+     *            ãƒã‚§ãƒƒã‚¯ã—ãŸã„æ–‡å­—åˆ—ã€‚
+     * @return ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªžã®äºˆç´„èªžã«è©²å½“ã—ãŸã‹ã©ã†ã‹ã€‚
      * @see <a
      *      href="http://java.sun.com/docs/books/jls/second_edition/html/typesValues.doc.html#85587">4.2
      *      Primitive Types and Values (Java Language Specification - Second
@@ -69,12 +69,12 @@ class BlancoCgTypePythonSourceExpander {
     public static boolean isLanguageReservedKeyword(final String argCheck) {
         for (int index = 0; index < LANGUAGE_RESERVED_KEYWORD.length; index++) {
             if (LANGUAGE_RESERVED_KEYWORD[index].equals(argCheck)) {
-                // ‚±‚Ì•¶Žš—ñ‚ÍƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚Ì—\–ñŒê‚Å‚·B
+                // ã“ã®æ–‡å­—åˆ—ã¯ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªžã®äºˆç´„èªžã§ã™ã€‚
                 return true;
             }
         }
 
-        // ƒL[ƒ[ƒh‚Éƒqƒbƒg‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B‚±‚Ì•¶Žš—ñ‚ÍƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚Ì—\–ñŒê‚Å‚Í‚ ‚è‚Ü‚¹‚ñB
+        // ã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã«ãƒ’ãƒƒãƒˆã—ã¾ã›ã‚“ã§ã—ãŸã€‚ã“ã®æ–‡å­—åˆ—ã¯ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªžã®äºˆç´„èªžã§ã¯ã‚ã‚Šã¾ã›ã‚“ã€‚
         return false;
     }
 }

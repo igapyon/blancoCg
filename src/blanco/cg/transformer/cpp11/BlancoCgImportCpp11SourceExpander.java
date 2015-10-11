@@ -18,85 +18,85 @@ import blanco.cg.util.BlancoCgLineUtil;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * BlancoCgSourceFile�̂Ȃ��� import����W�J���܂��B
+ * BlancoCgSourceFileのなかの import情報を展開します。
  * 
- * ���̃N���X��blancoCg�̃o�����[�I�u�W�F�N�g����\�[�X�R�[�h��������������g�����X�t�H�[�}�[�̌ʂ̓W�J�@�\�ł��B<br>
- * import�W�J�͈ӊO�ɂ����G�ȏ����ł��B
+ * このクラスはblancoCgのバリューオブジェクトからソースコードを自動生成するトランスフォーマーの個別の展開機能です。<br>
+ * import展開は意外にも複雑な処理です。
  * 
  * @author IGA Tosiki
  */
 class BlancoCgImportCpp11SourceExpander {
     /**
-     * ���̃N���X�������ΏۂƂ���v���O���~���O����B
+     * このクラスが処理対象とするプログラミング言語。
      */
     protected static final int TARGET_LANG = BlancoCgSupportedLang.CS;
 
     /**
-     * import����W�J���邽�߂̃A���J�[������B
+     * import文を展開するためのアンカー文字列。
      */
     private static final String REPLACE_IMPORT_HERE = "/*replace import here*/";
 
     /**
-     * �������ꂽ�A���J�[������̃C���f�b�N�X�B
+     * 発見されたアンカー文字列のインデックス。
      * 
-     * ���̃N���X�̏����̉ߒ��� import�����ҏW����܂����A���̓s�x ���̒l���X�V����܂��B
+     * このクラスの処理の過程で import文が編集されますが、その都度 この値も更新されます。
      */
     private int fFindReplaceImport = -1;
 
     /**
-     * import��W�J���܂��B
+     * importを展開します。
      * 
-     * ���̃��\�b�h�̓N���X�W�J�E���\�b�h�W�J�Ȃǈꎮ���I��������ɌĂяo���悤�ɂ��܂��B
+     * このメソッドはクラス展開・メソッド展開など一式が終了した後に呼び出すようにします。
      * 
      * @param argSourceFile
-     *            �\�[�X�t�@�C���C���X�^���X�B
+     *            ソースファイルインスタンス。
      * @param argSourceLines
-     *            �\�[�X�s�C���[�W�B(java.lang.String���i�[����܂�)
+     *            ソース行イメージ。(java.lang.Stringが格納されます)
      */
     public void transformImport(final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
-        // C++ �ɂ����ẮA���̕����ł͒ǉ��s�\�Bimport�Ώۂ̃N���X���I�[�ɕt�^����Ă���z��\�����������܂��B
-        // C++ �ɂ����ẮA���̕����ł͒ǉ��s�\�BtrimArraySuffix(argSourceFile.getImportList());
+        // C++ においては、この方式では追加不能。import対象のクラス名終端に付与されている配列表現を除去します。
+        // C++ においては、この方式では追加不能。trimArraySuffix(argSourceFile.getImportList());
 
-        // import(using)�̃��X�g����N���X�����������܂��B
-        // C++ �ɂ����ẮA���̕����ł͒ǉ��s�\�BtrimClassName(argSourceFile);
+        // import(using)のリストからクラス名を除去します。
+        // C++ においては、この方式では追加不能。trimClassName(argSourceFile);
 
-        // �ŏ���import�����\�[�g���ď������s���₷�����܂��B
+        // 最初にimport文をソートして処理を行いやすくします。
         sortImport(argSourceFile.getImportList());
 
-        // �d������import�����������܂��B
+        // 重複するimport文を除去します。
         trimRepeatedImport(argSourceFile.getImportList());
 
-        // C++ �ɂ����ẮA���̕����ł͒ǉ��s�\�Bimport����K�v�̂Ȃ��N���X���������܂�
-        // C++ �ɂ����ẮA���̕����ł͒ǉ��s�\�BtrimUnnecessaryImport(argSourceFile.getImportList());
+        // C++ においては、この方式では追加不能。importする必要のないクラスを除去します
+        // C++ においては、この方式では追加不能。trimUnnecessaryImport(argSourceFile.getImportList());
 
-        // C++ �ɂ����ẮA���̕����ł͒ǉ��s�\�B���N���X����������p�b�P�[�W�ɑ΂���import��}�����܂��B
-        // C++ �ɂ����ẮA���̕����ł͒ǉ��s�\�BtrimMyselfImport(argSourceFile, argSourceFile.getImportList());
+        // C++ においては、この方式では追加不能。自クラスが所属するパッケージに対するimportを抑制します。
+        // C++ においては、この方式では追加不能。trimMyselfImport(argSourceFile, argSourceFile.getImportList());
 
-        // �A���J�[��������������܂��B
+        // アンカー文字列を検索します。
         fFindReplaceImport = findAnchorString(argSourceLines);
         if (fFindReplaceImport < 0) {
-            throw new IllegalArgumentException("import���̒u��������𔭌����邱�Ƃ��ł��܂���ł����B");
+            throw new IllegalArgumentException("import文の置換文字列を発見することができませんでした。");
         }
 
-        // �ŏ��ɁuSystem�v�p�b�P�[�W��W�J���܂��B
+        // 最初に「System」パッケージを展開します。
         expandImportWithTarget(argSourceFile, "System", argSourceLines);
 
-        // �Ō�ɁuSystem�v�ȊO�̃p�b�P�[�W��W�J���܂��B
+        // 最後に「System」以外のパッケージを展開します。
         expandImportWithTarget(argSourceFile, null, argSourceLines);
 
-        // �A���J�[��������������܂��B
+        // アンカー文字列を除去します。
         removeAnchorString(argSourceLines);
     }
 
     /**
-     * �W�J�ΏۂƂȂ�^�[�Q�b�g���ӎ����ăC���|�[�g��W�J���܂��B
+     * 展開対象となるターゲットを意識してインポートを展開します。
      * 
      * @param argSourceFile
      * @param argTarget
-     *            java. �܂��� javax. �܂��� null���w�肵�܂��B
+     *            java. または javax. または nullを指定します。
      * @param argSourceLines
-     *            �\�[�X�R�[�h�s���X�g�B
+     *            ソースコード行リスト。
      */
     private void expandImportWithTarget(final BlancoCgSourceFile argSourceFile,
             final String argTarget, final List<java.lang.String> argSourceLines) {
@@ -105,15 +105,15 @@ class BlancoCgImportCpp11SourceExpander {
             final String strImport = argSourceFile.getImportList().get(index);
 
             if (argTarget == null) {
-                // System. �ȊO��W�J���܂��B
+                // System. 以外を展開します。
                 if (strImport.startsWith("System")) {
-                    // �����ΏۂƂ���p�b�P�[�W�ȊO�ł���̂ŁA�������X�L�b�v���܂��B
-                    // ��System. �̓n�[�h�R�[�h����Ă���_�ɒ��ӂ��Ă��������B
+                    // 処理対象とするパッケージ以外であるので、処理をスキップします。
+                    // ※System. はハードコードされている点に注意してください。
                     continue;
                 }
             } else {
                 if (strImport.startsWith(argTarget) == false) {
-                    // �����ΏۂƂ���p�b�P�[�W�ȊO�ł���̂ŁA�������X�L�b�v���܂��B
+                    // 処理対象とするパッケージ以外であるので、処理をスキップします。
                     continue;
                 }
             }
@@ -123,40 +123,40 @@ class BlancoCgImportCpp11SourceExpander {
         }
 
         if (isProcessed) {
-            // import�W�J���������݂����ꍇ�ɂ̂݋󔒂�t�^���܂��B
+            // import展開処理が存在した場合にのみ空白を付与します。
             argSourceLines.add(fFindReplaceImport++, "");
         }
     }
 
     /**
-     * �u���A���J�[������̍s��(0�I���W��)���������܂��B
+     * 置換アンカー文字列の行数(0オリジン)を検索します。
      * 
-     * @return ���������A���J�[������̈ʒu(0�I���W��)�B�����ł��Ȃ������ꍇ�ɂ�-1�B
+     * @return 発見したアンカー文字列の位置(0オリジン)。発見できなかった場合には-1。
      * @param argSourceLines
-     *            �\�[�X���X�g�B
+     *            ソースリスト。
      */
     private static final int findAnchorString(
             final List<java.lang.String> argSourceLines) {
         for (int index = 0; index < argSourceLines.size(); index++) {
             final String line = argSourceLines.get(index);
             if (line.equals(REPLACE_IMPORT_HERE)) {
-                // �������܂����B
+                // 発見しました。
                 return index;
             }
         }
 
-        // �����ł��܂���ł����B�����ł��Ȃ��������Ƃ����� -1 ��߂��܂��B
+        // 発見できませんでした。発見できなかったことを示す -1 を戻します。
         return -1;
     }
 
     /**
-     * �A���J�[�������}�����܂��B
+     * アンカー文字列を挿入します。
      * 
-     * �����̌㔼�ŃC���|�[�g����Ґ����Ȃ����܂����A���̍ۂɎQ�Ƃ���A���J�[�������ǉ����Ă����܂��B<br>
-     * ���̃��\�b�h�͑��̃N���X����Ăяo����܂��B
+     * 処理の後半でインポート文を編成しなおしますが、その際に参照するアンカー文字列を追加しておきます。<br>
+     * このメソッドは他のクラスから呼び出されます。
      * 
      * @param argSourceLines
-     *            �\�[�X���X�g�B
+     *            ソースリスト。
      */
     public static final void insertAnchorString(
             final List<java.lang.String> argSourceLines) {
@@ -164,41 +164,41 @@ class BlancoCgImportCpp11SourceExpander {
     }
 
     /**
-     * �A���J�[��������������܂��B
+     * アンカー文字列を除去します。
      * 
      * @param argSourceLines
-     *            �\�[�X���X�g�B
+     *            ソースリスト。
      */
     private static final void removeAnchorString(
             final List<java.lang.String> argSourceLines) {
-        // �Ō�ɃA���J�[�����񂻂̂��̂������B
+        // 最後にアンカー文字列そのものを除去。
         int findReplaceImport2 = findAnchorString(argSourceLines);
         if (findReplaceImport2 < 0) {
-            throw new IllegalArgumentException("import���̒u��������𔭌����邱�Ƃ��ł��܂���ł����B");
+            throw new IllegalArgumentException("import文の置換文字列を発見することができませんでした。");
         }
         argSourceLines.remove(findReplaceImport2);
     }
 
     /**
-     * �^����ꂽimport���\�[�g���܂��B
+     * 与えられたimportをソートします。
      * 
-     * �z�肳���m�[�h�̌^(java.lang.String)�ȊO���^������ƁA��O���������܂��B
+     * 想定されるノードの型(java.lang.String)以外が与えられると、例外が発生します。
      * 
      * @param argImport
-     *            �C���|�[�g���X�g�B
+     *            インポートリスト。
      */
     private static final void sortImport(final List<java.lang.String> argImport) {
         Collections.sort(argImport, new Comparator<java.lang.String>() {
             public int compare(final String arg0, final String arg1) {
                 if (arg0 instanceof String == false) {
-                    throw new IllegalArgumentException("import�̃��X�g�̒l�ł����A["
-                            + arg0 + "]�ł��� java.lang.String�ȊO�̌^["
-                            + arg0.getClass().getName() + "]�ɂȂ��Ă��܂��B");
+                    throw new IllegalArgumentException("importのリストの値ですが、["
+                            + arg0 + "]ですが java.lang.String以外の型["
+                            + arg0.getClass().getName() + "]になっています。");
                 }
                 if (arg1 instanceof String == false) {
-                    throw new IllegalArgumentException("import�̃��X�g�̒l�ł����A["
-                            + arg1 + "]�ł��� java.lang.String�ȊO�̌^["
-                            + arg1.getClass().getName() + "]�ɂȂ��Ă��܂��B");
+                    throw new IllegalArgumentException("importのリストの値ですが、["
+                            + arg1 + "]ですが java.lang.String以外の型["
+                            + arg1.getClass().getName() + "]になっています。");
                 }
                 final String str0 = (String) arg0;
                 final String str1 = (String) arg1;
@@ -208,44 +208,44 @@ class BlancoCgImportCpp11SourceExpander {
     }
 
     /**
-     * �d������s�v��import���������܂��B
+     * 重複する不要なimportを除去します。
      * 
-     * ���̃��\�b�h�́A�^����ꂽList�����Ƀ\�[�g�ς݂ł��邱�Ƃ�O��Ƃ��܂��B
+     * このメソッドは、与えられたListが既にソート済みであることを前提とします。
      * 
      * @param argImport
-     *            �C���|�[�g���X�g�B
+     *            インポートリスト。
      */
     private void trimRepeatedImport(final List<java.lang.String> argImport) {
-        // �d������import�������B
+        // 重複するimportを除去。
         String pastImport = "";
         for (int index = argImport.size() - 1; index >= 0; index--) {
             final String strImport = argImport.get(index);
             if (pastImport.equals(strImport)) {
-                // ���ɏ�������Ă���d������import�ł��B�s�v�Ȃ̂ł�����������܂��B
+                // 既に処理されている重複するimportです。不要なのでこれを除去します。
                 argImport.remove(index);
             }
-            // �����import��O��import�Ƃ��ċL�����܂��B
+            // 今回のimportを前回分importとして記憶します。
             pastImport = strImport;
         }
     }
 
     /**
-     * ����̃p�b�P�[�W�ɂ��āA��������X�g���珜�����܂��B
+     * 特定のパッケージについて、これをリストから除去します。
      * 
-     * ���N���X����������p�b�P�[�W�̏����ɗ��p����܂��B
+     * 自クラスが所属するパッケージの除去に利用されます。
      * 
      * @param argSpecificPackage
-     *            �����ΏۂƂ���p�b�P�[�W�B
+     *            処理対象とするパッケージ。
      * @param argImport
-     *            �C���|�[�g�̃��X�g�B
+     *            インポートのリスト。
      */
     private static void trimSpecificPackage(final String argSpecificPackage,
             final List<java.lang.String> argImport) {
         for (int index = argImport.size() - 1; index >= 0; index--) {
-            // �\�[�g���_�Ō^�`�F�b�N�͎��{�ς݂ł��B
+            // ソート時点で型チェックは実施済みです。
             final String strImport = argImport.get(index);
 
-            // C#.NET�ł͖��O��Ԃ��i�[����Ă��܂��B���O��ԓ��m�𒼐ڔ�r���܂��B
+            // C#.NETでは名前空間が格納されています。名前空間同士を直接比較します。
             if (argSpecificPackage.equals(strImport)) {
                 argImport.remove(index);
             }

@@ -20,26 +20,26 @@ import java.util.List;
 import blanco.cg.resourcebundle.BlancoCgResourceBundle;
 
 /**
- * blancoCg ‚Ìƒ\[ƒXƒtƒ@ƒCƒ‹—p‚Ìƒ†[ƒeƒBƒŠƒeƒBEƒNƒ‰ƒXB
+ * blancoCg ã®ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ç”¨ã®ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ãƒ»ã‚¯ãƒ©ã‚¹ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoCgSourceFileUtil {
     /**
-     * ƒŠƒ\[ƒXƒoƒ“ƒhƒ‹EƒƒbƒZ[ƒW‚ğˆµ‚¤‚½‚ß‚ÌƒNƒ‰ƒXB
+     * ãƒªã‚½ãƒ¼ã‚¹ãƒãƒ³ãƒ‰ãƒ«ãƒ»ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’æ‰±ã†ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã€‚
      */
     protected static final BlancoCgResourceBundle fBundle = new BlancoCgResourceBundle();
 
     /**
-     * ƒfƒtƒHƒ‹ƒg‚Ìƒtƒ@ƒCƒ‹EƒRƒƒ“ƒg‚Ìæ“¾B
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ã‚³ãƒ¡ãƒ³ãƒˆã®å–å¾—ã€‚
      * 
      * <UL>
-     * <LI>‘Š‘ÎƒpƒX meta/program/fileheader.txt ‚ª‚ ‚ê‚ÎA‚±‚ê‚ğ—Dæ—˜—p‚µ‚Ü‚·B(UTF-8
-     * ‚Å‹LÚ‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·)
-     * <LI>ƒŠƒ\[ƒXƒoƒ“ƒhƒ‹‚Ìw’è‚ğ—˜—p‚µ‚Ü‚·B
+     * <LI>ç›¸å¯¾ãƒ‘ã‚¹ meta/program/fileheader.txt ãŒã‚ã‚Œã°ã€ã“ã‚Œã‚’å„ªå…ˆåˆ©ç”¨ã—ã¾ã™ã€‚(UTF-8
+     * ã§è¨˜è¼‰ã•ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™)
+     * <LI>ãƒªã‚½ãƒ¼ã‚¹ãƒãƒ³ãƒ‰ãƒ«ã®æŒ‡å®šã‚’åˆ©ç”¨ã—ã¾ã™ã€‚
      * </UL>
      * 
-     * @return ƒfƒtƒHƒ‹ƒg‚Ìƒtƒ@ƒCƒ‹EƒRƒƒ“ƒg‚Ì”z—ñB
+     * @return ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ãƒ•ã‚¡ã‚¤ãƒ«ãƒ»ã‚³ãƒ¡ãƒ³ãƒˆã®é…åˆ—ã€‚
      */
     public static List<String> getDefaultFileComment() {
         final List<String> result = new ArrayList<String>();

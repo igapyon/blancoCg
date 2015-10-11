@@ -14,77 +14,77 @@ import java.util.List;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * BlancoCgSourceFile‚Ì‚È‚©‚Ì importî•ñ‚ð“WŠJ‚µ‚Ü‚·B
+ * BlancoCgSourceFileã®ãªã‹ã® importæƒ…å ±ã‚’å±•é–‹ã—ã¾ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍblancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ðŽ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌŒÂ•Ê‚Ì“WŠJ‹@”\‚Å‚·B<br>
- * import“WŠJ‚ÍˆÓŠO‚É‚à•¡ŽG‚Èˆ—‚Å‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒžãƒ¼ã®å€‹åˆ¥ã®å±•é–‹æ©Ÿèƒ½ã§ã™ã€‚<br>
+ * importå±•é–‹ã¯æ„å¤–ã«ã‚‚è¤‡é›‘ãªå‡¦ç†ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 class BlancoCgImportJsSourceExpander {
     /**
-     * import•¶‚ð“WŠJ‚·‚é‚½‚ß‚ÌƒAƒ“ƒJ[•¶Žš—ñB
+     * importæ–‡ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã€‚
      */
     private static final String REPLACE_IMPORT_HERE = "/*replace import here*/";
 
     /**
-     * ”­Œ©‚³‚ê‚½ƒAƒ“ƒJ[•¶Žš—ñ‚ÌƒCƒ“ƒfƒbƒNƒXB
+     * ç™ºè¦‹ã•ã‚ŒãŸã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
      * 
-     * ‚±‚ÌƒNƒ‰ƒX‚Ìˆ—‚Ì‰ß’ö‚Å import•¶‚ª•ÒW‚³‚ê‚Ü‚·‚ªA‚»‚Ì“s“x ‚±‚Ì’l‚àXV‚³‚ê‚Ü‚·B
+     * ã“ã®ã‚¯ãƒ©ã‚¹ã®å‡¦ç†ã®éŽç¨‹ã§ importæ–‡ãŒç·¨é›†ã•ã‚Œã¾ã™ãŒã€ãã®éƒ½åº¦ ã“ã®å€¤ã‚‚æ›´æ–°ã•ã‚Œã¾ã™ã€‚
      */
     private int fFindReplaceImport = -1;
 
     /**
-     * import‚ð“WŠJ‚µ‚Ü‚·B
+     * importã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÍƒNƒ‰ƒX“WŠJEƒƒ\ƒbƒh“WŠJ‚È‚ÇˆêŽ®‚ªI—¹‚µ‚½Œã‚ÉŒÄ‚Ño‚·‚æ‚¤‚É‚µ‚Ü‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã‚¯ãƒ©ã‚¹å±•é–‹ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰å±•é–‹ãªã©ä¸€å¼ãŒçµ‚äº†ã—ãŸå¾Œã«å‘¼ã³å‡ºã™ã‚ˆã†ã«ã—ã¾ã™ã€‚
      * 
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹ƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXsƒCƒ[ƒWB(java.lang.String‚ªŠi”[‚³‚ê‚Ü‚·)
+     *            ã‚½ãƒ¼ã‚¹è¡Œã‚¤ãƒ¡ãƒ¼ã‚¸ã€‚(java.lang.StringãŒæ ¼ç´ã•ã‚Œã¾ã™)
      */
     public void transformImport(final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
-        // ƒAƒ“ƒJ[•¶Žš—ñ‚ðŒŸõ‚µ‚Ü‚·B
+        // ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã‚’æ¤œç´¢ã—ã¾ã™ã€‚
         fFindReplaceImport = findAnchorString(argSourceLines);
         if (fFindReplaceImport < 0) {
-            throw new IllegalArgumentException("import•¶‚Ì’uŠ·•¶Žš—ñ‚ð”­Œ©‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            throw new IllegalArgumentException("importæ–‡ã®ç½®æ›æ–‡å­—åˆ—ã‚’ç™ºè¦‹ã™ã‚‹ã“ã¨ãŒã§ãã¾ã›ã‚“ã§ã—ãŸã€‚");
         }
 
-        // ƒAƒ“ƒJ[•¶Žš—ñ‚ðœ‹Ž‚µ‚Ü‚·B
+        // ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã‚’é™¤åŽ»ã—ã¾ã™ã€‚
         removeAnchorString(argSourceLines);
     }
 
     /**
-     * ’uŠ·ƒAƒ“ƒJ[•¶Žš—ñ‚Ìs”(0ƒIƒŠƒWƒ“)‚ðŒŸõ‚µ‚Ü‚·B
+     * ç½®æ›ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã®è¡Œæ•°(0ã‚ªãƒªã‚¸ãƒ³)ã‚’æ¤œç´¢ã—ã¾ã™ã€‚
      * 
-     * @return ”­Œ©‚µ‚½ƒAƒ“ƒJ[•¶Žš—ñ‚ÌˆÊ’u(0ƒIƒŠƒWƒ“)B”­Œ©‚Å‚«‚È‚©‚Á‚½ê‡‚É‚Í-1B
+     * @return ç™ºè¦‹ã—ãŸã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã®ä½ç½®(0ã‚ªãƒªã‚¸ãƒ³)ã€‚ç™ºè¦‹ã§ããªã‹ã£ãŸå ´åˆã«ã¯-1ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ãƒªã‚¹ãƒˆã€‚
      */
     private static final int findAnchorString(
             final List<java.lang.String> argSourceLines) {
         for (int index = 0; index < argSourceLines.size(); index++) {
             final String line = argSourceLines.get(index);
             if (line.equals(REPLACE_IMPORT_HERE)) {
-                // ”­Œ©‚µ‚Ü‚µ‚½B
+                // ç™ºè¦‹ã—ã¾ã—ãŸã€‚
                 return index;
             }
         }
 
-        // ”­Œ©‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B”­Œ©‚Å‚«‚È‚©‚Á‚½‚±‚Æ‚ðŽ¦‚· -1 ‚ð–ß‚µ‚Ü‚·B
+        // ç™ºè¦‹ã§ãã¾ã›ã‚“ã§ã—ãŸã€‚ç™ºè¦‹ã§ããªã‹ã£ãŸã“ã¨ã‚’ç¤ºã™ -1 ã‚’æˆ»ã—ã¾ã™ã€‚
         return -1;
     }
 
     /**
-     * ƒAƒ“ƒJ[•¶Žš—ñ‚ð‘}“ü‚µ‚Ü‚·B
+     * ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
      * 
-     * ˆ—‚ÌŒã”¼‚ÅƒCƒ“ƒ|[ƒg•¶‚ð•Ò¬‚µ‚È‚¨‚µ‚Ü‚·‚ªA‚»‚ÌÛ‚ÉŽQÆ‚·‚éƒAƒ“ƒJ[•¶Žš—ñ‚ð’Ç‰Á‚µ‚Ä‚¨‚«‚Ü‚·B<br>
-     * ‚±‚Ìƒƒ\ƒbƒh‚Í‘¼‚ÌƒNƒ‰ƒX‚©‚çŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * å‡¦ç†ã®å¾ŒåŠã§ã‚¤ãƒ³ãƒãƒ¼ãƒˆæ–‡ã‚’ç·¨æˆã—ãªãŠã—ã¾ã™ãŒã€ãã®éš›ã«å‚ç…§ã™ã‚‹ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã‚’è¿½åŠ ã—ã¦ãŠãã¾ã™ã€‚<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä»–ã®ã‚¯ãƒ©ã‚¹ã‹ã‚‰å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param argSourceLines
-     *            ƒ\[ƒXƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ãƒªã‚¹ãƒˆã€‚
      */
     public static final void insertAnchorString(
             final List<java.lang.String> argSourceLines) {
@@ -92,17 +92,17 @@ class BlancoCgImportJsSourceExpander {
     }
 
     /**
-     * ƒAƒ“ƒJ[•¶Žš—ñ‚ðœ‹Ž‚µ‚Ü‚·B
+     * ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã‚’é™¤åŽ»ã—ã¾ã™ã€‚
      * 
      * @param argSourceLines
-     *            ƒ\[ƒXƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ãƒªã‚¹ãƒˆã€‚
      */
     private static final void removeAnchorString(
             final List<java.lang.String> argSourceLines) {
-        // ÅŒã‚ÉƒAƒ“ƒJ[•¶Žš—ñ‚»‚Ì‚à‚Ì‚ðœ‹ŽB
+        // æœ€å¾Œã«ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ãã®ã‚‚ã®ã‚’é™¤åŽ»ã€‚
         int findReplaceImport2 = findAnchorString(argSourceLines);
         if (findReplaceImport2 < 0) {
-            throw new IllegalArgumentException("import•¶‚Ì’uŠ·•¶Žš—ñ‚ð”­Œ©‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            throw new IllegalArgumentException("importæ–‡ã®ç½®æ›æ–‡å­—åˆ—ã‚’ç™ºè¦‹ã™ã‚‹ã“ã¨ãŒã§ãã¾ã›ã‚“ã§ã—ãŸã€‚");
         }
         argSourceLines.remove(findReplaceImport2);
     }

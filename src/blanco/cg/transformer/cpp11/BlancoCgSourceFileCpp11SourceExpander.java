@@ -22,79 +22,79 @@ import blanco.cg.valueobject.BlancoCgSourceFile;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgSourceFile���\�[�X�R�[�h�ɓW�J���܂��B
+ * BlancoCgSourceFileをソースコードに展開します。
  * 
- * ���̃N���X��blancoCg�̃o�����[�I�u�W�F�N�g����\�[�X�R�[�h��������������g�����X�t�H�[�}�[�̌ʂ̓W�J�@�\�ł��B
+ * このクラスはblancoCgのバリューオブジェクトからソースコードを自動生成するトランスフォーマーの個別の展開機能です。
  * 
  * @author IGA Tosiki
  */
 class BlancoCgSourceFileCpp11SourceExpander {
     /**
-     * ���̃N���X�������ΏۂƂ���v���O���~���O����B
+     * このクラスが処理対象とするプログラミング言語。
      */
     protected static final int TARGET_LANG = BlancoCgSupportedLang.CS;
 
     /**
-     * ���͂ƂȂ�\�[�X�R�[�h�\���B
+     * 入力となるソースコード構造。
      */
     private BlancoCgSourceFile fCgSourceFile = null;
 
     /**
-     * ���ԓI�ɗ��p����\�[�X�R�[�h������킷List�Bjava.lang.String�����X�g�Ɋi�[����܂��B(BlancoCgLine�ł͂���܂���B
+     * 中間的に利用するソースコードをあらわすList。java.lang.Stringがリストに格納されます。(BlancoCgLineではありません。
      * )
      * 
-     * �����ł͐��`�O�\�[�X�R�[�h�����ԓI�ɂ����킦���܂��B
+     * ここでは整形前ソースコードが中間的にたくわえられます。
      */
     private List<java.lang.String> fSourceLines = null;
 
     /**
-     * SourceFile���琮�`�O�\�[�X�R�[�h���X�g�𐶐����܂��B
+     * SourceFileから整形前ソースコードリストを生成します。
      * 
      * @param argSourceFile
-     *            �\�[�X�R�[�h������킷�o�����[�I�u�W�F�N�g�B
-     * @return �\�[�X�R�[�h�ɓW�J��̃��X�g�B
+     *            ソースコードをあらわすバリューオブジェクト。
+     * @return ソースコードに展開後のリスト。
      */
     public List<java.lang.String> transformSourceFile(
             final BlancoCgSourceFile argSourceFile) {
-        // �m���Ƀ\�[�X�s�̃��X�g�����������܂��B
+        // 確実にソース行のリストを初期化します。
         fSourceLines = new ArrayList<java.lang.String>();
 
         fCgSourceFile = argSourceFile;
 
-        // �\�[�X�t�@�C���̃t�@�C���w�b�_�[���o�͏������܂��B
+        // ソースファイルのファイルヘッダーを出力処理します。
         expandSourceFileHeader();
 
-        // �����̌㔼�ŃC���|�[�g����Ґ����Ȃ����܂����A���̍ۂɎQ�Ƃ���A���J�[�������ǉ����Ă����܂��B
+        // 処理の後半でインポート文を編成しなおしますが、その際に参照するアンカー文字列を追加しておきます。
         BlancoCgImportCpp11SourceExpander.insertAnchorString(fSourceLines);
 
-        // �p�b�P�[�W�����̐����B
+        // パッケージ部分の生成。
         if (BlancoStringUtil.null2Blank(fCgSourceFile.getPackage()).length() > 0) {
             fSourceLines.add("namespace " + fCgSourceFile.getPackage());
             fSourceLines.add("{");
         }
 
         if (fCgSourceFile.getImportList() == null) {
-            throw new IllegalArgumentException("import�̃��X�g��null���^�����܂����B");
+            throw new IllegalArgumentException("importのリストにnullが与えられました。");
         }
 
-        // �񋓑̂̓W�J�����{���܂��B
+        // 列挙体の展開を実施します。
         for (BlancoCgEnum cgEnum : fCgSourceFile.getEnumList()) {
             new BlancoCgEnumCpp11SourceExpander().transformEnum(cgEnum,
                     argSourceFile, fSourceLines);
         }
 
-        // �C���^�t�F�[�X�̓W�J�����{���܂��B
+        // インタフェースの展開を実施します。
         if (fCgSourceFile.getInterfaceList() == null) {
-            throw new IllegalArgumentException("�C���^�t�F�[�X�̃��X�g��null���^�����܂����B");
+            throw new IllegalArgumentException("インタフェースのリストにnullが与えられました。");
         }
         for (BlancoCgInterface cgInterface : fCgSourceFile.getInterfaceList()) {
             new BlancoCgInterfaceCpp11SourceExpander().transformInterface(
                     cgInterface, fCgSourceFile, fSourceLines);
         }
 
-        // �N���X�̓W�J�����{���܂��B
+        // クラスの展開を実施します。
         if (fCgSourceFile.getClassList() == null) {
-            throw new IllegalArgumentException("�N���X�̃��X�g��null���^�����܂����B");
+            throw new IllegalArgumentException("クラスのリストにnullが与えられました。");
         }
         for (BlancoCgClass cgClass : fCgSourceFile.getClassList()) {
             new BlancoCgClassCpp11SourceExpander().transformClass(cgClass,
@@ -105,9 +105,9 @@ class BlancoCgSourceFileCpp11SourceExpander {
             fSourceLines.add("};");
         }
 
-        // import�̓W�J�����܂��B
-        // ���̏������A�N���X�W�J����Ɏ��{����Ă���̂ɂ͈Ӗ�������܂��B
-        // �N���X�W�J�Ȃǂ��o�āA���߂ăC���|�[�g���̈ꗗ���m�肷�邩��ł��B
+        // importの展開をします。
+        // この処理が、クラス展開より後に実施されているのには意味があります。
+        // クラス展開などを経て、初めてインポート文の一覧が確定するからです。
         new BlancoCgImportCpp11SourceExpander().transformImport(fCgSourceFile,
                 fSourceLines);
 
@@ -115,10 +115,10 @@ class BlancoCgSourceFileCpp11SourceExpander {
     }
 
     /**
-     * �\�[�X�t�@�C���̃t�@�C���w�b�_�[���o�͏������܂��B
+     * ソースファイルのファイルヘッダーを出力処理します。
      */
     private void expandSourceFileHeader() {
-        // �\�[�X�t�@�C���w�b�_�[�̃R�����g�� �X���b�V���Q���Ó��ƍl�����܂��B
+        // ソースファイルヘッダーのコメントは スラッシュ２個が妥当と考えられます。
 
         if (BlancoStringUtil.null2Blank(fCgSourceFile.getDescription())
                 .length() > 0) {
@@ -126,7 +126,7 @@ class BlancoCgSourceFileCpp11SourceExpander {
                     .getSingleLineCommentPrefix(TARGET_LANG)
                     + fCgSourceFile.getDescription());
         } else {
-            // �w�肪�����ꍇ�ɂ̓f�t�H���g�̃R�����g�𗘗p���܂��B
+            // 指定が無い場合にはデフォルトのコメントを利用します。
             for (String line : BlancoCgSourceFileUtil.getDefaultFileComment()) {
                 fSourceLines.add(BlancoCgLineUtil
                         .getSingleLineCommentPrefix(TARGET_LANG)
@@ -134,7 +134,7 @@ class BlancoCgSourceFileCpp11SourceExpander {
             }
         }
 
-        // ����h�L�������g�̒��ԕ��𐶐����܂��B
+        // 言語ドキュメントの中間部を生成します。
         new BlancoCgLangDocCpp11SourceExpander().transformLangDocBody(
                 fCgSourceFile.getLangDoc(), fSourceLines, true);
     }

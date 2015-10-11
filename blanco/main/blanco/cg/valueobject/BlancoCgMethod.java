@@ -12,541 +12,541 @@ package blanco.cg.valueobject;
 import java.util.List;
 
 /**
- * ƒƒ\ƒbƒh‚ğ•\Œ»‚·‚é‚½‚ß‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒgB
+ * ãƒ¡ã‚½ãƒƒãƒ‰ã‚’è¡¨ç¾ã™ã‚‹ãŸã‚ã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
  *
- * ¦ƒ|ƒCƒ“ƒgFƒƒ\ƒbƒh–¼‚Ì–¼‘O•ÏŒ`‚ÍAblancoCg‚É—^‚¦‚é‘O‚ÉÀ{‚³‚ê‚Ä‚¢‚é•K—v‚ª‚ ‚è‚Ü‚·B
+ * â€»ãƒã‚¤ãƒ³ãƒˆï¼šãƒ¡ã‚½ãƒƒãƒ‰åã®åå‰å¤‰å½¢ã¯ã€blancoCgã«ä¸ãˆã‚‹å‰ã«å®Ÿæ–½ã•ã‚Œã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
  */
 public class BlancoCgMethod {
     /**
-     * ‚±‚Ìƒƒ\ƒbƒh‚Ì–¼‘O‚Å‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰ã§ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [name]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [name]ã€‚
      */
     private String fName;
 
     /**
-     * ‚±‚Ìƒƒ\ƒbƒh‚Ìà–¾‚Å‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®èª¬æ˜ã§ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [description]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [description]ã€‚
      */
     private String fDescription;
 
     /**
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÌƒAƒNƒZƒXƒRƒ“ƒgƒ[ƒ‹‚ğw’è‚µ‚Ü‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¢ã‚¯ã‚»ã‚¹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’æŒ‡å®šã—ã¾ã™ã€‚
      *
-     * public/protected/private‚È‚Ç‚ğw’è‚µ‚Ü‚·B
-     * ƒtƒB[ƒ‹ƒh: [access]B
-     * ƒfƒtƒHƒ‹ƒg: ["public"]B
+     * public/protected/privateãªã©ã‚’æŒ‡å®šã—ã¾ã™ã€‚
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [access]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: ["public"]ã€‚
      */
     private String fAccess = "public";
 
     /**
-     * ’ŠÛƒNƒ‰ƒX‚©‚Ç‚¤‚©B
+     * æŠ½è±¡ã‚¯ãƒ©ã‚¹ã‹ã©ã†ã‹ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [abstract]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [abstract]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      */
     private boolean fAbstract = false;
 
     /**
-     * static‚©‚Ç‚¤‚©B
+     * staticã‹ã©ã†ã‹ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [static]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [static]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      */
     private boolean fStatic = false;
 
     /**
-     * ƒI[ƒoƒ‰ƒCƒh‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©B
+     * ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [override]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [override]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      */
     private boolean fOverride = false;
 
     /**
-     * final‚©‚Ç‚¤‚©B
+     * finalã‹ã©ã†ã‹ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [final]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [final]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      */
     private boolean fFinal = false;
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚©‚Ç‚¤‚©B
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‹ã©ã†ã‹ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [constructor]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [constructor]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      */
     private boolean fConstructor = false;
 
     /**
-     * static initializer ‚©‚Ç‚¤‚©BŒ»“_(2009-05-18)‚Å‚Í Java Œ¾Œê‚Å‚Ì‚İ—LŒø‚Å‚·B
+     * static initializer ã‹ã©ã†ã‹ã€‚ç¾æ™‚ç‚¹(2009-05-18)ã§ã¯ Java è¨€èªã§ã®ã¿æœ‰åŠ¹ã§ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [staticInitializer]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [staticInitializer]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      */
     private boolean fStaticInitializer = false;
 
     /**
-     * ‚±‚Ìƒƒ\ƒbƒh‚Ìƒpƒ‰ƒ[ƒ^‚ÌƒŠƒXƒg‚Å‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®ãƒªã‚¹ãƒˆã§ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [parameterList]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [parameterList]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]ã€‚
      */
     private List<blanco.cg.valueobject.BlancoCgParameter> fParameterList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>();
 
     /**
-     * ‚±‚Ìƒƒ\ƒbƒh‚Ì–ß‚è’l‚Å‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã§ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [return]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [return]ã€‚
      */
     private BlancoCgReturn fReturn;
 
     /**
-     * ‚±‚Ìƒƒ\ƒbƒh‚ª”­¶‚µ‚¤‚é—áŠO‚Ìˆê——‚Å‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒç™ºç”Ÿã—ã†ã‚‹ä¾‹å¤–ã®ä¸€è¦§ã§ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [throwList]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [throwList]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]ã€‚
      */
     private List<blanco.cg.valueobject.BlancoCgException> fThrowList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>();
 
     /**
-     * ‚±‚Ìƒƒ\ƒbƒh‚É•t—^‚³‚ê‚Ä‚¢‚éƒAƒmƒe[ƒVƒ‡ƒ“‚ÌƒŠƒXƒg‚Å‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«ä»˜ä¸ã•ã‚Œã¦ã„ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒªã‚¹ãƒˆã§ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [annotationList]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<java.lang.String>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [annotationList]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<java.lang.String>()]ã€‚
      */
     private List<java.lang.String> fAnnotationList = new java.util.ArrayList<java.lang.String>();
 
     /**
-     * ‚±‚Ìƒƒ\ƒbƒh“à‚Åg—p‚·‚éƒ[ƒJƒ‹•Ï”‚ÌƒŠƒXƒg‚Å‚·BDelphiŒ¾Œê‚È‚ÇAƒCƒ“ƒ‰ƒCƒ“‚Åƒ[ƒJƒ‹•Ï”’è‹`‚ª‚Å‚«‚È‚¢Œ¾Œê‚Å‚Ì‚İg—p‚µ‚Ü‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰å†…ã§ä½¿ç”¨ã™ã‚‹ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®ãƒªã‚¹ãƒˆã§ã™ã€‚Delphiè¨€èªãªã©ã€ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³ã§ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°å®šç¾©ãŒã§ããªã„è¨€èªã§ã®ã¿ä½¿ç”¨ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [localVariableList]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLocalVariable>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [localVariableList]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLocalVariable>()]ã€‚
      */
     private List<blanco.cg.valueobject.BlancoCgLocalVariable> fLocalVariableList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLocalVariable>();
 
     /**
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÉŠÜ‚Ü‚ê‚és‚ÌƒŠƒXƒg‚Å‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«å«ã¾ã‚Œã‚‹è¡Œã®ãƒªã‚¹ãƒˆã§ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [lineList]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<java.lang.String>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [lineList]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<java.lang.String>()]ã€‚
      */
     private List<java.lang.String> fLineList = new java.util.ArrayList<java.lang.String>();
 
     /**
-     * ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìê‡‚É‚ÍAJavaŒ¾Œê‚¾‚Æ super(ˆø”)AC#.NET‚¾‚Æ base(ˆø”)‚Ì•¶š—ñ‘S‚Ä‚ğw’è‚µ‚Ü‚·Bˆê”Êƒƒ\ƒbƒh‚Ìê‡‚É‚ÍAJavaŒ¾Œê‚¾‚Æ super(ˆø”)‚Ì•¶š—ñ‘S‚Ä‚ğw’è‚µ‚Ü‚·BƒZƒ~ƒRƒƒ“‚ÍŠÜ‚İ‚Ü‚¹‚ñB
+     * ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å ´åˆã«ã¯ã€Javaè¨€èªã ã¨ super(å¼•æ•°)ã€C#.NETã ã¨ base(å¼•æ•°)ã®æ–‡å­—åˆ—å…¨ã¦ã‚’æŒ‡å®šã—ã¾ã™ã€‚ä¸€èˆ¬ãƒ¡ã‚½ãƒƒãƒ‰ã®å ´åˆã«ã¯ã€Javaè¨€èªã ã¨ super(å¼•æ•°)ã®æ–‡å­—åˆ—å…¨ã¦ã‚’æŒ‡å®šã—ã¾ã™ã€‚ã‚»ãƒŸã‚³ãƒ­ãƒ³ã¯å«ã¿ã¾ã›ã‚“ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [superclassInvocation]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [superclassInvocation]ã€‚
      */
     private String fSuperclassInvocation;
 
     /**
-     * Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ğ’~‚¦‚Ü‚·BƒfƒtƒHƒ‹ƒgˆÈã‚Ì•\Œ»‚ğ’Ç‰Á‚·‚éê‡‚É‚ÍAƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µ‚Ä’l‚ğƒZƒbƒg‚µ‚Ä‚©‚ç©“®¶¬‚µ‚Ü‚·B
+     * è¨€èªãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’è“„ãˆã¾ã™ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆä»¥ä¸Šã®è¡¨ç¾ã‚’è¿½åŠ ã™ã‚‹å ´åˆã«ã¯ã€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¦å€¤ã‚’ã‚»ãƒƒãƒˆã—ã¦ã‹ã‚‰è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh: [langDoc]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰: [langDoc]ã€‚
      */
     private BlancoCgLangDoc fLangDoc;
 
     /**
-     * ƒtƒB[ƒ‹ƒh [name] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [name] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚Ì–¼‘O‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰ã§ã™ã€‚]ã€‚
      *
-     * @param argName ƒtƒB[ƒ‹ƒh[name]‚Éİ’è‚·‚é’lB
+     * @param argName ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[name]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setName(final String argName) {
         fName = argName;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [name] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [name] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚Ì–¼‘O‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰ã§ã™ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[name]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[name]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getName() {
         return fName;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [description] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [description] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚Ìà–¾‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®èª¬æ˜ã§ã™ã€‚]ã€‚
      *
-     * @param argDescription ƒtƒB[ƒ‹ƒh[description]‚Éİ’è‚·‚é’lB
+     * @param argDescription ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[description]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setDescription(final String argDescription) {
         fDescription = argDescription;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [description] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [description] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚Ìà–¾‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®èª¬æ˜ã§ã™ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[description]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[description]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getDescription() {
         return fDescription;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [access] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [access] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚ÌƒAƒNƒZƒXƒRƒ“ƒgƒ[ƒ‹‚ğw’è‚µ‚Ü‚·B]B
-     * public/protected/private‚È‚Ç‚ğw’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¢ã‚¯ã‚»ã‚¹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’æŒ‡å®šã—ã¾ã™ã€‚]ã€‚
+     * public/protected/privateãªã©ã‚’æŒ‡å®šã—ã¾ã™ã€‚
      *
-     * @param argAccess ƒtƒB[ƒ‹ƒh[access]‚Éİ’è‚·‚é’lB
+     * @param argAccess ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[access]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setAccess(final String argAccess) {
         fAccess = argAccess;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [access] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [access] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚ÌƒAƒNƒZƒXƒRƒ“ƒgƒ[ƒ‹‚ğw’è‚µ‚Ü‚·B]B
-     * public/protected/private‚È‚Ç‚ğw’è‚µ‚Ü‚·B
-     * ƒfƒtƒHƒ‹ƒg: ["public"]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚¢ã‚¯ã‚»ã‚¹ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã‚’æŒ‡å®šã—ã¾ã™ã€‚]ã€‚
+     * public/protected/privateãªã©ã‚’æŒ‡å®šã—ã¾ã™ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: ["public"]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[access]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[access]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getAccess() {
         return fAccess;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [abstract] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [abstract] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [’ŠÛƒNƒ‰ƒX‚©‚Ç‚¤‚©B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [æŠ½è±¡ã‚¯ãƒ©ã‚¹ã‹ã©ã†ã‹ã€‚]ã€‚
      *
-     * @param argAbstract ƒtƒB[ƒ‹ƒh[abstract]‚Éİ’è‚·‚é’lB
+     * @param argAbstract ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[abstract]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setAbstract(final boolean argAbstract) {
         fAbstract = argAbstract;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [abstract] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [abstract] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [’ŠÛƒNƒ‰ƒX‚©‚Ç‚¤‚©B]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [æŠ½è±¡ã‚¯ãƒ©ã‚¹ã‹ã©ã†ã‹ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[abstract]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[abstract]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public boolean getAbstract() {
         return fAbstract;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [static] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [static] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [static‚©‚Ç‚¤‚©B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [staticã‹ã©ã†ã‹ã€‚]ã€‚
      *
-     * @param argStatic ƒtƒB[ƒ‹ƒh[static]‚Éİ’è‚·‚é’lB
+     * @param argStatic ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[static]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setStatic(final boolean argStatic) {
         fStatic = argStatic;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [static] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [static] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [static‚©‚Ç‚¤‚©B]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [staticã‹ã©ã†ã‹ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[static]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[static]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public boolean getStatic() {
         return fStatic;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [override] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [override] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒI[ƒoƒ‰ƒCƒh‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚]ã€‚
      *
-     * @param argOverride ƒtƒB[ƒ‹ƒh[override]‚Éİ’è‚·‚é’lB
+     * @param argOverride ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[override]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setOverride(final boolean argOverride) {
         fOverride = argOverride;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [override] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [override] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒI[ƒoƒ‰ƒCƒh‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©B]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã‚ªãƒ¼ãƒãƒ©ã‚¤ãƒ‰ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[override]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[override]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public boolean getOverride() {
         return fOverride;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [final] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [final] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [final‚©‚Ç‚¤‚©B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [finalã‹ã©ã†ã‹ã€‚]ã€‚
      *
-     * @param argFinal ƒtƒB[ƒ‹ƒh[final]‚Éİ’è‚·‚é’lB
+     * @param argFinal ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[final]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setFinal(final boolean argFinal) {
         fFinal = argFinal;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [final] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [final] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [final‚©‚Ç‚¤‚©B]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [finalã‹ã©ã†ã‹ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[final]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[final]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public boolean getFinal() {
         return fFinal;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [constructor] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [constructor] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚©‚Ç‚¤‚©B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‹ã©ã†ã‹ã€‚]ã€‚
      *
-     * @param argConstructor ƒtƒB[ƒ‹ƒh[constructor]‚Éİ’è‚·‚é’lB
+     * @param argConstructor ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[constructor]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setConstructor(final boolean argConstructor) {
         fConstructor = argConstructor;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [constructor] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [constructor] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚©‚Ç‚¤‚©B]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã‹ã©ã†ã‹ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[constructor]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[constructor]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public boolean getConstructor() {
         return fConstructor;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [staticInitializer] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [staticInitializer] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [static initializer ‚©‚Ç‚¤‚©BŒ»“_(2009-05-18)‚Å‚Í Java Œ¾Œê‚Å‚Ì‚İ—LŒø‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [static initializer ã‹ã©ã†ã‹ã€‚ç¾æ™‚ç‚¹(2009-05-18)ã§ã¯ Java è¨€èªã§ã®ã¿æœ‰åŠ¹ã§ã™ã€‚]ã€‚
      *
-     * @param argStaticInitializer ƒtƒB[ƒ‹ƒh[staticInitializer]‚Éİ’è‚·‚é’lB
+     * @param argStaticInitializer ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[staticInitializer]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setStaticInitializer(final boolean argStaticInitializer) {
         fStaticInitializer = argStaticInitializer;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [staticInitializer] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [staticInitializer] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [static initializer ‚©‚Ç‚¤‚©BŒ»“_(2009-05-18)‚Å‚Í Java Œ¾Œê‚Å‚Ì‚İ—LŒø‚Å‚·B]B
-     * ƒfƒtƒHƒ‹ƒg: [false]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [static initializer ã‹ã©ã†ã‹ã€‚ç¾æ™‚ç‚¹(2009-05-18)ã§ã¯ Java è¨€èªã§ã®ã¿æœ‰åŠ¹ã§ã™ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [false]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[staticInitializer]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[staticInitializer]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public boolean getStaticInitializer() {
         return fStaticInitializer;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [parameterList] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [parameterList] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚Ìƒpƒ‰ƒ[ƒ^‚ÌƒŠƒXƒg‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®ãƒªã‚¹ãƒˆã§ã™ã€‚]ã€‚
      *
-     * @param argParameterList ƒtƒB[ƒ‹ƒh[parameterList]‚Éİ’è‚·‚é’lB
+     * @param argParameterList ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[parameterList]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setParameterList(final List<blanco.cg.valueobject.BlancoCgParameter> argParameterList) {
         fParameterList = argParameterList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [parameterList] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [parameterList] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚Ìƒpƒ‰ƒ[ƒ^‚ÌƒŠƒXƒg‚Å‚·B]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®ãƒªã‚¹ãƒˆã§ã™ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[parameterList]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[parameterList]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public List<blanco.cg.valueobject.BlancoCgParameter> getParameterList() {
         return fParameterList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [return] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [return] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚Ì–ß‚è’l‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã§ã™ã€‚]ã€‚
      *
-     * @param argReturn ƒtƒB[ƒ‹ƒh[return]‚Éİ’è‚·‚é’lB
+     * @param argReturn ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[return]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setReturn(final BlancoCgReturn argReturn) {
         fReturn = argReturn;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [return] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [return] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚Ì–ß‚è’l‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã§ã™ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[return]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[return]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public BlancoCgReturn getReturn() {
         return fReturn;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [throwList] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [throwList] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚ª”­¶‚µ‚¤‚é—áŠO‚Ìˆê——‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒç™ºç”Ÿã—ã†ã‚‹ä¾‹å¤–ã®ä¸€è¦§ã§ã™ã€‚]ã€‚
      *
-     * @param argThrowList ƒtƒB[ƒ‹ƒh[throwList]‚Éİ’è‚·‚é’lB
+     * @param argThrowList ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[throwList]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setThrowList(final List<blanco.cg.valueobject.BlancoCgException> argThrowList) {
         fThrowList = argThrowList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [throwList] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [throwList] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚ª”­¶‚µ‚¤‚é—áŠO‚Ìˆê——‚Å‚·B]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒç™ºç”Ÿã—ã†ã‚‹ä¾‹å¤–ã®ä¸€è¦§ã§ã™ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[throwList]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[throwList]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public List<blanco.cg.valueobject.BlancoCgException> getThrowList() {
         return fThrowList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [annotationList] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [annotationList] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚É•t—^‚³‚ê‚Ä‚¢‚éƒAƒmƒe[ƒVƒ‡ƒ“‚ÌƒŠƒXƒg‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«ä»˜ä¸ã•ã‚Œã¦ã„ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒªã‚¹ãƒˆã§ã™ã€‚]ã€‚
      *
-     * @param argAnnotationList ƒtƒB[ƒ‹ƒh[annotationList]‚Éİ’è‚·‚é’lB
+     * @param argAnnotationList ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[annotationList]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setAnnotationList(final List<java.lang.String> argAnnotationList) {
         fAnnotationList = argAnnotationList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [annotationList] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [annotationList] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚É•t—^‚³‚ê‚Ä‚¢‚éƒAƒmƒe[ƒVƒ‡ƒ“‚ÌƒŠƒXƒg‚Å‚·B]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<java.lang.String>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«ä»˜ä¸ã•ã‚Œã¦ã„ã‚‹ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã®ãƒªã‚¹ãƒˆã§ã™ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<java.lang.String>()]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[annotationList]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[annotationList]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public List<java.lang.String> getAnnotationList() {
         return fAnnotationList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [localVariableList] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [localVariableList] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh“à‚Åg—p‚·‚éƒ[ƒJƒ‹•Ï”‚ÌƒŠƒXƒg‚Å‚·BDelphiŒ¾Œê‚È‚ÇAƒCƒ“ƒ‰ƒCƒ“‚Åƒ[ƒJƒ‹•Ï”’è‹`‚ª‚Å‚«‚È‚¢Œ¾Œê‚Å‚Ì‚İg—p‚µ‚Ü‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰å†…ã§ä½¿ç”¨ã™ã‚‹ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®ãƒªã‚¹ãƒˆã§ã™ã€‚Delphiè¨€èªãªã©ã€ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³ã§ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°å®šç¾©ãŒã§ããªã„è¨€èªã§ã®ã¿ä½¿ç”¨ã—ã¾ã™ã€‚]ã€‚
      *
-     * @param argLocalVariableList ƒtƒB[ƒ‹ƒh[localVariableList]‚Éİ’è‚·‚é’lB
+     * @param argLocalVariableList ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[localVariableList]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setLocalVariableList(final List<blanco.cg.valueobject.BlancoCgLocalVariable> argLocalVariableList) {
         fLocalVariableList = argLocalVariableList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [localVariableList] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [localVariableList] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh“à‚Åg—p‚·‚éƒ[ƒJƒ‹•Ï”‚ÌƒŠƒXƒg‚Å‚·BDelphiŒ¾Œê‚È‚ÇAƒCƒ“ƒ‰ƒCƒ“‚Åƒ[ƒJƒ‹•Ï”’è‹`‚ª‚Å‚«‚È‚¢Œ¾Œê‚Å‚Ì‚İg—p‚µ‚Ü‚·B]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLocalVariable>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰å†…ã§ä½¿ç”¨ã™ã‚‹ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®ãƒªã‚¹ãƒˆã§ã™ã€‚Delphiè¨€èªãªã©ã€ã‚¤ãƒ³ãƒ©ã‚¤ãƒ³ã§ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°å®šç¾©ãŒã§ããªã„è¨€èªã§ã®ã¿ä½¿ç”¨ã—ã¾ã™ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLocalVariable>()]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[localVariableList]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[localVariableList]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public List<blanco.cg.valueobject.BlancoCgLocalVariable> getLocalVariableList() {
         return fLocalVariableList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [lineList] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [lineList] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚ÉŠÜ‚Ü‚ê‚és‚ÌƒŠƒXƒg‚Å‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«å«ã¾ã‚Œã‚‹è¡Œã®ãƒªã‚¹ãƒˆã§ã™ã€‚]ã€‚
      *
-     * @param argLineList ƒtƒB[ƒ‹ƒh[lineList]‚Éİ’è‚·‚é’lB
+     * @param argLineList ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[lineList]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setLineList(final List<java.lang.String> argLineList) {
         fLineList = argLineList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [lineList] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [lineList] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [‚±‚Ìƒƒ\ƒbƒh‚ÉŠÜ‚Ü‚ê‚és‚ÌƒŠƒXƒg‚Å‚·B]B
-     * ƒfƒtƒHƒ‹ƒg: [new java.util.ArrayList<java.lang.String>()]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«å«ã¾ã‚Œã‚‹è¡Œã®ãƒªã‚¹ãƒˆã§ã™ã€‚]ã€‚
+     * ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: [new java.util.ArrayList<java.lang.String>()]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[lineList]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[lineList]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public List<java.lang.String> getLineList() {
         return fLineList;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [superclassInvocation] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [superclassInvocation] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìê‡‚É‚ÍAJavaŒ¾Œê‚¾‚Æ super(ˆø”)AC#.NET‚¾‚Æ base(ˆø”)‚Ì•¶š—ñ‘S‚Ä‚ğw’è‚µ‚Ü‚·Bˆê”Êƒƒ\ƒbƒh‚Ìê‡‚É‚ÍAJavaŒ¾Œê‚¾‚Æ super(ˆø”)‚Ì•¶š—ñ‘S‚Ä‚ğw’è‚µ‚Ü‚·BƒZƒ~ƒRƒƒ“‚ÍŠÜ‚İ‚Ü‚¹‚ñB]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å ´åˆã«ã¯ã€Javaè¨€èªã ã¨ super(å¼•æ•°)ã€C#.NETã ã¨ base(å¼•æ•°)ã®æ–‡å­—åˆ—å…¨ã¦ã‚’æŒ‡å®šã—ã¾ã™ã€‚ä¸€èˆ¬ãƒ¡ã‚½ãƒƒãƒ‰ã®å ´åˆã«ã¯ã€Javaè¨€èªã ã¨ super(å¼•æ•°)ã®æ–‡å­—åˆ—å…¨ã¦ã‚’æŒ‡å®šã—ã¾ã™ã€‚ã‚»ãƒŸã‚³ãƒ­ãƒ³ã¯å«ã¿ã¾ã›ã‚“ã€‚]ã€‚
      *
-     * @param argSuperclassInvocation ƒtƒB[ƒ‹ƒh[superclassInvocation]‚Éİ’è‚·‚é’lB
+     * @param argSuperclassInvocation ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[superclassInvocation]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setSuperclassInvocation(final String argSuperclassInvocation) {
         fSuperclassInvocation = argSuperclassInvocation;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [superclassInvocation] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [superclassInvocation] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ìê‡‚É‚ÍAJavaŒ¾Œê‚¾‚Æ super(ˆø”)AC#.NET‚¾‚Æ base(ˆø”)‚Ì•¶š—ñ‘S‚Ä‚ğw’è‚µ‚Ü‚·Bˆê”Êƒƒ\ƒbƒh‚Ìê‡‚É‚ÍAJavaŒ¾Œê‚¾‚Æ super(ˆø”)‚Ì•¶š—ñ‘S‚Ä‚ğw’è‚µ‚Ü‚·BƒZƒ~ƒRƒƒ“‚ÍŠÜ‚İ‚Ü‚¹‚ñB]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã®å ´åˆã«ã¯ã€Javaè¨€èªã ã¨ super(å¼•æ•°)ã€C#.NETã ã¨ base(å¼•æ•°)ã®æ–‡å­—åˆ—å…¨ã¦ã‚’æŒ‡å®šã—ã¾ã™ã€‚ä¸€èˆ¬ãƒ¡ã‚½ãƒƒãƒ‰ã®å ´åˆã«ã¯ã€Javaè¨€èªã ã¨ super(å¼•æ•°)ã®æ–‡å­—åˆ—å…¨ã¦ã‚’æŒ‡å®šã—ã¾ã™ã€‚ã‚»ãƒŸã‚³ãƒ­ãƒ³ã¯å«ã¿ã¾ã›ã‚“ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[superclassInvocation]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[superclassInvocation]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public String getSuperclassInvocation() {
         return fSuperclassInvocation;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [langDoc] ‚Ì’l‚ğİ’è‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [langDoc] ã®å€¤ã‚’è¨­å®šã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ğ’~‚¦‚Ü‚·BƒfƒtƒHƒ‹ƒgˆÈã‚Ì•\Œ»‚ğ’Ç‰Á‚·‚éê‡‚É‚ÍAƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µ‚Ä’l‚ğƒZƒbƒg‚µ‚Ä‚©‚ç©“®¶¬‚µ‚Ü‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [è¨€èªãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’è“„ãˆã¾ã™ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆä»¥ä¸Šã®è¡¨ç¾ã‚’è¿½åŠ ã™ã‚‹å ´åˆã«ã¯ã€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¦å€¤ã‚’ã‚»ãƒƒãƒˆã—ã¦ã‹ã‚‰è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚]ã€‚
      *
-     * @param argLangDoc ƒtƒB[ƒ‹ƒh[langDoc]‚Éİ’è‚·‚é’lB
+     * @param argLangDoc ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[langDoc]ã«è¨­å®šã™ã‚‹å€¤ã€‚
      */
     public void setLangDoc(final BlancoCgLangDoc argLangDoc) {
         fLangDoc = argLangDoc;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒh [langDoc] ‚Ì’l‚ğæ“¾‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ [langDoc] ã®å€¤ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * ƒtƒB[ƒ‹ƒh‚Ìà–¾: [Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ğ’~‚¦‚Ü‚·BƒfƒtƒHƒ‹ƒgˆÈã‚Ì•\Œ»‚ğ’Ç‰Á‚·‚éê‡‚É‚ÍAƒCƒ“ƒXƒ^ƒ“ƒX‚ğ¶¬‚µ‚Ä’l‚ğƒZƒbƒg‚µ‚Ä‚©‚ç©“®¶¬‚µ‚Ü‚·B]B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜: [è¨€èªãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã‚’è“„ãˆã¾ã™ã€‚ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆä»¥ä¸Šã®è¡¨ç¾ã‚’è¿½åŠ ã™ã‚‹å ´åˆã«ã¯ã€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¦å€¤ã‚’ã‚»ãƒƒãƒˆã—ã¦ã‹ã‚‰è‡ªå‹•ç”Ÿæˆã—ã¾ã™ã€‚]ã€‚
      *
-     * @return ƒtƒB[ƒ‹ƒh[langDoc]‚©‚çæ“¾‚µ‚½’lB
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰[langDoc]ã‹ã‚‰å–å¾—ã—ãŸå€¤ã€‚
      */
     public BlancoCgLangDoc getLangDoc() {
         return fLangDoc;
     }
 
     /**
-     * ‚±‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»‚ğæ“¾‚µ‚Ü‚·B
+     * ã“ã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã‚’å–å¾—ã—ã¾ã™ã€‚
      *
-     * <P>g—pã‚Ì’ˆÓ</P>
+     * <P>ä½¿ç”¨ä¸Šã®æ³¨æ„</P>
      * <UL>
-     * <LI>ƒIƒuƒWƒFƒNƒg‚ÌƒVƒƒƒ[”ÍˆÍ‚Ì‚İ•¶š—ñ‰»‚Ìˆ—‘ÎÛ‚Æ‚È‚è‚Ü‚·B
-     * <LI>ƒIƒuƒWƒFƒNƒg‚ªzŠÂQÆ‚µ‚Ä‚¢‚éê‡‚É‚ÍA‚±‚Ìƒƒ\ƒbƒh‚Íg‚í‚È‚¢‚Å‚­‚¾‚³‚¢B
+     * <LI>ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚·ãƒ£ãƒ­ãƒ¼ç¯„å›²ã®ã¿æ–‡å­—åˆ—åŒ–ã®å‡¦ç†å¯¾è±¡ã¨ãªã‚Šã¾ã™ã€‚
+     * <LI>ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå¾ªç’°å‚ç…§ã—ã¦ã„ã‚‹å ´åˆã«ã¯ã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä½¿ã‚ãªã„ã§ãã ã•ã„ã€‚
      * </UL>
      *
-     * @return ƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚Ì•¶š—ñ•\Œ»B
+     * @return ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®æ–‡å­—åˆ—è¡¨ç¾ã€‚
      */
     @Override
     public String toString() {

@@ -25,48 +25,48 @@ import blanco.cg.valueobject.BlancoCgSourceFile;
 import blanco.cg.valueobject.BlancoCgType;
 
 /**
- * blancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚ðì¬‚·‚é‚½‚ß‚Ìƒtƒ@ƒNƒgƒŠƒNƒ‰ƒX‚Å‚·B
+ * blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã™ã‚‹ãŸã‚ã®ãƒ•ã‚¡ã‚¯ãƒˆãƒªã‚¯ãƒ©ã‚¹ã§ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚ð’´‚¦‚Ä—˜—p‚³‚ê‚Ü‚·B<br>
- * blancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚ÍA‚±‚Ìƒtƒ@ƒNƒgƒŠƒNƒ‰ƒX‚ðŒo—R‚µ‚Ä¶¬‚·‚é‚±‚Æ‚ª„§‚³‚ê‚Ü‚·B <br>
- * ‚Æ‚Í‚¢‚¦ŒÂ•Ê‚ÉƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚ð¶¬‚·‚é‚±‚Æ‚Í‹ÖŽ~‚µ‚Ä‚¢‚Ü‚¹‚ñB
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªžã‚’è¶…ãˆã¦åˆ©ç”¨ã•ã‚Œã¾ã™ã€‚<br>
+ * blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ã€ã“ã®ãƒ•ã‚¡ã‚¯ãƒˆãƒªã‚¯ãƒ©ã‚¹ã‚’çµŒç”±ã—ã¦ç”Ÿæˆã™ã‚‹ã“ã¨ãŒæŽ¨å¥¨ã•ã‚Œã¾ã™ã€‚ <br>
+ * ã¨ã¯ã„ãˆå€‹åˆ¥ã«ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”Ÿæˆã™ã‚‹ã“ã¨ã¯ç¦æ­¢ã—ã¦ã„ã¾ã›ã‚“ã€‚
  * 
- * ¦‚±‚ÌƒNƒ‰ƒX‚Í ”ñfinal‚Æ‚µ‚Ü‚·B—˜—pŽÒ‚ª‚±‚ÌƒNƒ‰ƒX‚ðŒp³‚µ‚ÄŠg’£‚·‚é‚±‚Æ‚ð‘z’è‚µ‚Ü‚·B
+ * â€»ã“ã®ã‚¯ãƒ©ã‚¹ã¯ éžfinalã¨ã—ã¾ã™ã€‚åˆ©ç”¨è€…ãŒã“ã®ã‚¯ãƒ©ã‚¹ã‚’ç¶™æ‰¿ã—ã¦æ‹¡å¼µã™ã‚‹ã“ã¨ã‚’æƒ³å®šã—ã¾ã™ã€‚
  * 
- * ˆÈ‘O createLine ‚Æ‚¢‚¤ƒƒ\ƒbƒh‚ª‚ ‚è‚Ü‚µ‚½‚ªA”pŽ~‚³‚ê‚Ü‚µ‚½B
+ * ä»¥å‰ createLine ã¨ã„ã†ãƒ¡ã‚½ãƒƒãƒ‰ãŒã‚ã‚Šã¾ã—ãŸãŒã€å»ƒæ­¢ã•ã‚Œã¾ã—ãŸã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoCgObjectFactory {
 
     /**
-     * ƒIƒuƒWƒFƒNƒgƒtƒ@ƒNƒgƒŠ‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^B
+     * ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚¡ã‚¯ãƒˆãƒªã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã€‚
      * 
-     * private‰»‚µ‚ÄAƒtƒ@ƒNƒgƒŠ‚ð’Ê‚¶‚Ä‚µ‚©V‹Kì¬‚Å‚«‚È‚¢‚æ‚¤‚É‚µ‚Ä‚¢‚Ü‚·B
+     * privateåŒ–ã—ã¦ã€ãƒ•ã‚¡ã‚¯ãƒˆãƒªã‚’é€šã˜ã¦ã—ã‹æ–°è¦ä½œæˆã§ããªã„ã‚ˆã†ã«ã—ã¦ã„ã¾ã™ã€‚
      */
     private BlancoCgObjectFactory() {
     }
 
     /**
-     * BlancoCgƒIƒuƒWƒFƒNƒgƒtƒ@ƒNƒgƒŠ‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ðŽæ“¾‚µ‚Ü‚·B
+     * BlancoCgã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚¡ã‚¯ãƒˆãƒªã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * @return BlancoCgƒIƒuƒWƒFƒNƒgƒtƒ@ƒNƒgƒŠ‚ÌƒCƒ“ƒXƒ^ƒ“ƒXB
+     * @return BlancoCgã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãƒ•ã‚¡ã‚¯ãƒˆãƒªã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public static BlancoCgObjectFactory getInstance() {
         return new BlancoCgObjectFactory();
     }
 
     /**
-     * ƒ\[ƒXƒtƒ@ƒCƒ‹ƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
-     * ƒtƒ@ƒCƒ‹–¼‚Í–¾Ž¦“I‚ÉŽw’è‚µ‚Ä‚¢‚È‚¢‚Æ‚¢‚¤“_‚É’ˆÓ‚µ‚ÄŒÄ‚Ño‚µ‚Ä‚­‚¾‚³‚¢B<br>
-     * ƒ\[ƒXƒtƒ@ƒCƒ‹–¼‚ÍƒNƒ‰ƒX–¼‚©‚ç“±o‚³‚ê‚Ü‚·B
+     * ãƒ•ã‚¡ã‚¤ãƒ«åã¯æ˜Žç¤ºçš„ã«æŒ‡å®šã—ã¦ã„ãªã„ã¨ã„ã†ç‚¹ã«æ³¨æ„ã—ã¦å‘¼ã³å‡ºã—ã¦ãã ã•ã„ã€‚<br>
+     * ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«åã¯ã‚¯ãƒ©ã‚¹åã‹ã‚‰å°Žå‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param argPackageName
-     *            ƒpƒbƒP[ƒW–¼B‚±‚ÌƒpƒbƒP[ƒW–¼‚©‚çŽ©“®¶¬Žž‚ÌƒfƒBƒŒƒNƒgƒŠ\‘¢‚ªŒˆ’è‚³‚ê‚Ü‚·B
+     *            ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã€‚ã“ã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã‹ã‚‰è‡ªå‹•ç”Ÿæˆæ™‚ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªæ§‹é€ ãŒæ±ºå®šã•ã‚Œã¾ã™ã€‚
      * @param argDescription
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹‚Ìà–¾B
-     * @return ƒ\[ƒXƒtƒ@ƒCƒ‹ƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã®èª¬æ˜Žã€‚
+     * @return ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgSourceFile createSourceFile(final String argPackageName,
             final String argDescription) {
@@ -74,42 +74,42 @@ public class BlancoCgObjectFactory {
         cgSourceFile.setPackage(argPackageName);
         cgSourceFile.setDescription(argDescription);
 
-        // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ðƒfƒtƒHƒ‹ƒg‚Å¶¬‚µ‚Ü‚·B
+        // è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ç”Ÿæˆã—ã¾ã™ã€‚
         cgSourceFile.setLangDoc(new BlancoCgLangDoc());
 
         return cgSourceFile;
     }
 
     /**
-     * Œ^ƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * åž‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
-     * ”z—ñƒtƒ‰ƒO‚âƒWƒFƒlƒŠƒNƒXŽw’è‚É‚Â‚¢‚Ä‚ÍA¶¬Œã‚ÌƒIƒuƒWƒFƒNƒg‚ÉƒZƒbƒg‚µ‚Ä‚­‚¾‚³‚¢B
+     * é…åˆ—ãƒ•ãƒ©ã‚°ã‚„ã‚¸ã‚§ãƒãƒªã‚¯ã‚¹æŒ‡å®šã«ã¤ã„ã¦ã¯ã€ç”Ÿæˆå¾Œã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ã‚»ãƒƒãƒˆã—ã¦ãã ã•ã„ã€‚
      * 
      * @param argTypeName
-     *            Œ^–¼BƒpƒbƒP[ƒW–¼‚ðŠÜ‚ñ‚¾ƒNƒ‰ƒX–¼EƒCƒ“ƒ^ƒtƒF[ƒX–¼‚ðŽw’è‚·‚é“_‚É’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢B
-     * @return Œ^ƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            åž‹åã€‚ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã‚’å«ã‚“ã ã‚¯ãƒ©ã‚¹åãƒ»ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹åã‚’æŒ‡å®šã™ã‚‹ç‚¹ã«æ³¨æ„ã—ã¦ãã ã•ã„ã€‚
+     * @return åž‹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgType createType(final String argTypeName) {
         final BlancoCgType cgType = new BlancoCgType();
         cgType.setName(getTypeNameWithoutGenerics(argTypeName));
 
-        // Description‚É‚Â‚¢‚Ä‚ÍAƒtƒ@ƒNƒgƒŠ‚©‚ç‚Ì¶¬Žž‚É‚ÍƒZƒbƒg‚µ‚Ü‚¹‚ñB
+        // Descriptionã«ã¤ã„ã¦ã¯ã€ãƒ•ã‚¡ã‚¯ãƒˆãƒªã‹ã‚‰ã®ç”Ÿæˆæ™‚ã«ã¯ã‚»ãƒƒãƒˆã—ã¾ã›ã‚“ã€‚
 
-        // ƒWƒFƒlƒŠƒNƒX‚ª‚ ‚é‚Î‚ ‚¢‚É‚ÍA‚»‚ê‚ðŠi”[
+        // ã‚¸ã‚§ãƒãƒªã‚¯ã‚¹ãŒã‚ã‚‹ã°ã‚ã„ã«ã¯ã€ãã‚Œã‚’æ ¼ç´
         cgType.setGenerics(getGenericsFromFullName(argTypeName));
 
         return cgType;
     }
 
     /**
-     * ƒNƒ‰ƒXƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * ã‚¯ãƒ©ã‚¹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argClassName
-     *            ƒNƒ‰ƒX–¼BƒpƒbƒP[ƒW–¼‚ðœ‚­ƒNƒ‰ƒX–¼‚ðŽw’è‚·‚é“_‚É’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢BƒpƒbƒP[ƒW–¼‚Íƒ\[ƒXƒtƒ@ƒCƒ‹ƒCƒ“ƒXƒ^ƒ“ƒX‚ðŽQÆ‚µ‚½ã‚Å“±o‚³‚ê‚Ü‚·
-     *            B
+     *            ã‚¯ãƒ©ã‚¹åã€‚ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã‚’é™¤ãã‚¯ãƒ©ã‚¹åã‚’æŒ‡å®šã™ã‚‹ç‚¹ã«æ³¨æ„ã—ã¦ãã ã•ã„ã€‚ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã¯ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å‚ç…§ã—ãŸä¸Šã§å°Žå‡ºã•ã‚Œã¾ã™
+     *            ã€‚
      * @param argDescription
-     *            ƒNƒ‰ƒX‚Ìà–¾B
-     * @return ƒNƒ‰ƒXƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            ã‚¯ãƒ©ã‚¹ã®èª¬æ˜Žã€‚
+     * @return ã‚¯ãƒ©ã‚¹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgClass createClass(final String argClassName,
             final String argDescription) {
@@ -117,21 +117,21 @@ public class BlancoCgObjectFactory {
         cgClass.setName(argClassName);
         cgClass.setDescription(argDescription);
 
-        // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ðƒfƒtƒHƒ‹ƒg‚Å¶¬‚µ‚Ü‚·B
+        // è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ç”Ÿæˆã—ã¾ã™ã€‚
         cgClass.setLangDoc(new BlancoCgLangDoc());
 
         return cgClass;
     }
 
     /**
-     * ƒCƒ“ƒ^ƒtƒF[ƒXƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argInterfaceName
-     *            ƒCƒ“ƒ^ƒtƒF[ƒX–¼BƒpƒbƒP[ƒW–¼‚ðœ‚­ƒCƒ“ƒ^ƒtƒF[ƒX–¼‚ðŽw’è‚·‚é“_‚É’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢B
-     *            ƒpƒbƒP[ƒW–¼‚Íƒ\[ƒXƒtƒ@ƒCƒ‹ƒCƒ“ƒXƒ^ƒ“ƒX‚ðŽQÆ‚µ‚½ã‚Å“±o‚³‚ê‚Ü‚·B
+     *            ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹åã€‚ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã‚’é™¤ãã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹åã‚’æŒ‡å®šã™ã‚‹ç‚¹ã«æ³¨æ„ã—ã¦ãã ã•ã„ã€‚
+     *            ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åã¯ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’å‚ç…§ã—ãŸä¸Šã§å°Žå‡ºã•ã‚Œã¾ã™ã€‚
      * @param argDescription
-     *            ƒCƒ“ƒ^ƒtƒF[ƒX‚Ìà–¾B
-     * @return ƒCƒ“ƒ^ƒtƒF[ƒXƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã®èª¬æ˜Žã€‚
+     * @return ã‚¤ãƒ³ã‚¿ãƒ•ã‚§ãƒ¼ã‚¹ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgInterface createInterface(final String argInterfaceName,
             final String argDescription) {
@@ -139,22 +139,22 @@ public class BlancoCgObjectFactory {
         cgInterface.setName(argInterfaceName);
         cgInterface.setDescription(argDescription);
 
-        // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ðƒfƒtƒHƒ‹ƒg‚Å¶¬‚µ‚Ü‚·B
+        // è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ç”Ÿæˆã—ã¾ã™ã€‚
         cgInterface.setLangDoc(new BlancoCgLangDoc());
 
         return cgInterface;
     }
 
     /**
-     * ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argName
-     *            ƒtƒB[ƒ‹ƒh‚Ì•Ï”–¼B
+     *            ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®å¤‰æ•°åã€‚
      * @param argTypeNameWithPackage
-     *            ƒpƒbƒP[ƒW–¼•t‚«‚ÌŒ^–¼B
+     *            ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸åä»˜ãã®åž‹åã€‚
      * @param argDescription
-     *            ƒtƒB[ƒ‹ƒh‚Ìà–¾B
-     * @return ƒtƒB[ƒ‹ƒhƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®èª¬æ˜Žã€‚
+     * @return ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgField createField(final String argName,
             final String argTypeNameWithPackage, final String argDescription) {
@@ -162,23 +162,23 @@ public class BlancoCgObjectFactory {
         cgField.setName(argName);
         cgField.setDescription(argDescription);
 
-        // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ðƒfƒtƒHƒ‹ƒg‚Å¶¬‚µ‚Ü‚·B
+        // è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ç”Ÿæˆã—ã¾ã™ã€‚
         cgField.setLangDoc(new BlancoCgLangDoc());
 
-        // Œ^ƒIƒuƒWƒFƒNƒg‚ðì¬‚µ‚ÄAî•ñ‚ðƒZƒbƒg‚µ‚Ü‚·B
+        // åž‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã¦ã€æƒ…å ±ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
         cgField.setType(createType(argTypeNameWithPackage));
 
         return cgField;
     }
 
     /**
-     * ƒƒ\ƒbƒhƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * ãƒ¡ã‚½ãƒƒãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param methodName
-     *            ƒƒ\ƒbƒh–¼B
+     *            ãƒ¡ã‚½ãƒƒãƒ‰åã€‚
      * @param argDescription
-     *            ƒƒ\ƒbƒh‚Ìà–¾B
-     * @return ƒƒ\ƒbƒhƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            ãƒ¡ã‚½ãƒƒãƒ‰ã®èª¬æ˜Žã€‚
+     * @return ãƒ¡ã‚½ãƒƒãƒ‰ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgMethod createMethod(final String methodName,
             final String argDescription) {
@@ -186,22 +186,22 @@ public class BlancoCgObjectFactory {
         cgMethod.setName(methodName);
         cgMethod.setDescription(argDescription);
 
-        // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ðƒfƒtƒHƒ‹ƒg‚Å¶¬‚µ‚Ü‚·B
+        // è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ç”Ÿæˆã—ã¾ã™ã€‚
         cgMethod.setLangDoc(new BlancoCgLangDoc());
 
         return cgMethod;
     }
 
     /**
-     * ƒpƒ‰ƒ[ƒ^ƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argName
-     *            ƒpƒ‰ƒ[ƒ^‚Ìˆø”–¼B
+     *            ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å¼•æ•°åã€‚
      * @param argFullTypeName
-     *            ƒtƒ‹Œ^–¼B
+     *            ãƒ•ãƒ«åž‹åã€‚
      * @param argDescription
-     *            à–¾B
-     * @return ƒpƒ‰ƒ[ƒ^ƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            èª¬æ˜Žã€‚
+     * @return ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgParameter createParameter(final String argName,
             final String argFullTypeName, final String argDescription) {
@@ -209,17 +209,17 @@ public class BlancoCgObjectFactory {
     }
 
     /**
-     * ƒpƒ‰ƒ[ƒ^ƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argName
-     *            ƒpƒ‰ƒ[ƒ^‚Ìˆø”–¼B
+     *            ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã®å¼•æ•°åã€‚
      * @param argFullTypeName
-     *            ƒtƒ‹Œ^–¼B
+     *            ãƒ•ãƒ«åž‹åã€‚
      * @param argDescription
-     *            à–¾B
+     *            èª¬æ˜Žã€‚
      * @param argNotNull
-     *            ”ñnull§–ñ‚ª•t—^‚³‚ê‚é‚©‚Ç‚¤‚©B
-     * @return ƒpƒ‰ƒ[ƒ^ƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            éžnullåˆ¶ç´„ãŒä»˜ä¸Žã•ã‚Œã‚‹ã‹ã©ã†ã‹ã€‚
+     * @return ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgParameter createParameter(final String argName,
             final String argFullTypeName, final String argDescription,
@@ -229,16 +229,16 @@ public class BlancoCgObjectFactory {
         cgParameter.setDescription(argDescription);
         cgParameter.setNotnull(argNotNull);
 
-        // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ÍAƒpƒ‰ƒ[ƒ^ƒCƒ“ƒXƒ^ƒ“ƒX‚É‚Í‘¶Ý‚µ‚Ü‚¹‚ñB
+        // è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯ã€ãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚
 
-        // Œ^ƒIƒuƒWƒFƒNƒg‚ðì¬‚µ‚ÄAî•ñ‚ðƒZƒbƒg‚µ‚Ü‚·B
+        // åž‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã¦ã€æƒ…å ±ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
         cgParameter.setType(createType(argFullTypeName));
 
         return cgParameter;
     }
 
     /**
-     * ƒ[ƒJƒ‹•Ï”’è‹`ƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°å®šç¾©ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      */
     public BlancoCgLocalVariable createLocalVariable(final String argName,
@@ -246,66 +246,66 @@ public class BlancoCgObjectFactory {
         final BlancoCgLocalVariable cgLocalVariable = new BlancoCgLocalVariable();
         cgLocalVariable.setName(argName);
 
-        // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ÍAƒ[ƒJƒ‹•Ï”’è‹`ƒCƒ“ƒXƒ^ƒ“ƒX‚É‚Í‘¶Ý‚µ‚Ü‚¹‚ñB
+        // è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯ã€ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°å®šç¾©ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚
 
-        // Œ^ƒIƒuƒWƒFƒNƒg‚ðì¬‚µ‚ÄAî•ñ‚ðƒZƒbƒg‚µ‚Ü‚·B
+        // åž‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã¦ã€æƒ…å ±ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
         cgLocalVariable.setType(createType(argType));
 
         return cgLocalVariable;
     }
 
     /**
-     * ReturnƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * Returnã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argFullTypeName
-     *            ƒtƒ‹Œ^–¼B
+     *            ãƒ•ãƒ«åž‹åã€‚
      * @param argDescription
-     *            –ß‚è’l‚Ìà–¾B
-     * @return ReturnƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            æˆ»ã‚Šå€¤ã®èª¬æ˜Žã€‚
+     * @return Returnã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgReturn createReturn(final String argFullTypeName,
             final String argDescription) {
         final BlancoCgReturn cgReturn = new BlancoCgReturn();
         cgReturn.setDescription(argDescription);
 
-        // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ÍAReturnƒCƒ“ƒXƒ^ƒ“ƒX‚É‚Í‘¶Ý‚µ‚Ü‚¹‚ñB
+        // è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯ã€Returnã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚
 
-        // Œ^ƒIƒuƒWƒFƒNƒg‚ðì¬‚µ‚ÄAî•ñ‚ðƒZƒbƒg‚µ‚Ü‚·B
+        // åž‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã¦ã€æƒ…å ±ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
         cgReturn.setType(createType(argFullTypeName));
 
         return cgReturn;
     }
 
     /**
-     * —áŠOƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * ä¾‹å¤–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argFullTypeName
-     *            ƒtƒ‹Œ^–¼B
+     *            ãƒ•ãƒ«åž‹åã€‚
      * @param argDescription
-     *            à–¾B
-     * @return —áŠOƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            èª¬æ˜Žã€‚
+     * @return ä¾‹å¤–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgException createException(final String argFullTypeName,
             final String argDescription) {
         final BlancoCgException cgException = new BlancoCgException();
         cgException.setDescription(argDescription);
 
-        // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ÍA—áŠOƒCƒ“ƒXƒ^ƒ“ƒX‚É‚Í‘¶Ý‚µ‚Ü‚¹‚ñB
+        // è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã¯ã€ä¾‹å¤–ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«ã¯å­˜åœ¨ã—ã¾ã›ã‚“ã€‚
 
-        // Œ^ƒIƒuƒWƒFƒNƒg‚ðì¬‚µ‚ÄAî•ñ‚ðƒZƒbƒg‚µ‚Ü‚·B
+        // åž‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ã¦ã€æƒ…å ±ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
         cgException.setType(createType(argFullTypeName));
 
         return cgException;
     }
 
     /**
-     * —ñ‹“‘ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * åˆ—æŒ™ä½“ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argEnumName
-     *            —ñ‹“‘Ì‚Ì–¼‘OB
+     *            åˆ—æŒ™ä½“ã®åå‰ã€‚
      * @param argDescription
-     *            —ñ‹“‘Ì‚Ìà–¾B
-     * @return —ñ‹“‘ÌƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            åˆ—æŒ™ä½“ã®èª¬æ˜Žã€‚
+     * @return åˆ—æŒ™ä½“ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgEnum createEnum(final String argEnumName,
             final String argDescription) {
@@ -313,20 +313,20 @@ public class BlancoCgObjectFactory {
         cgEnum.setName(argEnumName);
         cgEnum.setDescription(argDescription);
 
-        // Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ðƒfƒtƒHƒ‹ƒg‚Å¶¬‚µ‚Ü‚·B
+        // è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ç”Ÿæˆã—ã¾ã™ã€‚
         cgEnum.setLangDoc(new BlancoCgLangDoc());
 
         return cgEnum;
     }
 
     /**
-     * —ñ‹“‘Ì‚Ì—v‘f‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ð¶¬‚µ‚Ü‚·B
+     * åˆ—æŒ™ä½“ã®è¦ç´ ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argEnumElementName
-     *            —ñ‹“‘Ì‚Ì—v‘f‚Ì–¼‘OB
+     *            åˆ—æŒ™ä½“ã®è¦ç´ ã®åå‰ã€‚
      * @param argDescription
-     *            —ñ‹“‘Ì‚Ì—v‘f‚Ìà–¾B
-     * @return —ñ‹“‘Ì—v‘fƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            åˆ—æŒ™ä½“ã®è¦ç´ ã®èª¬æ˜Žã€‚
+     * @return åˆ—æŒ™ä½“è¦ç´ ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgEnumElement createEnumElement(
             final String argEnumElementName, final String argDescription) {
@@ -338,15 +338,15 @@ public class BlancoCgObjectFactory {
     }
 
     /**
-     * Œ¾ŒêƒhƒLƒ…ƒƒ“ƒg‚Ìƒ^ƒO‚ð¶¬‚µ‚Ü‚·B
+     * è¨€èªžãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆã®ã‚¿ã‚°ã‚’ç”Ÿæˆã—ã¾ã™ã€‚
      * 
      * @param argName
-     *            ƒ^ƒO‚Ì–¼‘OB
+     *            ã‚¿ã‚°ã®åå‰ã€‚
      * @param argKey
-     *            ƒ^ƒO‚ÌƒL[–¼BŽw’è‚µ‚½‚­–³‚¢ê‡‚É‚Ínull‚ð—^‚¦‚Ü‚·B
+     *            ã‚¿ã‚°ã®ã‚­ãƒ¼åã€‚æŒ‡å®šã—ãŸãç„¡ã„å ´åˆã«ã¯nullã‚’ä¸Žãˆã¾ã™ã€‚
      * @param argValue
-     *            ƒ^ƒO‚Ì’lB
-     * @return sƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            ã‚¿ã‚°ã®å€¤ã€‚
+     * @return è¡Œã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      */
     public BlancoCgLangDocTag createLangDocTag(final String argName,
             final String argKey, final String argValue) {

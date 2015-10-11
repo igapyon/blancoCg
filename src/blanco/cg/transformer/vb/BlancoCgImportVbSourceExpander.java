@@ -16,80 +16,80 @@ import java.util.List;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * BlancoCgSourceFile‚Ì‚È‚©‚Ì importî•ñ‚ğ“WŠJ‚µ‚Ü‚·B
+ * BlancoCgSourceFileã®ãªã‹ã® importæƒ…å ±ã‚’å±•é–‹ã—ã¾ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍblancoCg‚ÌƒoƒŠƒ…[ƒIƒuƒWƒFƒNƒg‚©‚çƒ\[ƒXƒR[ƒh‚ğ©“®¶¬‚·‚éƒgƒ‰ƒ“ƒXƒtƒH[ƒ}[‚ÌŒÂ•Ê‚Ì“WŠJ‹@”\‚Å‚·B<br>
- * import“WŠJ‚ÍˆÓŠO‚É‚à•¡G‚Èˆ—‚Å‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯blancoCgã®ãƒãƒªãƒ¥ãƒ¼ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰ã‚’è‡ªå‹•ç”Ÿæˆã™ã‚‹ãƒˆãƒ©ãƒ³ã‚¹ãƒ•ã‚©ãƒ¼ãƒãƒ¼ã®å€‹åˆ¥ã®å±•é–‹æ©Ÿèƒ½ã§ã™ã€‚<br>
+ * importå±•é–‹ã¯æ„å¤–ã«ã‚‚è¤‡é›‘ãªå‡¦ç†ã§ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 class BlancoCgImportVbSourceExpander {
     /**
-     * import•¶‚ğ“WŠJ‚·‚é‚½‚ß‚ÌƒAƒ“ƒJ[•¶š—ñB
+     * importæ–‡ã‚’å±•é–‹ã™ã‚‹ãŸã‚ã®ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã€‚
      */
     private static final String REPLACE_IMPORT_HERE = "/*replace import here*/";
 
     /**
-     * ”­Œ©‚³‚ê‚½ƒAƒ“ƒJ[•¶š—ñ‚ÌƒCƒ“ƒfƒbƒNƒXB
+     * ç™ºè¦‹ã•ã‚ŒãŸã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã€‚
      * 
-     * ‚±‚ÌƒNƒ‰ƒX‚Ìˆ—‚Ì‰ß’ö‚Å import•¶‚ª•ÒW‚³‚ê‚Ü‚·‚ªA‚»‚Ì“s“x ‚±‚Ì’l‚àXV‚³‚ê‚Ü‚·B
+     * ã“ã®ã‚¯ãƒ©ã‚¹ã®å‡¦ç†ã®éç¨‹ã§ importæ–‡ãŒç·¨é›†ã•ã‚Œã¾ã™ãŒã€ãã®éƒ½åº¦ ã“ã®å€¤ã‚‚æ›´æ–°ã•ã‚Œã¾ã™ã€‚
      */
     private int fFindReplaceImport = -1;
 
     /**
-     * import‚ğ“WŠJ‚µ‚Ü‚·B
+     * importã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÍƒNƒ‰ƒX“WŠJEƒƒ\ƒbƒh“WŠJ‚È‚Çˆê®‚ªI—¹‚µ‚½Œã‚ÉŒÄ‚Ño‚·‚æ‚¤‚É‚µ‚Ü‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã‚¯ãƒ©ã‚¹å±•é–‹ãƒ»ãƒ¡ã‚½ãƒƒãƒ‰å±•é–‹ãªã©ä¸€å¼ãŒçµ‚äº†ã—ãŸå¾Œã«å‘¼ã³å‡ºã™ã‚ˆã†ã«ã—ã¾ã™ã€‚
      * 
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹ƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXsƒCƒ[ƒWB(java.lang.String‚ªŠi”[‚³‚ê‚Ü‚·)
+     *            ã‚½ãƒ¼ã‚¹è¡Œã‚¤ãƒ¡ãƒ¼ã‚¸ã€‚(java.lang.StringãŒæ ¼ç´ã•ã‚Œã¾ã™)
      */
     public void transformImport(final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
-        // import‘ÎÛ‚ÌƒNƒ‰ƒX–¼I’[‚É•t—^‚³‚ê‚Ä‚¢‚é”z—ñ•\Œ»‚ğœ‹‚µ‚Ü‚·B
+        // importå¯¾è±¡ã®ã‚¯ãƒ©ã‚¹åçµ‚ç«¯ã«ä»˜ä¸ã•ã‚Œã¦ã„ã‚‹é…åˆ—è¡¨ç¾ã‚’é™¤å»ã—ã¾ã™ã€‚
         trimArraySuffix(argSourceFile.getImportList());
 
-        // import(using)‚ÌƒŠƒXƒg‚©‚çƒNƒ‰ƒX–¼‚ğœ‹‚µ‚Ü‚·B
+        // import(using)ã®ãƒªã‚¹ãƒˆã‹ã‚‰ã‚¯ãƒ©ã‚¹åã‚’é™¤å»ã—ã¾ã™ã€‚
         trimClassName(argSourceFile);
 
-        // Å‰‚Éimport•¶‚ğƒ\[ƒg‚µ‚Äˆ—‚ğs‚¢‚â‚·‚­‚µ‚Ü‚·B
+        // æœ€åˆã«importæ–‡ã‚’ã‚½ãƒ¼ãƒˆã—ã¦å‡¦ç†ã‚’è¡Œã„ã‚„ã™ãã—ã¾ã™ã€‚
         sortImport(argSourceFile.getImportList());
 
-        // d•¡‚·‚éimport•¶‚ğœ‹‚µ‚Ü‚·B
+        // é‡è¤‡ã™ã‚‹importæ–‡ã‚’é™¤å»ã—ã¾ã™ã€‚
         trimRepeatedImport(argSourceFile.getImportList());
 
-        // import‚·‚é•K—v‚Ì‚È‚¢ƒNƒ‰ƒX‚ğœ‹‚µ‚Ü‚·
+        // importã™ã‚‹å¿…è¦ã®ãªã„ã‚¯ãƒ©ã‚¹ã‚’é™¤å»ã—ã¾ã™
         trimUnnecessaryImport(argSourceFile.getImportList());
 
-        // ©ƒNƒ‰ƒX‚ªŠ‘®‚·‚éƒpƒbƒP[ƒW‚É‘Î‚·‚éimport‚ğ—}§‚µ‚Ü‚·B
+        // è‡ªã‚¯ãƒ©ã‚¹ãŒæ‰€å±ã™ã‚‹ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã«å¯¾ã™ã‚‹importã‚’æŠ‘åˆ¶ã—ã¾ã™ã€‚
         trimMyselfImport(argSourceFile, argSourceFile.getImportList());
 
-        // ƒAƒ“ƒJ[•¶š—ñ‚ğŒŸõ‚µ‚Ü‚·B
+        // ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã‚’æ¤œç´¢ã—ã¾ã™ã€‚
         fFindReplaceImport = findAnchorString(argSourceLines);
         if (fFindReplaceImport < 0) {
-            throw new IllegalArgumentException("import•¶‚Ì’uŠ·•¶š—ñ‚ğ”­Œ©‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            throw new IllegalArgumentException("importæ–‡ã®ç½®æ›æ–‡å­—åˆ—ã‚’ç™ºè¦‹ã™ã‚‹ã“ã¨ãŒã§ãã¾ã›ã‚“ã§ã—ãŸã€‚");
         }
 
-        // Å‰‚ÉuSystemvƒpƒbƒP[ƒW‚ğ“WŠJ‚µ‚Ü‚·B
+        // æœ€åˆã«ã€ŒSystemã€ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’å±•é–‹ã—ã¾ã™ã€‚
         expandImportWithTarget(argSourceFile, "System", argSourceLines);
 
-        // ÅŒã‚ÉuSystemvˆÈŠO‚ÌƒpƒbƒP[ƒW‚ğ“WŠJ‚µ‚Ü‚·B
+        // æœ€å¾Œã«ã€ŒSystemã€ä»¥å¤–ã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã‚’å±•é–‹ã—ã¾ã™ã€‚
         expandImportWithTarget(argSourceFile, null, argSourceLines);
 
-        // ƒAƒ“ƒJ[•¶š—ñ‚ğœ‹‚µ‚Ü‚·B
+        // ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã‚’é™¤å»ã—ã¾ã™ã€‚
         removeAnchorString(argSourceLines);
     }
 
     /**
-     * import(using)‚ÌƒŠƒXƒg‚©‚çƒNƒ‰ƒX–¼‚ğœ‹‚µ‚Ü‚·B
+     * import(using)ã®ãƒªã‚¹ãƒˆã‹ã‚‰ã‚¯ãƒ©ã‚¹åã‚’é™¤å»ã—ã¾ã™ã€‚
      * 
-     * ‚±‚ê‚ÍAC#.NET‚Å‚Í–¼‘O‹óŠÔ’PˆÊ‚Ìusingw’è‚ğs‚¤‚©‚ç‚Å‚·B<br>
-     * ‚Ü‚¸ƒNƒ‰ƒX–¼‚ğœ‹‚µ‚Äc‘°‚Ìˆ—‚ğÀs‚µ‚Ü‚·B
+     * ã“ã‚Œã¯ã€C#.NETã§ã¯åå‰ç©ºé–“å˜ä½ã®usingæŒ‡å®šã‚’è¡Œã†ã‹ã‚‰ã§ã™ã€‚<br>
+     * ã¾ãšã‚¯ãƒ©ã‚¹åã‚’é™¤å»ã—ã¦çš‡æ—ã®å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
      * 
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹ƒIƒuƒWƒFƒNƒgB
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      */
     private void trimClassName(final BlancoCgSourceFile argSourceFile) {
         for (int index = 0; index < argSourceFile.getImportList().size(); index++) {
@@ -103,13 +103,13 @@ class BlancoCgImportVbSourceExpander {
     }
 
     /**
-     * “WŠJ‘ÎÛ‚Æ‚È‚éƒ^[ƒQƒbƒg‚ğˆÓ¯‚µ‚ÄƒCƒ“ƒ|[ƒg‚ğ“WŠJ‚µ‚Ü‚·B
+     * å±•é–‹å¯¾è±¡ã¨ãªã‚‹ã‚¿ãƒ¼ã‚²ãƒƒãƒˆã‚’æ„è­˜ã—ã¦ã‚¤ãƒ³ãƒãƒ¼ãƒˆã‚’å±•é–‹ã—ã¾ã™ã€‚
      * 
      * @param argSourceFile
      * @param argTarget
-     *            java. ‚Ü‚½‚Í javax. ‚Ü‚½‚Í null‚ğw’è‚µ‚Ü‚·B
+     *            java. ã¾ãŸã¯ javax. ã¾ãŸã¯ nullã‚’æŒ‡å®šã—ã¾ã™ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒR[ƒhsƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰è¡Œãƒªã‚¹ãƒˆã€‚
      */
     private void expandImportWithTarget(final BlancoCgSourceFile argSourceFile,
             final String argTarget, final List<java.lang.String> argSourceLines) {
@@ -118,15 +118,15 @@ class BlancoCgImportVbSourceExpander {
             final String strImport = argSourceFile.getImportList().get(index);
 
             if (argTarget == null) {
-                // System. ˆÈŠO‚ğ“WŠJ‚µ‚Ü‚·B
+                // System. ä»¥å¤–ã‚’å±•é–‹ã—ã¾ã™ã€‚
                 if (strImport.startsWith("System")) {
-                    // ˆ—‘ÎÛ‚Æ‚·‚éƒpƒbƒP[ƒWˆÈŠO‚Å‚ ‚é‚Ì‚ÅAˆ—‚ğƒXƒLƒbƒv‚µ‚Ü‚·B
-                    // ¦System. ‚Íƒn[ƒhƒR[ƒh‚³‚ê‚Ä‚¢‚é“_‚É’ˆÓ‚µ‚Ä‚­‚¾‚³‚¢B
+                    // å‡¦ç†å¯¾è±¡ã¨ã™ã‚‹ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ä»¥å¤–ã§ã‚ã‚‹ã®ã§ã€å‡¦ç†ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã™ã€‚
+                    // â€»System. ã¯ãƒãƒ¼ãƒ‰ã‚³ãƒ¼ãƒ‰ã•ã‚Œã¦ã„ã‚‹ç‚¹ã«æ³¨æ„ã—ã¦ãã ã•ã„ã€‚
                     continue;
                 }
             } else {
                 if (strImport.startsWith(argTarget) == false) {
-                    // ˆ—‘ÎÛ‚Æ‚·‚éƒpƒbƒP[ƒWˆÈŠO‚Å‚ ‚é‚Ì‚ÅAˆ—‚ğƒXƒLƒbƒv‚µ‚Ü‚·B
+                    // å‡¦ç†å¯¾è±¡ã¨ã™ã‚‹ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ä»¥å¤–ã§ã‚ã‚‹ã®ã§ã€å‡¦ç†ã‚’ã‚¹ã‚­ãƒƒãƒ—ã—ã¾ã™ã€‚
                     continue;
                 }
             }
@@ -136,40 +136,40 @@ class BlancoCgImportVbSourceExpander {
         }
 
         if (isProcessed) {
-            // import“WŠJˆ—‚ª‘¶İ‚µ‚½ê‡‚É‚Ì‚İ‹ó”’‚ğ•t—^‚µ‚Ü‚·B
+            // importå±•é–‹å‡¦ç†ãŒå­˜åœ¨ã—ãŸå ´åˆã«ã®ã¿ç©ºç™½ã‚’ä»˜ä¸ã—ã¾ã™ã€‚
             argSourceLines.add(fFindReplaceImport++, "");
         }
     }
 
     /**
-     * ’uŠ·ƒAƒ“ƒJ[•¶š—ñ‚Ìs”(0ƒIƒŠƒWƒ“)‚ğŒŸõ‚µ‚Ü‚·B
+     * ç½®æ›ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã®è¡Œæ•°(0ã‚ªãƒªã‚¸ãƒ³)ã‚’æ¤œç´¢ã—ã¾ã™ã€‚
      * 
-     * @return ”­Œ©‚µ‚½ƒAƒ“ƒJ[•¶š—ñ‚ÌˆÊ’u(0ƒIƒŠƒWƒ“)B”­Œ©‚Å‚«‚È‚©‚Á‚½ê‡‚É‚Í-1B
+     * @return ç™ºè¦‹ã—ãŸã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã®ä½ç½®(0ã‚ªãƒªã‚¸ãƒ³)ã€‚ç™ºè¦‹ã§ããªã‹ã£ãŸå ´åˆã«ã¯-1ã€‚
      * @param argSourceLines
-     *            ƒ\[ƒXƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ãƒªã‚¹ãƒˆã€‚
      */
     private static final int findAnchorString(
             final List<java.lang.String> argSourceLines) {
         for (int index = 0; index < argSourceLines.size(); index++) {
             final String line = argSourceLines.get(index);
             if (line.equals(REPLACE_IMPORT_HERE)) {
-                // ”­Œ©‚µ‚Ü‚µ‚½B
+                // ç™ºè¦‹ã—ã¾ã—ãŸã€‚
                 return index;
             }
         }
 
-        // ”­Œ©‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B”­Œ©‚Å‚«‚È‚©‚Á‚½‚±‚Æ‚ğ¦‚· -1 ‚ğ–ß‚µ‚Ü‚·B
+        // ç™ºè¦‹ã§ãã¾ã›ã‚“ã§ã—ãŸã€‚ç™ºè¦‹ã§ããªã‹ã£ãŸã“ã¨ã‚’ç¤ºã™ -1 ã‚’æˆ»ã—ã¾ã™ã€‚
         return -1;
     }
 
     /**
-     * ƒAƒ“ƒJ[•¶š—ñ‚ğ‘}“ü‚µ‚Ü‚·B
+     * ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã‚’æŒ¿å…¥ã—ã¾ã™ã€‚
      * 
-     * ˆ—‚ÌŒã”¼‚ÅƒCƒ“ƒ|[ƒg•¶‚ğ•Ò¬‚µ‚È‚¨‚µ‚Ü‚·‚ªA‚»‚ÌÛ‚ÉQÆ‚·‚éƒAƒ“ƒJ[•¶š—ñ‚ğ’Ç‰Á‚µ‚Ä‚¨‚«‚Ü‚·B<br>
-     * ‚±‚Ìƒƒ\ƒbƒh‚Í‘¼‚ÌƒNƒ‰ƒX‚©‚çŒÄ‚Ño‚³‚ê‚Ü‚·B
+     * å‡¦ç†ã®å¾ŒåŠã§ã‚¤ãƒ³ãƒãƒ¼ãƒˆæ–‡ã‚’ç·¨æˆã—ãªãŠã—ã¾ã™ãŒã€ãã®éš›ã«å‚ç…§ã™ã‚‹ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã‚’è¿½åŠ ã—ã¦ãŠãã¾ã™ã€‚<br>
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ä»–ã®ã‚¯ãƒ©ã‚¹ã‹ã‚‰å‘¼ã³å‡ºã•ã‚Œã¾ã™ã€‚
      * 
      * @param argSourceLines
-     *            ƒ\[ƒXƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ãƒªã‚¹ãƒˆã€‚
      */
     public static final void insertAnchorString(
             final List<java.lang.String> argSourceLines) {
@@ -177,41 +177,41 @@ class BlancoCgImportVbSourceExpander {
     }
 
     /**
-     * ƒAƒ“ƒJ[•¶š—ñ‚ğœ‹‚µ‚Ü‚·B
+     * ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ã‚’é™¤å»ã—ã¾ã™ã€‚
      * 
      * @param argSourceLines
-     *            ƒ\[ƒXƒŠƒXƒgB
+     *            ã‚½ãƒ¼ã‚¹ãƒªã‚¹ãƒˆã€‚
      */
     private static final void removeAnchorString(
             final List<java.lang.String> argSourceLines) {
-        // ÅŒã‚ÉƒAƒ“ƒJ[•¶š—ñ‚»‚Ì‚à‚Ì‚ğœ‹B
+        // æœ€å¾Œã«ã‚¢ãƒ³ã‚«ãƒ¼æ–‡å­—åˆ—ãã®ã‚‚ã®ã‚’é™¤å»ã€‚
         int findReplaceImport2 = findAnchorString(argSourceLines);
         if (findReplaceImport2 < 0) {
-            throw new IllegalArgumentException("import•¶‚Ì’uŠ·•¶š—ñ‚ğ”­Œ©‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñ‚Å‚µ‚½B");
+            throw new IllegalArgumentException("importæ–‡ã®ç½®æ›æ–‡å­—åˆ—ã‚’ç™ºè¦‹ã™ã‚‹ã“ã¨ãŒã§ãã¾ã›ã‚“ã§ã—ãŸã€‚");
         }
         argSourceLines.remove(findReplaceImport2);
     }
 
     /**
-     * —^‚¦‚ç‚ê‚½import‚ğƒ\[ƒg‚µ‚Ü‚·B
+     * ä¸ãˆã‚‰ã‚ŒãŸimportã‚’ã‚½ãƒ¼ãƒˆã—ã¾ã™ã€‚
      * 
-     * ‘z’è‚³‚ê‚éƒm[ƒh‚ÌŒ^(java.lang.String)ˆÈŠO‚ª—^‚¦‚ç‚ê‚é‚ÆA—áŠO‚ª”­¶‚µ‚Ü‚·B
+     * æƒ³å®šã•ã‚Œã‚‹ãƒãƒ¼ãƒ‰ã®å‹(java.lang.String)ä»¥å¤–ãŒä¸ãˆã‚‰ã‚Œã‚‹ã¨ã€ä¾‹å¤–ãŒç™ºç”Ÿã—ã¾ã™ã€‚
      * 
      * @param argImport
-     *            ƒCƒ“ƒ|[ƒgƒŠƒXƒgB
+     *            ã‚¤ãƒ³ãƒãƒ¼ãƒˆãƒªã‚¹ãƒˆã€‚
      */
     private static final void sortImport(final List<java.lang.String> argImport) {
         Collections.sort(argImport, new Comparator<java.lang.String>() {
             public int compare(final String arg0, final String arg1) {
                 if (arg0 instanceof String == false) {
-                    throw new IllegalArgumentException("import‚ÌƒŠƒXƒg‚Ì’l‚Å‚·‚ªA["
-                            + arg0 + "]‚Å‚·‚ª java.lang.StringˆÈŠO‚ÌŒ^["
-                            + arg0.getClass().getName() + "]‚É‚È‚Á‚Ä‚¢‚Ü‚·B");
+                    throw new IllegalArgumentException("importã®ãƒªã‚¹ãƒˆã®å€¤ã§ã™ãŒã€["
+                            + arg0 + "]ã§ã™ãŒ java.lang.Stringä»¥å¤–ã®å‹["
+                            + arg0.getClass().getName() + "]ã«ãªã£ã¦ã„ã¾ã™ã€‚");
                 }
                 if (arg1 instanceof String == false) {
-                    throw new IllegalArgumentException("import‚ÌƒŠƒXƒg‚Ì’l‚Å‚·‚ªA["
-                            + arg1 + "]‚Å‚·‚ª java.lang.StringˆÈŠO‚ÌŒ^["
-                            + arg1.getClass().getName() + "]‚É‚È‚Á‚Ä‚¢‚Ü‚·B");
+                    throw new IllegalArgumentException("importã®ãƒªã‚¹ãƒˆã®å€¤ã§ã™ãŒã€["
+                            + arg1 + "]ã§ã™ãŒ java.lang.Stringä»¥å¤–ã®å‹["
+                            + arg1.getClass().getName() + "]ã«ãªã£ã¦ã„ã¾ã™ã€‚");
                 }
                 final String str0 = arg0;
                 final String str1 = arg1;
@@ -221,16 +221,16 @@ class BlancoCgImportVbSourceExpander {
     }
 
     /**
-     * import‘ÎÛ‚ÌƒNƒ‰ƒX–¼I’[‚É•t—^‚³‚ê‚Ä‚¢‚é”z—ñ•\Œ»‚ğœ‹‚µ‚Ü‚·B
+     * importå¯¾è±¡ã®ã‚¯ãƒ©ã‚¹åçµ‚ç«¯ã«ä»˜ä¸ã•ã‚Œã¦ã„ã‚‹é…åˆ—è¡¨ç¾ã‚’é™¤å»ã—ã¾ã™ã€‚
      * 
      * @param argImport
-     *            ƒCƒ“ƒ|[ƒgƒŠƒXƒgB
+     *            ã‚¤ãƒ³ãƒãƒ¼ãƒˆãƒªã‚¹ãƒˆã€‚
      */
     private void trimArraySuffix(final List<java.lang.String> argImport) {
         for (int index = 0; index < argImport.size(); index++) {
             String strImport = argImport.get(index);
             for (;;) {
-                // ”z—ñ•\Œ»‚ÅI—¹‚µ‚Ä‚¢‚éŒÀ‚èŒJ‚è•Ô‚µ‚Ü‚·B
+                // é…åˆ—è¡¨ç¾ã§çµ‚äº†ã—ã¦ã„ã‚‹é™ã‚Šç¹°ã‚Šè¿”ã—ã¾ã™ã€‚
                 if (strImport.endsWith("[]")) {
                     strImport = strImport.substring(0, strImport.length() - 2);
                     argImport.set(index, strImport);
@@ -242,39 +242,39 @@ class BlancoCgImportVbSourceExpander {
     }
 
     /**
-     * d•¡‚·‚é•s—v‚Èimport‚ğœ‹‚µ‚Ü‚·B
+     * é‡è¤‡ã™ã‚‹ä¸è¦ãªimportã‚’é™¤å»ã—ã¾ã™ã€‚
      * 
-     * ‚±‚Ìƒƒ\ƒbƒh‚ÍA—^‚¦‚ç‚ê‚½List‚ªŠù‚Éƒ\[ƒgÏ‚İ‚Å‚ ‚é‚±‚Æ‚ğ‘O’ñ‚Æ‚µ‚Ü‚·B
+     * ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ä¸ãˆã‚‰ã‚ŒãŸListãŒæ—¢ã«ã‚½ãƒ¼ãƒˆæ¸ˆã¿ã§ã‚ã‚‹ã“ã¨ã‚’å‰æã¨ã—ã¾ã™ã€‚
      * 
      * @param argImport
-     *            ƒCƒ“ƒ|[ƒgƒŠƒXƒgB
+     *            ã‚¤ãƒ³ãƒãƒ¼ãƒˆãƒªã‚¹ãƒˆã€‚
      */
     private void trimRepeatedImport(final List<java.lang.String> argImport) {
-        // d•¡‚·‚éimport‚ğœ‹B
+        // é‡è¤‡ã™ã‚‹importã‚’é™¤å»ã€‚
         String pastImport = "";
         for (int index = argImport.size() - 1; index >= 0; index--) {
             final String strImport = argImport.get(index);
             if (pastImport.equals(strImport)) {
-                // Šù‚Éˆ—‚³‚ê‚Ä‚¢‚éd•¡‚·‚éimport‚Å‚·B•s—v‚È‚Ì‚Å‚±‚ê‚ğœ‹‚µ‚Ü‚·B
+                // æ—¢ã«å‡¦ç†ã•ã‚Œã¦ã„ã‚‹é‡è¤‡ã™ã‚‹importã§ã™ã€‚ä¸è¦ãªã®ã§ã“ã‚Œã‚’é™¤å»ã—ã¾ã™ã€‚
                 argImport.remove(index);
             }
-            // ¡‰ñ‚Ìimport‚ğ‘O‰ñ•ªimport‚Æ‚µ‚Ä‹L‰¯‚µ‚Ü‚·B
+            // ä»Šå›ã®importã‚’å‰å›åˆ†importã¨ã—ã¦è¨˜æ†¶ã—ã¾ã™ã€‚
             pastImport = strImport;
         }
     }
 
     /**
-     * import‚·‚é•K—v‚Ì‚È‚¢ƒNƒ‰ƒX‚ğœ‹‚µ‚Ü‚·B
+     * importã™ã‚‹å¿…è¦ã®ãªã„ã‚¯ãƒ©ã‚¹ã‚’é™¤å»ã—ã¾ã™ã€‚
      * 
-     * ‹ï‘Ì“I‚É‚Í java.lang ‚â ƒvƒŠƒ~ƒeƒBƒuŒ^‚ª•s—v‚Æ”»’f‚³‚ê‚é‘ÎÛ‚Å‚·B
+     * å…·ä½“çš„ã«ã¯ java.lang ã‚„ ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ãŒä¸è¦ã¨åˆ¤æ–­ã•ã‚Œã‚‹å¯¾è±¡ã§ã™ã€‚
      * 
      * @param argImport
-     *            ƒCƒ“ƒ|[ƒgƒŠƒXƒgB
+     *            ã‚¤ãƒ³ãƒãƒ¼ãƒˆãƒªã‚¹ãƒˆã€‚
      */
     private void trimUnnecessaryImport(final List<java.lang.String> argImport) {
-        // ‚Ü‚¸‚ÍƒvƒŠƒ~ƒeƒBƒuŒ^‚ğœ‹‚µ‚Ü‚·B
+        // ã¾ãšã¯ãƒ—ãƒªãƒŸãƒ†ã‚£ãƒ–å‹ã‚’é™¤å»ã—ã¾ã™ã€‚
         for (int index = argImport.size() - 1; index >= 0; index--) {
-            // ƒ\[ƒg“_‚ÅŒ^ƒ`ƒFƒbƒN‚ÍÀ{Ï‚İ‚Å‚·B
+            // ã‚½ãƒ¼ãƒˆæ™‚ç‚¹ã§å‹ãƒã‚§ãƒƒã‚¯ã¯å®Ÿæ–½æ¸ˆã¿ã§ã™ã€‚
             final String strImport = argImport.get(index);
 
             if (BlancoCgTypeVbSourceExpander
@@ -285,12 +285,12 @@ class BlancoCgImportVbSourceExpander {
     }
 
     /**
-     * ©•ª©g‚ªŠ‘®‚·‚éƒpƒbƒP[ƒW‚Ìimport‚ğœ‹‚µ‚Ü‚·B
+     * è‡ªåˆ†è‡ªèº«ãŒæ‰€å±ã™ã‚‹ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®importã‚’é™¤å»ã—ã¾ã™ã€‚
      * 
      * @param argSourceFile
-     *            ƒ\[ƒXƒtƒ@ƒCƒ‹ƒCƒ“ƒXƒ^ƒ“ƒXB
+     *            ã‚½ãƒ¼ã‚¹ãƒ•ã‚¡ã‚¤ãƒ«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã€‚
      * @param argImport
-     *            ƒCƒ“ƒ|[ƒgƒŠƒXƒgB
+     *            ã‚¤ãƒ³ãƒãƒ¼ãƒˆãƒªã‚¹ãƒˆã€‚
      */
     private void trimMyselfImport(final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argImport) {
@@ -298,22 +298,22 @@ class BlancoCgImportVbSourceExpander {
     }
 
     /**
-     * “Á’è‚ÌƒpƒbƒP[ƒW‚É‚Â‚¢‚ÄA‚±‚ê‚ğƒŠƒXƒg‚©‚çœ‹‚µ‚Ü‚·B
+     * ç‰¹å®šã®ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã«ã¤ã„ã¦ã€ã“ã‚Œã‚’ãƒªã‚¹ãƒˆã‹ã‚‰é™¤å»ã—ã¾ã™ã€‚
      * 
-     * ©ƒNƒ‰ƒX‚ªŠ‘®‚·‚éƒpƒbƒP[ƒW‚Ìœ‹‚É—˜—p‚³‚ê‚Ü‚·B
+     * è‡ªã‚¯ãƒ©ã‚¹ãŒæ‰€å±ã™ã‚‹ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã®é™¤å»ã«åˆ©ç”¨ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argSpecificPackage
-     *            ˆ—‘ÎÛ‚Æ‚·‚éƒpƒbƒP[ƒWB
+     *            å‡¦ç†å¯¾è±¡ã¨ã™ã‚‹ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã€‚
      * @param argImport
-     *            ƒCƒ“ƒ|[ƒg‚ÌƒŠƒXƒgB
+     *            ã‚¤ãƒ³ãƒãƒ¼ãƒˆã®ãƒªã‚¹ãƒˆã€‚
      */
     private static void trimSpecificPackage(final String argSpecificPackage,
             final List<java.lang.String> argImport) {
         for (int index = argImport.size() - 1; index >= 0; index--) {
-            // ƒ\[ƒg“_‚ÅŒ^ƒ`ƒFƒbƒN‚ÍÀ{Ï‚İ‚Å‚·B
+            // ã‚½ãƒ¼ãƒˆæ™‚ç‚¹ã§å‹ãƒã‚§ãƒƒã‚¯ã¯å®Ÿæ–½æ¸ˆã¿ã§ã™ã€‚
             final String strImport = argImport.get(index);
 
-            // C#.NET‚Å‚Í–¼‘O‹óŠÔ‚ªŠi”[‚³‚ê‚Ä‚¢‚Ü‚·B–¼‘O‹óŠÔ“¯m‚ğ’¼Ú”äŠr‚µ‚Ü‚·B
+            // C#.NETã§ã¯åå‰ç©ºé–“ãŒæ ¼ç´ã•ã‚Œã¦ã„ã¾ã™ã€‚åå‰ç©ºé–“åŒå£«ã‚’ç›´æ¥æ¯”è¼ƒã—ã¾ã™ã€‚
             if (argSpecificPackage.equals(strImport)) {
                 argImport.remove(index);
             }

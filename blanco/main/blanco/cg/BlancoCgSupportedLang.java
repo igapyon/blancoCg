@@ -10,108 +10,108 @@
 package blanco.cg;
 
 /**
- * blancoCg‚ª‘Î‰‚·‚éŒ¾Œê‚Ìˆê——‚ğ•Û‚µ‚Ü‚·B
+ * blancoCgãŒå¯¾å¿œã™ã‚‹è¨€èªã®ä¸€è¦§ã‚’ä¿æŒã—ã¾ã™ã€‚
  */
 public class BlancoCgSupportedLang {
     /**
-     * No.1 à–¾:JavaŒ¾ŒêB
+     * No.1 èª¬æ˜:Javaè¨€èªã€‚
      */
     public static final int JAVA = 1;
 
     /**
-     * No.2 à–¾:C#.NETŒ¾ŒêB
+     * No.2 èª¬æ˜:C#.NETè¨€èªã€‚
      */
     public static final int CS = 2;
 
     /**
-     * No.3 à–¾:JavaScriptŒ¾ŒêB
+     * No.3 èª¬æ˜:JavaScriptè¨€èªã€‚
      */
     public static final int JS = 3;
 
     /**
-     * No.4 à–¾:VB.NETŒ¾ŒêB
+     * No.4 èª¬æ˜:VB.NETè¨€èªã€‚
      */
     public static final int VB = 4;
 
     /**
-     * No.5 à–¾:PHPŒ¾ŒêB
+     * No.5 èª¬æ˜:PHPè¨€èªã€‚
      */
     public static final int PHP = 5;
 
     /**
-     * No.6 à–¾:RubyŒ¾ŒêB
+     * No.6 èª¬æ˜:Rubyè¨€èªã€‚
      */
     public static final int RUBY = 6;
 
     /**
-     * No.7 à–¾:PythonŒ¾ŒêB
+     * No.7 èª¬æ˜:Pythonè¨€èªã€‚
      */
     public static final int PYTHON = 7;
 
     /**
-     * No.8 à–¾:DelphiŒ¾ŒêB
+     * No.8 èª¬æ˜:Delphiè¨€èªã€‚
      */
     public static final int DELPHI = 8;
 
     /**
-     * No.9 à–¾:C++11Œ¾ŒêB
+     * No.9 èª¬æ˜:C++11è¨€èªã€‚
      */
     public static final int CPP11 = 9;
 
     /**
-     * –¢’è‹`B•¶š—ñƒOƒ‹[ƒvˆÈŠO‚Ì•¶š—ñ‚Ü‚½‚Í’è”‚ª–¢’è‹`‚Ì‚à‚ÌB
+     * æœªå®šç¾©ã€‚æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—ä»¥å¤–ã®æ–‡å­—åˆ—ã¾ãŸã¯å®šæ•°ãŒæœªå®šç¾©ã®ã‚‚ã®ã€‚
      */
     public static final int NOT_DEFINED = -1;
 
     /**
-     * •¶š—ñƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚é•¶š—ñ‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğ”»’è‚µ‚Ü‚·B
+     * æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’åˆ¤å®šã—ã¾ã™ã€‚
      *
-     * @param argCheck ƒ`ƒFƒbƒN‚ğs‚¢‚½‚¢•¶š—ñB
-     * @return •¶š—ñƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚ê‚ÎtureBƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚È‚¢•¶š—ñ‚Å‚ ‚ê‚ÎfalseB
+     * @param argCheck ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã„ãŸã„æ–‡å­—åˆ—ã€‚
+     * @return æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œã¦ã„ã‚Œã°tureã€‚ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œãªã„æ–‡å­—åˆ—ã§ã‚ã‚Œã°falseã€‚
      */
     public boolean match(final String argCheck) {
         // No.1
-        // à–¾:JavaŒ¾ŒêB
+        // èª¬æ˜:Javaè¨€èªã€‚
         if ("java".equals(argCheck)) {
             return true;
         }
         // No.2
-        // à–¾:C#.NETŒ¾ŒêB
+        // èª¬æ˜:C#.NETè¨€èªã€‚
         if ("cs".equals(argCheck)) {
             return true;
         }
         // No.3
-        // à–¾:JavaScriptŒ¾ŒêB
+        // èª¬æ˜:JavaScriptè¨€èªã€‚
         if ("js".equals(argCheck)) {
             return true;
         }
         // No.4
-        // à–¾:VB.NETŒ¾ŒêB
+        // èª¬æ˜:VB.NETè¨€èªã€‚
         if ("vb".equals(argCheck)) {
             return true;
         }
         // No.5
-        // à–¾:PHPŒ¾ŒêB
+        // èª¬æ˜:PHPè¨€èªã€‚
         if ("php".equals(argCheck)) {
             return true;
         }
         // No.6
-        // à–¾:RubyŒ¾ŒêB
+        // èª¬æ˜:Rubyè¨€èªã€‚
         if ("ruby".equals(argCheck)) {
             return true;
         }
         // No.7
-        // à–¾:PythonŒ¾ŒêB
+        // èª¬æ˜:Pythonè¨€èªã€‚
         if ("python".equals(argCheck)) {
             return true;
         }
         // No.8
-        // à–¾:DelphiŒ¾ŒêB
+        // èª¬æ˜:Delphiè¨€èªã€‚
         if ("delphi".equals(argCheck)) {
             return true;
         }
         // No.9
-        // à–¾:C++11Œ¾ŒêB
+        // èª¬æ˜:C++11è¨€èªã€‚
         if ("cpp11".equals(argCheck)) {
             return true;
         }
@@ -119,54 +119,54 @@ public class BlancoCgSupportedLang {
     }
 
     /**
-     * •¶š—ñƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚é•¶š—ñ‚Å‚ ‚é‚©‚Ç‚¤‚©‚ğA‘å•¶š¬•¶š‚ğ‹æ•Ê‚¹‚¸”»’è‚µ‚Ü‚·B
+     * æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œã‚‹æ–‡å­—åˆ—ã§ã‚ã‚‹ã‹ã©ã†ã‹ã‚’ã€å¤§æ–‡å­—å°æ–‡å­—ã‚’åŒºåˆ¥ã›ãšåˆ¤å®šã—ã¾ã™ã€‚
      *
-     * @param argCheck ƒ`ƒFƒbƒN‚ğs‚¢‚½‚¢•¶š—ñB
-     * @return •¶š—ñƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚Ä‚¢‚ê‚ÎtureBƒOƒ‹[ƒv‚ÉŠÜ‚Ü‚ê‚È‚¢•¶š—ñ‚Å‚ ‚ê‚ÎfalseB
+     * @param argCheck ãƒã‚§ãƒƒã‚¯ã‚’è¡Œã„ãŸã„æ–‡å­—åˆ—ã€‚
+     * @return æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œã¦ã„ã‚Œã°tureã€‚ã‚°ãƒ«ãƒ¼ãƒ—ã«å«ã¾ã‚Œãªã„æ–‡å­—åˆ—ã§ã‚ã‚Œã°falseã€‚
      */
     public boolean matchIgnoreCase(final String argCheck) {
         // No.1
-        // à–¾:JavaŒ¾ŒêB
+        // èª¬æ˜:Javaè¨€èªã€‚
         if ("java".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.2
-        // à–¾:C#.NETŒ¾ŒêB
+        // èª¬æ˜:C#.NETè¨€èªã€‚
         if ("cs".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.3
-        // à–¾:JavaScriptŒ¾ŒêB
+        // èª¬æ˜:JavaScriptè¨€èªã€‚
         if ("js".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.4
-        // à–¾:VB.NETŒ¾ŒêB
+        // èª¬æ˜:VB.NETè¨€èªã€‚
         if ("vb".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.5
-        // à–¾:PHPŒ¾ŒêB
+        // èª¬æ˜:PHPè¨€èªã€‚
         if ("php".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.6
-        // à–¾:RubyŒ¾ŒêB
+        // èª¬æ˜:Rubyè¨€èªã€‚
         if ("ruby".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.7
-        // à–¾:PythonŒ¾ŒêB
+        // èª¬æ˜:Pythonè¨€èªã€‚
         if ("python".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.8
-        // à–¾:DelphiŒ¾ŒêB
+        // èª¬æ˜:Delphiè¨€èªã€‚
         if ("delphi".equalsIgnoreCase(argCheck)) {
             return true;
         }
         // No.9
-        // à–¾:C++11Œ¾ŒêB
+        // èª¬æ˜:C++11è¨€èªã€‚
         if ("cpp11".equalsIgnoreCase(argCheck)) {
             return true;
         }
@@ -174,124 +174,124 @@ public class BlancoCgSupportedLang {
     }
 
     /**
-     * •¶š—ñ‚©‚ç’è”‚É•ÏŠ·‚µ‚Ü‚·B
+     * æ–‡å­—åˆ—ã‹ã‚‰å®šæ•°ã«å¤‰æ›ã—ã¾ã™ã€‚
      *
-     * ’è”‚ª–¢’è‹`‚Ìê‡‚â —^‚¦‚ç‚ê‚½•¶š—ñ‚ª•¶š—ñƒOƒ‹[ƒvŠO‚Ìê‡‚É‚Í NOT_DEFINED ‚ğ–ß‚µ‚Ü‚·B
+     * å®šæ•°ãŒæœªå®šç¾©ã®å ´åˆã‚„ ä¸ãˆã‚‰ã‚ŒãŸæ–‡å­—åˆ—ãŒæ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—å¤–ã®å ´åˆã«ã¯ NOT_DEFINED ã‚’æˆ»ã—ã¾ã™ã€‚
      *
-     * @param argCheck •ÏŠ·‚ğs‚¢‚½‚¢•¶š—ñB
-     * @return ’è”‚É•ÏŠ·Œã‚Ì’lB
+     * @param argCheck å¤‰æ›ã‚’è¡Œã„ãŸã„æ–‡å­—åˆ—ã€‚
+     * @return å®šæ•°ã«å¤‰æ›å¾Œã®å€¤ã€‚
      */
     public int convertToInt(final String argCheck) {
         // No.1
-        // à–¾:JavaŒ¾ŒêB
+        // èª¬æ˜:Javaè¨€èªã€‚
         if ("java".equals(argCheck)) {
             return JAVA;
         }
         // No.2
-        // à–¾:C#.NETŒ¾ŒêB
+        // èª¬æ˜:C#.NETè¨€èªã€‚
         if ("cs".equals(argCheck)) {
             return CS;
         }
         // No.3
-        // à–¾:JavaScriptŒ¾ŒêB
+        // èª¬æ˜:JavaScriptè¨€èªã€‚
         if ("js".equals(argCheck)) {
             return JS;
         }
         // No.4
-        // à–¾:VB.NETŒ¾ŒêB
+        // èª¬æ˜:VB.NETè¨€èªã€‚
         if ("vb".equals(argCheck)) {
             return VB;
         }
         // No.5
-        // à–¾:PHPŒ¾ŒêB
+        // èª¬æ˜:PHPè¨€èªã€‚
         if ("php".equals(argCheck)) {
             return PHP;
         }
         // No.6
-        // à–¾:RubyŒ¾ŒêB
+        // èª¬æ˜:Rubyè¨€èªã€‚
         if ("ruby".equals(argCheck)) {
             return RUBY;
         }
         // No.7
-        // à–¾:PythonŒ¾ŒêB
+        // èª¬æ˜:Pythonè¨€èªã€‚
         if ("python".equals(argCheck)) {
             return PYTHON;
         }
         // No.8
-        // à–¾:DelphiŒ¾ŒêB
+        // èª¬æ˜:Delphiè¨€èªã€‚
         if ("delphi".equals(argCheck)) {
             return DELPHI;
         }
         // No.9
-        // à–¾:C++11Œ¾ŒêB
+        // èª¬æ˜:C++11è¨€èªã€‚
         if ("cpp11".equals(argCheck)) {
             return CPP11;
         }
 
-        // ŠY“–‚·‚é’è”‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B
+        // è©²å½“ã™ã‚‹å®šæ•°ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚
         return NOT_DEFINED;
     }
 
     /**
-     * ’è”‚©‚ç•¶š—ñ‚É•ÏŠ·‚µ‚Ü‚·B
+     * å®šæ•°ã‹ã‚‰æ–‡å­—åˆ—ã«å¤‰æ›ã—ã¾ã™ã€‚
      *
-     * ’è”‚Æ‘Î‰‚Ã‚­•¶š—ñ‚É•ÏŠ·‚µ‚Ü‚·B
+     * å®šæ•°ã¨å¯¾å¿œã¥ãæ–‡å­—åˆ—ã«å¤‰æ›ã—ã¾ã™ã€‚
      *
-     * @param argCheck •ÏŠ·‚ğs‚¢‚½‚¢•¶š’è”B
-     * @return •¶š—ñ‚É•ÏŠ·Œã‚Ì’lBNOT_DEFINED‚Ìê‡‚É‚Í’·‚³0‚Ì•¶š—ñB
+     * @param argCheck å¤‰æ›ã‚’è¡Œã„ãŸã„æ–‡å­—å®šæ•°ã€‚
+     * @return æ–‡å­—åˆ—ã«å¤‰æ›å¾Œã®å€¤ã€‚NOT_DEFINEDã®å ´åˆã«ã¯é•·ã•0ã®æ–‡å­—åˆ—ã€‚
      */
     public String convertToString(final int argCheck) {
         // No.1
-        // à–¾:JavaŒ¾ŒêB
+        // èª¬æ˜:Javaè¨€èªã€‚
         if (argCheck == JAVA) {
             return "java";
         }
         // No.2
-        // à–¾:C#.NETŒ¾ŒêB
+        // èª¬æ˜:C#.NETè¨€èªã€‚
         if (argCheck == CS) {
             return "cs";
         }
         // No.3
-        // à–¾:JavaScriptŒ¾ŒêB
+        // èª¬æ˜:JavaScriptè¨€èªã€‚
         if (argCheck == JS) {
             return "js";
         }
         // No.4
-        // à–¾:VB.NETŒ¾ŒêB
+        // èª¬æ˜:VB.NETè¨€èªã€‚
         if (argCheck == VB) {
             return "vb";
         }
         // No.5
-        // à–¾:PHPŒ¾ŒêB
+        // èª¬æ˜:PHPè¨€èªã€‚
         if (argCheck == PHP) {
             return "php";
         }
         // No.6
-        // à–¾:RubyŒ¾ŒêB
+        // èª¬æ˜:Rubyè¨€èªã€‚
         if (argCheck == RUBY) {
             return "ruby";
         }
         // No.7
-        // à–¾:PythonŒ¾ŒêB
+        // èª¬æ˜:Pythonè¨€èªã€‚
         if (argCheck == PYTHON) {
             return "python";
         }
         // No.8
-        // à–¾:DelphiŒ¾ŒêB
+        // èª¬æ˜:Delphiè¨€èªã€‚
         if (argCheck == DELPHI) {
             return "delphi";
         }
         // No.9
-        // à–¾:C++11Œ¾ŒêB
+        // èª¬æ˜:C++11è¨€èªã€‚
         if (argCheck == CPP11) {
             return "cpp11";
         }
-        // –¢’è‹`B
+        // æœªå®šç¾©ã€‚
         if (argCheck == NOT_DEFINED) {
             return "";
         }
 
-        // ‚¢‚¸‚ê‚É‚àŠY“–‚µ‚Ü‚¹‚ñ‚Å‚µ‚½B
-        throw new IllegalArgumentException("—^‚¦‚ç‚ê‚½’l(" + argCheck + ")‚Í•¶š—ñƒOƒ‹[ƒv[BlancoCgSupportedLang]‚Å‚Í’è‹`‚³‚ê‚È‚¢’l‚Å‚·B");
+        // ã„ãšã‚Œã«ã‚‚è©²å½“ã—ã¾ã›ã‚“ã§ã—ãŸã€‚
+        throw new IllegalArgumentException("ä¸ãˆã‚‰ã‚ŒãŸå€¤(" + argCheck + ")ã¯æ–‡å­—åˆ—ã‚°ãƒ«ãƒ¼ãƒ—[BlancoCgSupportedLang]ã§ã¯å®šç¾©ã•ã‚Œãªã„å€¤ã§ã™ã€‚");
     }
 }

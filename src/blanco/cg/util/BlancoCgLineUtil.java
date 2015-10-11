@@ -13,21 +13,21 @@ import blanco.cg.BlancoCgSupportedLang;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * blancoCg‚Ìs‚ÉŠÖ‚·‚éƒ†[ƒeƒBƒŠƒeƒB‚Å‚·B
+ * blancoCgã®è¡Œã«é–¢ã™ã‚‹ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã§ã™ã€‚
  * 
- * ‚±‚ÌƒNƒ‰ƒX‚ÍƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚ğ’´‚¦‚Ä—˜—p‚³‚ê‚Ü‚·B
+ * ã“ã®ã‚¯ãƒ©ã‚¹ã¯ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã‚’è¶…ãˆã¦åˆ©ç”¨ã•ã‚Œã¾ã™ã€‚
  * 
  * @author IGA Tosiki
  */
 public class BlancoCgLineUtil {
     /**
-     * ‚PsƒRƒƒ“ƒg‚ÌŠJn‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * ï¼‘è¡Œã‚³ãƒ¡ãƒ³ãƒˆã®é–‹å§‹ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * ƒRƒƒ“ƒg‚ÌŠJn‚ğ•\‚·•¶š—ñ‚ÆA‚»‚ê‚É‘±‚­‹ó”’‚ğ–ß‚µ‚Ü‚·B
+     * ã‚³ãƒ¡ãƒ³ãƒˆã®é–‹å§‹ã‚’è¡¨ã™æ–‡å­—åˆ—ã¨ã€ãã‚Œã«ç¶šãç©ºç™½ã‚’æˆ»ã—ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return ƒRƒƒ“ƒg‚ÌŠJn‚ğ•\‚·•¶š—ñB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return ã‚³ãƒ¡ãƒ³ãƒˆã®é–‹å§‹ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getSingleLineCommentPrefix(
             final int argTargetLang) {
@@ -45,19 +45,19 @@ public class BlancoCgLineUtil {
             return "# ";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgLineUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgLineUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * •¶š—ñƒŠƒeƒ‰ƒ‹‚ğˆÍ‚Ş•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * æ–‡å­—åˆ—ãƒªãƒ†ãƒ©ãƒ«ã‚’å›²ã‚€æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê‚É‰‚¶‚ÄAƒ_ƒuƒ‹ƒNƒI[ƒg‚Ü‚½‚Í ƒVƒ“ƒOƒ‹ƒNƒI[ƒg‚ğ–ß‚µ‚Ü‚·B
+     * å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã«å¿œã˜ã¦ã€ãƒ€ãƒ–ãƒ«ã‚¯ã‚ªãƒ¼ãƒˆã¾ãŸã¯ ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚ªãƒ¼ãƒˆã‚’æˆ»ã—ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return •¶š—ñƒŠƒeƒ‰ƒ‹‚ğˆÍ‚Ş•¶š—ñ
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return æ–‡å­—åˆ—ãƒªãƒ†ãƒ©ãƒ«ã‚’å›²ã‚€æ–‡å­—åˆ—
      */
     public static final String getStringLiteralEnclosure(final int argTargetLang) {
         switch (argTargetLang) {
@@ -73,17 +73,17 @@ public class BlancoCgLineUtil {
             return "'";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgLineUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgLineUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * •¶š—ñ‚ğ˜AŒ‹‚·‚éƒIƒyƒŒ[ƒ^‚ğæ“¾‚µ‚Ü‚·B
+     * æ–‡å­—åˆ—ã‚’é€£çµã™ã‚‹ã‚ªãƒšãƒ¬ãƒ¼ã‚¿ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return •¶š—ñ‚ğ˜AŒ‹‚·‚éƒIƒyƒŒ[ƒ^B
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return æ–‡å­—åˆ—ã‚’é€£çµã™ã‚‹ã‚ªãƒšãƒ¬ãƒ¼ã‚¿ã€‚
      */
     public static final String getStringConcatenationOperator(
             final int argTargetLang) {
@@ -100,20 +100,20 @@ public class BlancoCgLineUtil {
             return ".";
         default:
             throw new IllegalArgumentException(
-                    "BlancoCgLineUtil: ƒTƒ|[ƒg‚µ‚È‚¢ƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾Œê(" + argTargetLang
-                            + ")‚ª—^‚¦‚ç‚ê‚Ü‚µ‚½B");
+                    "BlancoCgLineUtil: ã‚µãƒãƒ¼ãƒˆã—ãªã„ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èª(" + argTargetLang
+                            + ")ãŒä¸ãˆã‚‰ã‚Œã¾ã—ãŸã€‚");
         }
     }
 
     /**
-     * •Ï”‚ÌƒvƒŒƒtƒBƒbƒNƒX‚ğæ“¾‚µ‚Ü‚·B
+     * å¤‰æ•°ã®ãƒ—ãƒ¬ãƒ•ã‚£ãƒƒã‚¯ã‚¹ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * •¶–@“I‚É•Ï”‚ÉƒvƒŒƒtƒBƒbƒNƒX‚ª•K—v‚Èê‡A‚»‚Ì•¶š—ñ‚ğ–ß‚µ‚Ü‚·BƒvƒŒƒtƒBƒbƒNƒX‚ª•K—v‚È‚¢Œ¾Œê‚Å‚ÍA’·‚³0‚Ì•¶š—ñ‚ğ–ß‚µ‚Ü‚·B
-     * PHP‚Ìê‡A$‚ğ–ß‚µ‚Ü‚·B
+     * æ–‡æ³•çš„ã«å¤‰æ•°ã«ãƒ—ãƒ¬ãƒ•ã‚£ãƒƒã‚¯ã‚¹ãŒå¿…è¦ãªå ´åˆã€ãã®æ–‡å­—åˆ—ã‚’æˆ»ã—ã¾ã™ã€‚ãƒ—ãƒ¬ãƒ•ã‚£ãƒƒã‚¯ã‚¹ãŒå¿…è¦ãªã„è¨€èªã§ã¯ã€é•·ã•0ã®æ–‡å­—åˆ—ã‚’æˆ»ã—ã¾ã™ã€‚
+     * PHPã®å ´åˆã€$ã‚’æˆ»ã—ã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return ƒ[ƒJƒ‹•Ï”‚ÌƒvƒŒƒtƒBƒbƒNƒX
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return ãƒ­ãƒ¼ã‚«ãƒ«å¤‰æ•°ã®ãƒ—ãƒ¬ãƒ•ã‚£ãƒƒã‚¯ã‚¹
      */
     public static final String getVariablePrefix(final int argTargetLang) {
         switch (argTargetLang) {
@@ -125,19 +125,19 @@ public class BlancoCgLineUtil {
     }
 
     /**
-     * •Ï”éŒ¾‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * å¤‰æ•°å®£è¨€ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * •Ï”éŒ¾‚Ps‚ğ–ß‚µ‚Ü‚·Bs‚ÌI’[‚ğ•\‚·•¶šiJava‚Ìê‡AƒZƒ~ƒRƒƒ“j‚Í ŠÜ‚Ü‚ê‚Ü‚¹‚ñB
+     * å¤‰æ•°å®£è¨€ï¼‘è¡Œã‚’æˆ»ã—ã¾ã™ã€‚è¡Œã®çµ‚ç«¯ã‚’è¡¨ã™æ–‡å­—ï¼ˆJavaã®å ´åˆã€ã‚»ãƒŸã‚³ãƒ­ãƒ³ï¼‰ã¯ å«ã¾ã‚Œã¾ã›ã‚“ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argVariableName
-     *            •Ï”–¼B
+     *            å¤‰æ•°åã€‚
      * @param argTypeShortName
-     *            ’Z‚¢Œ^–¼B
+     *            çŸ­ã„å‹åã€‚
      * @param argInitialValue
-     *            ‰Šú’lBnull‚Ü‚½‚Í’·‚³0‚Ìê‡A•Ï”‚Ì–¾¦“I‚È‰Šú‰»‚Ís‚¢‚Ü‚¹‚ñB
-     * @return •Ï”éŒ¾‚ğ•\‚·•¶š—ñB
+     *            åˆæœŸå€¤ã€‚nullã¾ãŸã¯é•·ã•0ã®å ´åˆã€å¤‰æ•°ã®æ˜ç¤ºçš„ãªåˆæœŸåŒ–ã¯è¡Œã„ã¾ã›ã‚“ã€‚
+     * @return å¤‰æ•°å®£è¨€ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getVariableDeclaration(final int argTargetLang,
             final String argVariableName, final String argTypeShortName,
@@ -152,20 +152,20 @@ public class BlancoCgLineUtil {
             result = argTypeShortName + " " + argVariableName;
             break;
         case BlancoCgSupportedLang.JS:
-            // Œ^–¼‚Í—˜—p‚µ‚Ü‚¹‚ñB
+            // å‹åã¯åˆ©ç”¨ã—ã¾ã›ã‚“ã€‚
             result = "var " + argVariableName;
             break;
         case BlancoCgSupportedLang.VB:
             result = "Dim " + argVariableName + " As " + argTypeShortName;
             break;
         case BlancoCgSupportedLang.PHP:
-            // Œ^–¼‚Í—˜—p‚µ‚Ü‚¹‚ñB
+            // å‹åã¯åˆ©ç”¨ã—ã¾ã›ã‚“ã€‚
             result = BlancoCgLineUtil.getVariablePrefix(argTargetLang)
                     + argVariableName;
             break;
         case BlancoCgSupportedLang.RUBY:
         case BlancoCgSupportedLang.PYTHON:
-            // Œ^–¼‚Í—˜—p‚µ‚Ü‚¹‚ñB
+            // å‹åã¯åˆ©ç”¨ã—ã¾ã›ã‚“ã€‚
             result = argVariableName;
             break;
         }
@@ -176,19 +176,19 @@ public class BlancoCgLineUtil {
         return result;
     }
 
-    // ‚±‚±ˆÈ~‚Íƒtƒ@ƒT[ƒhƒƒ\ƒbƒhB
+    // ã“ã“ä»¥é™ã¯ãƒ•ã‚¡ã‚µãƒ¼ãƒ‰ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
 
     /**
-     * if•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * ifæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * ÀÛ‚Ìˆ—‚ÍA{@link BlancoCgStatementUtil#getIfBegin(int, java.lang.String)}
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * å®Ÿéš›ã®å‡¦ç†ã¯ã€{@link BlancoCgStatementUtil#getIfBegin(int, java.lang.String)}
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argExpr
-     *            ğŒ®B
-     * @return if•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ
+     *            æ¡ä»¶å¼ã€‚
+     * @return ifæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—
      */
     public static final String getIfBegin(final int argTargetLang,
             final String argExpr) {
@@ -196,34 +196,34 @@ public class BlancoCgLineUtil {
     }
 
     /**
-     * if•¶‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * ifæ–‡ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * ÀÛ‚Ìˆ—‚ÍA{@link BlancoCgStatementUtil#getIfEnd(int)}‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * å®Ÿéš›ã®å‡¦ç†ã¯ã€{@link BlancoCgStatementUtil#getIfEnd(int)}ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return if•¶‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñ
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return ifæ–‡ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—
      */
     public static final String getIfEnd(final int argTargetLang) {
         return BlancoCgStatementUtil.getIfEnd(argTargetLang);
     }
 
     /**
-     * for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Java, C#, JavaScript, PHP‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B ÀÛ‚Ìˆ—‚ÍA
+     * Java, C#, JavaScript, PHPã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚ å®Ÿéš›ã®å‡¦ç†ã¯ã€
      * {@link BlancoCgStatementUtil#getForBeginJava(int, java.lang.String, java.lang.String, java.lang.String)}
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argExpr1
-     *            ‰Šú‰»ˆ—B
+     *            åˆæœŸåŒ–å‡¦ç†ã€‚
      * @param argExpr2
-     *            Œp‘±ğŒB
+     *            ç¶™ç¶šæ¡ä»¶ã€‚
      * @param argExpr3
-     *            ƒ‹[ƒv‚Ì‚Â‚ÇÀ{‚·‚éˆ—B
-     * @return for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ
+     *            ãƒ«ãƒ¼ãƒ—ã®ã¤ã©å®Ÿæ–½ã™ã‚‹å‡¦ç†ã€‚
+     * @return foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—
      */
     public static final String getForBeginJava(final int argTargetLang,
             final String argExpr1, final String argExpr2, final String argExpr3) {
@@ -232,19 +232,19 @@ public class BlancoCgLineUtil {
     }
 
     /**
-     * for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * VB.NET‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B ÀÛ‚Ìˆ—‚ÍA
+     * VB.NETã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚ å®Ÿéš›ã®å‡¦ç†ã¯ã€
      * {@link BlancoCgStatementUtil#getForBeginVb(int, java.lang.String, java.lang.String, java.lang.String)}
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argCounter
-     *            •\Œ»Bu—á: i As Integer = 1v
+     *            è¡¨ç¾ã€‚ã€Œä¾‹: i As Integer = 1ã€
      * @param argTo
-     *            I—¹‚Æ‚È‚é‚µ‚«‚¢’l (ğŒ‚Å‚Í‚ ‚è‚Ü‚¹‚ñ)Bu—á: 10v
-     * @return for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            çµ‚äº†ã¨ãªã‚‹ã—ãã„å€¤ (æ¡ä»¶ã§ã¯ã‚ã‚Šã¾ã›ã‚“)ã€‚ã€Œä¾‹: 10ã€
+     * @return foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getForBeginVb(final int argTargetLang,
             final String argCounter, final String argTo) {
@@ -253,21 +253,21 @@ public class BlancoCgLineUtil {
     }
 
     /**
-     * for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * VB.NET‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B ÀÛ‚Ìˆ—‚ÍA
+     * VB.NETã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚ å®Ÿéš›ã®å‡¦ç†ã¯ã€
      * {@link BlancoCgStatementUtil#getForBeginVb(int, java.lang.String, java.lang.String, java.lang.String)}
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argCounter
-     *            •\Œ»Bu—á: i As Integer = 1v
+     *            è¡¨ç¾ã€‚ã€Œä¾‹: i As Integer = 1ã€
      * @param argTo
-     *            I—¹‚Æ‚È‚é‚µ‚«‚¢’l (ğŒ‚Å‚Í‚ ‚è‚Ü‚¹‚ñ)Bu—á: 10v
+     *            çµ‚äº†ã¨ãªã‚‹ã—ãã„å€¤ (æ¡ä»¶ã§ã¯ã‚ã‚Šã¾ã›ã‚“)ã€‚ã€Œä¾‹: 10ã€
      * @param argStep
-     *            Step‚É—˜—p‚³‚ê‚é’lBu—á: 2vBnull‚Ìê‡‚É‚Í Step‚ÍÈ—ª‚³‚ê‚Ü‚·B
-     * @return for•¶‚ÌŠJn•”•ª‚Ì•¶š—ñ
+     *            Stepã«åˆ©ç”¨ã•ã‚Œã‚‹å€¤ã€‚ã€Œä¾‹: 2ã€ã€‚nullã®å ´åˆã«ã¯ Stepã¯çœç•¥ã•ã‚Œã¾ã™ã€‚
+     * @return foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã®æ–‡å­—åˆ—
      */
     public static final String getForBeginVb(final int argTargetLang,
             final String argCounter, final String argTo, final String argStep) {
@@ -276,21 +276,21 @@ public class BlancoCgLineUtil {
     }
 
     /**
-     * for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Ruby‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B ÀÛ‚Ìˆ—‚ÍA
+     * Rubyã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚ å®Ÿéš›ã®å‡¦ç†ã¯ã€
      * {@link BlancoCgStatementUtil#getForBeginRuby(int, java.lang.String, java.lang.String, java.lang.String)}
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argCounter
-     *            ƒ‹[ƒvƒJƒEƒ“ƒ^B
+     *            ãƒ«ãƒ¼ãƒ—ã‚«ã‚¦ãƒ³ã‚¿ã€‚
      * @param argFrom
-     *            ŠJn’l (ğŒ‚Å‚Í‚ ‚è‚Ü‚¹‚ñ)Bu—á: 1v
+     *            é–‹å§‹å€¤ (æ¡ä»¶ã§ã¯ã‚ã‚Šã¾ã›ã‚“)ã€‚ã€Œä¾‹: 1ã€
      * @param argTo
-     *            I—¹’l (ğŒ‚Å‚Í‚ ‚è‚Ü‚¹‚ñ)Bu—á: 10v
-     * @return for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            çµ‚äº†å€¤ (æ¡ä»¶ã§ã¯ã‚ã‚Šã¾ã›ã‚“)ã€‚ã€Œä¾‹: 10ã€
+     * @return foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getForBeginRuby(final int argTargetLang,
             final String argCounter, final String argFrom, final String argTo) {
@@ -299,19 +299,19 @@ public class BlancoCgLineUtil {
     }
 
 /**
-     * for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Delphi‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B ÀÛ‚Ìˆ—‚ÍA
+     * Delphiã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚ å®Ÿéš›ã®å‡¦ç†ã¯ã€
      * {@link BlancoCgStatementUtil#getForBeginDelphi(int , java.lang.String,java.lang.String, java.lang.String)
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argItem
-     *            ƒ‹[ƒv‘ÎÛ‚Æ‚È‚éƒIƒuƒWƒFƒNƒg‚ÌŒ»İ’lB
+     *            ãƒ«ãƒ¼ãƒ—å¯¾è±¡ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç¾åœ¨å€¤ã€‚
      * @param argItems
-     *            ƒ‹[ƒv‘ÎÛ‚Æ‚È‚éƒIƒuƒWƒFƒNƒgB
-     * @return for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            ãƒ«ãƒ¼ãƒ—å¯¾è±¡ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getForBeginDelphi(final int argTargetLang,
             final String argCounter, final String argFrom, final String argTo) {
@@ -320,19 +320,19 @@ public class BlancoCgLineUtil {
     }
 
     /**
-     * for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Python‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B ÀÛ‚Ìˆ—‚ÍA
+     * Pythonã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚ å®Ÿéš›ã®å‡¦ç†ã¯ã€
      * {@link BlancoCgStatementUtil#getForBeginPython(int, java.lang.String, java.lang.String)}
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argItem
-     *            ƒ‹[ƒv‘ÎÛ‚Æ‚È‚éƒIƒuƒWƒFƒNƒg‚ÌŒ»İ’lB
+     *            ãƒ«ãƒ¼ãƒ—å¯¾è±¡ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ç¾åœ¨å€¤ã€‚
      * @param argItems
-     *            ƒ‹[ƒv‘ÎÛ‚Æ‚È‚éƒIƒuƒWƒFƒNƒgB
-     * @return for•¶‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            ãƒ«ãƒ¼ãƒ—å¯¾è±¡ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
+     * @return foræ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getForBeginPython(final int argTargetLang,
             final String argItem, final String argItems) {
@@ -341,19 +341,19 @@ public class BlancoCgLineUtil {
     }
 
     /**
-     * eachƒuƒƒbƒN‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * eachãƒ–ãƒ­ãƒƒã‚¯ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Ruby‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B ÀÛ‚Ìˆ—‚ÍA
+     * Rubyã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚ å®Ÿéš›ã®å‡¦ç†ã¯ã€
      * {@link BlancoCgStatementUtil#getEachBeginRuby(int, java.lang.String, java.lang.String)}
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argObject
-     *            eachƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·‘ÎÛ‚Æ‚È‚éƒIƒuƒWƒFƒNƒgB
+     *            eachãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™å¯¾è±¡ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã€‚
      * @param argVariable
-     *            eachƒƒ\ƒbƒh‚ÌŒ»İ’lB
-     * @return eachƒuƒƒbƒN‚ÌŠJn•”•ª‚ğ•\‚·•¶š—ñB
+     *            eachãƒ¡ã‚½ãƒƒãƒ‰ã®ç¾åœ¨å€¤ã€‚
+     * @return eachãƒ–ãƒ­ãƒƒã‚¯ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getEachBeginRuby(final int argTargetLang,
             final String argObject, final String argVariable) {
@@ -362,70 +362,70 @@ public class BlancoCgLineUtil {
     }
 
     /**
-     * eachƒuƒƒbƒN‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * eachãƒ–ãƒ­ãƒƒã‚¯ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Ruby‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B ÀÛ‚Ìˆ—‚ÍA{@link BlancoCgStatementUtil#getEachEnd(int)}
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * Rubyã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚ å®Ÿéš›ã®å‡¦ç†ã¯ã€{@link BlancoCgStatementUtil#getEachEnd(int)}
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return eachƒuƒƒbƒN‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return eachãƒ–ãƒ­ãƒƒã‚¯ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getEachEnd(final int argTargetLang) {
         return BlancoCgStatementUtil.getEachEnd(argTargetLang);
     }
 
     /**
-     * for•¶‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * ÀÛ‚Ìˆ—‚ÍA{@link BlancoCgStatementUtil#getForEnd(int)}‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * å®Ÿéš›ã®å‡¦ç†ã¯ã€{@link BlancoCgStatementUtil#getForEnd(int)}ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return for•¶‚ÌI—¹•”•ª‚ğ•\‚·•¶š—ñB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return foræ–‡ã®çµ‚äº†éƒ¨åˆ†ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getForEnd(final int argTargetLang) {
         return BlancoCgStatementUtil.getForEnd(argTargetLang);
     }
 
     /**
-     * for•¶‚ğ”²‚¯‚é•¶‚ğ•\‚í‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * foræ–‡ã‚’æŠœã‘ã‚‹æ–‡ã‚’è¡¨ã‚ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * ÀÛ‚Ìˆ—‚ÍA{@link BlancoCgStatementUtil#getForExit(int)}‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * å®Ÿéš›ã®å‡¦ç†ã¯ã€{@link BlancoCgStatementUtil#getForExit(int)}ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return break‚Ü‚½‚Í Exit For‚ª–ß‚è‚Ü‚·B
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return breakã¾ãŸã¯ Exit ForãŒæˆ»ã‚Šã¾ã™ã€‚
      */
     public static final String getForExit(final int argTargetLang) {
         return BlancoCgStatementUtil.getForExit(argTargetLang);
     }
 
     /**
-     * •¶‚ÌI‚í‚è‚ğ¦‚·•¶š‚ğæ“¾‚µ‚Ü‚·B
+     * æ–‡ã®çµ‚ã‚ã‚Šã‚’ç¤ºã™æ–‡å­—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * ÀÛ‚Ìˆ—‚ÍA{@link BlancoCgStatementUtil#getTerminator(int)}‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * å®Ÿéš›ã®å‡¦ç†ã¯ã€{@link BlancoCgStatementUtil#getTerminator(int)}ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
-     * @return •¶‚ÌI‚í‚è‚ğ¦‚·•¶šB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
+     * @return æ–‡ã®çµ‚ã‚ã‚Šã‚’ç¤ºã™æ–‡å­—ã€‚
      */
     public static final String getTerminator(final int argTargetLang) {
         return BlancoCgStatementUtil.getTerminator(argTargetLang);
     }
 
     /**
-     * while•¶‚ÌŠJn•”•ª‚ğ•\‚í‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * whileæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã‚ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Ruby, Python‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B ÀÛ‚Ìˆ—‚ÍA
+     * Ruby, Pythonã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚ å®Ÿéš›ã®å‡¦ç†ã¯ã€
      * {@link BlancoCgStatementUtil#getWhileBeginRuby(int, java.lang.String)}
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argCon
-     *            ğŒ®B
-     * @return while•¶‚ÌŠJn•”•ª‚ğ•\‚í‚·•¶š—ñB
+     *            æ¡ä»¶å¼ã€‚
+     * @return whileæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã‚ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getWhileBeginRuby(final int argTargetLang,
             final String argCon) {
@@ -433,17 +433,17 @@ public class BlancoCgLineUtil {
     }
 
     /**
-     * while•¶‚ÌŠJn•”•ª‚ğ•\‚í‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * whileæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã‚ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * Delphi‚É‘Î‰‚µ‚Ä‚¢‚Ü‚·B ÀÛ‚Ìˆ—‚ÍA
+     * Delphiã«å¯¾å¿œã—ã¦ã„ã¾ã™ã€‚ å®Ÿéš›ã®å‡¦ç†ã¯ã€
      * {@link BlancoCgStatementUtil#getWhileBeginDelphi(int, java.lang.String)}
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argCon
-     *            ğŒ®B
-     * @return while•¶‚ÌŠJn•”•ª‚ğ•\‚í‚·•¶š—ñB
+     *            æ¡ä»¶å¼ã€‚
+     * @return whileæ–‡ã®é–‹å§‹éƒ¨åˆ†ã‚’è¡¨ã‚ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getWhileBeginDelphi(final int argTargetLang,
             final String argCon) {
@@ -451,16 +451,16 @@ public class BlancoCgLineUtil {
     }
 
     /**
-     * return•¶‚ğ•\‚·•¶š—ñ‚ğæ“¾‚µ‚Ü‚·B
+     * returnæ–‡ã‚’è¡¨ã™æ–‡å­—åˆ—ã‚’å–å¾—ã—ã¾ã™ã€‚
      * 
-     * ÀÛ‚Ìˆ—‚ÍA{@link BlancoCgStatementUtil#getReturn(int, java.lang.String)}
-     * ‚ÉˆÏ÷‚³‚ê‚Ü‚·B
+     * å®Ÿéš›ã®å‡¦ç†ã¯ã€{@link BlancoCgStatementUtil#getReturn(int, java.lang.String)}
+     * ã«å§”è­²ã•ã‚Œã¾ã™ã€‚
      * 
      * @param argTargetLang
-     *            o—Í‘ÎÛ‚ÌƒvƒƒOƒ‰ƒ~ƒ“ƒOŒ¾ŒêB
+     *            å‡ºåŠ›å¯¾è±¡ã®ãƒ—ãƒ­ã‚°ãƒ©ãƒŸãƒ³ã‚°è¨€èªã€‚
      * @param argExpr
-     *            return‚³‚ê‚é®B
-     * @return return•¶‚ğ•\‚·•¶š—ñB
+     *            returnã•ã‚Œã‚‹å¼ã€‚
+     * @return returnæ–‡ã‚’è¡¨ã™æ–‡å­—åˆ—ã€‚
      */
     public static final String getReturn(final int argTargetLang,
             final String argExpr) {

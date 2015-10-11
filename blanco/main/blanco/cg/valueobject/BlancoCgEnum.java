@@ -12,166 +12,166 @@ package blanco.cg.valueobject;
 import java.util.List;
 
 /**
- * enum��\�����邽�߂̃o�����[�I�u�W�F�N�g�B��Java, C#.NET �݂̂őΉ��B����ȊO�̌���ł͖��Ή��B
+ * enumを表現するためのバリューオブジェクト。※Java, C#.NET のみで対応。それ以外の言語では未対応。
  */
 public class BlancoCgEnum {
     /**
-     * ���̗񋓑̖̂��O�ł��B
+     * この列挙体の名前です。
      *
-     * �t�B�[���h: [name]�B
+     * フィールド: [name]。
      */
     private String fName;
 
     /**
-     * ���̗񋓑̂̐����ł��B
+     * この列挙体の説明です。
      *
-     * �t�B�[���h: [description]�B
+     * フィールド: [description]。
      */
     private String fDescription;
 
     /**
-     * �A�N�Z�X�R���g���[�����w�肵�܂��Bpublic/protected/private�Ȃǂ��w�肵�܂��B
+     * アクセスコントロールを指定します。public/protected/privateなどを指定します。
      *
-     * �t�B�[���h: [access]�B
+     * フィールド: [access]。
      */
     private String fAccess;
 
     /**
-     * enum �G�������g������킵�܂��B
+     * enum エレメントをあらわします。
      *
-     * �t�B�[���h: [elementList]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnumElement>()]�B
+     * フィールド: [elementList]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnumElement>()]。
      */
     private List<blanco.cg.valueobject.BlancoCgEnumElement> fElementList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnumElement>();
 
     /**
-     * ����h�L�������g��~���܂��B�f�t�H���g�ȏ�̕\����ǉ�����ꍇ�ɂ́A�C���X�^���X�𐶐����Ēl���Z�b�g���Ă��玩���������܂��B�Ȃ�BlancoCgObjectFactory���o�R���ăC���X�^���X���擾�����ۂɂ́A���ɃI�u�W�F�N�g�̓Z�b�g�ς݂ł��B
+     * 言語ドキュメントを蓄えます。デフォルト以上の表現を追加する場合には、インスタンスを生成して値をセットしてから自動生成します。なおBlancoCgObjectFactoryを経由してインスタンスを取得した際には、既にオブジェクトはセット済みです。
      *
-     * �t�B�[���h: [langDoc]�B
+     * フィールド: [langDoc]。
      */
     private BlancoCgLangDoc fLangDoc;
 
     /**
-     * �t�B�[���h [name] �̒l��ݒ肵�܂��B
+     * フィールド [name] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̗񋓑̖̂��O�ł��B]�B
+     * フィールドの説明: [この列挙体の名前です。]。
      *
-     * @param argName �t�B�[���h[name]�ɐݒ肷��l�B
+     * @param argName フィールド[name]に設定する値。
      */
     public void setName(final String argName) {
         fName = argName;
     }
 
     /**
-     * �t�B�[���h [name] �̒l���擾���܂��B
+     * フィールド [name] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̗񋓑̖̂��O�ł��B]�B
+     * フィールドの説明: [この列挙体の名前です。]。
      *
-     * @return �t�B�[���h[name]����擾�����l�B
+     * @return フィールド[name]から取得した値。
      */
     public String getName() {
         return fName;
     }
 
     /**
-     * �t�B�[���h [description] �̒l��ݒ肵�܂��B
+     * フィールド [description] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̗񋓑̂̐����ł��B]�B
+     * フィールドの説明: [この列挙体の説明です。]。
      *
-     * @param argDescription �t�B�[���h[description]�ɐݒ肷��l�B
+     * @param argDescription フィールド[description]に設定する値。
      */
     public void setDescription(final String argDescription) {
         fDescription = argDescription;
     }
 
     /**
-     * �t�B�[���h [description] �̒l���擾���܂��B
+     * フィールド [description] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̗񋓑̂̐����ł��B]�B
+     * フィールドの説明: [この列挙体の説明です。]。
      *
-     * @return �t�B�[���h[description]����擾�����l�B
+     * @return フィールド[description]から取得した値。
      */
     public String getDescription() {
         return fDescription;
     }
 
     /**
-     * �t�B�[���h [access] �̒l��ݒ肵�܂��B
+     * フィールド [access] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�A�N�Z�X�R���g���[�����w�肵�܂��Bpublic/protected/private�Ȃǂ��w�肵�܂��B]�B
+     * フィールドの説明: [アクセスコントロールを指定します。public/protected/privateなどを指定します。]。
      *
-     * @param argAccess �t�B�[���h[access]�ɐݒ肷��l�B
+     * @param argAccess フィールド[access]に設定する値。
      */
     public void setAccess(final String argAccess) {
         fAccess = argAccess;
     }
 
     /**
-     * �t�B�[���h [access] �̒l���擾���܂��B
+     * フィールド [access] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�A�N�Z�X�R���g���[�����w�肵�܂��Bpublic/protected/private�Ȃǂ��w�肵�܂��B]�B
+     * フィールドの説明: [アクセスコントロールを指定します。public/protected/privateなどを指定します。]。
      *
-     * @return �t�B�[���h[access]����擾�����l�B
+     * @return フィールド[access]から取得した値。
      */
     public String getAccess() {
         return fAccess;
     }
 
     /**
-     * �t�B�[���h [elementList] �̒l��ݒ肵�܂��B
+     * フィールド [elementList] の値を設定します。
      *
-     * �t�B�[���h�̐���: [enum �G�������g������킵�܂��B]�B
+     * フィールドの説明: [enum エレメントをあらわします。]。
      *
-     * @param argElementList �t�B�[���h[elementList]�ɐݒ肷��l�B
+     * @param argElementList フィールド[elementList]に設定する値。
      */
     public void setElementList(final List<blanco.cg.valueobject.BlancoCgEnumElement> argElementList) {
         fElementList = argElementList;
     }
 
     /**
-     * �t�B�[���h [elementList] �̒l���擾���܂��B
+     * フィールド [elementList] の値を取得します。
      *
-     * �t�B�[���h�̐���: [enum �G�������g������킵�܂��B]�B
-     * �f�t�H���g: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnumElement>()]�B
+     * フィールドの説明: [enum エレメントをあらわします。]。
+     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnumElement>()]。
      *
-     * @return �t�B�[���h[elementList]����擾�����l�B
+     * @return フィールド[elementList]から取得した値。
      */
     public List<blanco.cg.valueobject.BlancoCgEnumElement> getElementList() {
         return fElementList;
     }
 
     /**
-     * �t�B�[���h [langDoc] �̒l��ݒ肵�܂��B
+     * フィールド [langDoc] の値を設定します。
      *
-     * �t�B�[���h�̐���: [����h�L�������g��~���܂��B�f�t�H���g�ȏ�̕\����ǉ�����ꍇ�ɂ́A�C���X�^���X�𐶐����Ēl���Z�b�g���Ă��玩���������܂��B�Ȃ�BlancoCgObjectFactory���o�R���ăC���X�^���X���擾�����ۂɂ́A���ɃI�u�W�F�N�g�̓Z�b�g�ς݂ł��B]�B
+     * フィールドの説明: [言語ドキュメントを蓄えます。デフォルト以上の表現を追加する場合には、インスタンスを生成して値をセットしてから自動生成します。なおBlancoCgObjectFactoryを経由してインスタンスを取得した際には、既にオブジェクトはセット済みです。]。
      *
-     * @param argLangDoc �t�B�[���h[langDoc]�ɐݒ肷��l�B
+     * @param argLangDoc フィールド[langDoc]に設定する値。
      */
     public void setLangDoc(final BlancoCgLangDoc argLangDoc) {
         fLangDoc = argLangDoc;
     }
 
     /**
-     * �t�B�[���h [langDoc] �̒l���擾���܂��B
+     * フィールド [langDoc] の値を取得します。
      *
-     * �t�B�[���h�̐���: [����h�L�������g��~���܂��B�f�t�H���g�ȏ�̕\����ǉ�����ꍇ�ɂ́A�C���X�^���X�𐶐����Ēl���Z�b�g���Ă��玩���������܂��B�Ȃ�BlancoCgObjectFactory���o�R���ăC���X�^���X���擾�����ۂɂ́A���ɃI�u�W�F�N�g�̓Z�b�g�ς݂ł��B]�B
+     * フィールドの説明: [言語ドキュメントを蓄えます。デフォルト以上の表現を追加する場合には、インスタンスを生成して値をセットしてから自動生成します。なおBlancoCgObjectFactoryを経由してインスタンスを取得した際には、既にオブジェクトはセット済みです。]。
      *
-     * @return �t�B�[���h[langDoc]����擾�����l�B
+     * @return フィールド[langDoc]から取得した値。
      */
     public BlancoCgLangDoc getLangDoc() {
         return fLangDoc;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {

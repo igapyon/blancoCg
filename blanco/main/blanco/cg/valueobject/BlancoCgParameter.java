@@ -12,202 +12,202 @@ package blanco.cg.valueobject;
 import java.util.List;
 
 /**
- * �p�����[�^��\�����邽�߂̃o�����[�I�u�W�F�N�g�B����ɂ���Ă͈����ƌĂ΂����̂ł��B
+ * パラメータを表現するためのバリューオブジェクト。言語によっては引数と呼ばれるものです。
  */
 public class BlancoCgParameter {
     /**
-     * ���̃p�����[�^�̖��O�ł��BargOrigialString�Ȃǂ��w�肳��܂��B
+     * このパラメータの名前です。argOrigialStringなどが指定されます。
      *
-     * �t�B�[���h: [name]�B
+     * フィールド: [name]。
      */
     private String fName;
 
     /**
-     * ���̃p�����[�^�̐����ł��B
+     * このパラメータの説明です。
      *
-     * �t�B�[���h: [description]�B
+     * フィールド: [description]。
      */
     private String fDescription;
 
     /**
-     * ���̃p�����[�^�̌^�ł��Bjava.lang.String�Ȃǂ��w�肵�܂��B
+     * このパラメータの型です。java.lang.Stringなどを指定します。
      *
-     * �t�B�[���h: [type]�B
+     * フィールド: [type]。
      */
     private BlancoCgType fType;
 
     /**
-     * ���̃t�B�[���h��final���ǂ����ł��B
+     * このフィールドがfinalかどうかです。
      *
-     * �t�B�[���h: [final]�B
-     * �f�t�H���g: [true]�B
+     * フィールド: [final]。
+     * デフォルト: [true]。
      */
     private boolean fFinal = true;
 
     /**
-     * ���̃t�B�[���h��null��^����ꂽ�ۂɈ�����O�𔭐������邩�ǂ����B
+     * このフィールドにnullを与えられた際に引数例外を発生させるかどうか。
      *
-     * �t�B�[���h: [notnull]�B
-     * �f�t�H���g: [false]�B
+     * フィールド: [notnull]。
+     * デフォルト: [false]。
      */
     private boolean fNotnull = false;
 
     /**
-     * ���̃N���X�ɕt�^����Ă���A�m�e�[�V�����̃��X�g�ł��B
+     * このクラスに付与されているアノテーションのリストです。
      *
-     * .NET Framework�ł̎��������̂ݑΉ����Ă��܂��B
-     * �t�B�[���h: [annotationList]�B
-     * �f�t�H���g: [new java.util.ArrayList<java.lang.String>()]�B
+     * .NET Framework版の自動生成のみ対応しています。
+     * フィールド: [annotationList]。
+     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
      */
     private List<java.lang.String> fAnnotationList = new java.util.ArrayList<java.lang.String>();
 
     /**
-     * �t�B�[���h [name] �̒l��ݒ肵�܂��B
+     * フィールド [name] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃p�����[�^�̖��O�ł��BargOrigialString�Ȃǂ��w�肳��܂��B]�B
+     * フィールドの説明: [このパラメータの名前です。argOrigialStringなどが指定されます。]。
      *
-     * @param argName �t�B�[���h[name]�ɐݒ肷��l�B
+     * @param argName フィールド[name]に設定する値。
      */
     public void setName(final String argName) {
         fName = argName;
     }
 
     /**
-     * �t�B�[���h [name] �̒l���擾���܂��B
+     * フィールド [name] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃p�����[�^�̖��O�ł��BargOrigialString�Ȃǂ��w�肳��܂��B]�B
+     * フィールドの説明: [このパラメータの名前です。argOrigialStringなどが指定されます。]。
      *
-     * @return �t�B�[���h[name]����擾�����l�B
+     * @return フィールド[name]から取得した値。
      */
     public String getName() {
         return fName;
     }
 
     /**
-     * �t�B�[���h [description] �̒l��ݒ肵�܂��B
+     * フィールド [description] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃p�����[�^�̐����ł��B]�B
+     * フィールドの説明: [このパラメータの説明です。]。
      *
-     * @param argDescription �t�B�[���h[description]�ɐݒ肷��l�B
+     * @param argDescription フィールド[description]に設定する値。
      */
     public void setDescription(final String argDescription) {
         fDescription = argDescription;
     }
 
     /**
-     * �t�B�[���h [description] �̒l���擾���܂��B
+     * フィールド [description] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃p�����[�^�̐����ł��B]�B
+     * フィールドの説明: [このパラメータの説明です。]。
      *
-     * @return �t�B�[���h[description]����擾�����l�B
+     * @return フィールド[description]から取得した値。
      */
     public String getDescription() {
         return fDescription;
     }
 
     /**
-     * �t�B�[���h [type] �̒l��ݒ肵�܂��B
+     * フィールド [type] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃p�����[�^�̌^�ł��Bjava.lang.String�Ȃǂ��w�肵�܂��B]�B
+     * フィールドの説明: [このパラメータの型です。java.lang.Stringなどを指定します。]。
      *
-     * @param argType �t�B�[���h[type]�ɐݒ肷��l�B
+     * @param argType フィールド[type]に設定する値。
      */
     public void setType(final BlancoCgType argType) {
         fType = argType;
     }
 
     /**
-     * �t�B�[���h [type] �̒l���擾���܂��B
+     * フィールド [type] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃p�����[�^�̌^�ł��Bjava.lang.String�Ȃǂ��w�肵�܂��B]�B
+     * フィールドの説明: [このパラメータの型です。java.lang.Stringなどを指定します。]。
      *
-     * @return �t�B�[���h[type]����擾�����l�B
+     * @return フィールド[type]から取得した値。
      */
     public BlancoCgType getType() {
         return fType;
     }
 
     /**
-     * �t�B�[���h [final] �̒l��ݒ肵�܂��B
+     * フィールド [final] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�B�[���h��final���ǂ����ł��B]�B
+     * フィールドの説明: [このフィールドがfinalかどうかです。]。
      *
-     * @param argFinal �t�B�[���h[final]�ɐݒ肷��l�B
+     * @param argFinal フィールド[final]に設定する値。
      */
     public void setFinal(final boolean argFinal) {
         fFinal = argFinal;
     }
 
     /**
-     * �t�B�[���h [final] �̒l���擾���܂��B
+     * フィールド [final] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�B�[���h��final���ǂ����ł��B]�B
-     * �f�t�H���g: [true]�B
+     * フィールドの説明: [このフィールドがfinalかどうかです。]。
+     * デフォルト: [true]。
      *
-     * @return �t�B�[���h[final]����擾�����l�B
+     * @return フィールド[final]から取得した値。
      */
     public boolean getFinal() {
         return fFinal;
     }
 
     /**
-     * �t�B�[���h [notnull] �̒l��ݒ肵�܂��B
+     * フィールド [notnull] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃t�B�[���h��null��^����ꂽ�ۂɈ�����O�𔭐������邩�ǂ����B]�B
+     * フィールドの説明: [このフィールドにnullを与えられた際に引数例外を発生させるかどうか。]。
      *
-     * @param argNotnull �t�B�[���h[notnull]�ɐݒ肷��l�B
+     * @param argNotnull フィールド[notnull]に設定する値。
      */
     public void setNotnull(final boolean argNotnull) {
         fNotnull = argNotnull;
     }
 
     /**
-     * �t�B�[���h [notnull] �̒l���擾���܂��B
+     * フィールド [notnull] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃t�B�[���h��null��^����ꂽ�ۂɈ�����O�𔭐������邩�ǂ����B]�B
-     * �f�t�H���g: [false]�B
+     * フィールドの説明: [このフィールドにnullを与えられた際に引数例外を発生させるかどうか。]。
+     * デフォルト: [false]。
      *
-     * @return �t�B�[���h[notnull]����擾�����l�B
+     * @return フィールド[notnull]から取得した値。
      */
     public boolean getNotnull() {
         return fNotnull;
     }
 
     /**
-     * �t�B�[���h [annotationList] �̒l��ݒ肵�܂��B
+     * フィールド [annotationList] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃N���X�ɕt�^����Ă���A�m�e�[�V�����̃��X�g�ł��B]�B
-     * .NET Framework�ł̎��������̂ݑΉ����Ă��܂��B
+     * フィールドの説明: [このクラスに付与されているアノテーションのリストです。]。
+     * .NET Framework版の自動生成のみ対応しています。
      *
-     * @param argAnnotationList �t�B�[���h[annotationList]�ɐݒ肷��l�B
+     * @param argAnnotationList フィールド[annotationList]に設定する値。
      */
     public void setAnnotationList(final List<java.lang.String> argAnnotationList) {
         fAnnotationList = argAnnotationList;
     }
 
     /**
-     * �t�B�[���h [annotationList] �̒l���擾���܂��B
+     * フィールド [annotationList] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃N���X�ɕt�^����Ă���A�m�e�[�V�����̃��X�g�ł��B]�B
-     * .NET Framework�ł̎��������̂ݑΉ����Ă��܂��B
-     * �f�t�H���g: [new java.util.ArrayList<java.lang.String>()]�B
+     * フィールドの説明: [このクラスに付与されているアノテーションのリストです。]。
+     * .NET Framework版の自動生成のみ対応しています。
+     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
      *
-     * @return �t�B�[���h[annotationList]����擾�����l�B
+     * @return フィールド[annotationList]から取得した値。
      */
     public List<java.lang.String> getAnnotationList() {
         return fAnnotationList;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {

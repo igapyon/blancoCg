@@ -17,10 +17,10 @@ import blanco.cg.transformer.AbstractBlancoCgDelphiStyleTransformer;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * blancoCg�̃o�����[�I�u�W�F�N�g����\�[�X�R�[�h��������������g�����X�t�H�[�}�[�̃G���g���|�C���g�ł��B
+ * blancoCgのバリューオブジェクトからソースコードを自動生成するトランスフォーマーのエントリポイントです。
  * 
- * BlancoCgTransformerFactory���o�R���Đ������邱�Ƃ𐄏����܂��B<br>
- * ���̃g�����X�t�H�[�}�[�ł̓o�����[�I�u�W�F�N�g��C#.NET�\�[�X�R�[�h�ւƕϊ����܂��B
+ * BlancoCgTransformerFactoryを経由して生成することを推奨します。<br>
+ * このトランスフォーマーではバリューオブジェクトをC#.NETソースコードへと変換します。
  * 
  * @author IGA Tosiki
  */
@@ -28,43 +28,43 @@ public class BlancoCgDelphiSourceTransformer extends
         AbstractBlancoCgDelphiStyleTransformer {
 
     /**
-     * �\�[�X�t�@�C���E�o�����[�I�u�W�F�N�g��C#.NET�\�[�X�R�[�h�ɕϊ����ă��C�^�[�ɏo�͂��܂��B
+     * ソースファイル・バリューオブジェクトをC#.NETソースコードに変換してライターに出力します。
      * 
-     * ����API�ł̓p�b�P�[�W�\�����f�B���N�g���\���Ƃ͍l�����܂���B���̏����̒��ł̓��C�^�[�Ɍ����ďo�͂��邾���ł��B
+     * このAPIではパッケージ構造をディレクトリ構造とは考慮しません。この処理の中ではライターに向けて出力するだけです。
      * 
      * @param argSourceFile
-     *            �\�[�X�t�@�C���E�o�����[�I�u�W�F�N�g�B
+     *            ソースファイル・バリューオブジェクト。
      * @param argWriter
-     *            �o�͐�̃��C�^�[�B
-     * @throws ���o�͗�O�����������ꍇ
-     *             �B
+     *            出力先のライター。
+     * @throws 入出力例外が発生した場合
+     *             。
      */
     public void transform(final BlancoCgSourceFile argSourceFile,
             final BufferedWriter argWriter) throws IOException {
         if (argSourceFile == null) {
-            throw new IllegalArgumentException("�\�[�X�t�@�C����null���^�����܂����B�������f���܂��B");
+            throw new IllegalArgumentException("ソースファイルにnullが与えられました。処理中断します。");
         }
         if (argWriter == null) {
-            throw new IllegalArgumentException("�o�͐惉�C�^�[��null���^�����܂����B�������f���܂��B");
+            throw new IllegalArgumentException("出力先ライターにnullが与えられました。処理中断します。");
         }
 
         final List<java.lang.String> sourceLines = new BlancoCgSourceFileDelphiSourceExpander()
                 .transformSourceFile(argSourceFile);
 
-        // �\�[�X�R�[�h�𐮌`���܂��B
+        // ソースコードを整形します。
         formatSource(sourceLines);
 
-        // �\�[�X�R�[�h�����C�^�ւƏo�͂��܂��B
+        // ソースコードをライタへと出力します。
         source2Writer(sourceLines, argWriter);
 
-        // �O�̂��߃t���b�V�������{�B
+        // 念のためフラッシュを実施。
         argWriter.flush();
     }
 
     /**
-     * �\�[�X�R�[�h�ɕt������g���q���擾���܂��B
+     * ソースコードに付けられる拡張子を取得します。
      * 
-     * @return �\�[�X�R�[�h�ɕt������g���q�B
+     * @return ソースコードに付けられる拡張子。
      */
     protected String getSourceFileExt() {
         return ".pas";

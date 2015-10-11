@@ -20,55 +20,55 @@ import blanco.commons.util.BlancoNameAdjuster;
 import blanco.commons.util.BlancoStringUtil;
 
 /**
- * BlancoCgField���\�[�X�R�[�h�ւƓW�J���܂��B
+ * BlancoCgFieldをソースコードへと展開します。
  * 
- * ���̃N���X��blancoCg�̃o�����[�I�u�W�F�N�g����\�[�X�R�[�h��������������g�����X�t�H�[�}�[�̌ʂ̓W�J�@�\�ł��B
+ * このクラスはblancoCgのバリューオブジェクトからソースコードを自動生成するトランスフォーマーの個別の展開機能です。
  * 
  * @author IGA Tosiki
  */
 class BlancoCgFieldVbSourceExpander {
     /**
-     * ���̃N���X�������ΏۂƂ���v���O���~���O����B
+     * このクラスが処理対象とするプログラミング言語。
      */
     protected static final int TARGET_LANG = BlancoCgSupportedLang.VB;
 
     /**
-     * �����Ńt�B�[���h��W�J���܂��B
+     * ここでフィールドを展開します。
      * 
      * @param cgField
-     *            �����ΏۂƂȂ�t�B�[���h�B
+     *            処理対象となるフィールド。
      * @param argSourceFile
-     *            �\�[�X�t�@�C���B
+     *            ソースファイル。
      * @param argSourceLines
-     *            �o�͐�s���X�g�B
+     *            出力先行リスト。
      * @param argIsInterface
-     *            �C���^�t�F�[�X���ǂ����B�N���X�̏ꍇ�ɂ�false�B�C���^�t�F�[�X�̏ꍇ�ɂ�true�B
+     *            インタフェースかどうか。クラスの場合にはfalse。インタフェースの場合にはtrue。
      */
     public void transformField(final BlancoCgField cgField,
             final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines,
             final boolean argIsInterface) {
         if (BlancoStringUtil.null2Blank(cgField.getName()).length() == 0) {
-            throw new IllegalArgumentException("�t�B�[���h�̖��O�ɓK�؂Ȓl���ݒ肳��Ă��܂���B");
+            throw new IllegalArgumentException("フィールドの名前に適切な値が設定されていません。");
         }
         if (BlancoStringUtil.null2Blank(cgField.getType().getName()).length() == 0) {
-            throw new IllegalArgumentException("�t�B�[���h[" + cgField.getName()
-                    + "]�̌^���K�؂Ȓl���ݒ肳��Ă��܂���B");
+            throw new IllegalArgumentException("フィールド[" + cgField.getName()
+                    + "]の型が適切な値が設定されていません。");
         }
 
-        // �L�������킳�����s��t�^���܂��B
+        // 有無をいわさず改行を付与します。
         argSourceLines.add("");
 
-        // �ŏ��Ƀt�B�[���h����LangDoc�ɓW�J�B
+        // 最初にフィールド情報をLangDocに展開。
         if (cgField.getLangDoc() == null) {
-            // LangDoc���w��̏ꍇ�ɂ͂����瑤�ŃC���X�^���X�𐶐��B
+            // LangDoc未指定の場合にはこちら側でインスタンスを生成。
             cgField.setLangDoc(new BlancoCgLangDoc());
         }
         if (cgField.getLangDoc().getTitle() == null) {
             cgField.getLangDoc().setTitle(cgField.getDescription());
         }
 
-        // ���� LangDoc���\�[�X�R�[�h�`���ɓW�J�B
+        // 次に LangDocをソースコード形式に展開。
         new BlancoCgLangDocVbSourceExpander().transformLangDoc(cgField
                 .getLangDoc(), argSourceLines);
 
@@ -76,35 +76,35 @@ class BlancoCgFieldVbSourceExpander {
 
         if (BlancoStringUtil.null2Blank(cgField.getAccess()).length() > 0) {
             if (argIsInterface && cgField.getAccess().equals("public")) {
-                // �C���^�t�F�[�X����public�̏ꍇ�ɂ͏o�͂�}�����܂��B
-                // �����Checkstyle�΍�ƂȂ�܂��B
+                // インタフェース且つpublicの場合には出力を抑制します。
+                // これはCheckstyle対策となります。
             } else {
                 buf.append(BlancoNameAdjuster.toClassName(cgField.getAccess())
                         + " ");
             }
         }
         if (cgField.getStatic()) {
-            // VB.NET�ł�Static�ɑ���������̂�����܂���B
+            // VB.NETではStaticに相当するものがありません。
             // buf.append("Static ");
         }
         if (cgField.getFinal()) {
-            // VB.NET�ł̓t�B�[���h�ւ�final�C���́AConst�C�����Y�����܂��B
+            // VB.NETではフィールドへのfinal修飾は、Const修飾が該当します。
             buf.append("Const ");
         }
 
-        // import���Ɍ^��ǉ��B
+        // import文に型を追加。
         argSourceFile.getImportList().add(cgField.getType().getName());
 
-        // �t�B�[���h�����̖{�̕�����W�J���܂��B
+        // フィールド生成の本体部分を展開します。
         buf.append(cgField.getName());
         buf.append(" As "
                 + BlancoCgTypeVbSourceExpander.toTypeString(cgField.getType()));
 
-        // �f�t�H���g�l�̎w�肪����ꍇ�ɂ͂����W�J���܂��B
+        // デフォルト値の指定がある場合にはこれを展開します。
         if (BlancoStringUtil.null2Blank(cgField.getDefault()).length() > 0) {
             buf.append(" = " + cgField.getDefault());
         }
-        // ���ۂɂ� ; �͕t�^����܂���B
+        // 実際には ; は付与されません。
         buf.append(BlancoCgLineUtil.getTerminator(TARGET_LANG));
         argSourceLines.add(buf.toString());
     }

@@ -10,171 +10,171 @@
 package blanco.cg.valueobject;
 
 /**
- * �^��\�����邽�߂̃o�����[�I�u�W�F�N�g�B�����̃N���X���Q�Ƃ���ꍇ�ɗ��p����܂��B
+ * 型を表現するためのバリューオブジェクト。既存のクラスを参照する場合に利用されます。
  *
- * ���̃o�����[�I�u�W�F�N�g�ł́A�ΏۂƂȂ�^���N���X�Ȃ̂��C���^�t�F�[�X�Ȃ̂��͕\�����܂���B�N���X���C���^�t�F�[�X�Ȃ̂��ɂ��Ă͓��肵�Ȃ��̂ł��B
- * ���̃N���X�̑��݈Ӌ`�� generics��array�Ƃ������t�B�[���h�������Ă���_�ł��B������\�����邽�߂ɁA�^�͒P�Ȃ�java.lang.String�ł͂Ȃ��o�����[�I�u�W�F�N�g�ł���K�v������A�܂� BlancoCgClass�Ƃ������\�[�X�R�[�h�𐶐����邽�߂̌^�Ƃ͈�����悷��K�v���o�Ă���̂ł��B
+ * このバリューオブジェクトでは、対象となる型がクラスなのかインタフェースなのかは表現しません。クラスかインタフェースなのかについては特定しないのです。
+ * このクラスの存在意義は genericsやarrayといったフィールドを持っている点です。これらを表現するために、型は単なるjava.lang.Stringではなくバリューオブジェクトである必要があり、また BlancoCgClassといったソースコードを生成するための型とは一線を画する必要が出てくるのです。
  */
 public class BlancoCgType {
     /**
-     * ���̌^�̖��O�ł��Bjava.lang.String�Ȃǃp�b�P�[�W���t���Ŏw�肵�܂��B[]�͊܂ނ��Ƃ͏o���܂���B�z���\���ꍇ�ɂ� array�t�B�[���h�𗘗p���܂��B
+     * この型の名前です。java.lang.Stringなどパッケージ名付きで指定します。[]は含むことは出来ません。配列を表す場合には arrayフィールドを利用します。
      *
-     * �t�B�[���h: [name]�B
+     * フィールド: [name]。
      */
     private String fName;
 
     /**
-     * ���̌^�̐����ł��B
+     * この型の説明です。
      *
-     * �t�B�[���h: [description]�B
+     * フィールド: [description]。
      */
     private String fDescription;
 
     /**
-     * ���̌^�ɒǉ������W�F�l���N�X���w�肵�܂��B
+     * この型に追加されるジェネリクスを指定します。
      *
-     * �t�B�[���h: [generics]�B
+     * フィールド: [generics]。
      */
     private String fGenerics;
 
     /**
-     * �^���z��Ȃ̂��ǂ����������܂��B
+     * 型が配列なのかどうかを示します。
      *
-     * �t�B�[���h: [array]�B
-     * �f�t�H���g: [false]�B
+     * フィールド: [array]。
+     * デフォルト: [false]。
      */
     private boolean fArray = false;
 
     /**
-     * �^�̔z��̎��������w�肵�܂��B�z��̏ꍇ�ɂ̂ݗ��p����܂��B��Java, C#.NET �őΉ��B����ȊO�̌���ł͖��Ή��B
+     * 型の配列の次元数を指定します。配列の場合にのみ利用されます。※Java, C#.NET で対応。それ以外の言語では未対応。
      *
-     * �t�B�[���h: [arrayDimension]�B
-     * �f�t�H���g: [1]�B
+     * フィールド: [arrayDimension]。
+     * デフォルト: [1]。
      */
     private int fArrayDimension = 1;
 
     /**
-     * �t�B�[���h [name] �̒l��ݒ肵�܂��B
+     * フィールド [name] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̌^�̖��O�ł��Bjava.lang.String�Ȃǃp�b�P�[�W���t���Ŏw�肵�܂��B[]�͊܂ނ��Ƃ͏o���܂���B�z���\���ꍇ�ɂ� array�t�B�[���h�𗘗p���܂��B]�B
+     * フィールドの説明: [この型の名前です。java.lang.Stringなどパッケージ名付きで指定します。[]は含むことは出来ません。配列を表す場合には arrayフィールドを利用します。]。
      *
-     * @param argName �t�B�[���h[name]�ɐݒ肷��l�B
+     * @param argName フィールド[name]に設定する値。
      */
     public void setName(final String argName) {
         fName = argName;
     }
 
     /**
-     * �t�B�[���h [name] �̒l���擾���܂��B
+     * フィールド [name] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̌^�̖��O�ł��Bjava.lang.String�Ȃǃp�b�P�[�W���t���Ŏw�肵�܂��B[]�͊܂ނ��Ƃ͏o���܂���B�z���\���ꍇ�ɂ� array�t�B�[���h�𗘗p���܂��B]�B
+     * フィールドの説明: [この型の名前です。java.lang.Stringなどパッケージ名付きで指定します。[]は含むことは出来ません。配列を表す場合には arrayフィールドを利用します。]。
      *
-     * @return �t�B�[���h[name]����擾�����l�B
+     * @return フィールド[name]から取得した値。
      */
     public String getName() {
         return fName;
     }
 
     /**
-     * �t�B�[���h [description] �̒l��ݒ肵�܂��B
+     * フィールド [description] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̌^�̐����ł��B]�B
+     * フィールドの説明: [この型の説明です。]。
      *
-     * @param argDescription �t�B�[���h[description]�ɐݒ肷��l�B
+     * @param argDescription フィールド[description]に設定する値。
      */
     public void setDescription(final String argDescription) {
         fDescription = argDescription;
     }
 
     /**
-     * �t�B�[���h [description] �̒l���擾���܂��B
+     * フィールド [description] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̌^�̐����ł��B]�B
+     * フィールドの説明: [この型の説明です。]。
      *
-     * @return �t�B�[���h[description]����擾�����l�B
+     * @return フィールド[description]から取得した値。
      */
     public String getDescription() {
         return fDescription;
     }
 
     /**
-     * �t�B�[���h [generics] �̒l��ݒ肵�܂��B
+     * フィールド [generics] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̌^�ɒǉ������W�F�l���N�X���w�肵�܂��B]�B
+     * フィールドの説明: [この型に追加されるジェネリクスを指定します。]。
      *
-     * @param argGenerics �t�B�[���h[generics]�ɐݒ肷��l�B
+     * @param argGenerics フィールド[generics]に設定する値。
      */
     public void setGenerics(final String argGenerics) {
         fGenerics = argGenerics;
     }
 
     /**
-     * �t�B�[���h [generics] �̒l���擾���܂��B
+     * フィールド [generics] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̌^�ɒǉ������W�F�l���N�X���w�肵�܂��B]�B
+     * フィールドの説明: [この型に追加されるジェネリクスを指定します。]。
      *
-     * @return �t�B�[���h[generics]����擾�����l�B
+     * @return フィールド[generics]から取得した値。
      */
     public String getGenerics() {
         return fGenerics;
     }
 
     /**
-     * �t�B�[���h [array] �̒l��ݒ肵�܂��B
+     * フィールド [array] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�^���z��Ȃ̂��ǂ����������܂��B]�B
+     * フィールドの説明: [型が配列なのかどうかを示します。]。
      *
-     * @param argArray �t�B�[���h[array]�ɐݒ肷��l�B
+     * @param argArray フィールド[array]に設定する値。
      */
     public void setArray(final boolean argArray) {
         fArray = argArray;
     }
 
     /**
-     * �t�B�[���h [array] �̒l���擾���܂��B
+     * フィールド [array] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�^���z��Ȃ̂��ǂ����������܂��B]�B
-     * �f�t�H���g: [false]�B
+     * フィールドの説明: [型が配列なのかどうかを示します。]。
+     * デフォルト: [false]。
      *
-     * @return �t�B�[���h[array]����擾�����l�B
+     * @return フィールド[array]から取得した値。
      */
     public boolean getArray() {
         return fArray;
     }
 
     /**
-     * �t�B�[���h [arrayDimension] �̒l��ݒ肵�܂��B
+     * フィールド [arrayDimension] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�^�̔z��̎��������w�肵�܂��B�z��̏ꍇ�ɂ̂ݗ��p����܂��B��Java, C#.NET �őΉ��B����ȊO�̌���ł͖��Ή��B]�B
+     * フィールドの説明: [型の配列の次元数を指定します。配列の場合にのみ利用されます。※Java, C#.NET で対応。それ以外の言語では未対応。]。
      *
-     * @param argArrayDimension �t�B�[���h[arrayDimension]�ɐݒ肷��l�B
+     * @param argArrayDimension フィールド[arrayDimension]に設定する値。
      */
     public void setArrayDimension(final int argArrayDimension) {
         fArrayDimension = argArrayDimension;
     }
 
     /**
-     * �t�B�[���h [arrayDimension] �̒l���擾���܂��B
+     * フィールド [arrayDimension] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�^�̔z��̎��������w�肵�܂��B�z��̏ꍇ�ɂ̂ݗ��p����܂��B��Java, C#.NET �őΉ��B����ȊO�̌���ł͖��Ή��B]�B
-     * �f�t�H���g: [1]�B
+     * フィールドの説明: [型の配列の次元数を指定します。配列の場合にのみ利用されます。※Java, C#.NET で対応。それ以外の言語では未対応。]。
+     * デフォルト: [1]。
      *
-     * @return �t�B�[���h[arrayDimension]����擾�����l�B
+     * @return フィールド[arrayDimension]から取得した値。
      */
     public int getArrayDimension() {
         return fArrayDimension;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {

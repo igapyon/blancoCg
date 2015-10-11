@@ -10,108 +10,108 @@
 package blanco.cg.valueobject;
 
 /**
- * ����p�̃h�L�������g�̃^�O��\�����邽�߂̃o�����[�I�u�W�F�N�g�B
+ * 言語用のドキュメントのタグを表現するためのバリューオブジェクト。
  *
- * Java����̏ꍇ�ɂ� JavaDoc�̃^�O��\���܂��B
+ * Java言語の場合には JavaDocのタグを表します。
  */
 public class BlancoCgLangDocTag {
     /**
-     * ���̌���h�L�������g�̃^�O�̖��O�ł��Bauthor, see�Ȃǂ�����܂��B
+     * この言語ドキュメントのタグの名前です。author, seeなどが入ります。
      *
-     * �t�B�[���h: [name]�B
+     * フィールド: [name]。
      */
     private String fName;
 
     /**
-     * �^�O�ɕt������L�[���w�肵�܂��B�K�v�̖����ꍇ�ɂ͖��w��Ƃ��܂��B
+     * タグに付けられるキーを指定します。必要の無い場合には無指定とします。
      *
-     * �t�B�[���h: [key]�B
+     * フィールド: [key]。
      */
     private String fKey;
 
     /**
-     * ���̃^�O�̒l�ł��B
+     * このタグの値です。
      *
-     * �t�B�[���h: [value]�B
+     * フィールド: [value]。
      */
     private String fValue;
 
     /**
-     * �t�B�[���h [name] �̒l��ݒ肵�܂��B
+     * フィールド [name] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̌���h�L�������g�̃^�O�̖��O�ł��Bauthor, see�Ȃǂ�����܂��B]�B
+     * フィールドの説明: [この言語ドキュメントのタグの名前です。author, seeなどが入ります。]。
      *
-     * @param argName �t�B�[���h[name]�ɐݒ肷��l�B
+     * @param argName フィールド[name]に設定する値。
      */
     public void setName(final String argName) {
         fName = argName;
     }
 
     /**
-     * �t�B�[���h [name] �̒l���擾���܂��B
+     * フィールド [name] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̌���h�L�������g�̃^�O�̖��O�ł��Bauthor, see�Ȃǂ�����܂��B]�B
+     * フィールドの説明: [この言語ドキュメントのタグの名前です。author, seeなどが入ります。]。
      *
-     * @return �t�B�[���h[name]����擾�����l�B
+     * @return フィールド[name]から取得した値。
      */
     public String getName() {
         return fName;
     }
 
     /**
-     * �t�B�[���h [key] �̒l��ݒ肵�܂��B
+     * フィールド [key] の値を設定します。
      *
-     * �t�B�[���h�̐���: [�^�O�ɕt������L�[���w�肵�܂��B�K�v�̖����ꍇ�ɂ͖��w��Ƃ��܂��B]�B
+     * フィールドの説明: [タグに付けられるキーを指定します。必要の無い場合には無指定とします。]。
      *
-     * @param argKey �t�B�[���h[key]�ɐݒ肷��l�B
+     * @param argKey フィールド[key]に設定する値。
      */
     public void setKey(final String argKey) {
         fKey = argKey;
     }
 
     /**
-     * �t�B�[���h [key] �̒l���擾���܂��B
+     * フィールド [key] の値を取得します。
      *
-     * �t�B�[���h�̐���: [�^�O�ɕt������L�[���w�肵�܂��B�K�v�̖����ꍇ�ɂ͖��w��Ƃ��܂��B]�B
+     * フィールドの説明: [タグに付けられるキーを指定します。必要の無い場合には無指定とします。]。
      *
-     * @return �t�B�[���h[key]����擾�����l�B
+     * @return フィールド[key]から取得した値。
      */
     public String getKey() {
         return fKey;
     }
 
     /**
-     * �t�B�[���h [value] �̒l��ݒ肵�܂��B
+     * フィールド [value] の値を設定します。
      *
-     * �t�B�[���h�̐���: [���̃^�O�̒l�ł��B]�B
+     * フィールドの説明: [このタグの値です。]。
      *
-     * @param argValue �t�B�[���h[value]�ɐݒ肷��l�B
+     * @param argValue フィールド[value]に設定する値。
      */
     public void setValue(final String argValue) {
         fValue = argValue;
     }
 
     /**
-     * �t�B�[���h [value] �̒l���擾���܂��B
+     * フィールド [value] の値を取得します。
      *
-     * �t�B�[���h�̐���: [���̃^�O�̒l�ł��B]�B
+     * フィールドの説明: [このタグの値です。]。
      *
-     * @return �t�B�[���h[value]����擾�����l�B
+     * @return フィールド[value]から取得した値。
      */
     public String getValue() {
         return fValue;
     }
 
     /**
-     * ���̃o�����[�I�u�W�F�N�g�̕�����\�����擾���܂��B
+     * このバリューオブジェクトの文字列表現を取得します。
      *
-     * <P>�g�p��̒���</P>
+     * <P>使用上の注意</P>
      * <UL>
-     * <LI>�I�u�W�F�N�g�̃V�����[�͈͂̂ݕ����񉻂̏����ΏۂƂȂ�܂��B
-     * <LI>�I�u�W�F�N�g���z�Q�Ƃ��Ă���ꍇ�ɂ́A���̃��\�b�h�͎g��Ȃ��ł��������B
+     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
      * </UL>
      *
-     * @return �o�����[�I�u�W�F�N�g�̕�����\���B
+     * @return バリューオブジェクトの文字列表現。
      */
     @Override
     public String toString() {

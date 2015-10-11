@@ -19,34 +19,34 @@ import blanco.cg.valueobject.BlancoCgInterface;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
- * �v���O���~���O����̎�ނ��܂����钊�ۓI�ȃg�����X�t�H�[�}�[�ł��B
+ * プログラミング言語の種類をまたがる抽象的なトランスフォーマーです。
  * 
  * @author IGA Tosiki
  */
 abstract class AbstractBlancoCgTransformer implements BlancoCgTransformer {
     /**
-     * �R�}���h���C���ɕ\������ۂ̃��b�Z�[�W�v���t�B�b�N�X�B
+     * コマンドラインに表示する際のメッセージプレフィックス。
      */
     protected static final String CMDLINE_PREFIX = "cg: ";
 
     /**
-     * �\�[�X�t�@�C���̊g���q���擾���܂��B
+     * ソースファイルの拡張子を取得します。
      * 
-     * @return �g���q�B
+     * @return 拡張子。
      */
     protected abstract String getSourceFileExt();
 
     /**
-     * �t�@�C�������N���X���܂��̓C���^�t�F�[�X�����瓱�o���܂��B
+     * ファイル名をクラス名またはインタフェース名から導出します。
      * 
-     * ���̃��\�b�h�́A�܂��t�@�C�������m�肵�Ă��Ȃ��ꍇ�ɂ̂݌Ăяo���܂��B
+     * このメソッドは、まだファイル名が確定していない場合にのみ呼び出します。
      * 
      * @param argSourceFile
-     *            �\�[�X�t�@�C���I�u�W�F�N�g�B
+     *            ソースファイルオブジェクト。
      */
     protected void decideFilenameFromClassOrInterfaceName(
             final BlancoCgSourceFile argSourceFile) {
-        // �t�@�C���������ݒ�̏ꍇ�ɁABlancoCgSourceFile(�t�@�C��)�̒��Ɋ܂܂��N���X������t�@�C�����̉��������݂܂��B
+        // ファイル名が未設定の場合に、BlancoCgSourceFile(ファイル)の中に含まれるクラス名からファイル名の解決を試みます。
         String className = null;
         for (int index = 0; index < argSourceFile.getClassList().size(); index++) {
             final BlancoCgClass cgClass = argSourceFile.getClassList().get(
@@ -57,7 +57,7 @@ abstract class AbstractBlancoCgTransformer implements BlancoCgTransformer {
         }
 
         if (className == null) {
-            // �܂��t�@�C���������肵�Ă��Ȃ��ꍇ�ɂ́A�C���^�t�F�[�X�̈ꗗ������N���X���̓��o�����݂܂��B
+            // まだファイル名が決定していない場合には、インタフェースの一覧からもクラス名の導出を試みます。
             for (int index = 0; index < argSourceFile.getInterfaceList().size(); index++) {
                 final BlancoCgInterface cgInterface = argSourceFile
                         .getInterfaceList().get(index);
@@ -68,27 +68,27 @@ abstract class AbstractBlancoCgTransformer implements BlancoCgTransformer {
         }
 
         if (className == null) {
-            // ����ł��N���X�����m�肵�Ȃ��ꍇ�ɂ͗�O�Ƃ��Ĉ����܂��B
+            // それでもクラス名が確定しない場合には例外として扱います。
             throw new IllegalArgumentException(
-                    "�\�[�X�t�@�C�����̎w�肪�Ȃ������̂ŃN���X�̃��X�g����N���X���̊m������݂܂������A�N���X���͊m��ł��܂���ł����B");
+                    "ソースファイル名の指定がなかったのでクラスのリストからクラス名の確定を試みましたが、クラス名は確定できませんでした。");
         }
 
-        // �\�[�X�t�@�C�����̊m��������Ȃ��܂��B
-        // �o�����[�I�u�W�F�N�g�̃\�[�X�t�@�C�������X�V���Ă���_�ɒ��ӂ��Ă��������B
+        // ソースファイル名の確定をおこないます。
+        // バリューオブジェクトのソースファイル名を更新している点に注意してください。
         argSourceFile.setName(className);
     }
 
     /**
-     * �\�[�X�R�[�h�����C�^�[�֏o�͂��܂��B
+     * ソースコードをライターへ出力します。
      * 
-     * java.lang.String�̃��X�g�����C�^�[�ւƏo�͂��܂��B
+     * java.lang.Stringのリストをライターへと出力します。
      * 
      * @param argSourceLines
-     *            �\�[�X�R�[�h�s���X�g�B
+     *            ソースコード行リスト。
      * @param writer
-     *            �o�͐惉�C�^�B
+     *            出力先ライタ。
      * @throws IOException
-     *             ���o�͗�O�����������ꍇ�B
+     *             入出力例外が発生した場合。
      */
     protected void source2Writer(final List<java.lang.String> argSourceLines,
             final BufferedWriter writer) throws IOException {
@@ -97,21 +97,21 @@ abstract class AbstractBlancoCgTransformer implements BlancoCgTransformer {
         for (int index = 0; index < argSourceLines.size(); index++) {
             final String line = argSourceLines.get(index);
 
-            // �A�������s�̏o�͂�}�����܂��B
+            // 連続する空行の出力を抑制します。
             if (line.length() == 0) {
                 if (isPastLineBlank) {
-                    // �O��Ɉ��������������s�ł��������� ����͏o�͂�������܂��B
+                    // 前回に引き続き今回も空行であったため 今回は出力を見送ります。
                     continue;
                 }
-                // ����͋�s�ł����B
+                // 今回は空行でした。
                 isPastLineBlank = true;
             } else {
-                // ����͋�s�ł͂���܂���B
+                // 今回は空行ではありません。
                 isPastLineBlank = false;
             }
 
             if (isPastBlockStart && line.length() == 0) {
-                // �O�񂪃u���b�N�̃X�^�[�g�ŁA���񂪋�s�̏ꍇ�ɂ͏o�͂�������܂��B
+                // 前回がブロックのスタートで、今回が空行の場合には出力を見送ります。
                 continue;
             }
 
@@ -121,7 +121,7 @@ abstract class AbstractBlancoCgTransformer implements BlancoCgTransformer {
                 isPastBlockStart = false;
             }
 
-            // �s�� 1�s �o�͂��܂��B
+            // 行を 1行 出力します。
             writer.write(line);
             writer.newLine();
         }
