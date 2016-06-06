@@ -85,6 +85,14 @@ public class BlancoCgSourceFile {
     private BlancoCgLangDoc fLangDoc;
 
     /**
+     * import文を生成するかどうかのフラグです
+     *
+     * フィールド: [isImport]。
+     * デフォルト: [true]。
+     */
+    private boolean fIsImport = true;
+
+    /**
      * フィールド [name] の値を設定します。
      *
      * フィールドの説明: [このファイルのファイル名です。]。
@@ -291,6 +299,29 @@ public class BlancoCgSourceFile {
     }
 
     /**
+     * フィールド [isImport] の値を設定します。
+     *
+     * フィールドの説明: [import文を生成するかどうかのフラグです]。
+     *
+     * @param argIsImport フィールド[isImport]に設定する値。
+     */
+    public void setIsImport(final boolean argIsImport) {
+        fIsImport = argIsImport;
+    }
+
+    /**
+     * フィールド [isImport] の値を取得します。
+     *
+     * フィールドの説明: [import文を生成するかどうかのフラグです]。
+     * デフォルト: [true]。
+     *
+     * @return フィールド[isImport]から取得した値。
+     */
+    public boolean getIsImport() {
+        return fIsImport;
+    }
+
+    /**
      * このバリューオブジェクトの文字列表現を取得します。
      *
      * <P>使用上の注意</P>
@@ -314,6 +345,7 @@ public class BlancoCgSourceFile {
         buf.append(",interfaceList=" + fInterfaceList);
         buf.append(",classList=" + fClassList);
         buf.append(",langDoc=" + fLangDoc);
+        buf.append(",isImport=" + fIsImport);
         buf.append("]");
         return buf.toString();
     }
