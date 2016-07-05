@@ -78,7 +78,10 @@ class BlancoCgSourceFilePhpSourceExpander {
         }
 
         // 処理の後半でインポート文を編成しなおしますが、その際に参照するアンカー文字列を追加しておきます。
-        BlancoCgImportPhpSourceExpander.insertAnchorString(fSourceLines);
+        // required を入れないためにcheck by tueda on 2015/09/11
+        if (fCgSourceFile.getIsImport()) {
+            BlancoCgImportPhpSourceExpander.insertAnchorString(fSourceLines);
+        }
 
         // インタフェースの展開を実施します。
         if (fCgSourceFile.getInterfaceList() == null) {
@@ -106,8 +109,11 @@ class BlancoCgSourceFilePhpSourceExpander {
         // importの展開をします。
         // この処理が、クラス展開より後に実施されているのには意味があります。
         // クラス展開などを経て、初めてインポート文の一覧が確定するからです。
-        new BlancoCgImportPhpSourceExpander().transformImport(fCgSourceFile,
+        // required を入れないためにcheck by tueda on 2015/09/11
+        if (fCgSourceFile.getIsImport()) {
+            new BlancoCgImportPhpSourceExpander().transformImport(fCgSourceFile,
                 fSourceLines);
+        }
 
         fSourceLines.add("?>");
 
