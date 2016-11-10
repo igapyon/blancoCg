@@ -28,9 +28,8 @@ import blanco.cg.valueobject.BlancoCgSourceFile;
 class BlancoCgImportSwiftSourceExpander {
     /**
      * このクラスが処理対象とするプログラミング言語。
-     * FIXME CS->SWIFT
      */
-    protected static final int TARGET_LANG = BlancoCgSupportedLang.CS;
+    protected static final int TARGET_LANG = BlancoCgSupportedLang.SWIFT;
 
     /**
      * import文を展開するためのアンカー文字列。

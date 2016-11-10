@@ -58,6 +58,8 @@ public class BlancoCgSupportedLang {
      */
     public static final int CPP11 = 9;
 
+    public static final int SWIFT = 10;
+
     /**
      * 未定義。文字列グループ以外の文字列または定数が未定義のもの。
      */
@@ -115,6 +117,9 @@ public class BlancoCgSupportedLang {
         if ("cpp11".equals(argCheck)) {
             return true;
         }
+        if ("swift".equals(argCheck)) {
+            return true;
+        }
         return false;
     }
 
@@ -168,6 +173,9 @@ public class BlancoCgSupportedLang {
         // No.9
         // 説明:C++11言語。
         if ("cpp11".equalsIgnoreCase(argCheck)) {
+            return true;
+        }
+        if ("swift".equalsIgnoreCase(argCheck)) {
             return true;
         }
         return false;
@@ -227,6 +235,9 @@ public class BlancoCgSupportedLang {
         if ("cpp11".equals(argCheck)) {
             return CPP11;
         }
+        if ("swift".equals(argCheck)) {
+            return SWIFT;
+        }
 
         // 該当する定数が見つかりませんでした。
         return NOT_DEFINED;
@@ -284,6 +295,9 @@ public class BlancoCgSupportedLang {
         // No.9
         // 説明:C++11言語。
         if (argCheck == CPP11) {
+            return "cpp11";
+        }
+        if (argCheck == SWIFT) {
             return "cpp11";
         }
         // 未定義。

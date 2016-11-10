@@ -83,6 +83,7 @@ public class BlancoCgSourceUtil {
         case BlancoCgSupportedLang.RUBY:
         case BlancoCgSupportedLang.PYTHON:
         case BlancoCgSupportedLang.DELPHI:
+        case BlancoCgSupportedLang.SWIFT:
             return BlancoJavaSourceUtil.escapeStringAsJavaDoc(originalString);
         default:
             throw new IllegalArgumentException(

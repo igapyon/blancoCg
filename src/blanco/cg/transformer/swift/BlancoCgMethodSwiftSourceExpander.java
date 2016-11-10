@@ -31,9 +31,8 @@ import blanco.commons.util.BlancoStringUtil;
 class BlancoCgMethodSwiftSourceExpander {
     /**
      * このクラスが処理対象とするプログラミング言語。
-     * FIXME CS->SWIFT
      */
-    protected static final int TARGET_LANG = BlancoCgSupportedLang.CS;
+    protected static final int TARGET_LANG = BlancoCgSupportedLang.SWIFT;
 
     /**
      * ここでメソッドを展開します。

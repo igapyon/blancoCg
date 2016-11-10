@@ -31,7 +31,7 @@ class BlancoCgEnumSwiftSourceExpander {
     /**
      * このクラスが処理対象とするプログラミング言語。
      */
-    protected static final int TARGET_LANG = BlancoCgSupportedLang.JAVA;
+    protected static final int TARGET_LANG = BlancoCgSupportedLang.SWIFT;
 
     /**
      * ここで列挙体を展開します。
