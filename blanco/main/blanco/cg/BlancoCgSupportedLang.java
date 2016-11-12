@@ -58,6 +58,9 @@ public class BlancoCgSupportedLang {
      */
     public static final int CPP11 = 9;
 
+    /**
+     * No.10 説明:Swift言語。
+     */
     public static final int SWIFT = 10;
 
     /**
@@ -117,6 +120,8 @@ public class BlancoCgSupportedLang {
         if ("cpp11".equals(argCheck)) {
             return true;
         }
+        // No.10
+        // 説明:Swift言語。
         if ("swift".equals(argCheck)) {
             return true;
         }
@@ -175,6 +180,8 @@ public class BlancoCgSupportedLang {
         if ("cpp11".equalsIgnoreCase(argCheck)) {
             return true;
         }
+        // No.10
+        // 説明:Swift言語。
         if ("swift".equalsIgnoreCase(argCheck)) {
             return true;
         }
@@ -235,6 +242,8 @@ public class BlancoCgSupportedLang {
         if ("cpp11".equals(argCheck)) {
             return CPP11;
         }
+        // No.10
+        // 説明:Swift言語。
         if ("swift".equals(argCheck)) {
             return SWIFT;
         }
@@ -297,8 +306,10 @@ public class BlancoCgSupportedLang {
         if (argCheck == CPP11) {
             return "cpp11";
         }
+        // No.10
+        // 説明:Swift言語。
         if (argCheck == SWIFT) {
-            return "cpp11";
+            return "swift";
         }
         // 未定義。
         if (argCheck == NOT_DEFINED) {
