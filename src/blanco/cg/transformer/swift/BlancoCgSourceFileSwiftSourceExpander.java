@@ -69,8 +69,8 @@ class BlancoCgSourceFileSwiftSourceExpander {
 
         // パッケージ部分の生成。
         if (BlancoStringUtil.null2Blank(fCgSourceFile.getPackage()).length() > 0) {
-            fSourceLines.add("namespace " + fCgSourceFile.getPackage());
-            fSourceLines.add("{");
+        	// namespace -> class ???
+            fSourceLines.add("class " + fCgSourceFile.getPackage() + " {");
         }
 
         if (fCgSourceFile.getImportList() == null) {

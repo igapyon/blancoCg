@@ -158,7 +158,9 @@ class BlancoCgMethodSwiftSourceExpander {
                 // インタフェース且つpublicの場合には出力を抑制します。
                 // Javaと同様に C#でも出力は抑制します。
             } else {
-                buf.append(cgMethod.getAccess() + " ");
+            	// Swift ではクラスもpublic抑止の模様。
+            	if (cgMethod.getAccess().equals("public") == false)
+                    buf.append(cgMethod.getAccess() + " ");
             }
         }
 
@@ -185,6 +187,9 @@ class BlancoCgMethodSwiftSourceExpander {
             buf.append("final ");
         }
 
+        // Swift は func ??
+        buf.append("func ");
+        
         if (cgMethod.getConstructor()) {
             // コンストラクタの場合には、戻り値は存在しません。
             // このため、ここでは何も出力しません。

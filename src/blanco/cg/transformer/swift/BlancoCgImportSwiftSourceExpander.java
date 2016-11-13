@@ -139,7 +139,7 @@ class BlancoCgImportSwiftSourceExpander {
             }
 
             isProcessed = true;
-            argSourceLines.add(fFindReplaceImport++, "using " + strImport
+            argSourceLines.add(fFindReplaceImport++, "import " + strImport
                     + BlancoCgLineUtil.getTerminator(TARGET_LANG));
         }
 

@@ -59,7 +59,9 @@ class BlancoCgClassSwiftSourceExpander {
         final StringBuffer buf = new StringBuffer();
 
         if (BlancoStringUtil.null2Blank(cgClass.getAccess()).length() > 0) {
-            buf.append(cgClass.getAccess() + " ");
+        	// Swift は public 抑止の模様
+        	if (cgClass.getAccess().equals("public") == false)
+                buf.append(cgClass.getAccess() + " ");
         }
         if (cgClass.getAbstract()) {
             buf.append("abstract ");
@@ -76,10 +78,7 @@ class BlancoCgClassSwiftSourceExpander {
         expandImplementInterfaceList(cgClass, argSourceFile, buf);
 
         // 行を確定して書き出しを実施。
-        argSourceLines.add(buf.toString());
-
-        // クラスのブロックの開始。
-        argSourceLines.add("{");
+        argSourceLines.add(buf.toString() + " {");
 
         // ここで列挙体を展開。
         expandEnumList(cgClass, argSourceFile, argSourceLines);
