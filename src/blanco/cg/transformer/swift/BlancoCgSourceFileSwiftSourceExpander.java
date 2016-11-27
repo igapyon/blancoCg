@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import blanco.cg.BlancoCgSupportedLang;
-import blanco.cg.util.BlancoCgLineUtil;
 import blanco.cg.util.BlancoCgSourceFileUtil;
 import blanco.cg.valueobject.BlancoCgClass;
 import blanco.cg.valueobject.BlancoCgEnum;
@@ -116,18 +115,19 @@ class BlancoCgSourceFileSwiftSourceExpander {
 
     /**
      * ソースファイルのファイルヘッダーを出力処理します。
+     * Swiftはソースファイルコメントは // 形式の模様。
      */
     private void expandSourceFileHeader() {
-        fSourceLines.add("/*");
+        fSourceLines.add("//");
 
         if (BlancoStringUtil.null2Blank(fCgSourceFile.getDescription())
                 .length() > 0) {
-            fSourceLines.add(" * "
+            fSourceLines.add("//  "
                     + fCgSourceFile.getDescription());
         } else {
             // 指定が無い場合にはデフォルトのコメントを利用します。
             for (String line : BlancoCgSourceFileUtil.getDefaultFileComment()) {
-                fSourceLines.add(" * "
+                fSourceLines.add("//  "
                         + line);
             }
         }
@@ -136,6 +136,6 @@ class BlancoCgSourceFileSwiftSourceExpander {
         new BlancoCgLangDocSwiftSourceExpander().transformLangDocBody(
                 fCgSourceFile.getLangDoc(), fSourceLines, true);
 
-        fSourceLines.add("*/");
+        fSourceLines.add("//");
     }
 }
