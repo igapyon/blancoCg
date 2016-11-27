@@ -258,11 +258,8 @@ class BlancoCgMethodSwiftSourceExpander {
             buf.append(BlancoCgLineUtil.getTerminator(TARGET_LANG));
             argSourceLines.add(buf.toString());
         } else {
-            // ここでいったん、行を確定。
-            argSourceLines.add(buf.toString());
-
-            // メソッドブロックの開始。
-            argSourceLines.add("{");
+            // ここでいったん、行を確定。メソッドブロックの開始。
+            argSourceLines.add(buf.toString() + " {");
 
             // パラメータの非null制約の展開。
             expandParameterCheck(cgMethod, argSourceFile, argSourceLines);
