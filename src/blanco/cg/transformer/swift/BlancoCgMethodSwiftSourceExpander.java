@@ -236,7 +236,7 @@ class BlancoCgMethodSwiftSourceExpander {
                 // buf.append("readonly ");
             }
             buf.append(cgParameter.getName());
-            buf.append(":");
+            buf.append(": ");
             buf.append(BlancoCgTypeSwiftSourceExpander.toTypeString(cgParameter
                     .getType()));
         }
