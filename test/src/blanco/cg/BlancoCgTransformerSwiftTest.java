@@ -39,9 +39,7 @@ public class BlancoCgTransformerSwiftTest extends TestCase {
         // ソースファイルを生成します。
         final BlancoCgSourceFile cgSourceFile = cgFactory.createSourceFile(
                 "Myprog", "テスト用のクラス");
-        cgSourceFile.getImportList().add("System.Text.DummyText");
-        // 同じパッケージのインポート試験。
-        cgSourceFile.getImportList().add("Myprog.MyClass2");
+        cgSourceFile.getImportList().add("Foundation");
 
         // クラスを生成します。
         final BlancoCgClass cgClass = cgFactory.createClass("MyClass",
@@ -72,12 +70,11 @@ public class BlancoCgTransformerSwiftTest extends TestCase {
         final BlancoCgField cgField = cgFactory.createField("myField",
                 "java.util.Date", "日付フィールドの試験です。");
         cgClass.getFieldList().add(cgField);
-        cgField.setDefault("new DateTime()");
+        cgField.setDefault("DateTime()");
 
         final BlancoCgField cgField2 = cgFactory.createField("myField2",
-                "java.util.Date", "日付フィールドの試験v2です。");
+                "Integer", "intフィールドの試験です。");
         cgClass.getFieldList().add(cgField2);
-        cgField2.getType().setArray(true);
 
         // メソッドを生成します。
         final BlancoCgMethod cgMethod = cgFactory.createMethod("MyMethod",
@@ -86,26 +83,26 @@ public class BlancoCgTransformerSwiftTest extends TestCase {
 
         // パラメータを追加します。
         cgMethod.getParameterList().add(
-                cgFactory.createParameter("argString", "System.String",
+                cgFactory.createParameter("argString", "String",
                         "文字列引数。"));
         cgMethod.getParameterList()
                 .add(
-                        cgFactory.createParameter("argDate", "System.DateTime",
+                        cgFactory.createParameter("argDate", "DateTime",
                                 "日付引数。"));
         // 戻り値を設定します。
-        cgMethod.setReturn(cgFactory.createReturn("bool", "成功ならtrue。"));
+        cgMethod.setReturn(cgFactory.createReturn("Boolean", "成功ならtrue。"));
 
         cgMethod.getThrowList().add(
                 cgFactory.createException("System.IO.IOException",
                         "入出力例外が発生した場合。"));
 
         // アノテーションの追加。
-        cgMethod.getAnnotationList().add(
-                "Copyright(value=\"blanco Framework\")");
+ // TODO      cgMethod.getAnnotationList().add(
+ //               "Copyright(value=\"blanco Framework\")");
 
         // メソッドの内容を追加します。
         cgMethod.getLineList().add("// 代入の試験です。");
-        cgMethod.getLineList().add("int a = 0;");
+        cgMethod.getLineList().add("let a = 0;");
 
         final BlancoCgTransformer cgTransformerSwift = BlancoCgTransformerFactory
                 .getSwiftSourceTransformer();
