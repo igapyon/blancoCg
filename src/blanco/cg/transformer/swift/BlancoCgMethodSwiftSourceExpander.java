@@ -235,10 +235,10 @@ class BlancoCgMethodSwiftSourceExpander {
                 // C#.NETにおけるfinalはreadonly表現となります。ただし限定的なので、現時点では展開を抑制します。
                 // buf.append("readonly ");
             }
+            buf.append(cgParameter.getName());
+            buf.append(":");
             buf.append(BlancoCgTypeSwiftSourceExpander.toTypeString(cgParameter
                     .getType()));
-            buf.append(" ");
-            buf.append(cgParameter.getName());
         }
         buf.append(")");
 
