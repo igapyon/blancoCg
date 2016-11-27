@@ -172,13 +172,6 @@ class BlancoCgMethodSwiftSourceExpander {
             // C#.NETには override 修飾が存在します。
             buf.append("override ");
         }
-        if (isVirtual(cgMethod, argIsInterface)) {
-            // ※koyak さんの貢献箇所。
-            // C#.NET では、継承クラスでメソッドをオーバーライドするには必ず基底クラスのメソッドが virtual
-            // 修飾されている必要があります。
-            // このため、メソッドが override でなければ virtual とします。
-            buf.append("virtual ");
-        }
         if (cgMethod.getStatic()) {
             buf.append("static ");
         }
@@ -194,7 +187,7 @@ class BlancoCgMethodSwiftSourceExpander {
             // コンストラクタの場合には、戻り値は存在しません。
             // このため、ここでは何も出力しません。
         } else {
-            if (cgMethod.getReturn() != null
+if(false)            if (cgMethod.getReturn() != null
                     && cgMethod.getReturn().getType() != null) {
                 buf.append(BlancoCgTypeSwiftSourceExpander.toTypeString(cgMethod
                         .getReturn().getType())
@@ -249,6 +242,15 @@ class BlancoCgMethodSwiftSourceExpander {
             // TODO C#.NETでこの記載が可能なのはコンストラクタだけである模様です。
             buf.append(" : " + cgMethod.getSuperclassInvocation());
         }
+
+            if (cgMethod.getReturn() != null
+                    && cgMethod.getReturn().getType() != null) {
+                buf.append(" -> " + BlancoCgTypeSwiftSourceExpander.toTypeString(cgMethod
+                        .getReturn().getType()));
+            } else {
+                // 何も出力しません。
+                // buf.append("void ");
+            }
 
         // C#.NETには例外スローのメソッド修飾はありません。
         // TODO 例外スロー情報を 言語ドキュメントに出力することには意義があると考えます。
@@ -340,25 +342,5 @@ class BlancoCgMethodSwiftSourceExpander {
             final String strLine = cgMethod.getLineList().get(indexLine);
             argSourceLines.add(strLine);
         }
-    }
-
-    /**
-     * メソッドを virtual 修飾するかどうかを判断する。
-     * 
-     * @param cgMethod
-     *            メソッド情報。
-     * @param argIsInterface
-     *            インタフェースかどうか。
-     * @return trueの場合には virtual 修飾をおこなう。
-     */
-    private boolean isVirtual(final BlancoCgMethod cgMethod,
-            final boolean argIsInterface) {
-        if (cgMethod.getAbstract() == false && cgMethod.getOverride() == false
-                && cgMethod.getFinal() == false
-                && cgMethod.getConstructor() == false
-                && cgMethod.getStatic() == false && argIsInterface == false) {
-            return true;
-        }
-        return false;
     }
 }

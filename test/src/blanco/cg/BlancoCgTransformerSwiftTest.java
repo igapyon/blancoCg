@@ -54,6 +54,7 @@ public class BlancoCgTransformerSwiftTest extends TestCase {
         cgClass.getImplementInterfaceList().add(
                 cgFactory.createType("Foundation.WebException2"));
 
+if(false){
         // 列挙体
         final BlancoCgEnum cgEnum = cgFactory.createEnum("FavorColor",
                 "列挙体の試験。");
@@ -65,6 +66,7 @@ public class BlancoCgTransformerSwiftTest extends TestCase {
         cgEnum.getElementList().add(
                 cgFactory.createEnumElement("Yerrow", "きいろ"));
         cgEnum.getElementList().add(cgFactory.createEnumElement("Blue", "あお"));
+}
 
         // フィールドを生成します。
         final BlancoCgField cgField = cgFactory.createField("myField",
