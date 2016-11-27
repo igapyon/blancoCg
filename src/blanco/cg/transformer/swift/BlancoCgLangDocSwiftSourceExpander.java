@@ -42,8 +42,12 @@ class BlancoCgLangDocSwiftSourceExpander {
      */
     public void transformLangDoc(final BlancoCgLangDoc langDoc,
             final List<java.lang.String> argSourceLines) {
+        argSourceLines.add("/**");
+
         // 開始・終了を除く本体を展開します。
         transformLangDocBody(langDoc, argSourceLines, false);
+
+        argSourceLines.add("*/");
     }
 
     /**
@@ -61,7 +65,7 @@ class BlancoCgLangDocSwiftSourceExpander {
             final boolean isFileHeader) {
         boolean isLangDocTitleStarted = false;
 
-        String commentString = "/// ";
+        String commentString = " * ";
         if (isFileHeader) {
             commentString = BlancoCgLineUtil
                     .getSingleLineCommentPrefix(TARGET_LANG);

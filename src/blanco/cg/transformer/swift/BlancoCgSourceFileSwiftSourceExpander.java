@@ -118,18 +118,16 @@ class BlancoCgSourceFileSwiftSourceExpander {
      * ソースファイルのファイルヘッダーを出力処理します。
      */
     private void expandSourceFileHeader() {
-        // ソースファイルヘッダーのコメントは スラッシュ２個が妥当と考えられます。
+        fSourceLines.add("/*");
 
         if (BlancoStringUtil.null2Blank(fCgSourceFile.getDescription())
                 .length() > 0) {
-            fSourceLines.add(BlancoCgLineUtil
-                    .getSingleLineCommentPrefix(TARGET_LANG)
+            fSourceLines.add(" * "
                     + fCgSourceFile.getDescription());
         } else {
             // 指定が無い場合にはデフォルトのコメントを利用します。
             for (String line : BlancoCgSourceFileUtil.getDefaultFileComment()) {
-                fSourceLines.add(BlancoCgLineUtil
-                        .getSingleLineCommentPrefix(TARGET_LANG)
+                fSourceLines.add(" * "
                         + line);
             }
         }
@@ -137,5 +135,7 @@ class BlancoCgSourceFileSwiftSourceExpander {
         // 言語ドキュメントの中間部を生成します。
         new BlancoCgLangDocSwiftSourceExpander().transformLangDocBody(
                 fCgSourceFile.getLangDoc(), fSourceLines, true);
+
+        fSourceLines.add("*/");
     }
 }
