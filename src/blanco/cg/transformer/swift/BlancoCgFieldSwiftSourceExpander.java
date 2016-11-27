@@ -73,12 +73,15 @@ class BlancoCgFieldSwiftSourceExpander {
 
         final StringBuffer buf = new StringBuffer();
 
+        // TODO let or var
+        buf.append("let ");
+
         if (BlancoStringUtil.null2Blank(cgField.getAccess()).length() > 0) {
             if (argIsInterface && cgField.getAccess().equals("public")) {
                 // インタフェース且つpublicの場合には出力を抑制します。
                 // これはCheckstyle対策となります。
             } else {
-                buf.append(cgField.getAccess() + " ");
+                // TODO Swift にアクセス制御は無い??? buf.append(cgField.getAccess() + " ");
             }
         }
         if (cgField.getStatic()) {
@@ -94,13 +97,15 @@ class BlancoCgFieldSwiftSourceExpander {
         argSourceFile.getImportList().add(cgField.getType().getName());
 
         // フィールド生成の本体部分を展開します。
-        buf.append(BlancoCgTypeSwiftSourceExpander.toTypeString(cgField.getType())
-                + " ");
         buf.append(cgField.getName());
 
         // デフォルト値の指定がある場合にはこれを展開します。
         if (BlancoStringUtil.null2Blank(cgField.getDefault()).length() > 0) {
             buf.append(" = " + cgField.getDefault());
+        } else {
+            // デフォルト値がない場合は型を出力。
+            buf.append(": " + BlancoCgTypeSwiftSourceExpander.toTypeString(cgField.getType())
+                    + "?");
         }
         buf.append(BlancoCgLineUtil.getTerminator(TARGET_LANG));
         argSourceLines.add(buf.toString());
