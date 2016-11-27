@@ -39,7 +39,7 @@ public class BlancoCgTransformerSwiftTest extends TestCase {
         // ソースファイルを生成します。
         final BlancoCgSourceFile cgSourceFile = cgFactory.createSourceFile(
                 "Myprog", "テスト用のクラス");
-        cgSourceFile.getImportList().add("Foundation");
+//        cgSourceFile.getImportList().add("Foundation");
 
         // クラスを生成します。
         final BlancoCgClass cgClass = cgFactory.createClass("MyClass",
@@ -48,11 +48,11 @@ public class BlancoCgTransformerSwiftTest extends TestCase {
         cgClass.getLangDoc().getTagList().add(
                 cgFactory.createLangDocTag("author", null, "blanco Framework"));
         cgClass.getExtendClassList().add(
-                cgFactory.createType("java.lang.Thread"));
+                cgFactory.createType("Foundation.Thread"));
         cgClass.getImplementInterfaceList().add(
-                cgFactory.createType("System.WebException"));
+                cgFactory.createType("Foundation.WebException"));
         cgClass.getImplementInterfaceList().add(
-                cgFactory.createType("System.WebException2"));
+                cgFactory.createType("Foundation.WebException2"));
 
         // 列挙体
         final BlancoCgEnum cgEnum = cgFactory.createEnum("FavorColor",
@@ -68,12 +68,12 @@ public class BlancoCgTransformerSwiftTest extends TestCase {
 
         // フィールドを生成します。
         final BlancoCgField cgField = cgFactory.createField("myField",
-                "java.util.Date", "日付フィールドの試験です。");
+                "Foundation.Date", "日付フィールドの試験です。");
         cgClass.getFieldList().add(cgField);
         cgField.setDefault("DateTime()");
 
         final BlancoCgField cgField2 = cgFactory.createField("myField2",
-                "Integer", "intフィールドの試験です。");
+                "Foundation.Integer", "intフィールドの試験です。");
         cgClass.getFieldList().add(cgField2);
 
         // メソッドを生成します。
@@ -83,17 +83,17 @@ public class BlancoCgTransformerSwiftTest extends TestCase {
 
         // パラメータを追加します。
         cgMethod.getParameterList().add(
-                cgFactory.createParameter("argString", "String",
+                cgFactory.createParameter("argString", "Foundation.String",
                         "文字列引数。"));
         cgMethod.getParameterList()
                 .add(
-                        cgFactory.createParameter("argDate", "DateTime",
+                        cgFactory.createParameter("argDate", "Foundation.DateTime",
                                 "日付引数。"));
         // 戻り値を設定します。
-        cgMethod.setReturn(cgFactory.createReturn("Boolean", "成功ならtrue。"));
+        cgMethod.setReturn(cgFactory.createReturn("Foundation.Boolean", "成功ならtrue。"));
 
         cgMethod.getThrowList().add(
-                cgFactory.createException("System.IO.IOException",
+                cgFactory.createException("Foundation.IOException",
                         "入出力例外が発生した場合。"));
 
         // アノテーションの追加。
