@@ -37,6 +37,7 @@ public class BlancoCgLineUtil {
         case BlancoCgSupportedLang.JS:
         case BlancoCgSupportedLang.PHP:
         case BlancoCgSupportedLang.DELPHI:
+        case BlancoCgSupportedLang.SWIFT:
             return "// ";
         case BlancoCgSupportedLang.VB:
             return "' ";

@@ -442,6 +442,7 @@ class BlancoCgStatementUtil {
         case BlancoCgSupportedLang.VB:
         case BlancoCgSupportedLang.RUBY:
         case BlancoCgSupportedLang.PYTHON:
+        case BlancoCgSupportedLang.SWIFT:
             return "";
         default:
             throw new IllegalArgumentException(
