@@ -17,6 +17,10 @@
 		</dependency>
 	</dependencies>
 
+	<!-- ===================================== -->
+	<!-- blanco Framework standard maven defs. -->
+	<!-- v201612241700 ....................... -->
+	<!-- ===================================== -->
 	<repositories>
 		<!-- blancofw repository -->
 		<repository>
@@ -54,7 +58,7 @@
 				</configuration>
 			</plugin>
 
-			<!-- copy jar files. -->
+			<!-- copy jar files into lib directory. -->
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>
 				<executions>
