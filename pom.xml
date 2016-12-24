@@ -19,7 +19,7 @@
 
 	<!-- ===================================== -->
 	<!-- blanco Framework standard maven defs. -->
-	<!-- v201612241700 ....................... -->
+	<!-- v201612242300 ....................... -->
 	<!-- ===================================== -->
 	<repositories>
 		<!-- blancofw repository -->
@@ -35,7 +35,7 @@
 		<repository>
 			<id>deploy-repository</id>
 			<name>deployRepository</name>
-			<url>file:///${project.basedir}/../../blancofw-maven2</url>
+			<url>file:///${project.basedir}/../blancofw-maven2</url>
 		</repository>
 	</distributionManagement>
 
@@ -47,6 +47,27 @@
 
 	<build>
 		<plugins>
+			<!-- add java source folder -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.12</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src</source>
+								<source>blanco/main</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
 			<!-- compile as 1.6 compatible -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

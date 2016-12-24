@@ -139,15 +139,4 @@
 	<!-- 一連の処理を実行。 -->
 	<target name="build" depends="meta,cg,compile,jar,pack">
 	</target>
-
-	<target name="prep-maven2">
-		<copy todir="build.maven2/src/main/java/">
-			<fileset dir="src">
-				<include name="**/*" />
-			</fileset>
-			<fileset dir="blanco/main">
-				<include name="**/*" />
-			</fileset>
-		</copy>
-	</target>
 </project>
