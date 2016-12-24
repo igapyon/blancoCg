@@ -17,7 +17,17 @@
 		</dependency>
 	</dependencies>
 
+	<repositories>
+		<!-- blancofw repository -->
+		<repository>
+			<id>blancofw</id>
+			<name>blancofw maven repos</name>
+			<url>https://igapyon.github.io/blancofw-maven2/</url>
+		</repository>
+	</repositories>
+
 	<distributionManagement>
+		<!-- deploy into local repository for github -->
 		<repository>
 			<id>deploy-repository</id>
 			<name>deployRepository</name>
@@ -25,11 +35,40 @@
 		</repository>
 	</distributionManagement>
 
-	<repositories>
-		<repository>
-			<id>blancofw</id>
-			<name>blancofw maven repos</name>
-			<url>https://igapyon.github.io/blancofw-maven2/</url>
-		</repository>
-	</repositories>
+	<!-- basic spec for jar -->
+	<properties>
+		<!-- set source as UTF-8 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<plugins>
+			<!-- compile as 1.6 compatible -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+
+			<!-- copy jar files. -->
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
