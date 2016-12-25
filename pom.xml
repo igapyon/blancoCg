@@ -13,14 +13,14 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>[3.8.1,4.0)</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>blanco.commons.io</groupId>
 			<artifactId>blanco-commons</artifactId>
-			<version>2.0.1</version>
+			<version>[2.0,3.0)</version>
 		</dependency>
 	</dependencies>
 
