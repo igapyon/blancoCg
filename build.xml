@@ -107,7 +107,7 @@
 		<mkdir dir="bin" />
 		<javac destdir="bin" debug="true" source="1.6" target="1.6" fork="true" encoding="${encoding}">
 			<src path="blanco/main/" />
-			<src path="src/" />
+			<src path="src/main/java/" />
 			<classpath>
 				<!-- ワイルドカードで一括取り込み -->
 				<fileset dir="lib" includes="*.jar" />
