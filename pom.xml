@@ -11,6 +11,13 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
 			<groupId>blanco.commons.io</groupId>
 			<artifactId>blanco-commons</artifactId>
 			<version>2.0.1</version>
@@ -19,7 +26,7 @@
 
 	<!-- ===================================== -->
 	<!-- blanco Framework standard maven defs. -->
-	<!-- v201612242300 ....................... -->
+	<!-- v201612251010 ....................... -->
 	<!-- ===================================== -->
 	<repositories>
 		<!-- blancofw repository -->
@@ -60,7 +67,7 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>src</source>
+								<source>src/main/java</source>
 								<source>blanco/main</source>
 							</sources>
 						</configuration>
@@ -77,6 +84,21 @@
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
+			</plugin>
+
+			<!-- create sources.jar -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 
 			<!-- copy jar files into lib directory. -->
