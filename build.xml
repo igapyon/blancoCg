@@ -14,21 +14,21 @@
 
 	<taskdef name="blancostringgroup" classname="blanco.stringgroup.task.BlancoStringGroupTask">
 		<classpath>
-			<fileset dir="target/lib" includes="*.jar" />
+			<fileset dir="lib" includes="*.jar" />
 			<fileset dir="lib.ant" includes="*.jar" />
 		</classpath>
 	</taskdef>
 
 	<taskdef name="blancoresourcebundle" classname="blanco.resourcebundle.task.BlancoResourceBundleTask">
 		<classpath>
-			<fileset dir="target/lib" includes="*.jar" />
+			<fileset dir="lib" includes="*.jar" />
 			<fileset dir="lib.ant" includes="*.jar" />
 		</classpath>
 	</taskdef>
 
 	<taskdef name="blancovalueobject" classname="blanco.valueobject.task.BlancoValueObjectTask">
 		<classpath>
-			<fileset dir="target/lib" includes="*.jar" />
+			<fileset dir="lib" includes="*.jar" />
 			<fileset dir="lib.ant" includes="*.jar" />
 		</classpath>
 	</taskdef>
@@ -43,7 +43,7 @@
 		<!-- blancoCg自身をblancoCgするためのソースコードをコンパイル。 -->
 		<javac srcdir="src.cg" destdir="bin" debug="true" source="1.6" target="1.6" fork="true"	 encoding="${encoding}">
 			<classpath>
-				<fileset dir="target/lib" includes="*.jar" />
+				<fileset dir="lib" includes="*.jar" />
 				<fileset dir="lib.ant" includes="*.jar" />
 			</classpath>
 			<include name="**/*.java" />
@@ -52,7 +52,7 @@
 		<java classname="blanco.cg.cg.BlancoCgCg">
 			<classpath>
 				<path path="bin" />
-				<fileset dir="target/lib" includes="*.jar" />
+				<fileset dir="lib" includes="*.jar" />
 				<fileset dir="lib.ant" includes="*.jar" />
 			</classpath>
 		</java>
@@ -105,13 +105,13 @@
 	<target name="compile">
 		<delete dir="bin" />
 		<mkdir dir="bin" />
-		<javac destdir="bin" debug="true" source="1.6" target="1.6" fork="true" encoding="${encoding}">
+		<javac destdir="bin" debug="true" source="1.8" target="1.8" fork="true" encoding="${encoding}">
 			<src path="blanco/main/" />
 			<src path="src/main/java/" />
 			<classpath>
 				<!-- ワイルドカードで一括取り込み -->
-				<fileset dir="target/lib" includes="*.jar" />
-				<pathelement path="${eclipse.dir}/plugins/org.junit_3.8.2.v20080602-1318/junit.jar" />
+				<fileset dir="lib" includes="*.jar" />
+				<!--<pathelement path="${eclipse.dir}/plugins/org.junit_3.8.2.v20080602-1318/junit.jar" />-->
 			</classpath>
 			<include name="**/*.java" />
 		</javac>
