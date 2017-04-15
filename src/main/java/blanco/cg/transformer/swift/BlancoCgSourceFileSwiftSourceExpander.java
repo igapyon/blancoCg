@@ -68,8 +68,7 @@ class BlancoCgSourceFileSwiftSourceExpander {
 
         // パッケージ部分の生成。
         if (BlancoStringUtil.null2Blank(fCgSourceFile.getPackage()).length() > 0) {
-        	// namespace -> class ???
-            fSourceLines.add("class " + fCgSourceFile.getPackage() + " {");
+            fSourceLines.add("// package: " + fCgSourceFile.getPackage());
         }
 
         if (fCgSourceFile.getImportList() == null) {
@@ -98,10 +97,6 @@ class BlancoCgSourceFileSwiftSourceExpander {
         for (BlancoCgClass cgClass : fCgSourceFile.getClassList()) {
             new BlancoCgClassSwiftSourceExpander().transformClass(cgClass,
                     fCgSourceFile, fSourceLines);
-        }
-
-        if (BlancoStringUtil.null2Blank(fCgSourceFile.getPackage()).length() > 0) {
-            fSourceLines.add("}");
         }
 
         // importの展開をします。
