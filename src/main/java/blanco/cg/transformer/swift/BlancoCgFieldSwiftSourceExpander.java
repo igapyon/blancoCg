@@ -73,8 +73,8 @@ class BlancoCgFieldSwiftSourceExpander {
 
         final StringBuffer buf = new StringBuffer();
 
-        // TODO let or var
-        buf.append("let ");
+        // Should be var
+        buf.append("var ");
 
         if (BlancoStringUtil.null2Blank(cgField.getAccess()).length() > 0) {
             if (argIsInterface && cgField.getAccess().equals("public")) {
