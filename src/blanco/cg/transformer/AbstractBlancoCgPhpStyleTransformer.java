@@ -68,6 +68,9 @@ public abstract class AbstractBlancoCgPhpStyleTransformer extends
         try {
             // パッケージ名からディレクトリ名へと変換。
             // 先頭にバックスラッシュがある場合、バックスラッシュを外してつめる
+            if (argSourceFile.getPackage() == null) {
+                argSourceFile.setPackage("");
+            }
             if (argSourceFile.getPackage().startsWith("\\")){
                 String nameSpace = argSourceFile.getPackage().substring(1);
                 argSourceFile.setPackage(nameSpace);
