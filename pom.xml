@@ -2,12 +2,14 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>blanco.cg</groupId>
+    <groupId>jp.igapyon.blanco.cg</groupId>
     <artifactId>blanco-cg</artifactId>
     <packaging>jar</packaging>
     <version>2.1.0-SNAPSHOT</version>
+
     <name>blanco-cg</name>
-    <url>https://igapyon.github.io/blancofw-maven2</url>
+    <description>blancoCg is a simple code generator library. blancoCg supports Java/C#/JavaScript/VB.NET/PHP/Ruby/Python.</description>
+    <url>https://github.com/igapyon/blancoCg/</url>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
