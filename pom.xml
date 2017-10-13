@@ -27,25 +27,45 @@
         </dependency>
     </dependencies>
 
-    <!-- ===================================== -->
-    <!-- blanco Framework standard maven defs. -->
-    <!-- v201612251240 ....................... -->
-    <!-- ===================================== -->
-    <repositories>
-        <!-- blancofw repository -->
-        <repository>
-            <id>blancofw</id>
-            <name>blancofw maven repos</name>
-            <url>https://igapyon.github.io/blancofw-maven2</url>
-        </repository>
-    </repositories>
+    <!-- see: http://maven.apache.org/guides/mini/guide-central-repository-upload.html -->
+    <licenses>
+        <license>
+            <name>GNU Lesser General Public License</name>
+            <url>http://www.opensource.org/licenses/lgpl-license.php</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/igapyon/blancoCg/</url>
+        <connection>scm:git:https://github.com/igapyon/blancoCg.git</connection>
+        <developerConnection>scm:git:https://github.com/igapyon/blancoCg.git</developerConnection>
+        <tag>blancoCg-2.1.0</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>igapyon</id>
+            <name>Toshiki Iga</name>
+            <email>igapyon@gmail.com</email>
+            <url>http://www.igapyon.jp/</url>
+            <roles>
+                <role>lead</role>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>-9</timezone>
+        </developer>
+    </developers>
 
     <distributionManagement>
-        <!-- deploy into local repository for github -->
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
         <repository>
-            <id>deploy-repository</id>
-            <name>deployRepository</name>
-            <url>file:///${project.basedir}/../blancofw-maven2</url>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/
+            </url>
         </repository>
     </distributionManagement>
 
@@ -78,7 +98,7 @@
                 </executions>
             </plugin>
 
-            <!-- compile as 1.6 compatible -->
+            <!-- compile as JDK 1.6 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -105,25 +125,61 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
                 <configuration>
+                    <author>true</author>
+                    <source>1.6</source>
+                    <locale>en</locale>
+                    <showPackage>true</showPackage>
+                    <charset>utf-8</charset>
                     <excludes>
                         <exclude>blanco/sample/</exclude>
                         <exclude>blanco/sample/**/*</exclude>
                     </excludes>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
-            <!-- copy jar files into lib directory. -->
+            <!-- gpg -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- for dependency -->
             <plugin>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                     <execution>
-                        <phase>install</phase>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
                         <goals>
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
