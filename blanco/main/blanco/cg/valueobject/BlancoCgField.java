@@ -43,7 +43,7 @@ public class BlancoCgField {
      * アクセスコントロールを指定します。public/protected/privateなどを指定します。
      *
      * フィールド: [access]。
-     * デフォルト: ["private"]。
+     * デフォルト: [&quot;private&quot;]。
      */
     private String fAccess = "private";
 
@@ -76,7 +76,7 @@ public class BlancoCgField {
      * このフィールドに付与されているアノテーションのリストです。
      *
      * フィールド: [annotationList]。
-     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
+     * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      */
     private List<java.lang.String> fAnnotationList = new java.util.ArrayList<java.lang.String>();
 
@@ -168,7 +168,7 @@ public class BlancoCgField {
      * フィールド [access] の値を取得します。
      *
      * フィールドの説明: [アクセスコントロールを指定します。public/protected/privateなどを指定します。]。
-     * デフォルト: ["private"]。
+     * デフォルト: [&quot;private&quot;]。
      *
      * @return フィールド[access]から取得した値。
      */
@@ -263,7 +263,7 @@ public class BlancoCgField {
      * フィールド [annotationList] の値を取得します。
      *
      * フィールドの説明: [このフィールドに付与されているアノテーションのリストです。]。
-     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
+     * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      *
      * @return フィールド[annotationList]から取得した値。
      */
@@ -319,5 +319,52 @@ public class BlancoCgField {
         buf.append(",langDoc=" + fLangDoc);
         buf.append("]");
         return buf.toString();
+    }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoCgField target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoCgField#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fName
+        // Type: java.lang.String
+        target.fName = this.fName;
+        // Name: fDescription
+        // Type: java.lang.String
+        target.fDescription = this.fDescription;
+        // Name: fType
+        // Type: blanco.cg.valueobject.BlancoCgType
+        // フィールド[fType]はサポート外の型[blanco.cg.valueobject.BlancoCgType]です。
+        // Name: fAccess
+        // Type: java.lang.String
+        target.fAccess = this.fAccess;
+        // Name: fStatic
+        // Type: boolean
+        target.fStatic = this.fStatic;
+        // Name: fFinal
+        // Type: boolean
+        target.fFinal = this.fFinal;
+        // Name: fDefault
+        // Type: java.lang.String
+        target.fDefault = this.fDefault;
+        // Name: fAnnotationList
+        // Type: java.util.List
+        // フィールド[fAnnotationList]はサポート外の型[java.util.List]です。
+        // Name: fLangDoc
+        // Type: blanco.cg.valueobject.BlancoCgLangDoc
+        // フィールド[fLangDoc]はサポート外の型[blanco.cg.valueobject.BlancoCgLangDoc]です。
     }
 }

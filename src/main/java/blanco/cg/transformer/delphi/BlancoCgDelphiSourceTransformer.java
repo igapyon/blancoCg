@@ -36,8 +36,7 @@ public class BlancoCgDelphiSourceTransformer extends
      *            ソースファイル・バリューオブジェクト。
      * @param argWriter
      *            出力先のライター。
-     * @throws 入出力例外が発生した場合
-     *             。
+     * @throws IOException 入出力例外が発生した場合
      */
     public void transform(final BlancoCgSourceFile argSourceFile,
             final BufferedWriter argWriter) throws IOException {

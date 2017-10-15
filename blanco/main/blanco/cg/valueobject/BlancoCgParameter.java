@@ -57,7 +57,7 @@ public class BlancoCgParameter {
      *
      * .NET Framework版の自動生成のみ対応しています。
      * フィールド: [annotationList]。
-     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
+     * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      */
     private List<java.lang.String> fAnnotationList = new java.util.ArrayList<java.lang.String>();
 
@@ -190,7 +190,7 @@ public class BlancoCgParameter {
      *
      * フィールドの説明: [このクラスに付与されているアノテーションのリストです。]。
      * .NET Framework版の自動生成のみ対応しています。
-     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
+     * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      *
      * @return フィールド[annotationList]から取得した値。
      */
@@ -221,5 +221,43 @@ public class BlancoCgParameter {
         buf.append(",annotationList=" + fAnnotationList);
         buf.append("]");
         return buf.toString();
+    }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoCgParameter target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoCgParameter#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fName
+        // Type: java.lang.String
+        target.fName = this.fName;
+        // Name: fDescription
+        // Type: java.lang.String
+        target.fDescription = this.fDescription;
+        // Name: fType
+        // Type: blanco.cg.valueobject.BlancoCgType
+        // フィールド[fType]はサポート外の型[blanco.cg.valueobject.BlancoCgType]です。
+        // Name: fFinal
+        // Type: boolean
+        target.fFinal = this.fFinal;
+        // Name: fNotnull
+        // Type: boolean
+        target.fNotnull = this.fNotnull;
+        // Name: fAnnotationList
+        // Type: java.util.List
+        // フィールド[fAnnotationList]はサポート外の型[java.util.List]です。
     }
 }

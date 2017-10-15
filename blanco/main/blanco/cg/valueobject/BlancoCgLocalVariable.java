@@ -162,4 +162,36 @@ public class BlancoCgLocalVariable {
         buf.append("]");
         return buf.toString();
     }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoCgLocalVariable target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoCgLocalVariable#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fName
+        // Type: java.lang.String
+        target.fName = this.fName;
+        // Name: fType
+        // Type: blanco.cg.valueobject.BlancoCgType
+        // フィールド[fType]はサポート外の型[blanco.cg.valueobject.BlancoCgType]です。
+        // Name: fFinal
+        // Type: boolean
+        target.fFinal = this.fFinal;
+        // Name: fDefault
+        // Type: java.lang.String
+        target.fDefault = this.fDefault;
+    }
 }

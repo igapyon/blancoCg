@@ -299,19 +299,21 @@ public class BlancoCgLineUtil {
                 argFrom, argTo);
     }
 
-/**
+    /**
      * for文の開始部分を表す文字列を取得します。
      * 
      * Delphiに対応しています。 実際の処理は、
-     * {@link BlancoCgStatementUtil#getForBeginDelphi(int , java.lang.String,java.lang.String, java.lang.String)
+     * {@link BlancoCgStatementUtil#getForBeginDelphi(int , java.lang.String,java.lang.String, java.lang.String)}
      * に委譲されます。
      * 
      * @param argTargetLang
      *            出力対象のプログラミング言語。
-     * @param argItem
-     *            ループ対象となるオブジェクトの現在値。
-     * @param argItems
-     *            ループ対象となるオブジェクト。
+     * @param argCounter
+     *            ループカウンタ。
+     * @param argFrom
+     *            開始値
+     * @param argTo
+     *            終了値
      * @return for文の開始部分を表す文字列。
      */
     public static final String getForBeginDelphi(final int argTargetLang,

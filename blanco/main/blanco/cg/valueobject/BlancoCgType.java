@@ -188,4 +188,39 @@ public class BlancoCgType {
         buf.append("]");
         return buf.toString();
     }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoCgType target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoCgType#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fName
+        // Type: java.lang.String
+        target.fName = this.fName;
+        // Name: fDescription
+        // Type: java.lang.String
+        target.fDescription = this.fDescription;
+        // Name: fGenerics
+        // Type: java.lang.String
+        target.fGenerics = this.fGenerics;
+        // Name: fArray
+        // Type: boolean
+        target.fArray = this.fArray;
+        // Name: fArrayDimension
+        // Type: int
+        target.fArrayDimension = this.fArrayDimension;
+    }
 }

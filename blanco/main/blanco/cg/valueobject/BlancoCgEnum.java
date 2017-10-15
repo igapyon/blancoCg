@@ -40,7 +40,7 @@ public class BlancoCgEnum {
      * enum エレメントをあらわします。
      *
      * フィールド: [elementList]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnumElement>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgEnumElement&gt;()]。
      */
     private List<blanco.cg.valueobject.BlancoCgEnumElement> fElementList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnumElement>();
 
@@ -132,7 +132,7 @@ public class BlancoCgEnum {
      * フィールド [elementList] の値を取得します。
      *
      * フィールドの説明: [enum エレメントをあらわします。]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnumElement>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgEnumElement&gt;()]。
      *
      * @return フィールド[elementList]から取得した値。
      */
@@ -184,5 +184,40 @@ public class BlancoCgEnum {
         buf.append(",langDoc=" + fLangDoc);
         buf.append("]");
         return buf.toString();
+    }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoCgEnum target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoCgEnum#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fName
+        // Type: java.lang.String
+        target.fName = this.fName;
+        // Name: fDescription
+        // Type: java.lang.String
+        target.fDescription = this.fDescription;
+        // Name: fAccess
+        // Type: java.lang.String
+        target.fAccess = this.fAccess;
+        // Name: fElementList
+        // Type: java.util.List
+        // フィールド[fElementList]はサポート外の型[java.util.List]です。
+        // Name: fLangDoc
+        // Type: blanco.cg.valueobject.BlancoCgLangDoc
+        // フィールド[fLangDoc]はサポート外の型[blanco.cg.valueobject.BlancoCgLangDoc]です。
     }
 }

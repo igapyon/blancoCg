@@ -36,7 +36,7 @@ public class BlancoCgMethod {
      *
      * public/protected/privateなどを指定します。
      * フィールド: [access]。
-     * デフォルト: ["public"]。
+     * デフォルト: [&quot;public&quot;]。
      */
     private String fAccess = "public";
 
@@ -92,7 +92,7 @@ public class BlancoCgMethod {
      * このメソッドのパラメータのリストです。
      *
      * フィールド: [parameterList]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgParameter&gt;()]。
      */
     private List<blanco.cg.valueobject.BlancoCgParameter> fParameterList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>();
 
@@ -107,7 +107,7 @@ public class BlancoCgMethod {
      * このメソッドが発生しうる例外の一覧です。
      *
      * フィールド: [throwList]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgException&gt;()]。
      */
     private List<blanco.cg.valueobject.BlancoCgException> fThrowList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>();
 
@@ -115,7 +115,7 @@ public class BlancoCgMethod {
      * このメソッドに付与されているアノテーションのリストです。
      *
      * フィールド: [annotationList]。
-     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
+     * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      */
     private List<java.lang.String> fAnnotationList = new java.util.ArrayList<java.lang.String>();
 
@@ -123,7 +123,7 @@ public class BlancoCgMethod {
      * このメソッド内で使用するローカル変数のリストです。Delphi言語など、インラインでローカル変数定義ができない言語でのみ使用します。
      *
      * フィールド: [localVariableList]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLocalVariable>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgLocalVariable&gt;()]。
      */
     private List<blanco.cg.valueobject.BlancoCgLocalVariable> fLocalVariableList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLocalVariable>();
 
@@ -131,7 +131,7 @@ public class BlancoCgMethod {
      * このメソッドに含まれる行のリストです。
      *
      * フィールド: [lineList]。
-     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
+     * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      */
     private List<java.lang.String> fLineList = new java.util.ArrayList<java.lang.String>();
 
@@ -210,7 +210,7 @@ public class BlancoCgMethod {
      *
      * フィールドの説明: [このメソッドのアクセスコントロールを指定します。]。
      * public/protected/privateなどを指定します。
-     * デフォルト: ["public"]。
+     * デフォルト: [&quot;public&quot;]。
      *
      * @return フィールド[access]から取得した値。
      */
@@ -371,7 +371,7 @@ public class BlancoCgMethod {
      * フィールド [parameterList] の値を取得します。
      *
      * フィールドの説明: [このメソッドのパラメータのリストです。]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgParameter&gt;()]。
      *
      * @return フィールド[parameterList]から取得した値。
      */
@@ -416,7 +416,7 @@ public class BlancoCgMethod {
      * フィールド [throwList] の値を取得します。
      *
      * フィールドの説明: [このメソッドが発生しうる例外の一覧です。]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgException&gt;()]。
      *
      * @return フィールド[throwList]から取得した値。
      */
@@ -439,7 +439,7 @@ public class BlancoCgMethod {
      * フィールド [annotationList] の値を取得します。
      *
      * フィールドの説明: [このメソッドに付与されているアノテーションのリストです。]。
-     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
+     * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      *
      * @return フィールド[annotationList]から取得した値。
      */
@@ -462,7 +462,7 @@ public class BlancoCgMethod {
      * フィールド [localVariableList] の値を取得します。
      *
      * フィールドの説明: [このメソッド内で使用するローカル変数のリストです。Delphi言語など、インラインでローカル変数定義ができない言語でのみ使用します。]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLocalVariable>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgLocalVariable&gt;()]。
      *
      * @return フィールド[localVariableList]から取得した値。
      */
@@ -485,7 +485,7 @@ public class BlancoCgMethod {
      * フィールド [lineList] の値を取得します。
      *
      * フィールドの説明: [このメソッドに含まれる行のリストです。]。
-     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
+     * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      *
      * @return フィールド[lineList]から取得した値。
      */
@@ -571,5 +571,76 @@ public class BlancoCgMethod {
         buf.append(",langDoc=" + fLangDoc);
         buf.append("]");
         return buf.toString();
+    }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoCgMethod target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoCgMethod#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fName
+        // Type: java.lang.String
+        target.fName = this.fName;
+        // Name: fDescription
+        // Type: java.lang.String
+        target.fDescription = this.fDescription;
+        // Name: fAccess
+        // Type: java.lang.String
+        target.fAccess = this.fAccess;
+        // Name: fAbstract
+        // Type: boolean
+        target.fAbstract = this.fAbstract;
+        // Name: fStatic
+        // Type: boolean
+        target.fStatic = this.fStatic;
+        // Name: fOverride
+        // Type: boolean
+        target.fOverride = this.fOverride;
+        // Name: fFinal
+        // Type: boolean
+        target.fFinal = this.fFinal;
+        // Name: fConstructor
+        // Type: boolean
+        target.fConstructor = this.fConstructor;
+        // Name: fStaticInitializer
+        // Type: boolean
+        target.fStaticInitializer = this.fStaticInitializer;
+        // Name: fParameterList
+        // Type: java.util.List
+        // フィールド[fParameterList]はサポート外の型[java.util.List]です。
+        // Name: fReturn
+        // Type: blanco.cg.valueobject.BlancoCgReturn
+        // フィールド[fReturn]はサポート外の型[blanco.cg.valueobject.BlancoCgReturn]です。
+        // Name: fThrowList
+        // Type: java.util.List
+        // フィールド[fThrowList]はサポート外の型[java.util.List]です。
+        // Name: fAnnotationList
+        // Type: java.util.List
+        // フィールド[fAnnotationList]はサポート外の型[java.util.List]です。
+        // Name: fLocalVariableList
+        // Type: java.util.List
+        // フィールド[fLocalVariableList]はサポート外の型[java.util.List]です。
+        // Name: fLineList
+        // Type: java.util.List
+        // フィールド[fLineList]はサポート外の型[java.util.List]です。
+        // Name: fSuperclassInvocation
+        // Type: java.lang.String
+        target.fSuperclassInvocation = this.fSuperclassInvocation;
+        // Name: fLangDoc
+        // Type: blanco.cg.valueobject.BlancoCgLangDoc
+        // フィールド[fLangDoc]はサポート外の型[blanco.cg.valueobject.BlancoCgLangDoc]です。
     }
 }

@@ -28,9 +28,9 @@ public class BlancoCgLangDoc {
     /**
      * この言語ドキュメントの詳細説明です。(java.lang.String)のリストです。
      *
-     * ここで与えられた文字列がそのままドキュメント説明部に展開されるため、通常は文字参照エンコーディングを実施したあとの値をセットします。(エンコーディング後のものを与えるからこそ、<pre>などを実現することができるのです。)
+     * ここで与えられた文字列がそのままドキュメント説明部に展開されるため、通常は文字参照エンコーディングを実施したあとの値をセットします。(エンコーディング後のものを与えるからこそ、&lt;pre&gt;などを実現することができるのです。)
      * フィールド: [descriptionList]。
-     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
+     * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      */
     private List<java.lang.String> fDescriptionList = new java.util.ArrayList<java.lang.String>();
 
@@ -45,7 +45,7 @@ public class BlancoCgLangDoc {
      * パラメータのリストです。メソッドの場合にのみ利用されます。
      *
      * フィールド: [parameterList]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgParameter&gt;()]。
      */
     private List<blanco.cg.valueobject.BlancoCgParameter> fParameterList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>();
 
@@ -61,7 +61,7 @@ public class BlancoCgLangDoc {
      * 発生しうる例外の一覧です。メソッドの場合にのみ利用されます。
      *
      * フィールド: [throwList]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgException&gt;()]。
      */
     private List<blanco.cg.valueobject.BlancoCgException> fThrowList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>();
 
@@ -69,7 +69,7 @@ public class BlancoCgLangDoc {
      * 言語ドキュメントのタグのリスト。BlancoCgLangDocTagがリストに格納されます。
      *
      * フィールド: [tagList]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLangDocTag>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgLangDocTag&gt;()]。
      */
     private List<blanco.cg.valueobject.BlancoCgLangDocTag> fTagList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLangDocTag>();
 
@@ -99,7 +99,7 @@ public class BlancoCgLangDoc {
      * フィールド [descriptionList] の値を設定します。
      *
      * フィールドの説明: [この言語ドキュメントの詳細説明です。(java.lang.String)のリストです。]。
-     * ここで与えられた文字列がそのままドキュメント説明部に展開されるため、通常は文字参照エンコーディングを実施したあとの値をセットします。(エンコーディング後のものを与えるからこそ、<pre>などを実現することができるのです。)
+     * ここで与えられた文字列がそのままドキュメント説明部に展開されるため、通常は文字参照エンコーディングを実施したあとの値をセットします。(エンコーディング後のものを与えるからこそ、&lt;pre&gt;などを実現することができるのです。)
      *
      * @param argDescriptionList フィールド[descriptionList]に設定する値。
      */
@@ -111,8 +111,8 @@ public class BlancoCgLangDoc {
      * フィールド [descriptionList] の値を取得します。
      *
      * フィールドの説明: [この言語ドキュメントの詳細説明です。(java.lang.String)のリストです。]。
-     * ここで与えられた文字列がそのままドキュメント説明部に展開されるため、通常は文字参照エンコーディングを実施したあとの値をセットします。(エンコーディング後のものを与えるからこそ、<pre>などを実現することができるのです。)
-     * デフォルト: [new java.util.ArrayList<java.lang.String>()]。
+     * ここで与えられた文字列がそのままドキュメント説明部に展開されるため、通常は文字参照エンコーディングを実施したあとの値をセットします。(エンコーディング後のものを与えるからこそ、&lt;pre&gt;などを実現することができるのです。)
+     * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      *
      * @return フィールド[descriptionList]から取得した値。
      */
@@ -157,7 +157,7 @@ public class BlancoCgLangDoc {
      * フィールド [parameterList] の値を取得します。
      *
      * フィールドの説明: [パラメータのリストです。メソッドの場合にのみ利用されます。]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgParameter&gt;()]。
      *
      * @return フィールド[parameterList]から取得した値。
      */
@@ -204,7 +204,7 @@ public class BlancoCgLangDoc {
      * フィールド [throwList] の値を取得します。
      *
      * フィールドの説明: [発生しうる例外の一覧です。メソッドの場合にのみ利用されます。]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgException&gt;()]。
      *
      * @return フィールド[throwList]から取得した値。
      */
@@ -227,7 +227,7 @@ public class BlancoCgLangDoc {
      * フィールド [tagList] の値を取得します。
      *
      * フィールドの説明: [言語ドキュメントのタグのリスト。BlancoCgLangDocTagがリストに格納されます。]。
-     * デフォルト: [new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLangDocTag>()]。
+     * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgLangDocTag&gt;()]。
      *
      * @return フィールド[tagList]から取得した値。
      */
@@ -259,5 +259,46 @@ public class BlancoCgLangDoc {
         buf.append(",tagList=" + fTagList);
         buf.append("]");
         return buf.toString();
+    }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoCgLangDoc target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoCgLangDoc#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fTitle
+        // Type: java.lang.String
+        target.fTitle = this.fTitle;
+        // Name: fDescriptionList
+        // Type: java.util.List
+        // フィールド[fDescriptionList]はサポート外の型[java.util.List]です。
+        // Name: fDeprecated
+        // Type: java.lang.String
+        target.fDeprecated = this.fDeprecated;
+        // Name: fParameterList
+        // Type: java.util.List
+        // フィールド[fParameterList]はサポート外の型[java.util.List]です。
+        // Name: fReturn
+        // Type: blanco.cg.valueobject.BlancoCgReturn
+        // フィールド[fReturn]はサポート外の型[blanco.cg.valueobject.BlancoCgReturn]です。
+        // Name: fThrowList
+        // Type: java.util.List
+        // フィールド[fThrowList]はサポート外の型[java.util.List]です。
+        // Name: fTagList
+        // Type: java.util.List
+        // フィールド[fTagList]はサポート外の型[java.util.List]です。
     }
 }

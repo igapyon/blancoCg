@@ -127,4 +127,33 @@ public class BlancoCgEnumElement {
         buf.append("]");
         return buf.toString();
     }
+
+    /**
+     * このバリューオブジェクトを指定のターゲットに複写します。
+     *
+     * <P>使用上の注意</P>
+     * <UL>
+     * <LI>オブジェクトのシャロー範囲のみ複写処理対象となります。
+     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * </UL>
+     *
+     * @param target target value object.
+     */
+    public void copyTo(final BlancoCgEnumElement target) {
+        if (target == null) {
+            throw new IllegalArgumentException("Bug: BlancoCgEnumElement#copyTo(target): argument 'target' is null");
+        }
+
+        // No needs to copy parent class.
+
+        // Name: fName
+        // Type: java.lang.String
+        target.fName = this.fName;
+        // Name: fDescription
+        // Type: java.lang.String
+        target.fDescription = this.fDescription;
+        // Name: fDefault
+        // Type: java.lang.String
+        target.fDefault = this.fDefault;
+    }
 }
