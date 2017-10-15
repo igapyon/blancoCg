@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="blancoCg" default="build" basedir=".">
 	<!-- blancoAnt(0.1.5)により自動生成されました。 (2008/10/24) -->
-	<property name="version" value="2.0.2" />
+	<property name="version" value="2.0.3" />
 
 	<property name="project" value="blancoCg" />
 	<property name="project.lower" value="blancocg" />

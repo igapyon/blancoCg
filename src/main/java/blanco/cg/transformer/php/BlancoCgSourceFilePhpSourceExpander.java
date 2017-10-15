@@ -67,11 +67,17 @@ class BlancoCgSourceFilePhpSourceExpander {
 
         // パッケージ部分の生成。
         if (BlancoStringUtil.null2Blank(fCgSourceFile.getPackage()).length() > 0) {
-            // PHPにパッケージはありません。
-            fSourceLines.add("/*. DOC <@package " + fCgSourceFile.getPackage()
-                    + BlancoCgLineUtil.getTerminator(TARGET_LANG) + ">.*/");
+            fSourceLines.add("namespace " + fCgSourceFile.getPackage() + BlancoCgLineUtil.getTerminator(TARGET_LANG));
             fSourceLines.add("");
         }
+
+        // パッケージ部分の生成。
+//        if (BlancoStringUtil.null2Blank(fCgSourceFile.getPackage()).length() > 0) {
+//            // PHPにパッケージはありません。
+//            fSourceLines.add("/*. DOC <@package " + fCgSourceFile.getPackage()
+//                    + BlancoCgLineUtil.getTerminator(TARGET_LANG) + ">.*/");
+//            fSourceLines.add("");
+//        }
 
         if (fCgSourceFile.getImportList() == null) {
             throw new IllegalArgumentException("importのリストにnullが与えられました。");
