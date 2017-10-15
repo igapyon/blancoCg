@@ -250,7 +250,7 @@ class BlancoCgMethodPhpSourceExpander {
 
             // standardをimport
             argSourceFile.getImportList().add("standard.Exception");
-            argSourceLines.add("throw new Exception("
+            argSourceLines.add("throw new \\Exception("
                     + BlancoCgLineUtil.getStringLiteralEnclosure(TARGET_LANG)
                     + "[ArgumentException]: " + strClassName + "."
                     + cgMethod.getName() + " のパラメータは["
@@ -303,7 +303,7 @@ class BlancoCgMethodPhpSourceExpander {
                                     + cgParameter.getType().getName()
                                     + " === FALSE"));
                 }
-                argSourceLines.add("throw new Exception("
+                argSourceLines.add("throw new \\Exception("
                         + BlancoCgLineUtil
                                 .getStringLiteralEnclosure(TARGET_LANG)
                         + "[ArgumentException]: "
@@ -433,7 +433,7 @@ class BlancoCgMethodPhpSourceExpander {
 
                 argSourceLines.add(BlancoCgLineUtil.getIfBegin(TARGET_LANG, "$"
                         + cgParameter.getName() + " === null"));
-                argSourceLines.add("throw new Exception('メソッド["
+                argSourceLines.add("throw new \\Exception('メソッド["
                         + cgMethod.getName() + "]のパラメータ["
                         + cgParameter.getName()
                         + "]にnullが与えられました。しかし、このパラメータにnullを与えることはできません。');");

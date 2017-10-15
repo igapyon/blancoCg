@@ -13,7 +13,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.List;
 
-import blanco.cg.transformer.AbstractBlancoCgJavaStyleTransformer;
+import blanco.cg.transformer.AbstractBlancoCgPhpStyleTransformer;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
@@ -25,7 +25,7 @@ import blanco.cg.valueobject.BlancoCgSourceFile;
  * @author IGA Tosiki
  */
 public class BlancoCgPhpSourceTransformer extends
-        AbstractBlancoCgJavaStyleTransformer {
+        AbstractBlancoCgPhpStyleTransformer {
 
     /**
      * ソースファイル・バリューオブジェクトをJavaソースコードに変換してライターに出力します。
