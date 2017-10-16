@@ -1,0 +1,5 @@
+blancoCg のライセンスを、現状の GNU LGPL 単体から GNU LGPL と Apache ライセンスのデュアルライセンスに変更したく提案します。
+貢献者のかたは、こちらに同意か不同意かを表明してください。
+
+Toshiki Iga : agreed
+
