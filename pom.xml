@@ -20,6 +20,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/jp.igapyon.blanco.commons/blanco-commons -->
         <dependency>
             <groupId>jp.igapyon.blanco.commons</groupId>
             <artifactId>blanco-commons</artifactId>
@@ -27,7 +28,7 @@
         </dependency>
     </dependencies>
 
-    <!-- see: http://maven.apache.org/guides/mini/guide-central-repository-upload.html -->
+    <!-- ref: http://maven.apache.org/guides/mini/guide-central-repository-upload.html -->
     <licenses>
         <license>
             <name>GNU Lesser General Public License</name>
@@ -42,6 +43,7 @@
         <tag>blancoCg-2.1.0</tag>
     </scm>
 
+    <!-- ref: https://maven.apache.org/pom.html#Developers -->
     <developers>
         <developer>
             <id>igapyon</id>
