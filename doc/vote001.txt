@@ -2,4 +2,5 @@ blancoCg のライセンスを、現状の GNU LGPL 単体から GNU LGPL と Ap
 貢献者のかたは、こちらに同意か不同意かを表明してください。
 
 Toshiki Iga : agreed
-
+Kinoko(Saki) Matsumoto : agreed
+uedaueo : agreed
