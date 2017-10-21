@@ -60,6 +60,26 @@
                 <picUrl>http://www.igapyon.jp/igapyon/diary/images/iga200306.jpg</picUrl>
             </properties>
         </developer>
+        <developer>
+            <id>uedaueo</id>
+            <name>Tatsuya Ueda</name>
+            <email>ueo@ueo.co.jp</email>
+            <url>http://www.ueo.co.jp</url>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+            <timezone>-9</timezone>
+        </developer>
+        <developer>
+            <id>hyperkinoko</id>
+            <name>Kinoko Matsumoto</name>
+            <email>saki@kinokodata.com</email>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>-9</timezone>
+        </developer>
     </developers>
 
     <distributionManagement>
