@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>jp.igapyon.blanco.cg</groupId>
@@ -74,6 +75,15 @@
             <id>hyperkinoko</id>
             <name>Kinoko Matsumoto</name>
             <email>saki@kinokodata.com</email>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>-9</timezone>
+        </developer>
+        <developer>
+            <id>haino</id>
+            <name>haino</name>
+            <email>ha1n02@ueo.co.jp</email>
             <roles>
                 <role>developer</role>
             </roles>
