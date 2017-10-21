@@ -74,7 +74,6 @@
         </repository>
     </distributionManagement>
 
-    <!-- basic spec for jar -->
     <properties>
         <!-- set source as UTF-8 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -83,10 +82,11 @@
     <build>
         <plugins>
             <!-- add java source folder -->
+            <!-- ref: http://www.mojohaus.org/build-helper-maven-plugin/usage.html -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.12</version>
+                <version>3.0.0</version>
                 <executions>
                     <execution>
                         <phase>generate-sources</phase>
@@ -103,11 +103,12 @@
                 </executions>
             </plugin>
 
-            <!-- compile as JDK 1.6 -->
+            <!-- compile with jdk 1.6 -->
+            <!-- ref: https://maven.apache.org/plugins/maven-compiler-plugin/usage.html -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>3.7.0</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
@@ -118,6 +119,7 @@
             </plugin>
 
             <!-- create sources.jar -->
+            <!-- ref: https://maven.apache.org/plugins/maven-source-plugin/usage.html -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -133,10 +135,11 @@
             </plugin>
 
             <!-- javadoc -->
+            <!-- ref: https://maven.apache.org/plugins/maven-javadoc-plugin/usage.html -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
+                <version>3.0.0-M1</version>
                 <configuration>
                     <author>true</author>
                     <source>1.6</source>
@@ -159,6 +162,7 @@
             </plugin>
 
             <!-- gpg -->
+            <!-- ref: http://maven.apache.org/components/plugins/maven-gpg-plugin/usage.html -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -175,8 +179,11 @@
             </plugin>
 
             <!-- for dependency -->
+            <!-- https://maven.apache.org/plugins/maven-dependency-plugin/usage.html -->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.2</version>
                 <executions>
                     <execution>
                         <id>copy-dependencies</id>
