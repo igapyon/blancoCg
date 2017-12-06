@@ -29,7 +29,6 @@ import java.util.List;
 
 import blanco.cg.BlancoCgSupportedLang;
 import blanco.cg.util.BlancoCgLineUtil;
-import blanco.cg.util.BlancoCgSourceFileUtil;
 import blanco.cg.valueobject.BlancoCgClass;
 import blanco.cg.valueobject.BlancoCgEnum;
 import blanco.cg.valueobject.BlancoCgInterface;
@@ -130,15 +129,18 @@ class BlancoCgSourceFileJavaSourceExpander {
      * ソースファイルのファイルヘッダーを出力処理します。
      */
     private void expandSourceFileHeader() {
+        if (BlancoStringUtil.null2Blank(fCgSourceFile.getDescription()).length() == 0
+                && BlancoStringUtil.null2Blank(fCgSourceFile.getLangDoc().getTitle()).length() == 0
+                && fCgSourceFile.getLangDoc().getDescriptionList().size() == 0
+                ) {
+            // 言語コメントが全く指定されない場合には出力を抑止します。
+            // 当初デフォルトコメントを出力していましたがこれは廃止しました。
+            return;
+        }
+        
         fSourceLines.add("/*");
-        if (BlancoStringUtil.null2Blank(fCgSourceFile.getDescription())
-                .length() > 0) {
+        if (BlancoStringUtil.null2Blank(fCgSourceFile.getDescription()).length() > 0) {
             fSourceLines.add("* " + fCgSourceFile.getDescription());
-        } else {
-            // 指定が無い場合にはデフォルトのコメントを利用します。
-            for (String line : BlancoCgSourceFileUtil.getDefaultFileComment()) {
-                fSourceLines.add("* " + line);
-            }
         }
 
         // 言語ドキュメントの中間部を生成します。
