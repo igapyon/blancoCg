@@ -80,8 +80,13 @@ class BlancoCgFieldJavaSourceExpander {
         }
 
         // 次に LangDocをソースコード形式に展開。
-        new BlancoCgLangDocJavaSourceExpander().transformLangDoc(cgField.getLangDoc(), argSourceLines);
-
+        if (BlancoStringUtil.null2Blank(cgField.getLangDoc().getTitle()).length() > 0 //
+                || cgField.getLangDoc().getDescriptionList().size() > 0 //
+                || cgField.getLangDoc().getTagList().size() > 0) {
+            // 明示的な情報記載がある場合にのみ LangDoc を生成。
+            new BlancoCgLangDocJavaSourceExpander().transformLangDoc(cgField.getLangDoc(), argSourceLines);
+        }
+        
         // アノテーションを展開。
         expandAnnotationList(cgField, argSourceLines);
 

@@ -255,6 +255,9 @@ public class BlancoCgObjectFactory {
     /**
      * ローカル変数定義インスタンスを生成します。
      * 
+     * @param argName 変数名。
+     * @param argType 型名。
+     * @return ローカル変数定義のインスタンス。
      */
     public BlancoCgLocalVariable createLocalVariable(final String argName,
             final String argType) {
