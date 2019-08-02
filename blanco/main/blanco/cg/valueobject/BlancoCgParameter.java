@@ -37,6 +37,14 @@ public class BlancoCgParameter {
     private BlancoCgType fType;
 
     /**
+     * Arbitrary Number of Arguments かどうか。Java のみサポート。
+     *
+     * フィールド: [arbitraryNumParams]。
+     * デフォルト: [false]。
+     */
+    private boolean fArbitraryNumParams = false;
+
+    /**
      * このフィールドがfinalかどうかです。
      *
      * フィールド: [final]。
@@ -128,6 +136,29 @@ public class BlancoCgParameter {
     }
 
     /**
+     * フィールド [arbitraryNumParams] の値を設定します。
+     *
+     * フィールドの説明: [Arbitrary Number of Arguments かどうか。Java のみサポート。]。
+     *
+     * @param argArbitraryNumParams フィールド[arbitraryNumParams]に設定する値。
+     */
+    public void setArbitraryNumParams(final boolean argArbitraryNumParams) {
+        fArbitraryNumParams = argArbitraryNumParams;
+    }
+
+    /**
+     * フィールド [arbitraryNumParams] の値を取得します。
+     *
+     * フィールドの説明: [Arbitrary Number of Arguments かどうか。Java のみサポート。]。
+     * デフォルト: [false]。
+     *
+     * @return フィールド[arbitraryNumParams]から取得した値。
+     */
+    public boolean getArbitraryNumParams() {
+        return fArbitraryNumParams;
+    }
+
+    /**
      * フィールド [final] の値を設定します。
      *
      * フィールドの説明: [このフィールドがfinalかどうかです。]。
@@ -216,6 +247,7 @@ public class BlancoCgParameter {
         buf.append("name=" + fName);
         buf.append(",description=" + fDescription);
         buf.append(",type=" + fType);
+        buf.append(",arbitraryNumParams=" + fArbitraryNumParams);
         buf.append(",final=" + fFinal);
         buf.append(",notnull=" + fNotnull);
         buf.append(",annotationList=" + fAnnotationList);
@@ -250,6 +282,9 @@ public class BlancoCgParameter {
         // Name: fType
         // Type: blanco.cg.valueobject.BlancoCgType
         // フィールド[fType]はサポート外の型[blanco.cg.valueobject.BlancoCgType]です。
+        // Name: fArbitraryNumParams
+        // Type: boolean
+        target.fArbitraryNumParams = this.fArbitraryNumParams;
         // Name: fFinal
         // Type: boolean
         target.fFinal = this.fFinal;
