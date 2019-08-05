@@ -223,6 +223,10 @@ class BlancoCgMethodJavaSourceExpander {
                 }
                 buf.append(BlancoCgTypeJavaSourceExpander
                         .toTypeString(cgParameter.getType()));
+                if (cgParameter.getArbitraryNumParams()) {
+                    // 可変引数表現を出力。
+                    buf.append("...");
+                }
                 buf.append(" ");
                 buf.append(cgParameter.getName());
             }
