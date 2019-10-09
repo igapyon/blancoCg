@@ -119,17 +119,23 @@ class BlancoCgMethodJavaSourceExpander {
         }
 
         for (BlancoCgParameter cgParameter : cgMethod.getParameterList()) {
-            // import文に型を追加。
-            argSourceFile.getImportList().add(cgParameter.getType().getName());
+            if (argSourceFile.getIsAutoImport()) {
+                // 自動インポートが有効な場合は
+                // import文に型を追加。
+                argSourceFile.getImportList().add(cgParameter.getType().getName());
+            }
 
             // 言語ドキュメントにパラメータを追加。
             cgMethod.getLangDoc().getParameterList().add(cgParameter);
         }
 
         if (cgMethod.getReturn() != null) {
-            // import文に型を追加。
-            argSourceFile.getImportList().add(
+            if (argSourceFile.getIsAutoImport()) {
+                // 自動インポートが有効な場合は
+                // import文に型を追加。
+                argSourceFile.getImportList().add(
                     cgMethod.getReturn().getType().getName());
+            }
 
             // 言語ドキュメントにreturnを追加。
             cgMethod.getLangDoc().setReturn(cgMethod.getReturn());
@@ -137,8 +143,11 @@ class BlancoCgMethodJavaSourceExpander {
 
         // 例外についてLangDoc構造体に展開
         for (BlancoCgException cgException : cgMethod.getThrowList()) {
-            // import文に型を追加。
-            argSourceFile.getImportList().add(cgException.getType().getName());
+            if (argSourceFile.getIsAutoImport()) {
+                // 自動インポートが有効な場合は
+                // import文に型を追加。
+                argSourceFile.getImportList().add(cgException.getType().getName());
+            }
 
             // 言語ドキュメントに例外を追加。
             cgMethod.getLangDoc().getThrowList().add(cgException);
