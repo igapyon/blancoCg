@@ -4,7 +4,7 @@
     <groupId>jp.igapyon.blanco.cg</groupId>
     <artifactId>blanco-cg</artifactId>
     <packaging>jar</packaging>
-    <version>2.1.18-SNAPSHOT</version>
+    <version>2.1.18</version>
 
     <name>blanco-cg</name>
     <description>blancoCg is a simple code generator library. blancoCg supports Java/C#/JavaScript/VB.NET/PHP/Ruby/Python/Delphi/Swift/C++11.</description>
@@ -45,7 +45,7 @@
         <url>https://github.com/igapyon/blancoCg/</url>
         <connection>scm:git:https://github.com/igapyon/blancoCg.git</connection>
         <developerConnection>scm:git:https://github.com/igapyon/blancoCg.git</developerConnection>
-        <tag>blancoCg-2.1.0</tag>
+        <tag>blanco-cg-2.1.18</tag>
     </scm>
 
     <!-- ref: https://maven.apache.org/pom.html#Developers -->
