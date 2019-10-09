@@ -77,20 +77,24 @@ class BlancoCgImportJavaSourceExpander {
      */
     public void transformImport(final BlancoCgSourceFile argSourceFile,
             final List<java.lang.String> argSourceLines) {
-        // import対象のクラス名終端に付与されている配列表現を除去します。
-        trimArraySuffix(argSourceFile.getImportList());
+        if (argSourceFile.getIsAutoImport()) {
+            // 自動インポートが有効な場合は
 
-        // 最初にimport文をソートして処理を行いやすくします。
-        sortImport(argSourceFile.getImportList());
+            // import対象のクラス名終端に付与されている配列表現を除去します。
+            trimArraySuffix(argSourceFile.getImportList());
 
-        // 重複するimport文を除去します。
-        trimRepeatedImport(argSourceFile.getImportList());
+            // 最初にimport文をソートして処理を行いやすくします。
+            sortImport(argSourceFile.getImportList());
 
-        // importする必要のないクラスを除去します
-        trimUnnecessaryImport(argSourceFile.getImportList());
+            // 重複するimport文を除去します。
+            trimRepeatedImport(argSourceFile.getImportList());
 
-        // 自クラスが所属するパッケージに対するimportを抑制します。
-        trimMyselfImport(argSourceFile, argSourceFile.getImportList());
+            // importする必要のないクラスを除去します
+            trimUnnecessaryImport(argSourceFile.getImportList());
+
+            // 自クラスが所属するパッケージに対するimportを抑制します。
+            trimMyselfImport(argSourceFile, argSourceFile.getImportList());
+        }
 
         // アンカー文字列を検索します。
         fFindReplaceImport = findAnchorString(argSourceLines);

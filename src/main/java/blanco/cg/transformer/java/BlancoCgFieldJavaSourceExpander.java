@@ -107,8 +107,11 @@ class BlancoCgFieldJavaSourceExpander {
             buf.append("final ");
         }
 
-        // import文に型を追加。
-        argSourceFile.getImportList().add(cgField.getType().getName());
+        if (argSourceFile.getIsAutoImport()) {
+            // 自動インポートが有効な場合は
+            // import文に型を追加。
+            argSourceFile.getImportList().add(cgField.getType().getName());
+        }
 
         // フィールド生成の本体部分を展開します。
         buf.append(BlancoCgTypeJavaSourceExpander.toTypeString(cgField.getType()) + " ");

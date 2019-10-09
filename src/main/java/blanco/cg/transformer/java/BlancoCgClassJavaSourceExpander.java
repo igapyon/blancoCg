@@ -141,8 +141,11 @@ class BlancoCgClassJavaSourceExpander {
         for (int index = 0; index < cgClass.getExtendClassList().size(); index++) {
             final BlancoCgType type = cgClass.getExtendClassList().get(index);
 
-            // import文に型を追加。
-            argSourceFile.getImportList().add(type.getName());
+            if (argSourceFile.getIsAutoImport()) {
+                // 自動インポートが有効な場合は
+                // import文に型を追加。
+                argSourceFile.getImportList().add(type.getName());
+            }
 
             if (index == 0) {
                 argBuf.append(" extends "
@@ -167,8 +170,11 @@ class BlancoCgClassJavaSourceExpander {
             final BlancoCgType type = cgClass.getImplementInterfaceList().get(
                     index);
 
-            // import文に型を追加。
-            argSourceFile.getImportList().add(type.getName());
+            if (argSourceFile.getIsAutoImport()) {
+                // 自動インポートが有効な場合は
+                // import文に型を追加。
+                argSourceFile.getImportList().add(type.getName());
+            }
 
             if (index == 0) {
                 argBuf.append(" implements ");
