@@ -18,6 +18,7 @@ import blanco.cg.valueobject.BlancoCgEnum;
 import blanco.cg.valueobject.BlancoCgField;
 import blanco.cg.valueobject.BlancoCgInterface;
 import blanco.cg.valueobject.BlancoCgMethod;
+import blanco.cg.valueobject.BlancoCgParameter;
 import blanco.cg.valueobject.BlancoCgSourceFile;
 
 /**
@@ -153,10 +154,11 @@ public class BlancoCgTransformerTest extends TestCase {
         cgInterface.getMethodList().add(cgMethod);
 
         // パラメータを追加します。
-        cgMethod.getParameterList()
-                .add(
-                        cgOf.createParameter("argString", "java.lang.String",
-                                "文字列引数。"));
+        BlancoCgParameter param = cgOf.createParameter("argString", "java.lang.String",
+                "文字列引数。");
+        // 可変にセット
+        param.setArbitraryNumParams(true);
+        cgMethod.getParameterList().add(param);
         cgMethod.getParameterList().add(
                 cgOf.createParameter("argDate", "java.util.Date", "日付引数。"));
         // 戻り値を設定します。

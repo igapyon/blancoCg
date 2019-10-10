@@ -93,6 +93,14 @@ public class BlancoCgSourceFile {
     private boolean fIsImport = true;
 
     /**
+     * 継承、フィールド、メソッドの引数・戻り値から自動import編成を実施するかどうかのフラグです。(初期はJava言語にのみ対応)。自力で import 文を制御したい場合はこれを false に指定してください。
+     *
+     * フィールド: [isAutoImport]。
+     * デフォルト: [true]。
+     */
+    private boolean fIsAutoImport = true;
+
+    /**
      * フィールド [name] の値を設定します。
      *
      * フィールドの説明: [このファイルのファイル名です。]。
@@ -322,6 +330,29 @@ public class BlancoCgSourceFile {
     }
 
     /**
+     * フィールド [isAutoImport] の値を設定します。
+     *
+     * フィールドの説明: [継承、フィールド、メソッドの引数・戻り値から自動import編成を実施するかどうかのフラグです。(初期はJava言語にのみ対応)。自力で import 文を制御したい場合はこれを false に指定してください。]。
+     *
+     * @param argIsAutoImport フィールド[isAutoImport]に設定する値。
+     */
+    public void setIsAutoImport(final boolean argIsAutoImport) {
+        fIsAutoImport = argIsAutoImport;
+    }
+
+    /**
+     * フィールド [isAutoImport] の値を取得します。
+     *
+     * フィールドの説明: [継承、フィールド、メソッドの引数・戻り値から自動import編成を実施するかどうかのフラグです。(初期はJava言語にのみ対応)。自力で import 文を制御したい場合はこれを false に指定してください。]。
+     * デフォルト: [true]。
+     *
+     * @return フィールド[isAutoImport]から取得した値。
+     */
+    public boolean getIsAutoImport() {
+        return fIsAutoImport;
+    }
+
+    /**
      * このバリューオブジェクトの文字列表現を取得します。
      *
      * <P>使用上の注意</P>
@@ -346,6 +377,7 @@ public class BlancoCgSourceFile {
         buf.append(",classList=" + fClassList);
         buf.append(",langDoc=" + fLangDoc);
         buf.append(",isImport=" + fIsImport);
+        buf.append(",isAutoImport=" + fIsAutoImport);
         buf.append("]");
         return buf.toString();
     }
@@ -398,5 +430,8 @@ public class BlancoCgSourceFile {
         // Name: fIsImport
         // Type: boolean
         target.fIsImport = this.fIsImport;
+        // Name: fIsAutoImport
+        // Type: boolean
+        target.fIsAutoImport = this.fIsAutoImport;
     }
 }
