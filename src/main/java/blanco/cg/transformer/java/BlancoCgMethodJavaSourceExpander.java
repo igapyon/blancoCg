@@ -73,6 +73,13 @@ class BlancoCgMethodJavaSourceExpander {
             // それはありえます。voidの場合にはnullが指定されるのです。
         }
 
+        // CommentOnly の場合、cgMethod の中の Comment のみ展開する
+        if (cgMethod.getCommentOnly()){
+            expandCommentOnlyMethod(cgMethod, argSourceLines);
+
+            return;
+        }
+
         // 改行を付与。
         argSourceLines.add("");
 
@@ -364,6 +371,25 @@ class BlancoCgMethodJavaSourceExpander {
             final List<java.lang.String> argSourceLines) {
         for (String strLine : cgMethod.getLineList()) {
             argSourceLines.add(strLine);
+        }
+    }
+
+    /**
+     * メソッド間のコメントを展開します。
+     * @param cgMethod メソッド情報。
+     * @param argSourceLine 出力行リスト。
+     */
+    private void expandCommentOnlyMethod(final BlancoCgMethod cgMethod,
+            final List<java.lang.String> argSourceLine) {
+
+        if (cgMethod.getDescription() == null){
+            return;
+        }
+
+        String[] splittedDescription = cgMethod.getDescription().split(System.lineSeparator());
+
+        for (String descriptionLine : splittedDescription){
+            argSourceLine.add(descriptionLine);
         }
     }
 }
