@@ -150,6 +150,14 @@ public class BlancoCgMethod {
     private BlancoCgLangDoc fLangDoc;
 
     /**
+     * コメント用メソッドかどうか。(Javaでしか使われていない)
+     *
+     * フィールド: [commentOnly]。
+     * デフォルト: [false]。
+     */
+    private boolean fCommentOnly = false;
+
+    /**
      * フィールド [name] の値を設定します。
      *
      * フィールドの説明: [このメソッドの名前です。]。
@@ -538,6 +546,29 @@ public class BlancoCgMethod {
     }
 
     /**
+     * フィールド [commentOnly] の値を設定します。
+     *
+     * フィールドの説明: [コメント用メソッドかどうか。(Javaでしか使われていない)]。
+     *
+     * @param argCommentOnly フィールド[commentOnly]に設定する値。
+     */
+    public void setCommentOnly(final boolean argCommentOnly) {
+        fCommentOnly = argCommentOnly;
+    }
+
+    /**
+     * フィールド [commentOnly] の値を取得します。
+     *
+     * フィールドの説明: [コメント用メソッドかどうか。(Javaでしか使われていない)]。
+     * デフォルト: [false]。
+     *
+     * @return フィールド[commentOnly]から取得した値。
+     */
+    public boolean getCommentOnly() {
+        return fCommentOnly;
+    }
+
+    /**
      * このバリューオブジェクトの文字列表現を取得します。
      *
      * <P>使用上の注意</P>
@@ -569,6 +600,7 @@ public class BlancoCgMethod {
         buf.append(",lineList=" + fLineList);
         buf.append(",superclassInvocation=" + fSuperclassInvocation);
         buf.append(",langDoc=" + fLangDoc);
+        buf.append(",commentOnly=" + fCommentOnly);
         buf.append("]");
         return buf.toString();
     }
@@ -642,5 +674,8 @@ public class BlancoCgMethod {
         // Name: fLangDoc
         // Type: blanco.cg.valueobject.BlancoCgLangDoc
         // フィールド[fLangDoc]はサポート外の型[blanco.cg.valueobject.BlancoCgLangDoc]です。
+        // Name: fCommentOnly
+        // Type: boolean
+        target.fCommentOnly = this.fCommentOnly;
     }
 }
