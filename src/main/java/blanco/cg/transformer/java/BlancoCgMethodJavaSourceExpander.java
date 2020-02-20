@@ -234,6 +234,15 @@ class BlancoCgMethodJavaSourceExpander {
                     buf.append(", ");
                 }
 
+                // アノテーション
+                if (!cgParameter.getAnnotationList().isEmpty()){
+                    for (String annotation : cgParameter.getAnnotationList()) {
+                        buf.append("@");
+                        buf.append(annotation);
+                        buf.append(" ");
+                    }
+                }
+
                 if (cgParameter.getFinal()) {
                     buf.append("final ");
                 }
