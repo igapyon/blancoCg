@@ -15,17 +15,23 @@
  */
 package jp.igapyon.sitemapgenerator4j;
 
+import java.util.Date;
+
 /**
- * Entry url of Sitemap.
+ * Sitemap URL information.
  * 
- * @author toshiki
+ * @see https://www.sitemaps.org/protocol.html
  */
-public class SitemapEntryUrl {
-    private String loc = "http://example.com/";
+public class SitemapInfoUrl {
     /**
-     * "2005-01-01"
+     * loc of url.
      */
-    private String lastmod = null;
+    private String loc = "http://example.com/";
+
+    /**
+     * Updated date.
+     */
+    private Date lastmod = null;
 
     /**
      * always
@@ -36,42 +42,89 @@ public class SitemapEntryUrl {
      * yearly
      * never
      */
-    private String changefreq = null;
+    private Changefreq changefreq = null;
 
     /**
      * 0.8
      */
     private String priority = null;
 
-    public String getChangefreq() {
+    /**
+     * Get freq of change.
+     *
+     * @return Freq of change.
+     */
+    public Changefreq getChangefreq() {
         return changefreq;
     }
 
-    public void setChangefreq(String changefreq) {
+    /**
+     * Set change freq.
+     * 
+     * @param changefreq Freq of change.
+     */
+    public void setChangefreq(Changefreq changefreq) {
         this.changefreq = changefreq;
     }
 
+    /**
+     * Get priority string.
+     * 
+     * @return Priority.
+     */
     public String getPriority() {
         return priority;
     }
 
+    /**
+     * Set priority string. ex: 0.8
+     *    
+     * @param priority Priority string. ex: 0.8
+     */
     public void setPriority(String priority) {
         this.priority = priority;
     }
 
+    /**
+     * Get loc url.
+     * 
+     * @return oc URL: ex: http://example.com/
+     */
     public String getLoc() {
         return loc;
     }
 
+    /**
+     * Set loc url. [required]
+     * 
+     * @param loc URL: ex: http://example.com/
+     */
     public void setLoc(String loc) {
         this.loc = loc;
     }
 
-    public String getLastmod() {
+    /**
+     * Get last modified.
+     * 
+     * @return Date of last modified.
+     */
+    public Date getLastmod() {
         return lastmod;
     }
 
-    public void setLastmod(String lastmod) {
+    /**
+     * Set last modified.
+     * 
+     * @param lastmod Date of last modified.
+     */
+    public void setLastmod(Date lastmod) {
         this.lastmod = lastmod;
+    }
+
+    /**
+     * Enum of changefreq.
+     */
+    public static enum Changefreq {
+        Always, Hourly, Daily, Weekly, Monthly, Yearly, Never;
     }
 }

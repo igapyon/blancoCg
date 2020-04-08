@@ -19,14 +19,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Entry of Sitemap.
+ * Sitemap information.
  * 
- * @author toshiki
+ * @see https://www.sitemaps.org/protocol.html
  */
-public class SitemapEntry {
-    private List<SitemapEntryUrl> entryUrlList = new ArrayList<SitemapEntryUrl>();
+public class SitemapInfo {
+    private List<SitemapInfoUrl> sitemapInfoUrlList = new ArrayList<SitemapInfoUrl>();
 
-    public List<SitemapEntryUrl> getUrlList() {
-        return entryUrlList;
+    /**
+     * Add url information into sitemap.
+     * 
+     * @param url url of sitemap.
+     */
+    public void addUrl(SitemapInfoUrl url) {
+        getUrlList().add(url);
+    }
+
+    /**
+     * Get all url.
+     * 
+     * @return List of url.
+     */
+    public List<SitemapInfoUrl> getUrlList() {
+        return sitemapInfoUrlList;
     }
 }

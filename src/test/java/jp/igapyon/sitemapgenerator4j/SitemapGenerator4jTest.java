@@ -17,14 +17,14 @@ package jp.igapyon.sitemapgenerator4j;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 
 import org.junit.Test;
 
 /**
  * @see https://www.sitemaps.org/protocol.html
- * @author Toshiki Iga
  */
-public class SitemapGeneratorSimpleTest {
+public class SitemapGenerator4jTest {
     /**
      * Simple sample
      * 
@@ -32,21 +32,23 @@ public class SitemapGeneratorSimpleTest {
      * @throws IOException
      */
     @Test
-    public void test() throws Exception {
-        SitemapEntry entry = new SitemapEntry();
+    public void test() throws IOException {
+        SitemapInfo info = new SitemapInfo();
+
         {
-            SitemapEntryUrl url = new SitemapEntryUrl();
-            entry.getUrlList().add(url);
+            SitemapInfoUrl url = new SitemapInfoUrl();
+            info.addUrl(url);
             url.setLoc("http://example.com/");
-            url.setLastmod("2015-01-01");
-            url.setChangefreq("monthly");
+            url.setLastmod(new Date());
+            url.setChangefreq(SitemapInfoUrl.Changefreq.Daily);
             url.setPriority("0.8");
         }
+
         {
-            SitemapEntryUrl url = new SitemapEntryUrl();
-            entry.getUrlList().add(url);
+            SitemapInfoUrl url = new SitemapInfoUrl();
+            info.addUrl(url);
         }
 
-        new SitemapGenerator4j().write(entry, new File("./target/sitemap.xml"));
+        new SitemapGenerator4j().write(info, new File("./target/sitemap.xml"));
     }
 }
