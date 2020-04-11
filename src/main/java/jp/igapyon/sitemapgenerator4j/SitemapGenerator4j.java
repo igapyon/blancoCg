@@ -39,7 +39,10 @@ import org.w3c.dom.Element;
 /**
  * Sitemap Generator for Java.
  * 
- * @see https://www.sitemaps.org/protocol.html
+ * <p>参考リンク</p>
+ * <ul>
+ * <li>https://www.sitemaps.org/protocol.html</li>
+ * </ul>
  */
 public class SitemapGenerator4j {
     /**

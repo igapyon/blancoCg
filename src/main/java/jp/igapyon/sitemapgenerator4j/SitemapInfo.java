@@ -21,7 +21,10 @@ import java.util.List;
 /**
  * Sitemap information.
  * 
- * @see https://www.sitemaps.org/protocol.html
+ * <p>参考リンク</p>
+ * <ul>
+ * <li>https://www.sitemaps.org/protocol.html</li>
+ * </ul>
  */
 public class SitemapInfo {
     private List<SitemapInfoUrl> sitemapInfoUrlList = new ArrayList<SitemapInfoUrl>();

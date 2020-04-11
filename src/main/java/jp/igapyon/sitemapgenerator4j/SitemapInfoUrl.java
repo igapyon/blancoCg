@@ -20,7 +20,10 @@ import java.util.Date;
 /**
  * Sitemap URL information.
  * 
- * @see https://www.sitemaps.org/protocol.html
+ * <p>参考リンク</p>
+ * <ul>
+ * <li>https://www.sitemaps.org/protocol.html</li>
+ * </ul>
  */
 public class SitemapInfoUrl {
     /**
