@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>jp.igapyon.commons</groupId>
 	<artifactId>sitemapgenerator4j</artifactId>
-	<version>0.5.0</version>
+	<version>0.5.1-SNAPSHOT</version>
 	<name>sitemapgenerator4j</name>
 	<description>Simple sitemap generator for Java</description>
 	<url>https://github.com/igapyon/sitemapgenerator4j/</url>
@@ -36,7 +36,7 @@
 		<url>https://github.com/igapyon/blancoCg/</url>
 		<connection>scm:git:https://github.com/igapyon/blancoCg.git</connection>
 		<developerConnection>scm:git:https://github.com/igapyon/blancoCg.git</developerConnection>
-		<tag>sitemapgenerator4j-0.5.0</tag>
+		<tag>blancoCg-2.1.0</tag>
 	</scm>
 
 	<!-- ref: https://maven.apache.org/pom.html#Developers -->
