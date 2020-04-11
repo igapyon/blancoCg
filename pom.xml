@@ -129,6 +129,9 @@
 					<locale>en</locale>
 					<showPackage>true</showPackage>
 					<charset>utf-8</charset>
+					<sources>
+						<source>src/main</source>
+					</sources>
 				</configuration>
 				<executions>
 					<execution>
