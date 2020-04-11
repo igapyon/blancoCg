@@ -81,7 +81,7 @@
 						</goals>
 						<configuration>
 							<sources>
-								<source>src/main</source>
+								<source>src/main/java</source>
 							</sources>
 						</configuration>
 					</execution>
@@ -130,7 +130,7 @@
 					<showPackage>true</showPackage>
 					<charset>utf-8</charset>
 					<sources>
-						<source>src/main</source>
+						<source>src/main/java</source>
 					</sources>
 				</configuration>
 				<executions>
