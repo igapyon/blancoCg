@@ -9,42 +9,46 @@
 	<property name="project.main.jar" value="blancocg-${version}.jar" />
 
 	<property name="encoding" value="UTF-8" />
+	<property environment="env" />
+	<condition property="maven.opts" value="${env.MAVEN_OPTS} -Djava.net.preferIPv4Stack=true">
+		<isset property="env.MAVEN_OPTS" />
+	</condition>
+	<property name="maven.opts" value="-Djava.net.preferIPv4Stack=true" />
 
-	<!-- Antタスク定義 begin -->
+	<!-- Resolve the pinned Ant task dependencies from Maven before loading tasks. -->
+	<target name="resolve-ant-dependencies">
+		<delete dir="target/ant-deps" />
+		<mkdir dir="target/ant-deps" />
+		<exec executable="mvn" failonerror="true">
+			<env key="MAVEN_OPTS" value="${maven.opts}" />
+			<arg value="-f" /><arg value="build-support/ant-dependencies/pom.xml" />
+			<arg value="dependency:copy-dependencies" />
+			<arg value="-DoutputDirectory=../../target/ant-deps" />
+		</exec>
+	</target>
 
-	<taskdef name="blancostringgroup" classname="blanco.stringgroup.task.BlancoStringGroupTask">
-		<classpath>
-			<fileset dir="lib" includes="*.jar" />
-			<fileset dir="lib.ant" includes="*.jar" />
-		</classpath>
-	</taskdef>
-
-	<taskdef name="blancoresourcebundle" classname="blanco.resourcebundle.task.BlancoResourceBundleTask">
-		<classpath>
-			<fileset dir="lib" includes="*.jar" />
-			<fileset dir="lib.ant" includes="*.jar" />
-		</classpath>
-	</taskdef>
-
-	<taskdef name="blancovalueobject" classname="blanco.valueobject.task.BlancoValueObjectTask">
-		<classpath>
-			<fileset dir="lib" includes="*.jar" />
-			<fileset dir="lib.ant" includes="*.jar" />
-		</classpath>
-	</taskdef>
-
-	<!-- Antタスク定義 end -->
+	<target name="init" depends="resolve-ant-dependencies">
+		<taskdef name="blancostringgroup" classname="blanco.stringgroup.task.BlancoStringGroupTask">
+			<classpath><fileset dir="target/ant-deps" includes="*.jar" /></classpath>
+		</taskdef>
+		<taskdef name="blancoresourcebundle" classname="blanco.resourcebundle.task.BlancoResourceBundleTask">
+			<classpath><fileset dir="target/ant-deps" includes="*.jar" /></classpath>
+		</taskdef>
+		<taskdef name="blancovalueobject" classname="blanco.valueobject.task.BlancoValueObjectTask">
+			<classpath><fileset dir="target/ant-deps" includes="*.jar" /></classpath>
+		</taskdef>
+	</target>
 
 	<!-- 自分自身を自動生成するためのタスク。 -->
-	<target name="cg">
+	<target name="cg" depends="init">
 		<delete dir="bin" />
 		<mkdir dir="bin" />
 
 		<!-- blancoCg自身をblancoCgするためのソースコードをコンパイル。 -->
-		<javac srcdir="src.cg" destdir="bin" debug="true" source="1.6" target="1.6" fork="true"	 encoding="${encoding}">
+		<javac srcdir="src.cg" destdir="bin" debug="true" release="8" includeantruntime="false" fork="true"	 encoding="${encoding}">
 			<classpath>
-				<fileset dir="lib" includes="*.jar" />
-				<fileset dir="lib.ant" includes="*.jar" />
+				<fileset dir="target/ant-deps" includes="*.jar" />
+				<fileset dir="target/ant-deps" includes="*.jar" />
 			</classpath>
 			<include name="**/*.java" />
 		</javac>
@@ -52,8 +56,8 @@
 		<java classname="blanco.cg.cg.BlancoCgCg">
 			<classpath>
 				<path path="bin" />
-				<fileset dir="lib" includes="*.jar" />
-				<fileset dir="lib.ant" includes="*.jar" />
+				<fileset dir="target/ant-deps" includes="*.jar" />
+				<fileset dir="target/ant-deps" includes="*.jar" />
 			</classpath>
 		</java>
 	</target>
@@ -80,7 +84,7 @@
 		</delete>
 
 		<zip destfile="${project.zip}">
-			<zipfileset dir="." prefix="${project}" excludes="${project.zip},**/*.class" />
+			<zipfileset dir="." prefix="${project}" excludes="${project.zip},**/*.class,target/**" />
 		</zip>
 
 	</target>
@@ -102,28 +106,28 @@
 		</jar>
 	</target>
 
-	<target name="compile">
+	<target name="compile" depends="init">
 		<delete dir="bin" />
 		<mkdir dir="bin" />
-		<javac destdir="bin" debug="true" source="1.8" target="1.8" fork="true" encoding="${encoding}">
+		<javac destdir="bin" debug="true" release="8" includeantruntime="false" fork="true" encoding="${encoding}">
 			<src path="blanco/main/" />
 			<src path="src/main/java/" />
 			<classpath>
 				<!-- ワイルドカードで一括取り込み -->
-				<fileset dir="lib" includes="*.jar" />
+				<fileset dir="target/ant-deps" includes="*.jar" />
 				<!--<pathelement path="${eclipse.dir}/plugins/org.junit_3.8.2.v20080602-1318/junit.jar" />-->
 			</classpath>
 			<include name="**/*.java" />
 		</javac>
 	</target>
 
-	<target name="meta">
+	<target name="meta" depends="init">
 		<blancovalueobject metadir="meta/program" encoding="${encoding}" />
 		<blancoresourcebundle metadir="meta/program" commenttimestamp="false" encoding="${encoding}" />
 		<blancostringgroup metadir="meta/program" targetlang="java" encoding="${encoding}" />
 	</target>
 
 	<!-- 一連の処理を実行。 -->
-	<target name="build" depends="meta,cg,compile,jar,pack">
+	<target name="build" depends="init,meta,cg,compile,jar,pack">
 	</target>
 </project>

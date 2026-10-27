@@ -50,3 +50,15 @@ blancoCgはblanco Frameworkのソースコード自動生成の基盤でもあ�
  1.blancoCommons
    概要: blanco Framework の構成要素のひとつ。共通ライブラリを担います。
    ライセンス: GNU Lesser General Public License
+
+
+## ビルド
+
+Java 17 以降、Maven 3.6.3 以降、Ant 1.10.18 を使います。Maven で作るclassは `--release 8` でコンパイルし、Java 8 のAPIと互換にします。
+
+```sh
+mvn clean package
+ant build
+```
+
+Ant の `build` は `build-support/ant-dependencies/pom.xml` の固定依存を `target/ant-deps/` に解決してから、メタデータ生成・コンパイル・jar作成を実行します。旧バージョンの依存jarを `lib/` に置く必要はありません。
