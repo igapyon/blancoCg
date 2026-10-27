@@ -1,12 +1,3 @@
-/*
- * blanco Framework
- * Copyright (C) 2004-2009 IGA Tosiki
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- */
 package blanco.cg.valueobject;
 
 import java.util.List;
@@ -46,7 +37,7 @@ public class BlancoCgClass {
      * フィールド: [extendClassList]。
      * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgType&gt;()]。
      */
-    private List<blanco.cg.valueobject.BlancoCgType> fExtendClassList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgType>();
+    private List<BlancoCgType> fExtendClassList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgType>();
 
     /**
      * 継承元インタフェースのリストです。
@@ -54,7 +45,7 @@ public class BlancoCgClass {
      * フィールド: [implementInterfaceList]。
      * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgType&gt;()]。
      */
-    private List<blanco.cg.valueobject.BlancoCgType> fImplementInterfaceList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgType>();
+    private List<BlancoCgType> fImplementInterfaceList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgType>();
 
     /**
      * このクラスのアクセスコントロールを指定します。
@@ -87,7 +78,7 @@ public class BlancoCgClass {
      * フィールド: [annotationList]。
      * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      */
-    private List<java.lang.String> fAnnotationList = new java.util.ArrayList<java.lang.String>();
+    private List<String> fAnnotationList = new java.util.ArrayList<java.lang.String>();
 
     /**
      * このファイルに含まれる列挙体のリストです。
@@ -95,7 +86,7 @@ public class BlancoCgClass {
      * フィールド: [enumList]。
      * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgEnum&gt;()]。
      */
-    private List<blanco.cg.valueobject.BlancoCgEnum> fEnumList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnum>();
+    private List<BlancoCgEnum> fEnumList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnum>();
 
     /**
      * このクラスに含まれるフィールドのリストです。
@@ -103,7 +94,7 @@ public class BlancoCgClass {
      * フィールド: [fieldList]。
      * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgField&gt;()]。
      */
-    private List<blanco.cg.valueobject.BlancoCgField> fFieldList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgField>();
+    private List<BlancoCgField> fFieldList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgField>();
 
     /**
      * このクラスに含まれるメソッドのリストです。
@@ -111,7 +102,7 @@ public class BlancoCgClass {
      * フィールド: [methodList]。
      * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgMethod&gt;()]。
      */
-    private List<blanco.cg.valueobject.BlancoCgMethod> fMethodList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgMethod>();
+    private List<BlancoCgMethod> fMethodList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgMethod>();
 
     /**
      * 言語ドキュメントを蓄えます。デフォルト以上の表現を追加する場合には、インスタンスを生成して値をセットしてから自動生成します。
@@ -194,7 +185,7 @@ public class BlancoCgClass {
      *
      * @param argExtendClassList フィールド[extendClassList]に設定する値。
      */
-    public void setExtendClassList(final List<blanco.cg.valueobject.BlancoCgType> argExtendClassList) {
+    public void setExtendClassList(final List<BlancoCgType> argExtendClassList) {
         fExtendClassList = argExtendClassList;
     }
 
@@ -207,7 +198,7 @@ public class BlancoCgClass {
      *
      * @return フィールド[extendClassList]から取得した値。
      */
-    public List<blanco.cg.valueobject.BlancoCgType> getExtendClassList() {
+    public List<BlancoCgType> getExtendClassList() {
         return fExtendClassList;
     }
 
@@ -218,7 +209,7 @@ public class BlancoCgClass {
      *
      * @param argImplementInterfaceList フィールド[implementInterfaceList]に設定する値。
      */
-    public void setImplementInterfaceList(final List<blanco.cg.valueobject.BlancoCgType> argImplementInterfaceList) {
+    public void setImplementInterfaceList(final List<BlancoCgType> argImplementInterfaceList) {
         fImplementInterfaceList = argImplementInterfaceList;
     }
 
@@ -230,7 +221,7 @@ public class BlancoCgClass {
      *
      * @return フィールド[implementInterfaceList]から取得した値。
      */
-    public List<blanco.cg.valueobject.BlancoCgType> getImplementInterfaceList() {
+    public List<BlancoCgType> getImplementInterfaceList() {
         return fImplementInterfaceList;
     }
 
@@ -312,7 +303,7 @@ public class BlancoCgClass {
      *
      * @param argAnnotationList フィールド[annotationList]に設定する値。
      */
-    public void setAnnotationList(final List<java.lang.String> argAnnotationList) {
+    public void setAnnotationList(final List<String> argAnnotationList) {
         fAnnotationList = argAnnotationList;
     }
 
@@ -324,7 +315,7 @@ public class BlancoCgClass {
      *
      * @return フィールド[annotationList]から取得した値。
      */
-    public List<java.lang.String> getAnnotationList() {
+    public List<String> getAnnotationList() {
         return fAnnotationList;
     }
 
@@ -335,7 +326,7 @@ public class BlancoCgClass {
      *
      * @param argEnumList フィールド[enumList]に設定する値。
      */
-    public void setEnumList(final List<blanco.cg.valueobject.BlancoCgEnum> argEnumList) {
+    public void setEnumList(final List<BlancoCgEnum> argEnumList) {
         fEnumList = argEnumList;
     }
 
@@ -347,7 +338,7 @@ public class BlancoCgClass {
      *
      * @return フィールド[enumList]から取得した値。
      */
-    public List<blanco.cg.valueobject.BlancoCgEnum> getEnumList() {
+    public List<BlancoCgEnum> getEnumList() {
         return fEnumList;
     }
 
@@ -358,7 +349,7 @@ public class BlancoCgClass {
      *
      * @param argFieldList フィールド[fieldList]に設定する値。
      */
-    public void setFieldList(final List<blanco.cg.valueobject.BlancoCgField> argFieldList) {
+    public void setFieldList(final List<BlancoCgField> argFieldList) {
         fFieldList = argFieldList;
     }
 
@@ -370,7 +361,7 @@ public class BlancoCgClass {
      *
      * @return フィールド[fieldList]から取得した値。
      */
-    public List<blanco.cg.valueobject.BlancoCgField> getFieldList() {
+    public List<BlancoCgField> getFieldList() {
         return fFieldList;
     }
 
@@ -381,7 +372,7 @@ public class BlancoCgClass {
      *
      * @param argMethodList フィールド[methodList]に設定する値。
      */
-    public void setMethodList(final List<blanco.cg.valueobject.BlancoCgMethod> argMethodList) {
+    public void setMethodList(final List<BlancoCgMethod> argMethodList) {
         fMethodList = argMethodList;
     }
 
@@ -393,7 +384,7 @@ public class BlancoCgClass {
      *
      * @return フィールド[methodList]から取得した値。
      */
-    public List<blanco.cg.valueobject.BlancoCgMethod> getMethodList() {
+    public List<BlancoCgMethod> getMethodList() {
         return fMethodList;
     }
 
@@ -420,15 +411,15 @@ public class BlancoCgClass {
     }
 
     /**
-     * このバリューオブジェクトの文字列表現を取得します。
+     * Gets the string representation of this value object.
      *
-     * <P>使用上の注意</P>
+     * <P>Precautions for use</P>
      * <UL>
-     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
-     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * <LI>Only the shallow range of the object will be subject to the stringification process.
+     * <LI>Do not use this method if the object has a circular reference.
      * </UL>
      *
-     * @return バリューオブジェクトの文字列表現。
+     * @return String representation of a value object.
      */
     @Override
     public String toString() {
@@ -480,10 +471,10 @@ public class BlancoCgClass {
         target.fGenerics = this.fGenerics;
         // Name: fExtendClassList
         // Type: java.util.List
-        // フィールド[fExtendClassList]はサポート外の型[java.util.List]です。
+        // フィールド[fExtendClassList]はサポート外の型[java.util.Listblanco.cg.valueobject.BlancoCgType]です。
         // Name: fImplementInterfaceList
         // Type: java.util.List
-        // フィールド[fImplementInterfaceList]はサポート外の型[java.util.List]です。
+        // フィールド[fImplementInterfaceList]はサポート外の型[java.util.Listblanco.cg.valueobject.BlancoCgType]です。
         // Name: fAccess
         // Type: java.lang.String
         target.fAccess = this.fAccess;
@@ -495,16 +486,16 @@ public class BlancoCgClass {
         target.fFinal = this.fFinal;
         // Name: fAnnotationList
         // Type: java.util.List
-        // フィールド[fAnnotationList]はサポート外の型[java.util.List]です。
+        // フィールド[fAnnotationList]はサポート外の型[java.util.Listjava.lang.String]です。
         // Name: fEnumList
         // Type: java.util.List
-        // フィールド[fEnumList]はサポート外の型[java.util.List]です。
+        // フィールド[fEnumList]はサポート外の型[java.util.Listblanco.cg.valueobject.BlancoCgEnum]です。
         // Name: fFieldList
         // Type: java.util.List
-        // フィールド[fFieldList]はサポート外の型[java.util.List]です。
+        // フィールド[fFieldList]はサポート外の型[java.util.Listblanco.cg.valueobject.BlancoCgField]です。
         // Name: fMethodList
         // Type: java.util.List
-        // フィールド[fMethodList]はサポート外の型[java.util.List]です。
+        // フィールド[fMethodList]はサポート外の型[java.util.Listblanco.cg.valueobject.BlancoCgMethod]です。
         // Name: fLangDoc
         // Type: blanco.cg.valueobject.BlancoCgLangDoc
         // フィールド[fLangDoc]はサポート外の型[blanco.cg.valueobject.BlancoCgLangDoc]です。

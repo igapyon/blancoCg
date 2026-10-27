@@ -1,12 +1,3 @@
-/*
- * blanco Framework
- * Copyright (C) 2004-2009 IGA Tosiki
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- */
 package blanco.cg.valueobject;
 
 import java.util.List;
@@ -32,7 +23,7 @@ public class BlancoCgLangDoc {
      * フィールド: [descriptionList]。
      * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      */
-    private List<java.lang.String> fDescriptionList = new java.util.ArrayList<java.lang.String>();
+    private List<String> fDescriptionList = new java.util.ArrayList<java.lang.String>();
 
     /**
      * 推奨されない場合に、非推奨の理由が記載されます。
@@ -47,7 +38,7 @@ public class BlancoCgLangDoc {
      * フィールド: [parameterList]。
      * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgParameter&gt;()]。
      */
-    private List<blanco.cg.valueobject.BlancoCgParameter> fParameterList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>();
+    private List<BlancoCgParameter> fParameterList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgParameter>();
 
     /**
      * このメソッドの戻り値です。
@@ -63,7 +54,7 @@ public class BlancoCgLangDoc {
      * フィールド: [throwList]。
      * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgException&gt;()]。
      */
-    private List<blanco.cg.valueobject.BlancoCgException> fThrowList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>();
+    private List<BlancoCgException> fThrowList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgException>();
 
     /**
      * 言語ドキュメントのタグのリスト。BlancoCgLangDocTagがリストに格納されます。
@@ -71,7 +62,7 @@ public class BlancoCgLangDoc {
      * フィールド: [tagList]。
      * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgLangDocTag&gt;()]。
      */
-    private List<blanco.cg.valueobject.BlancoCgLangDocTag> fTagList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLangDocTag>();
+    private List<BlancoCgLangDocTag> fTagList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgLangDocTag>();
 
     /**
      * フィールド [title] の値を設定します。
@@ -103,7 +94,7 @@ public class BlancoCgLangDoc {
      *
      * @param argDescriptionList フィールド[descriptionList]に設定する値。
      */
-    public void setDescriptionList(final List<java.lang.String> argDescriptionList) {
+    public void setDescriptionList(final List<String> argDescriptionList) {
         fDescriptionList = argDescriptionList;
     }
 
@@ -116,7 +107,7 @@ public class BlancoCgLangDoc {
      *
      * @return フィールド[descriptionList]から取得した値。
      */
-    public List<java.lang.String> getDescriptionList() {
+    public List<String> getDescriptionList() {
         return fDescriptionList;
     }
 
@@ -149,7 +140,7 @@ public class BlancoCgLangDoc {
      *
      * @param argParameterList フィールド[parameterList]に設定する値。
      */
-    public void setParameterList(final List<blanco.cg.valueobject.BlancoCgParameter> argParameterList) {
+    public void setParameterList(final List<BlancoCgParameter> argParameterList) {
         fParameterList = argParameterList;
     }
 
@@ -161,7 +152,7 @@ public class BlancoCgLangDoc {
      *
      * @return フィールド[parameterList]から取得した値。
      */
-    public List<blanco.cg.valueobject.BlancoCgParameter> getParameterList() {
+    public List<BlancoCgParameter> getParameterList() {
         return fParameterList;
     }
 
@@ -196,7 +187,7 @@ public class BlancoCgLangDoc {
      *
      * @param argThrowList フィールド[throwList]に設定する値。
      */
-    public void setThrowList(final List<blanco.cg.valueobject.BlancoCgException> argThrowList) {
+    public void setThrowList(final List<BlancoCgException> argThrowList) {
         fThrowList = argThrowList;
     }
 
@@ -208,7 +199,7 @@ public class BlancoCgLangDoc {
      *
      * @return フィールド[throwList]から取得した値。
      */
-    public List<blanco.cg.valueobject.BlancoCgException> getThrowList() {
+    public List<BlancoCgException> getThrowList() {
         return fThrowList;
     }
 
@@ -219,7 +210,7 @@ public class BlancoCgLangDoc {
      *
      * @param argTagList フィールド[tagList]に設定する値。
      */
-    public void setTagList(final List<blanco.cg.valueobject.BlancoCgLangDocTag> argTagList) {
+    public void setTagList(final List<BlancoCgLangDocTag> argTagList) {
         fTagList = argTagList;
     }
 
@@ -231,20 +222,20 @@ public class BlancoCgLangDoc {
      *
      * @return フィールド[tagList]から取得した値。
      */
-    public List<blanco.cg.valueobject.BlancoCgLangDocTag> getTagList() {
+    public List<BlancoCgLangDocTag> getTagList() {
         return fTagList;
     }
 
     /**
-     * このバリューオブジェクトの文字列表現を取得します。
+     * Gets the string representation of this value object.
      *
-     * <P>使用上の注意</P>
+     * <P>Precautions for use</P>
      * <UL>
-     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
-     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * <LI>Only the shallow range of the object will be subject to the stringification process.
+     * <LI>Do not use this method if the object has a circular reference.
      * </UL>
      *
-     * @return バリューオブジェクトの文字列表現。
+     * @return String representation of a value object.
      */
     @Override
     public String toString() {
@@ -284,21 +275,21 @@ public class BlancoCgLangDoc {
         target.fTitle = this.fTitle;
         // Name: fDescriptionList
         // Type: java.util.List
-        // フィールド[fDescriptionList]はサポート外の型[java.util.List]です。
+        // フィールド[fDescriptionList]はサポート外の型[java.util.Listjava.lang.String]です。
         // Name: fDeprecated
         // Type: java.lang.String
         target.fDeprecated = this.fDeprecated;
         // Name: fParameterList
         // Type: java.util.List
-        // フィールド[fParameterList]はサポート外の型[java.util.List]です。
+        // フィールド[fParameterList]はサポート外の型[java.util.Listblanco.cg.valueobject.BlancoCgParameter]です。
         // Name: fReturn
         // Type: blanco.cg.valueobject.BlancoCgReturn
         // フィールド[fReturn]はサポート外の型[blanco.cg.valueobject.BlancoCgReturn]です。
         // Name: fThrowList
         // Type: java.util.List
-        // フィールド[fThrowList]はサポート外の型[java.util.List]です。
+        // フィールド[fThrowList]はサポート外の型[java.util.Listblanco.cg.valueobject.BlancoCgException]です。
         // Name: fTagList
         // Type: java.util.List
-        // フィールド[fTagList]はサポート外の型[java.util.List]です。
+        // フィールド[fTagList]はサポート外の型[java.util.Listblanco.cg.valueobject.BlancoCgLangDocTag]です。
     }
 }

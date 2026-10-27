@@ -1,12 +1,3 @@
-/*
- * blanco Framework
- * Copyright (C) 2004-2009 IGA Tosiki
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- */
 package blanco.cg.valueobject;
 
 import java.util.List;
@@ -42,7 +33,7 @@ public class BlancoCgEnum {
      * フィールド: [elementList]。
      * デフォルト: [new java.util.ArrayList&lt;blanco.cg.valueobject.BlancoCgEnumElement&gt;()]。
      */
-    private List<blanco.cg.valueobject.BlancoCgEnumElement> fElementList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnumElement>();
+    private List<BlancoCgEnumElement> fElementList = new java.util.ArrayList<blanco.cg.valueobject.BlancoCgEnumElement>();
 
     /**
      * 言語ドキュメントを蓄えます。デフォルト以上の表現を追加する場合には、インスタンスを生成して値をセットしてから自動生成します。なおBlancoCgObjectFactoryを経由してインスタンスを取得した際には、既にオブジェクトはセット済みです。
@@ -124,7 +115,7 @@ public class BlancoCgEnum {
      *
      * @param argElementList フィールド[elementList]に設定する値。
      */
-    public void setElementList(final List<blanco.cg.valueobject.BlancoCgEnumElement> argElementList) {
+    public void setElementList(final List<BlancoCgEnumElement> argElementList) {
         fElementList = argElementList;
     }
 
@@ -136,7 +127,7 @@ public class BlancoCgEnum {
      *
      * @return フィールド[elementList]から取得した値。
      */
-    public List<blanco.cg.valueobject.BlancoCgEnumElement> getElementList() {
+    public List<BlancoCgEnumElement> getElementList() {
         return fElementList;
     }
 
@@ -163,15 +154,15 @@ public class BlancoCgEnum {
     }
 
     /**
-     * このバリューオブジェクトの文字列表現を取得します。
+     * Gets the string representation of this value object.
      *
-     * <P>使用上の注意</P>
+     * <P>Precautions for use</P>
      * <UL>
-     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
-     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * <LI>Only the shallow range of the object will be subject to the stringification process.
+     * <LI>Do not use this method if the object has a circular reference.
      * </UL>
      *
-     * @return バリューオブジェクトの文字列表現。
+     * @return String representation of a value object.
      */
     @Override
     public String toString() {
@@ -215,7 +206,7 @@ public class BlancoCgEnum {
         target.fAccess = this.fAccess;
         // Name: fElementList
         // Type: java.util.List
-        // フィールド[fElementList]はサポート外の型[java.util.List]です。
+        // フィールド[fElementList]はサポート外の型[java.util.Listblanco.cg.valueobject.BlancoCgEnumElement]です。
         // Name: fLangDoc
         // Type: blanco.cg.valueobject.BlancoCgLangDoc
         // フィールド[fLangDoc]はサポート外の型[blanco.cg.valueobject.BlancoCgLangDoc]です。
