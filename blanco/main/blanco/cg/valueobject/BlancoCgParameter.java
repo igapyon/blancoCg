@@ -1,12 +1,3 @@
-/*
- * blanco Framework
- * Copyright (C) 2004-2009 IGA Tosiki
- *
- * This library is free software; you can redistribute it and/or
- * modify it under the terms of the GNU Lesser General Public
- * License as published by the Free Software Foundation; either
- * version 2.1 of the License, or (at your option) any later version.
- */
 package blanco.cg.valueobject;
 
 import java.util.List;
@@ -67,7 +58,7 @@ public class BlancoCgParameter {
      * フィールド: [annotationList]。
      * デフォルト: [new java.util.ArrayList&lt;java.lang.String&gt;()]。
      */
-    private List<java.lang.String> fAnnotationList = new java.util.ArrayList<java.lang.String>();
+    private List<String> fAnnotationList = new java.util.ArrayList<java.lang.String>();
 
     /**
      * フィールド [name] の値を設定します。
@@ -212,7 +203,7 @@ public class BlancoCgParameter {
      *
      * @param argAnnotationList フィールド[annotationList]に設定する値。
      */
-    public void setAnnotationList(final List<java.lang.String> argAnnotationList) {
+    public void setAnnotationList(final List<String> argAnnotationList) {
         fAnnotationList = argAnnotationList;
     }
 
@@ -225,20 +216,20 @@ public class BlancoCgParameter {
      *
      * @return フィールド[annotationList]から取得した値。
      */
-    public List<java.lang.String> getAnnotationList() {
+    public List<String> getAnnotationList() {
         return fAnnotationList;
     }
 
     /**
-     * このバリューオブジェクトの文字列表現を取得します。
+     * Gets the string representation of this value object.
      *
-     * <P>使用上の注意</P>
+     * <P>Precautions for use</P>
      * <UL>
-     * <LI>オブジェクトのシャロー範囲のみ文字列化の処理対象となります。
-     * <LI>オブジェクトが循環参照している場合には、このメソッドは使わないでください。
+     * <LI>Only the shallow range of the object will be subject to the stringification process.
+     * <LI>Do not use this method if the object has a circular reference.
      * </UL>
      *
-     * @return バリューオブジェクトの文字列表現。
+     * @return String representation of a value object.
      */
     @Override
     public String toString() {
@@ -293,6 +284,6 @@ public class BlancoCgParameter {
         target.fNotnull = this.fNotnull;
         // Name: fAnnotationList
         // Type: java.util.List
-        // フィールド[fAnnotationList]はサポート外の型[java.util.List]です。
+        // フィールド[fAnnotationList]はサポート外の型[java.util.Listjava.lang.String]です。
     }
 }
