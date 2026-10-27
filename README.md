@@ -51,6 +51,8 @@ blancoCgはblanco Frameworkのソースコード自動生成の基盤でもあ�
    概要: blanco Framework の構成要素のひとつ。共通ライブラリを担います。
    ライセンス: GNU Lesser General Public License
 
+Mavenの直接依存は`blanco-commons:2.1.1`と`reload4j:1.2.26`です。旧Log4jは推移依存から除外しています。テストではJUnit `4.13.2`とJUnit Vintage Engine `5.14.4`を使用します。
+
 
 ## ビルド
 
@@ -62,3 +64,18 @@ ant build
 ```
 
 Ant の `build` は `build-support/ant-dependencies/pom.xml` の固定依存を `target/ant-deps/` に解決してから、メタデータ生成・コンパイル・jar作成を実行します。旧バージョンの依存jarを `lib/` に置く必要はありません。
+
+### Javaの互換性
+
+ビルドにはJDK 17以上を使用し、本体のclassはPOMの`release=8`によりJava 8形式（class major 52）で出力します。
+
+### GitHub Releasesの配布JAR
+
+POMのバージョンと一致する`v<version>`タグをpushすると、GitHub ActionsがJDK 17でテスト・ビルドし、GitHub Releaseへ次のJARを添付します。ソースコードのclass出力はJava 8形式です。
+
+- ライブラリJAR: `blanco-cg-<version>.jar`
+- ソースJAR: `blanco-cg-sources-<version>.jar`
+
+例: バージョン`2.2.0`ではタグ`v2.2.0`で`blanco-cg-2.2.0.jar`と`blanco-cg-sources-2.2.0.jar`を作成します。
+
+通常のCIは`devel`へのpush・Pull Requestと手動実行で動作します。ビルド・Release・作業領域の扱いは[運用手順](docs/OPERATIONS.md)を参照してください。
